@@ -7,14 +7,10 @@ import logo from './logoM.png';
 function Accueil() {
   const navigate = useNavigate();
 
-  const navigateToExam = () => {
-    navigate('/choix examn');
-  };
-
-  const Button = ({ children }) => (
+  const Button = ({ children, onClick }) => (
     <MuiButton 
       variant="contained" 
-      onClick={navigateToExam}
+      onClick={onClick}
       style={{
         borderRadius: 35,
         padding: "18px 36px",
@@ -48,14 +44,15 @@ function Accueil() {
         alignItems="center"
         style={{ marginTop: "20px" }}
       >
-        <Button>Sciencs Naturel</Button>
-        <Button>Mathématique</Button>
-        <Button>Français</Button>
-        <Button>Arabe</Button>
+        <Button onClick={() => navigate('/choix examn')}>Sciencs Naturel</Button>
+        <Button onClick={() => navigate('/Mathexam')}>Mathématique</Button>
+        <Button onClick={() => navigate('/choix examn')}>Français</Button>
+        <Button onClick={() => navigate('/choix examn')}>Arabe</Button>
       </Stack>
     </Box>
   );
 }
 
 export default Accueil;
+
 
