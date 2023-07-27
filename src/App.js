@@ -31,6 +31,12 @@ import Géometriechap3 from './composents/Math/Géometrie/Géometriechap3';
 import Géometriechap4 from './composents/Math/Géometrie/Géometriechap4';
 import Géometriechap5 from './composents/Math/Géometrie/Géometriechap5';
 import Géometriechap6 from './composents/Math/Géometrie/Géometriechap6';
+import C1 from './composents/C1';
+import C2 from './composents/C2';
+import C3 from './composents/C3';
+import C4 from './composents/C4';
+import C5A1 from './composents/C5A1';
+import C5A2 from './composents/C5A2';
 
 function App() {
   return (
@@ -38,6 +44,7 @@ function App() {
       <div className="App">
        
         <Routes>
+           
           <Route path= "/" element={<Accueil/>} />
           <Route path= "/choix examn" element={<ChoixExamen/>} />
           <Route path="/QCMchap1" element ={<QCMchap1/>}/>
@@ -69,6 +76,12 @@ function App() {
           <Route path="/Géometriechap4" element ={<Géometriechap4/>}/>
           <Route path="/Géometriechap5" element ={<Géometriechap5/>}/>
           <Route path="/Géometriechap6" element ={<Géometriechap6/>}/>
+          <Route path="/C1" element ={<C1/>}/>
+          <Route path="/C2" element ={<C2/>}/>
+          <Route path="/C3" element ={<C3/>}/>
+          <Route path="/C4" element ={<C4/>}/>
+          <Route path="/C5A1" element ={<C5A1/>}/>
+          <Route path="/C5A2" element ={<C5A2/>}/>
         </Routes>
       
       </div>

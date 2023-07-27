@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button as MuiButton, Stack } from '@mui/material';
 import { Box } from '@mui/system';
-import logo from './logoM.png';
+
 
 function Accueil() {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function Accueil() {
       height="100vh"
       backgroundColor="#F7F9FA"
     >
-      <img src={logo} alt="logo" width="250" height="250" style={{ position: "absolute", top: "30px" }} />
+      
       <Stack
         spacing={2}
         direction="column"
@@ -48,6 +48,12 @@ function Accueil() {
         <Button onClick={() => navigate('/Mathexam')}>Mathématique</Button>
         <Button onClick={() => navigate('/choix examn')}>Français</Button>
         <Button onClick={() => navigate('/choix examn')}>Arabe</Button>
+        <Button onClick={() => navigate('/C1')}>C1</Button>
+        <Button onClick={() => navigate('/C2')}>C2</Button>
+        <Button onClick={() => navigate('/C3')}>C3</Button>
+        <Button onClick={() => navigate('/C4')}>C4</Button>
+        <Button onClick={() => navigate('/C5A1')}>C5A1</Button>
+        <Button onClick={() => navigate('/C5A2')}>C5A2</Button>
       </Stack>
     </Box>
   );
