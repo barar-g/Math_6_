@@ -37,6 +37,15 @@ import C3 from './composents/C3';
 import C4 from './composents/C4';
 import C5A1 from './composents/C5A1';
 import C5A2 from './composents/C5A2';
+import C5A3 from './composents/C5A3';
+import C5A4 from './composents/C5A4';
+import Kangaroo from './composents/Kangaroo';
+import C5A5 from './composents/C5A5';
+import C6 from './composents/C6';
+import M2A1 from './composents/M2A1';
+import M2A2 from './composents/M2A2';
+import M2A3 from './composents/M2A3';
+
 
 function App() {
   return (
@@ -82,6 +91,14 @@ function App() {
           <Route path="/C4" element ={<C4/>}/>
           <Route path="/C5A1" element ={<C5A1/>}/>
           <Route path="/C5A2" element ={<C5A2/>}/>
+          <Route path="/C5A3" element ={<C5A3/>}/>
+          <Route path="/C5A4" element ={<C5A4/>}/>
+          <Route path="/Kangaroo" element ={<Kangaroo/>}/>
+          <Route path="/C5A5" element ={<C5A5/>}/>
+          <Route path="/C6" element ={<C6/>}/>
+          <Route path="/M2A1" element ={<M2A1/>}/>
+          <Route path="/M2A2" element ={<M2A2/>}/>
+          <Route path="/M2A3" element ={<M2A3/>}/>
         </Routes>
       
       </div>
