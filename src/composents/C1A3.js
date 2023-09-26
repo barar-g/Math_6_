@@ -1,61 +1,43 @@
 import React, { useState } from "react";
 import {
-  Box,
-  Button,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  TextField,
-  LinearProgress,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  IconButton
+  Box, Button, Typography, Table, TableBody, TableCell,
+  TableContainer, TableRow, TextField, LinearProgress, Grid
 } from "@mui/material";
-import { styled } from "@mui/system";
 import _ from "lodash";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import CloseIcon from "@mui/icons-material/Close";
+import styled from "styled-components";
 
+const Fraction = styled.div`
+    box-sizing: border-box;
+    width: 100%; 
+    margin: 20px auto;
+    padding: 20px;
+    background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')};
+    border: ${(props) => (props.isActive ? '3px dashed #FF5722' : '3px dashed #B3E5FC')};
+    transition: background-color 0.4s, transform 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1em;
+    font-family: 'Comic Sans MS', sans-serif;
 
-const StyledBox = styled(Box)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: 2,
-  backgroundColor: "#f2f2f2",
-  color: "#333",
-});
+    &:hover {
+        transform: scale(1.05);
+    }
 
-const StyledButton = styled(Button)({
-  backgroundColor: '#7ec0ee',
-  color: 'white',
-  '&:hover': {
-    backgroundColor: '#6caedd',
-  },
-  margin: '10px',
-  borderRadius: '15px',
-});
+    @media (max-width: 768px) {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+`;
 
-const StyledTextField = styled(TextField)({
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: '#7ec0ee',
-      borderRadius: '15px',
-    },
-    '&:hover fieldset': {
-      borderColor: '#6caedd',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#7ec0ee',
-    },
-  },
-});
+const StyledTextField = styled(TextField)`
+    width: 60px;
+
+    @media (max-width: 768px) {
+        width: 45px;
+    }
+`;
 
 const ranges = [999, 99999, 9999999, 999999999, 99999999999];
 
@@ -122,83 +104,50 @@ const C1A3 = () => {
   };
 
   return (
-    <>
-    <br></br>
-  
-      <LinearProgress variant="determinate" value={(progress / 4) * 100} />
-      <br></br>
-      <StyledBox>
-      <br></br>
-      <Typography variant="h5" style={{marginBottom: '20px', fontSize: '1.5rem', padding: '10px', borderRadius: '15px', backgroundColor: '#7ec0ee', color: 'white'}}>Remplir la table par  : {randomNumber}</Typography>
-        <TableContainer>
-          <Table>
-            <TableBody>
-              <TableRow>
-                {["", "C", "D", "U"].map((value, i) => (
-                  <TableCell key={i} align="center">
-                    <Typography variant="h6">{value}</Typography>
-                  </TableCell>
-                ))}
-              </TableRow>
-              {["milliards", "millions", "mille", "unités"].map((type) => (
-                <TableRow key={type}>
-                  <TableCell component="th" scope="row">
-                    <Typography variant="h6">{type}</Typography>
-                  </TableCell>
-                  {["C", "D", "U"].map((col) => (
-                    <TableCell key={col}>
-                      <StyledTextField
-                        variant="outlined"
-                        value={numbers[type][col]}
-                        onChange={(event) => handleChange(event, type, col)}
-                        style={{ width: '60px' }}
-                      />
+    <Grid container justifyContent="center">
+      <Grid item xs={12} md={8}>
+        <LinearProgress variant="determinate" value={(progress / 4) * 100} style={{ margin: '20px 0' }} />
+        
+          <Typography variant="h5">Remplir la table par : {randomNumber}</Typography>
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  {["", "C", "D", "U"].map((value, i) => (
+                    <TableCell key={i} align="center">
+                      {value}
                     </TableCell>
                   ))}
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Box display="flex" justifyContent="center" gap={2}>
-          <StyledButton variant="contained" onClick={handleValidate}>
-            Valider
-          </StyledButton>
-          <StyledButton variant="contained" color="secondary" onClick={handleReset}>
-            Réinitialiser
-          </StyledButton>
-        </Box>
-      </StyledBox>
-      <Dialog open={open}>
-        <DialogTitle>Félicitations!</DialogTitle>
-        <IconButton
-          aria-label="close"
-          onClick={() => setOpen(false)}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-        <DialogContent>
-          <DialogContentText>
-            Bravo, vous avez réussi toutes les questions ! Vous avez fait preuve d'un excellent niveau en écrivant les nombres.
-          </DialogContentText>
-          {score >= 10 && (
-            <>
-              <DialogContentText>Votre score est {score}, ce qui signifie que vous avez réussi ! 🎉</DialogContentText>
-              <EmojiEventsIcon style={{ fontSize: 50, color: '#FFD700' }} />
-            </>
-          )}
-          {score < 10 && (
-            <DialogContentText>Votre score est {score}, ce qui signifie que vous devez encore pratiquer. Continuez à travailler !</DialogContentText>
-          )}
-        </DialogContent>
-      </Dialog>
-    </>
+                {["milliards", "millions", "mille", "unités"].map((type) => (
+                  <TableRow key={type}>
+                    <TableCell>{type}</TableCell>
+                    {["C", "D", "U"].map((col) => (
+                      <TableCell key={col}>
+                        <StyledTextField
+                          variant="outlined"
+                          value={numbers[type][col]}
+                          onChange={(event) => handleChange(event, type, col)}
+                        />
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Box display="flex" justifyContent="center" mt={2}>
+            <Button variant="contained" color="primary" onClick={handleValidate}>
+              Valider
+            </Button>
+            
+            <Button variant="contained" color="primary"  style={{ marginLeft: '20px' }} onClick={handleReset}>
+              Réinitialiser
+            </Button>
+          </Box>
+       
+      </Grid>
+    </Grid>
   );
 };
 

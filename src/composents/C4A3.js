@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Button, Typography, Card, CardContent } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import ReplyIcon from '@mui/icons-material/Reply';
+import enfant from './enfant1.png'
+
 
 const useStyles = makeStyles({
   card: {
@@ -70,6 +73,7 @@ function C4A3() {
       {questions.map((question, index) => (
         <Card className={classes.card} key={index}>
           <CardContent>
+          <img src={enfant} alt="Etudiant" style={{ width: '70%' }} />
             <Typography variant="h6">
               Je pense à un nombre. Je lui {question.operation === 'subtract' ? 'retranche' : 'ajoute'} {question.value2}, je trouve {question.value1}. Quel est ce nombre ?
             </Typography>
@@ -82,7 +86,7 @@ function C4A3() {
             />
             <div className={classes.buttons}>
               <Button className={classes.button} variant="contained" color="primary" onClick={checkAnswer(index)}>OK</Button>
-              <Button className={classes.button} variant="contained" color="error" onClick={reset(index)}>R</Button>
+              <Button className={classes.button} variant="contained" color="primary" onClick={reset(index)}><ReplyIcon/></Button>
             </div>
             {question.isCorrect !== null && (
               <Typography color={question.isCorrect ? 'success.main' : 'error.main'}>

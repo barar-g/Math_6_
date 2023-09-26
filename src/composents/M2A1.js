@@ -7,6 +7,27 @@ import Banane from './Banan.png';
 import Pomme from './Pomme.png';
 import Orange from './Orange.png';
 import Pasteque from './Pasteque.png';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ReplyIcon from '@mui/icons-material/Reply';
+import styled from 'styled-components';
+
+const StyledText = styled.div`
+box-sizing: border-box;
+width: 100%; 
+height: 80%; 
+background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')};
+
+transition: background-color 0.4s, transform 0.3s;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 1em;
+font-family: 'Comic Sans MS', sans-serif;
+&:hover {
+    transform: scale(1.05);
+}
+`;
 
 const objects = [
     { name: 'Banane', mass: 170, image: Banane },
@@ -71,7 +92,9 @@ function M2A1() {
                         ))}
                     </Grid>
                     <Typography variant="body1" sx={{ mt: 2 }}>
-                        Si vous prenez {quantities[0]}  {objectPair[0].name}(s)  chacune mesure {objectPair[0].mass} et {quantities[1]} {objectPair[1].name}s chacune mesure {objectPair[1].mass},sanchant que le panier mesure 80 gramme s'il est vide, quelle est la masse totale en gramme (g) de votre panier ? 
+                        <StyledText>
+                        Avec {quantities[0]} {objectPair[0].name}(s) de {objectPair[0].mass}g, {quantities[1]} {objectPair[1].name}s de {objectPair[1].mass}g, et un panier de 80g, quelle est la masse totale en g? 
+                        </StyledText>
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
@@ -82,18 +105,19 @@ function M2A1() {
                             fullWidth
                             sx={{ mt: 2 }}
                         />
-                        <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 2 }}>
-                            Répondre
+                        <Button variant="contained" color="primary" type="submit"  style={{ marginTop: '16px', marginLeft: '16px', marginRight: '16px' }}>
+                            <CheckCircleIcon/>
                         </Button>
+                        <Button variant="contained" color="primary" onClick={generateObjectPair} style={{ marginTop: '16px', marginLeft: '120px', marginRight: '16px' }} >
+                      <ReplyIcon/>
+                    </Button>
                     </form>
                     {showMessage && (
-                        <Typography variant="body1" sx={{ mt: 2 }}>
+                        <Typography variant="body1" sx={{ mt: 2 }} >
                             {showCongratulations ? 'Félicitations! Vous avez donné la bonne réponse!' : 'Réponse incorrecte. Essayez encore!'}
                         </Typography>
                     )}
-                    <Button variant="contained" color="primary" onClick={generateObjectPair} fullWidth sx={{ mt: 2 }}>
-                        Générer une nouvelle paire d'objets
-                    </Button>
+                   
                 </>
             ) : (
                 <Typography variant="body1">

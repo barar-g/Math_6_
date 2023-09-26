@@ -1,45 +1,64 @@
 import React, { useState } from 'react';
-import { Box, Button, Typography, LinearProgress, Grid, Card, CardContent, Fab, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import { Box, Button, Typography, LinearProgress, Grid, Card, CardContent, Fab } from '@mui/material';
 import { styled } from '@mui/system';
 import writtenNumber from 'written-number';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import ReplayIcon from '@mui/icons-material/Replay';
 
 const StyledBox = styled(Box)({
+});
+
+const NumberDisplay = styled(Box)(({ isActive }) => ({
+  boxSizing: 'border-box',
+  width: '100%',
+  height: 'auto',
+  margin: '20px auto',
+  padding: '20px',
+  backgroundColor:  '#E1F5FE',
+  border:  '3px dashed #B3E5FC',
+  transition: 'background-color 0.4s, transform 0.3s',
+  cursor: 'pointer',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
-  height: '70vh',
-  gap: 2,
-  backgroundColor: '#f2f2f2',
-  color: '#333',
-});
+  fontSize: '1em',
+  fontFamily: "'Comic Sans MS', sans-serif",
+  '&:hover': {
+      transform: 'scale(1.05)',
+  },
+}));
+
+const ranges = [
+  [0, 9],       // plage pour progress=0
+  [10, 99],    // plage pour progress=1
+  [100, 999],  // plage pour progress=2
+  [1000, 9999],// plage pour progress=3
+  [10000, 99999]// plage pour progress=4
+];
+
 
 const StyledCard = styled(Card)({
-  maxWidth: '90%',
+  maxWidth: '100%',
   margin: '0 auto',
 });
 
-const StyledFab = styled(Fab)(({ $isSelected }) => ({
+const VibrantFab = styled(Fab)(({ $isSelected }) => ({
   margin: '10px',
-  backgroundColor: $isSelected ? 'blue' : '#7ec0ee',
+  backgroundColor: $isSelected ? 'blue' : '#007BFF',
   color: 'white',
   '&:hover, &:focus-visible': {
-    backgroundColor: '#6caedd',
+    backgroundColor: '#0056b3',
   },
 }));
 
 const StyledButton = styled(Button)({
   margin: '10px',
-  backgroundColor: '#7ec0ee',
+  backgroundColor: '#007BFF',
   color: 'white',
   '&:hover, &:focus-visible': {
-    backgroundColor: '#6caedd',
+    backgroundColor: '#0056b3',
   },
   borderRadius: '15px',
 });
-
-const ranges = [[0, 9], [10, 99], [100, 999], [1000, 999999], [1000000, 999999999]];
 
 const C1A2 = () => {
   const [progress, setProgress] = useState(0);
@@ -47,7 +66,7 @@ const C1A2 = () => {
   const [userInput, setUserInput] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [showNextButton, setShowNextButton] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [, setOpen] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState(null);
   const [score, setScore] = useState(0);
 
@@ -108,43 +127,41 @@ const C1A2 = () => {
         <Grid item xs={12} md={6}>
           <StyledCard>
             <CardContent>
-              <Typography>Ecrire ce nombre en chiffres : {writtenNumber(randomNumber, {lang: 'fr'})}</Typography>
-              <br/>
-              <Typography>Votre réponse: {userInput}</Typography>
-              <br/>
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
-                <StyledFab key={number} onClick={() => handleNumberClick(number)} $isSelected={selectedNumber === number}>{number}</StyledFab>
-              ))}
-              <StyledFab onClick={handleReset}>Reset</StyledFab>
-              <br/>
-              <StyledFab variant="contained" color="success" onClick={handleValidate}>Ok</StyledFab>
+              <NumberDisplay>
+                <Typography>Ecrire ce nombre en chiffres : {writtenNumber(randomNumber, {lang: 'fr'})}</Typography>
+              </NumberDisplay>
+              <NumberDisplay>
+                <Typography> {userInput}</Typography>
+              </NumberDisplay>
+              
+              <br />
+              
+              <Grid container spacing={1}>
+                {[0,1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
+                  <Grid item xs={4} key={number}>
+                    <VibrantFab onClick={() => handleNumberClick(number)} $isSelected={selectedNumber === number}>
+                      {number}
+                    </VibrantFab>
+                    
+                  </Grid>
+                  
+                ))}
+                <Grid item xs={4}>
+                  <VibrantFab onClick={handleReset}><ReplayIcon /></VibrantFab>
+                </Grid>
+              </Grid>
+              
+              <br />
+              <StyledButton variant="contained" onClick={handleValidate}>Ok</StyledButton>
               {!isValid && <Typography color="error">La réponse est incorrecte. Essayer encore!</Typography>}
-              {showNextButton && <StyledButton variant="contained" color="primary" onClick={handleNextQuestion}>Suivant</StyledButton>}
-              {progress === 4 && <StyledButton variant="contained" color="secondary" onClick={handleReset}>Commencer de nouveau</StyledButton>}
+              {isValid && showNextButton && <Typography color="primary">Bravo, c'est correct !</Typography>}
+
+              {showNextButton && <StyledButton variant="contained" onClick={handleNextQuestion}>Suivant</StyledButton>}
+             
             </CardContent>
           </StyledCard>
         </Grid>
       </Grid>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Félicitations!</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Bravo, vous avez réussi toutes les questions ! Vous avez fait preuve d'un excellent niveau en écrivant les nombres.
-          </DialogContentText>
-          {score >= 10 && (
-            <>
-              <DialogContentText>Votre score est {score}, ce qui signifie que vous avez réussi ! 🎉</DialogContentText>
-              <EmojiEventsIcon style={{ fontSize: 50, color: '#FFD700' }} />
-            </>
-          )}
-          {score < 10 && (
-            <DialogContentText>Votre score est {score}, ce qui signifie que vous devez encore pratiquer. Continuez à travailler !</DialogContentText>
-          )}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Fermer</Button>
-        </DialogActions>
-      </Dialog>
     </StyledBox>
   );
 };

@@ -1,19 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Typography, Box, Grid } from '@mui/material';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 import Leau from './Leau.png'; // Remplacez par le chemin correct
 import Milk from './Milk.png'; // Remplacez par le chemin correct
 import gasoil from './gasoil.png'; // Remplacez par le chemin correct
 import Oil from './Oil.png'; // Remplacez par le chemin correct
 import correctSoundFile from './correct.mp3'; // Remplacez par le chemin correct
 import incorrectSoundFile from './incorrect.mp3'; // Remplacez par le chemin correct
-
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ReplyIcon from '@mui/icons-material/Reply';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import styled from 'styled-components';
 const objects = [
     { name: 'L\'eau', massPerLiter: 1000, image: Leau },
     { name: 'Le lait', massPerLiter: 1030, image: Milk },
     { name: 'Le gasoil', massPerLiter: 830, image: gasoil }, 
     { name: 'Le pétrole', massPerLiter: 900, image: Oil },
 ];
+
+const StyledText = styled.div`
+box-sizing: border-box;
+width: 100%; 
+height: 80%; 
+background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')};
+
+transition: background-color 0.4s, transform 0.3s;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 1em;
+font-family: 'Comic Sans MS', sans-serif;
+&:hover {
+    transform: scale(1.05);
+}
+`;
+
 
 function M2A1() {
     const [currentObjectIndex, setCurrentObjectIndex] = useState(0);
@@ -81,11 +103,15 @@ function M2A1() {
                 <img 
                     src={objects[currentObjectIndex].image} 
                     alt={objects[currentObjectIndex].name} 
-                    style={{ width: '100%', maxHeight: '300px', objectFit: 'contain' }} 
+                    style={{ width: '50%', maxHeight: '150px', objectFit: 'contain' }} 
                 />
+               
                 <Typography variant="body1" sx={{ mt: 2 }}>
-                    Si tu as {volume} litre(s) de {objects[currentObjectIndex].name}, combien cela pèserait-il en grammes?
+                <StyledText>
+                    Si tu as {volume} litre(s) de {objects[currentObjectIndex].name}, combien cela pèserait-il en grammes ?
+                    </StyledText>
                 </Typography>
+                
                 <TextField 
                     variant="outlined" 
                     label="Ta réponse (ex: 1kg 200g)" 
@@ -94,9 +120,17 @@ function M2A1() {
                     fullWidth
                     sx={{ mt: 2 }}
                 />
-                <Button variant="contained" color="primary" onClick={checkAnswer} fullWidth sx={{ mt: 2 }}>
-                    Vérifier la réponse
-                </Button>
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '50px', marginTop : '16px' }}>
+            <Button variant="contained" color="primary" onClick={checkAnswer}>
+                <CheckCircleIcon />
+            </Button>
+            <Button variant="contained" color="primary" onClick={nextObject}>
+                <NavigateNextIcon />
+            </Button>
+            <Button variant="contained" color="primary" onClick={resetActivity}>
+                <ReplyIcon />
+            </Button>
+        </div>
                 {isCorrect !== null && (
                     <React.Fragment>
                         <Typography variant="body1" sx={{ mt: 2, color: isCorrect ? 'green' : 'red' }}>
@@ -104,12 +138,6 @@ function M2A1() {
                         </Typography>
                     </React.Fragment>
                 )}
-                <Button variant="contained" color="primary" onClick={nextObject} fullWidth sx={{ mt: 2 }}>
-                    Prochain objet
-                </Button>
-                <Button variant="contained" color="secondary" onClick={resetActivity} fullWidth sx={{ mt: 2 }}>
-                    Réinitialiser l'activité
-                </Button>
             </Grid>
         </Box>
     );

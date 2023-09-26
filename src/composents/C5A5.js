@@ -4,6 +4,7 @@ import enfantImg from './enfant.png';
 import useSound from 'use-sound';
 import correctSound from './correct.mp3';
 import incorrectSound from './incorrect.mp3';
+import ReplyIcon from '@mui/icons-material/Reply';
 
 function C5A5() {
   const [questions, setQuestions] = useState([]);
@@ -117,7 +118,7 @@ function C5A5() {
       {showMessage && (
         <Box my={2}>
           <Button variant="contained" color="primary" onClick={handleNewQuestion} style={{ marginTop: '20px' }}>
-            Générer une nouvelle question
+          <ReplyIcon/>
           </Button>
         </Box>
       )}

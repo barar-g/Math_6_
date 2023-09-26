@@ -1,45 +1,134 @@
-import React, { useState } from "react";
-import { Box, Typography, Tabs, Tab, Grid } from "@mui/material";
-import C5A3 from "./C5A3";
-import C5A4 from "./C5A4";
-import C5A5 from "./C5A5";
+import React, { useState } from 'react';
+import C5A3 from './C5A3'; 
+import C5A4 from './C5A4'; 
+import C5A5 from './C5A5';
+import QCMC6 from './QCMC6';
+import Container from '@mui/material/Container';
+import styled from 'styled-components';
+import teacher from './teacher.png'
 
-const C6 = () => {
-  const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+const SectionContainer = styled.div`
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+`;
 
-  return (
-    <Grid container direction="column" alignItems="center" justify="center" spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h4" align="center" gutterBottom>
-           C6 : Multiplicatier des nombers entiers
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Tabs
-          value={value}
-          indicatorColor="primary"
-          textColor="primary"
-          onChange={handleChange}
-          centered
-        >
-          <Tab label="Activité 1" />
-          <Tab label="Activité 2" />
-          <Tab label="Activité 3" />
-        </Tabs>
-      </Grid>
-      <Grid item xs={12}>
-        <Box mt={2}>
-          {value === 0 && <C5A3 />}
-          {value === 1 && <C5A4 />}
-          {value === 2 && <C5A5 />}
-        </Box>
-      </Grid>
-    </Grid>
-  );
-};
 
-export default C6;
+
+const ImageContainer = styled.div`
+    flex: 0 0 auto;
+    width: 170px; 
+    margin-right: 20px; 
+    img {
+        width: 100%;
+        height: auto;
+    }
+`;
+
+const Card = styled.div`
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 20px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+`;
+const BodyText = styled.p`
+    font-family: 'Roboto', sans-serif; 
+    font-size: 16px;
+    line-height: 1.5;
+    color: white; // texte en blanc pour le contraste avec le fond bleu
+    
+    @media (max-width: 480px) {
+        font-size: 14px;
+    }
+`;
+
+const ContinueButton = styled.button`
+display: block;
+margin: 15px 0;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #007BFF;
+color: white;
+cursor: pointer;
+font-family: 'Roboto', sans-serif;
+font-size: 16px;
+
+&:hover {
+    background-color: #0056b3;
+}
+`;
+
+const Separator = styled.div`
+    height: 1px;
+    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
+    margin: 20px 0; /* marges pour espacer la barre des sections */
+`;
+
+const C1 = () => {
+    const [section, setSection] = useState(0);
+
+    return (
+        <Container >
+           
+                <SectionContainer>
+                    <ImageContainer>
+                        <img src={teacher} alt="Teacher" />
+                    </ImageContainer>
+                    <Card>
+                        <BodyText>
+                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grends nombers.
+                        </BodyText>
+                    </Card>
+                   
+                </SectionContainer>
+                <br/>
+         
+            
+            {section >= 1 && (<div> 
+              
+                <div >
+                  
+                    <div >
+                   
+                        <C5A3 />
+                    </div>
+                    <Separator />
+                </div>
+                </div> )}
+            
+            {section >= 2 && (
+                <div style={{ marginBottom: '50px', width: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      
+                        <C5A4 />
+                    </div>
+                    <Separator />
+                </div>
+            )}
+
+            {section >= 3 && (
+                <div style={{ marginBottom: '50px', width: '100%' }}>
+                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  
+                    <C5A5 />
+                    </div>
+                      <Separator />
+                </div>
+            )}
+
+            {section >= 4 && (<div><QCMC6 /> 
+            </div>)}
+
+            {section < 4 && (
+                <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
+            )}
+        </Container>
+    );
+}
+
+export default C1;

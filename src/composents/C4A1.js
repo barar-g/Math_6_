@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Button, Typography, Card, CardContent } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import ReplyIcon from '@mui/icons-material/Reply';
+import enfant from './enfant1.png'
 
 const useStyles = makeStyles({
   card: {
@@ -44,18 +46,18 @@ function C4A1() {
     setIsSubCorrect(null);
   };
 
-  const checkAnswers = () => {
-    setIsAddCorrect(userAddAnswer === addResult - addValue);
-    setIsSubCorrect(userSubAnswer === subResult + subValue);
-  };
 
   return (
     <Box sx={{ '& > :not(style)': { m: 1 } }}>
       <Card className={classes.card}>
         <CardContent>
+        <img src={enfant} alt="Etudiant" style={{ width: '70%' }} />
+
           <Typography variant="h6">
             Je pense à un nombre. Je lui ajoute {addValue}, je trouve {addResult}. Quel est ce nombre ?
           </Typography>
+          <br/>
+          <br/>
           <TextField
             variant="outlined"
             type="number"
@@ -72,17 +74,21 @@ function C4A1() {
             <Button variant="contained" color="primary" onClick={() => setIsAddCorrect(userAddAnswer === addResult - addValue)} style={{borderRadius: '50%'}}>
               OK
             </Button>
-            <Button variant="contained" color="error" onClick={generateNewValues} style={{borderRadius: '50%'}}>
-              Reset
+            <Button variant="contained" color="primary" onClick={generateNewValues} style={{borderRadius: '50%'}}>
+              <ReplyIcon/>
+
             </Button>
           </div>
         </CardContent>
       </Card>
       <Card className={classes.card}>
         <CardContent>
+        <img src={enfant} alt="Etudiant" style={{ width: '70%' }} />
           <Typography variant="h6">
             Je pense à un nombre. Je lui retranche {subValue}, je trouve {subResult}. Quel est ce nombre ?
           </Typography>
+          <br/>
+          <br/>
           <TextField
             variant="outlined"
             type="number"
@@ -99,8 +105,8 @@ function C4A1() {
             <Button variant="contained" color="primary" onClick={() => setIsSubCorrect(userSubAnswer === subResult + subValue)} style={{borderRadius: '50%'}}>
               OK
             </Button>
-            <Button variant="contained" color="error" onClick={generateNewValues} style={{borderRadius: '50%'}}>
-              Reset
+            <Button variant="contained" color="primary" onClick={generateNewValues} style={{borderRadius: '50%'}}>
+              <ReplyIcon/>
             </Button>
           </div>
         </CardContent>

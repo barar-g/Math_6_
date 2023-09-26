@@ -3,6 +3,7 @@ import { Button, Card, CardContent, Box, TextField, Grid } from '@mui/material';
 import useSound from 'use-sound';
 import jumpSound from './jump.mp3';
 import Kangaroo from './Kangaroo';
+import ReplyIcon from '@mui/icons-material/Reply';
 
 function C6A1() {
   const [position, setPosition] = useState(0);
@@ -100,12 +101,12 @@ function C6A1() {
           <Grid item xs={6}>
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               onClick={reset}
               disabled={!isJumping}
               fullWidth
             >
-              Réinitialiser
+              <ReplyIcon/>
             </Button>
           </Grid>
         </Grid>

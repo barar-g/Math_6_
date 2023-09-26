@@ -1,65 +1,79 @@
 import React, { useState } from 'react';
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableRow, Card, CardContent, Grid, Button, Collapse, Fab } from '@mui/material';
+import { Box, Typography, Card, CardContent, Grid, Fab, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
 import { styled } from '@mui/system';
+import ReplayIcon from '@mui/icons-material/Replay';
 import writtenNumber from 'written-number';
 
 const StyledBox = styled(Box)({
+ 
+});
+
+const NumberDisplay = styled(Box)(({ isActive }) => ({
+    boxSizing: 'border-box',
+    width: '100%',
+    height: 'auto',
+    margin: '20px auto',
+    padding: '20px',
+    backgroundColor:  '#E1F5FE',
+    border:  '3px dashed #B3E5FC',
+    transition: 'background-color 0.4s, transform 0.3s',
+    cursor: 'pointer',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    gap: 2,
-    backgroundColor: '#f2f2f2',
-    color: '#333',
-});
-
-const StyledFab = styled(Fab)(({ $isSelected }) => ({
-  margin: '10px',
-  backgroundColor: $isSelected ? 'blue' : '#7ec0ee',
-  color: 'white',
-  '&:hover, &:focus-visible': {
-    backgroundColor: '#6caedd',
-  },
+    fontSize: '1em',
+    fontFamily: "'Comic Sans MS', sans-serif",
+    '&:hover': {
+        transform: 'scale(1.05)',
+    },
 }));
 
-const StyledButton = styled(Button)({
-  margin: '10px',
-  backgroundColor: '#7ec0ee',
-  color: 'white',
-  '&:hover, &:focus-visible': {
-    backgroundColor: '#6caedd',
-  },
-  borderRadius: '15px',
+const StyledTableContainer = styled(TableContainer)({
+    marginTop: '20px',
+    boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)',
 });
 
-const digits = [1000000000, 1000000, 1000, 1];
-const labels = ['Milliard', 'Million', 'Mille', 'Unité'];
-const superScriptNumbers = {
-    '1': '¹',
-    '2': '²',
-    '3': '³',
-    '4': '⁴',
-    '5': '⁵',
-    '6': '⁶',
-    '7': '⁷',
-    '8': '⁸',
-    '9': '⁹',
-    '0': '⁰',
-};
+const StyledTable = styled(Table)({
+    '& th, & td': {
+        border: '1px solid #B3E5FC',
+        padding: '10px 15px',
+    },
+});
+
+const StyledTableRow = styled(TableRow)({
+    '&:nth-of-type(odd)': {
+        backgroundColor: '#E1F5FE',
+    },
+    '&:hover': {
+        backgroundColor: '#B3E5FC',
+    },
+});
+
+const StyledTableCell = styled(TableCell)({
+    fontSize: '1.1em',
+    fontFamily: "'Comic Sans MS', sans-serif",
+});
+
+
+
+const VibrantFab = styled(Fab)({
+    margin: '10px',
+    backgroundColor: '#007BFF',
+    color: 'white',
+    '&:hover, &:focus-visible': {
+        backgroundColor: '#0056b3',
+    },
+});
 
 const C1A1 = () => {
     const [inputNumber, setInputNumber] = useState("");
     const [selectedNumber, setSelectedNumber] = useState(null);
-    const [openTable, setOpenTable] = useState(false);
-    const [openExponential, setOpenExponential] = useState(false);
     const [numberInWords, setNumberInWords] = useState("");
-    const [openNumberInWords, setOpenNumberInWords] = useState(false);
 
     const handleNumberClick = (number) => {
-        setInputNumber(inputNumber + number);
+        setInputNumber(inputNumber + number.toString());
         setSelectedNumber(number);
-        setNumberInWords(writtenNumber(parseInt(inputNumber + number), {lang: 'fr'}));
+        setNumberInWords(writtenNumber(parseInt(inputNumber + number.toString()), { lang: 'fr' }));
     }
 
     const resetNumber = () => {
@@ -67,6 +81,9 @@ const C1A1 = () => {
         setSelectedNumber(null);
         setNumberInWords("");
     }
+    const digits = [1000000000, 1000000, 1000, 100,1];
+const labels = ['Milliard', 'Million', 'Mille','Cent', 'Unité'];
+
 
     const decomposeNumber = () => {
         let remainder = parseInt(inputNumber);
@@ -75,7 +92,7 @@ const C1A1 = () => {
             const quantity = Math.floor(remainder / digits[i]);
             remainder %= digits[i];
             if (quantity > 0) {
-                parts.push({label: labels[i], quantity});
+                parts.push({ label: labels[i], quantity });
             }
         }
         return parts;
@@ -83,92 +100,51 @@ const C1A1 = () => {
 
     const parts = decomposeNumber();
 
-    const explainDecomposition = () => {
-        return parts.map(part => ` ${part.quantity}  ${part.label}.`).join(' ');
-    }
-
-    const explainExponential = () => {
-        return parts.map(part => {
-            const exponent = Math.log10(digits[labels.indexOf(part.label)]);
-            const superscriptExponent = exponent.toString().split('').map(char => superScriptNumbers[char]).join('');
-            return exponent > 0 ? `${part.quantity} x 10${superscriptExponent}` : `${part.quantity}`;
-        }).join(' + ');
-    }
-
-    const explainEachTerm = () => {
-        const terms = [];
-        parts.forEach(part => {
-            const exponent = Math.log10(digits[labels.indexOf(part.label)]);
-            const superscriptExponent = exponent.toString().split('').map(char => superScriptNumbers[char]).join('');
-            if (exponent > 0) {
-                const term = `${part.quantity} x 10${superscriptExponent}`;
-                const result = part.quantity * digits[labels.indexOf(part.label)];
-                const explanation = `10${superscriptExponent} représente ${labels[labels.indexOf(part.label)].toLowerCase()}. Donc, ${term} donne ${result.toLocaleString()}.`;
-                terms.push(explanation);
-            }
-        });
-        return terms.join('\n');
-    }
-
     return (
         <StyledBox>
             <Grid container justifyContent="center" spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <Card style={{marginTop: '-100px'}}>
+                    <Card style={{ marginTop: '-100px' }}>
                         <CardContent>
                             <Box mb={1}>
-                              <Typography>Ecrire un nombre  : {inputNumber}</Typography>
+                            <NumberDisplay isActive={!!inputNumber}>
+                              {inputNumber} 
+                            </NumberDisplay>
+                            <NumberDisplay isActive={!!inputNumber}>
+                            <Typography>{numberInWords}</Typography> 
+                            </NumberDisplay>
+
                             </Box>
-                            <br/>
-                            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
-                                <StyledFab key={number} onClick={() => handleNumberClick(number)} $isSelected={selectedNumber === number}>{number}</StyledFab>
-                            ))}
-                            <StyledFab onClick={resetNumber}>Reset</StyledFab>
-                            <br/>
-                            <br/>
-                            <StyledButton variant="outlined" onClick={() => setOpenNumberInWords(!openNumberInWords)}>
-                                {openNumberInWords ? 'Cacher le nombre en mots' : 'Afficher le nombre en mots'}
-                            </StyledButton>
-                            <Collapse in={openNumberInWords}>
-                                {inputNumber && (
-                                    <Typography>{numberInWords}</Typography>
-                                )}
-                            </Collapse>
-                            <br/>
-                            <StyledButton variant="outlined" onClick={() => setOpenTable(!openTable)}>
-                                {openTable ? 'Cacher le tableau' : 'Afficher le tableau de numération.'}
-                            </StyledButton>
-                            <Collapse in={openTable}>
-                                {inputNumber && (
-                                    <Typography>{explainDecomposition()}</Typography>
-                                )}
-                                <TableContainer>
-                                    <Table>
-                                        <TableBody>
-                                            {parts.map((part, index) => (
-                                                <TableRow key={index}>
-                                                    <TableCell>{part.quantity}</TableCell>
-                                                    <TableCell>{part.label}</TableCell>
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
-                            </Collapse>
-                            <br/>
-                            <StyledButton variant="outlined" onClick={() => setOpenExponential(!openExponential)}>
-                                {openExponential ? 'Cacher la  décompositions ' : 'Afficher la  décompositions '}
-                            </StyledButton>
-                            <Collapse in={openExponential}>
-                                {inputNumber && <Typography>{explainExponential()}</Typography>}
-                                {inputNumber && (
-                                    <div>
-                                        <Typography>Dans cette expression :</Typography>
-                                        <Typography component="pre">{explainEachTerm()}</Typography>
-                                        <Typography>En ajoutant tous ces termes, on obtient le nombre original.</Typography>
-                                    </div>
-                                )}
-                            </Collapse>
+                            <Grid container spacing={2}>
+                                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((number) => (
+                                    <Grid item xs={4} key={number}>
+                                        <VibrantFab onClick={() => handleNumberClick(number)}>{number}</VibrantFab>
+                                    </Grid>
+                                ))}
+                                <Grid item xs={4}>
+                                    <VibrantFab onClick={() => handleNumberClick(9)}>9</VibrantFab>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <VibrantFab onClick={resetNumber}><ReplayIcon /></VibrantFab>
+                                </Grid>
+                            </Grid>
+                            
+                           
+                            {inputNumber && (
+    <StyledTableContainer>
+        <StyledTable>
+            <TableBody>
+                {parts.map((part, index) => (
+                    <StyledTableRow key={index}>
+                        <StyledTableCell>{part.quantity}</StyledTableCell>
+                        <StyledTableCell>{part.label}</StyledTableCell>
+                    </StyledTableRow>
+                ))}
+            </TableBody>
+        </StyledTable>
+    </StyledTableContainer>
+)}
+
                         </CardContent>
                     </Card>
                 </Grid>
@@ -178,6 +154,3 @@ const C1A1 = () => {
 };
 
 export default C1A1;
-
-
-

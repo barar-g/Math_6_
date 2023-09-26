@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Button, Typography, Card, CardContent, Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import ReplyIcon from '@mui/icons-material/Reply';
 
 const useStyles = makeStyles({
   container: {
@@ -98,7 +99,7 @@ function C4A2() {
           </Grid>
           <div className={classes.buttons}>
             <Button variant="contained" color="primary" onClick={checkMagic} style={{borderRadius: '50%'}}>OK</Button>
-            <Button variant="contained" color="error" onClick={reset} style={{borderRadius: '50%'}}>Reset</Button>
+            <Button variant="contained" color="primary" onClick={reset} style={{borderRadius: '50%'}}><ReplyIcon/></Button>
           </div>
           {isMagic !== null && (
             isMagic ? <Typography variant="h6" color="success">C'est un carré magique !</Typography>

@@ -45,6 +45,10 @@ import C6 from './composents/C6';
 import M2A1 from './composents/M2A1';
 import M2A2 from './composents/M2A2';
 import M2A3 from './composents/M2A3';
+import M2 from './composents/M2';
+import G1A1 from './composents/G1A1';
+import G3 from './composents/G3'
+
 
 
 function App() {
@@ -99,6 +103,11 @@ function App() {
           <Route path="/M2A1" element ={<M2A1/>}/>
           <Route path="/M2A2" element ={<M2A2/>}/>
           <Route path="/M2A3" element ={<M2A3/>}/>
+          <Route path="/M2" element ={<M2/>}/>
+          <Route path="/G1A1" element ={<G1A1/>}/>
+          <Route path="/G3" element ={<G3/>}/>
+
+         
         </Routes>
       
       </div>

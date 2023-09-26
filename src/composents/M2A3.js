@@ -1,62 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import { TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Typography, Select, MenuItem, TextField, Card, CardContent } from '@mui/material';
+import { styled } from '@mui/system';
 
-const units = [
-    { name: 'KG', conversionRate: 1000 },
-    { name: 'HG', conversionRate: 100 },
-    { name: 'Dag', conversionRate: 10 },
-    { name: 'G', conversionRate: 1 },
-    { name: 'DG', conversionRate: 0.1 },
-    { name: 'CG', conversionRate: 0.01 },
-    { name: 'MG', conversionRate: 0.001 },
-];
+const StyledBox = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '70vh',
+  backgroundColor: '#f2f2f2',
+  color: '#333',
+});
 
-function M2A3() {
-    const [input, setInput] = useState(0);
-    const [breakdown, setBreakdown] = useState([]);
+const M2A3 = () => {
+  const [value, setValue] = useState("");
+  const [unit, setUnit] = useState("kilograms");
+  const [convertedValue, setConvertedValue] = useState({});
 
-    useEffect(() => {
-        const newBreakdown = units.map(unit => ({
-            ...unit,
-            value: input / unit.conversionRate,
-        }));
+  const conversions = {
+    grams: 1,
+    decagrams: 10,
+    hectograms: 100,
+    kilograms: 1000,
+    dekagrams: 0.1,
+    centigrams: 0.01,
+  };
 
-        setBreakdown(newBreakdown);
-    }, [input]);
+  const convertValue = (value, newUnit) => {
+    const conversionFactor = conversions[newUnit];
+    setConvertedValue({
+      grams: value * conversionFactor,
+      decagrams: value * conversionFactor / conversions['decagrams'],
+      hectograms: value * conversionFactor / conversions['hectograms'],
+      kilograms: value * conversionFactor / conversions['kilograms'],
+      dekagrams: value * conversionFactor / conversions['dekagrams'],
+      centigrams: value * conversionFactor / conversions['centigrams'],
+    });
+  };
 
-    return (
-        <div>
-            <TextField 
-                variant="outlined" 
-                type="number" 
-                label="Grammes" 
-                value={input}
-                onChange={(e) => setInput(e.target.value)} 
+  const handleValueChange = (event) => {
+    setValue(event.target.value);
+    convertValue(event.target.value, unit);
+  };
+
+  const handleUnitChange = (event) => {
+    setUnit(event.target.value);
+    convertValue(value, event.target.value);
+  };
+
+  return (
+    <StyledBox>
+      <Card style={{marginTop: '-100px'}}>
+        <CardContent>
+          <Typography variant="h5" align="center">Convertiseur d'unités de masse</Typography>
+          <Box my={2}>
+            <TextField
+              type="number"
+              value={value}
+              onChange={handleValueChange}
+              label="Valeur"
+              variant="outlined"
+              fullWidth
             />
-
-            <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            {units.map(unit => (
-                                <TableCell key={unit.name}>{unit.name}</TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            {breakdown.map(unit => (
-                                <TableCell key={unit.name}>{unit.value}</TableCell>
-                            ))}
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
-    );
+          </Box>
+          <Box my={2}>
+            <Select
+              value={unit}
+              onChange={handleUnitChange}
+              variant="outlined"
+              fullWidth
+            >
+              <MenuItem value="grams">Grammes</MenuItem>
+              <MenuItem value="decagrams">Décagrammes</MenuItem>
+              <MenuItem value="hectograms">Hectogrammes</MenuItem>
+              <MenuItem value="kilograms">Kilogrammes</MenuItem>
+              <MenuItem value="dekagrams">Dékagrammes</MenuItem>
+              <MenuItem value="centigrams">Centigrammes</MenuItem>
+            </Select>
+          </Box>
+          <Typography align="center">{value} {unit} équivaut à:</Typography>
+          <Typography>{convertedValue.grams} grammes</Typography>
+          <Typography>{convertedValue.decagrams} décagrammes</Typography>
+          <Typography>{convertedValue.hectograms} hectogrammes</Typography>
+          <Typography>{convertedValue.kilograms} kilogrammes</Typography>
+          <Typography>{convertedValue.dekagrams} dékagrammes</Typography>
+          <Typography>{convertedValue.centigrams} centigrammes</Typography>
+        </CardContent>
+      </Card>
+    </StyledBox>
+  );
 }
 
 export default M2A3;
+
 
 
 

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Button, Card, CardContent, Box, TextField, Typography } from '@mui/material';
 import kangarooImg from './kangaro.png';
 import useSound from 'use-sound';
 import correctSound from './correct.mp3'
 import incorrectSound from './incorrect.mp3'
+import ReplyIcon from '@mui/icons-material/Reply';
 
 function C5A4() {
   const [questions, setQuestions] = useState([]);
@@ -55,9 +56,7 @@ function C5A4() {
     generateQuestion();
   };
 
-  useEffect(() => {
-    generateQuestion();
-  }, []);
+
 
   return (
     <Card style={{ minHeight: '400px' }}>
@@ -124,7 +123,7 @@ function C5A4() {
         {showMessage && (
           <Box my={2}>
             <Button variant="contained" color="primary" onClick={handleNewQuestion} style={{ marginTop: '10px' }}>
-              Générer une nouvelle question
+              <ReplyIcon/>
             </Button>
           </Box>
         )}
