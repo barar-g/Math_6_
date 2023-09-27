@@ -1,45 +1,148 @@
-import React, { useState } from "react";
-import { Box, Typography, Tabs, Tab, Grid } from "@mui/material";
-import M2A3 from "./M2A3";
-import M2A2 from "./M2A2";
-import M2A1 from "./M2A1";
+import React, { useState } from 'react'; 
+import M2A2 from './M2A2'
+import QCMC6 from './QCMC6';
+import Container from '@mui/material/Container';
+import styled from 'styled-components';
+import teacher from './teacher.png'
+import M2A1 from './M2A1';
+import M2A3 from './M2A3';
 
-const M2 = () => {
-  const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+const SectionContainer = styled.div`
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+`;
 
-  return (
-    <Grid container direction="column" alignItems="center" justify="center" spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h4" align="center" gutterBottom>
-           M2 : Mesurer des masses
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Tabs
-          value={value}
-          indicatorColor="primary"
-          textColor="primary"
-          onChange={handleChange}
-          centered
-        >
-          <Tab label="Activité 1" />
-          <Tab label="Activité 2" />
-          <Tab label="Activité 3" />
-        </Tabs>
-      </Grid>
-      <Grid item xs={12}>
-        <Box mt={2}>
-          {value === 0 && <M2A3 />}
-          {value === 1 && <M2A1 />}
-          {value === 2 && <M2A2 />}
-        </Box>
-      </Grid>
-    </Grid>
-  );
-};
 
-export default M2;
+
+const ImageContainer = styled.div`
+    flex: 0 0 auto;
+    width: 170px; 
+    margin-right: 20px; 
+    img {
+        width: 100%;
+        height: auto;
+    }
+`;
+
+const Card = styled.div`
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 20px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+`;
+const BodyText = styled.p`
+    font-family: 'Roboto', sans-serif; 
+    font-size: 16px;
+    line-height: 1.5;
+    color: white; // texte en blanc pour le contraste avec le fond bleu
+    
+    @media (max-width: 480px) {
+        font-size: 14px;
+    }
+`;
+
+const ContinueButton = styled.button`
+display: block;
+margin: 15px 0;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #007BFF;
+color: white;
+cursor: pointer;
+font-family: 'Roboto', sans-serif;
+font-size: 16px;
+
+&:hover {
+    background-color: #0056b3;
+}
+`;
+
+const Separator = styled.div`
+    height: 1px;
+    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
+    margin: 20px 0; /* marges pour espacer la barre des sections */
+`;
+
+const C1 = () => {
+    const [section, setSection] = useState(0);
+
+    return (
+        <Container >
+           
+                <SectionContainer>
+                    <ImageContainer>
+                        <img src={teacher} alt="Teacher" />
+                    </ImageContainer>
+                    <Card>
+                        <BodyText>
+                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Mesure des Masses.
+                        </BodyText>
+                    </Card>
+                   
+                </SectionContainer>
+                <br/>
+         
+            
+            {section >= 1 && (<div> 
+              
+                <div >
+                  
+                    <div >
+                   
+                        <M2A1 />
+                    </div>
+                    <Separator />
+              
+                </div>
+                </div> )}
+             
+            {section >= 2 && (
+                   <div style={{ marginBottom: '50px', width: '100%' }}>
+                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                   <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <M2A2 />
+                    </div>
+               
+                    <Separator />
+                </div>
+            )}
+            
+            {section >= 3 && (
+                
+                    <div >
+                    <div >
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                        <M2A3 />
+                    </div>
+                      <Separator />
+                </div>
+            )}
+
+            {section >= 4 && (<div><QCMC6 /> 
+            </div>)}
+
+            {section < 4 && (
+                <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
+            )}
+        </Container>
+    );
+}
+
+export default C1;
