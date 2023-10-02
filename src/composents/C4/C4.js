@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import C1A1 from './C1A1'; 
-import C1A2 from './C1A2'; 
-import C1A3 from './C1A3';
-import QCMC1 from './C1/QCMC1';
+import C4A1 from './C4A1'; 
+import C4A2 from './C4A2'; 
+import C4A3 from './C4A3';
+import C4A4 from './C4A4';
+import QCMC4 from './QCMC4';
 import Container from '@mui/material/Container';
-import teacherImage from '../images/Prof1.png';
+import teacherImage from '../Images/Prof1.png';
 import styled from 'styled-components';
-import teacher from '../images//teacher.png'
-
+import teacher from '../Images/teacher.png';
+import enfant from '../Images/enfant1.png'
 
 const SectionContainer = styled.div`
     position: relative;
@@ -82,68 +83,69 @@ const C1 = () => {
                     </ImageContainer>
                     <Card>
                         <BodyText>
-                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grends nombers.
+                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Ajouter et retrancher.
                         </BodyText>
                     </Card>
                    
                 </SectionContainer>
                 <br/>
          
-            
-            {section >= 1 && (<div> 
+                {section >= 1 && (<div> 
 
-               <SectionContainer>
-                    <ImageContainer>
-                    <img src={teacherImage} alt="Enseignant"  />
-                    </ImageContainer>
-                    <Card>
-                        <BodyText>
-                        Écris un nombre et découvre ses détails.
-                        </BodyText>
-                    </Card>
-                   
-                </SectionContainer>
-                <br/>
-            <br/>
-            <br/>
-            <br></br>
-            <br/>
-            <br/>
-              
+                 <br/>              
+                 <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
+  
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+   
+                  <C4A4/>
+                 </div>
+                <Separator />
+               </div>
+                </div> )}
+
+          {section >= 2 && (<div> 
+
+                <br/>              
                 <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
                   
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                    
-                        <C1A1 />
+                        <C4A1/>
                     </div>
                     <Separator />
                 </div>
                 </div> )}
+
+          
             
-            {section >= 2 && (
+            {section >= 3 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
-                        <C1A2 />
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <C4A2 />
                     </div>
                     <Separator />
                 </div>
             )}
 
-            {section >= 3 && (
+            {section >= 4 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                   <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
-                    <C1A3 />
+                  
+                    <C4A3 />
                     </div>
                       <Separator />
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMC1 /> 
+            {section >= 5 && (<div><QCMC4 /> 
             </div>)}
 
-            {section < 4 && (
+            {section < 5 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>

@@ -31,23 +31,25 @@ import Géometriechap3 from './composents/Math/Géometrie/Géometriechap3';
 import Géometriechap4 from './composents/Math/Géometrie/Géometriechap4';
 import Géometriechap5 from './composents/Math/Géometrie/Géometriechap5';
 import Géometriechap6 from './composents/Math/Géometrie/Géometriechap6';
-import C1 from './composents/C1';
-import C2 from './composents/C2';
-import C3 from './composents/C3';
-import C4 from './composents/C4';
-import C5A1 from './composents/C5A1';
+import C1 from './composents/C1/C1';
+import C2 from './composents/C2/C2';
+import C3 from './composents/C3/C3';
+import C4 from './composents/C4/C4';
+import C5 from './composents/C5/C5';
 import C5A2 from './composents/C5A2';
-import C5A3 from './composents/C5A3';
-import C5A4 from './composents/C5A4';
-import Kangaroo from './composents/Kangaroo';
-import C5A5 from './composents/C5A5';
-import C6 from './composents/C6';
-import M2A1 from './composents/M2A1';
-import M2A2 from './composents/M2A2';
-import M2A3 from './composents/M2A3';
-import M2 from './composents/M2';
-import G1A1 from './composents/G1A1';
-import G3 from './composents/G3'
+import C5A3 from './composents/C6/C5A3';
+import C5A4 from './composents/C6/C5A4';
+import Kangaroo from './composents/C6/Kangaroo';
+import C5A5 from './composents/C6/C5A5';
+import C6 from './composents/C6/C6';
+import M2A1 from './composents/M2/M2A1';
+import M2A2 from './composents/M2/M2A2';
+import M2A3 from './composents/M2/M2A3';
+import M2 from './composents/M2/M2';
+import G1A1 from './composents/G1/G1A1';
+import G3 from './composents/G3/G3';
+import G1A2 from './composents/G1/G1A2';
+import G1 from './composents/G1/G1';
 
 
 
@@ -93,7 +95,7 @@ function App() {
           <Route path="/C2" element ={<C2/>}/>
           <Route path="/C3" element ={<C3/>}/>
           <Route path="/C4" element ={<C4/>}/>
-          <Route path="/C5A1" element ={<C5A1/>}/>
+          <Route path="/C5A1" element ={<C5/>}/>
           <Route path="/C5A2" element ={<C5A2/>}/>
           <Route path="/C5A3" element ={<C5A3/>}/>
           <Route path="/C5A4" element ={<C5A4/>}/>
@@ -104,8 +106,10 @@ function App() {
           <Route path="/M2A2" element ={<M2A2/>}/>
           <Route path="/M2A3" element ={<M2A3/>}/>
           <Route path="/M2" element ={<M2/>}/>
-          <Route path="/G1A1" element ={<G1A1/>}/>
+          <Route path="/G1" element ={<G1/>}/>
+          <Route path="/G1A2" element ={<G1A2/>}/>
           <Route path="/G3" element ={<G3/>}/>
+          <Route path="/G1" element ={<G1/>}/>
 
          
         </Routes>

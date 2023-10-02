@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import C1A1 from './C1A1'; 
-import C1A2 from './C1A2'; 
-import C1A3 from './C1A3';
-import QCMC1 from './C1/QCMC1';
+import React, { useState } from 'react'; 
+import M2A2 from './M2A2'
+import QCMC6 from './QCMC6';
 import Container from '@mui/material/Container';
-import teacherImage from '../images/Prof1.png';
 import styled from 'styled-components';
-import teacher from '../images//teacher.png'
+import teacher from '../Images/teacher.png'
+import M2A1 from './M2A1';
+import M2A3 from './M2A3';
 
 
 const SectionContainer = styled.div`
@@ -82,7 +81,7 @@ const C1 = () => {
                     </ImageContainer>
                     <Card>
                         <BodyText>
-                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grends nombers.
+                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Mesure des Masses.
                         </BodyText>
                     </Card>
                    
@@ -91,56 +90,52 @@ const C1 = () => {
          
             
             {section >= 1 && (<div> 
-
-               <SectionContainer>
-                    <ImageContainer>
-                    <img src={teacherImage} alt="Enseignant"  />
-                    </ImageContainer>
-                    <Card>
-                        <BodyText>
-                        Écris un nombre et découvre ses détails.
-                        </BodyText>
-                    </Card>
-                   
-                </SectionContainer>
-                <br/>
-            <br/>
-            <br/>
-            <br></br>
-            <br/>
-            <br/>
               
-                <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
+                <div >
                   
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <div >
                    
-                        <C1A1 />
+                        <M2A1 />
                     </div>
                     <Separator />
+              
                 </div>
                 </div> )}
-            
+             
             {section >= 2 && (
-                <div style={{ marginBottom: '50px', width: '100%' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
-                        <C1A2 />
+                   <div style={{ marginBottom: '50px', width: '100%' }}>
+                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                   <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <M2A2 />
                     </div>
+               
                     <Separator />
                 </div>
             )}
-
+            
             {section >= 3 && (
-                <div style={{ marginBottom: '50px', width: '100%' }}>
-                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                   <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
-                    <C1A3 />
+                
+                    <div >
+                    <div >
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                        <M2A3 />
                     </div>
                       <Separator />
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMC1 /> 
+            {section >= 4 && (<div><QCMC6 /> 
             </div>)}
 
             {section < 4 && (

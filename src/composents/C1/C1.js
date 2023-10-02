@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import C1A1 from './C1A1'; 
 import C1A2 from './C1A2'; 
 import C1A3 from './C1A3';
-import QCMC1 from './C1/QCMC1';
+import QCMC1 from './QCMC1';
 import Container from '@mui/material/Container';
-import teacherImage from '../images/Prof1.png';
+import teacherImage from '../Images/Prof1.png';
 import styled from 'styled-components';
-import teacher from '../images//teacher.png'
+import teacher from '../Images/teacher.png';
 
 
 const SectionContainer = styled.div`

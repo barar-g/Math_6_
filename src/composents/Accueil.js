@@ -52,14 +52,11 @@ function Accueil() {
         <Button onClick={() => navigate('/C2')}>C2</Button>
         <Button onClick={() => navigate('/C3')}>C3</Button>
         <Button onClick={() => navigate('/C4')}>C4</Button>
-        <Button onClick={() => navigate('/C5A1')}>C5A1</Button>
-        <Button onClick={() => navigate('/C5A2')}>C5A2</Button>
+        <Button onClick={() => navigate('/C5A1')}>C5</Button>
         <Button onClick={() => navigate('/C6')}>C6</Button>
         <Button onClick={() => navigate('/M2')}>M2</Button>
-        <Button onClick={() => navigate('/G1A1')}>G1A1</Button>
+        <Button onClick={() => navigate('/G1')}>G1</Button>
         <Button onClick={() => navigate('/G3')}>G3</Button>
-        
-       
       </Stack>
     </Box>
   );
