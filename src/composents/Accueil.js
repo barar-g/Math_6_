@@ -1,22 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button as MuiButton, Stack } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box  } from '@mui/system';
 
 
-function Accueil() {
+function Acceuil() {
   const navigate = useNavigate();
+  const scale = 0.8;
 
   const Button = ({ children, onClick }) => (
     <MuiButton 
       variant="contained" 
       onClick={onClick}
       style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
+        borderRadius: 35 * scale,
+        padding: `${18 * scale}px ${36 * scale}px`,
+        fontSize: `${18 * scale}px`,
         textTransform: "none",
-        width: "200px",
+        width: `${200 * scale}px`,
         backgroundColor: '#0000FF',
         '&:hover': {
           backgroundColor: '#0000FF',
@@ -44,24 +45,13 @@ function Accueil() {
         alignItems="center"
         style={{ marginTop: "20px" }}
       >
-        <Button onClick={() => navigate('/choix examn')}>Sciencs Naturel</Button>
-        <Button onClick={() => navigate('/Mathexam')}>Mathématique</Button>
-        <Button onClick={() => navigate('/choix examn')}>Français</Button>
-        <Button onClick={() => navigate('/choix examn')}>Arabe</Button>
-        <Button onClick={() => navigate('/C1')}>C1</Button>
-        <Button onClick={() => navigate('/C2')}>C2</Button>
-        <Button onClick={() => navigate('/C3')}>C3</Button>
-        <Button onClick={() => navigate('/C4')}>C4</Button>
-        <Button onClick={() => navigate('/C5A1')}>C5</Button>
-        <Button onClick={() => navigate('/C6')}>C6</Button>
-        <Button onClick={() => navigate('/M2')}>M2</Button>
-        <Button onClick={() => navigate('/G1')}>G1</Button>
-        <Button onClick={() => navigate('/G3')}>G3</Button>
+        <Button onClick={() => navigate('/Periode1')}>Periode1</Button>
+        <Button onClick={() => navigate('/Periode2')}>Periode2</Button>
+        
+
       </Stack>
     </Box>
   );
 }
 
-export default Accueil;
-
-
+export default Acceuil;

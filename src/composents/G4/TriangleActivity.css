@@ -1,0 +1,26 @@
+.triangle-activity {
+  text-align: center;
+}
+
+svg {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.step-1 circle {
+  fill: lightblue;
+  stroke: blue;
+}
+
+.step-2 circle {
+  fill: lightgreen;
+  stroke: green;
+}
+
+.step-3 line {
+  stroke: red;
+}
+
+p {
+  margin-top: 20px;
+}
