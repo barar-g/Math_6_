@@ -10,7 +10,7 @@ import exemple from '../Images/exemple.png';
 import exemple1 from '../Images/exemple1.png';
 import exemple2 from '../Images/exemple2.png';
  // Assurez-vous que ce chemin d'accès est correct.
-import Test3 from './Test3';
+import Test3 from './QCMC9';
 import P2A1A_1 from './P2A1A-1';
 
 

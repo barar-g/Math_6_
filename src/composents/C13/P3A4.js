@@ -3,7 +3,7 @@ import styled from "styled-components";
 import cake from "../Images/cake.png";
 import cake1 from "../Images/cake1.png";
 // Assurez-vous que ce chemin d'accès est correct.
-import Test4 from "./Tes4";
+import Test4 from "./QCMC13";
 import fractionss from "../Images/Fractions.png";
 import fteacher from "../Images/fteacherr.png";
 import fraction from "../Images/fraction.png";

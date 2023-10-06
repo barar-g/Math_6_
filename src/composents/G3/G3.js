@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import G3A1 from './G3A1';
 import G3A2 from './G3A2'
 
-import QCMC6 from '../M2/QCMC6';
+import QCMG3 from './QCMG3';
 import Container from '@mui/material/Container';
 import styled from 'styled-components';
 import teacher from '../Images/teacher.png';
@@ -113,7 +113,7 @@ const C1 = () => {
 
            
 
-            {section >= 3 && (<div><QCMC6 /> 
+            {section >= 3 && (<div><QCMG3/> 
             </div>)}
 
             {section < 3 && (

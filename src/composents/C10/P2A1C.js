@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import teacherImage from '../Images/teacher.png'; // Assurez-vous que ce chemin d'accès est correct.
-import Test1 from './Test1';
+import Test1 from './QCMC10';
 import P2A2_1 from './P2A2-1'; // Assurez-vous que le chemin est correct.
 import P2A2_2 from './P2A2-2';
 

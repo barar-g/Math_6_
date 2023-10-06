@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import M2A2 from './M2A2'
-import QCMC6 from './QCMC6';
+import QCMM2 from './QCMM2';
 import Container from '@mui/material/Container';
 import styled from 'styled-components';
 import teacher from '../Images/teacher.png'
@@ -135,7 +135,7 @@ const C1 = () => {
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMC6 /> 
+            {section >= 4 && (<div><QCMM2 /> 
             </div>)}
 
             {section < 4 && (

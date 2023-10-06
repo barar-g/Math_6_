@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import C5A3 from './C5A3'; 
 import C5A4 from './C5A4'; 
 import C5A5 from './C5A5';
-import QCMC6 from '../M2/QCMC6';
+import QCMC6 from './QCMC6';
 import Container from '@mui/material/Container';
 import styled from 'styled-components';
 import teacher from '../Images/teacher.png';

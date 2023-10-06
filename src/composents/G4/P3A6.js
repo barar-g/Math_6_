@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Assurez-vous que ce chemin d'accès est correct.
 import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
-import Test6 from "./Test6";
+import QCMG4 from "./QCMG4";
 import Triangle from "./triangle";
 import Triangle1 from "./triangle1";
 import "../C14_C15_C16/bend.css";
@@ -228,7 +228,7 @@ const P3A6 = () => {
             }}
           >
             <div>
-              <Test6 />
+              <QCMG4/>
             </div>
             </div>
           )}

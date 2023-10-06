@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import teacherImage from '../Images/Prof1.png';
-import QcmFraction from './QcmFraction';
+import QcmFraction from './QCMC16';
 import Bande from './Bande';
 import styled from 'styled-components';
 

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
 import Divs from "./Divs";
-import Test9 from "./Test9";
+import Test9 from "./QCMC11";
 
 // Styles
 

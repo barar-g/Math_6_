@@ -4,6 +4,12 @@ import { styled } from '@mui/system';
 import ReplayIcon from '@mui/icons-material/Replay';
 import writtenNumber from 'written-number';
 
+const gridItemStyle = {
+    paddingLeft: '4px',  // Réduisez la marge selon vos besoins
+    paddingRight: '4px'
+};
+
+
 const StyledBox = styled(Box)({
  
 });
@@ -115,19 +121,20 @@ const labels = ['Milliard', 'Million', 'Mille','Cent', 'Unité'];
                             </NumberDisplay>
 
                             </Box>
-                            <Grid container spacing={2}>
-                                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((number) => (
-                                    <Grid item xs={4} key={number}>
-                                        <VibrantFab onClick={() => handleNumberClick(number)}>{number}</VibrantFab>
-                                    </Grid>
-                                ))}
-                                <Grid item xs={4}>
-                                    <VibrantFab onClick={() => handleNumberClick(9)}>9</VibrantFab>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <VibrantFab onClick={resetNumber}><ReplayIcon /></VibrantFab>
-                                </Grid>
-                            </Grid>
+                            <Grid container spacing={-8}>
+    {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((number) => (
+        <Grid item xs={4} key={number}>
+            <VibrantFab onClick={() => handleNumberClick(number)}>{number}</VibrantFab>
+        </Grid>
+    ))}
+    <Grid item xs={4}>
+        <VibrantFab onClick={() => handleNumberClick(9)}>9</VibrantFab>
+    </Grid>
+    <Grid item xs={4}>
+        <VibrantFab onClick={resetNumber}><ReplayIcon /></VibrantFab>
+    </Grid>
+</Grid>
+
                             
                            
                             {inputNumber && (

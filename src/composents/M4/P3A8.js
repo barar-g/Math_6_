@@ -4,7 +4,7 @@ import styled from "styled-components";
 import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
 import Perim from "./Perimetre";
-import Test8 from "./Test8";
+import QCMM4 from "./QCMM4";
 
 // Styles
 
@@ -229,7 +229,7 @@ const P3A8 = () => {
             }}
           >
             <div>
-              <Test8 />
+              <QCMM4 />
             </div>
             </div>
           )}

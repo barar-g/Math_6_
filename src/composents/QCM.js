@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button, Card as MuiCard, CardContent, Typography, Radio, RadioGroup, FormControlLabel } from "@mui/material";
 
+
+const CardContainer = styled.div`
+  perspective: 1000px;
+  margin: 20px auto;
+`;
+
 const Card = styled(MuiCard)`
     margin: 30px 0;
     font-family: 'Comic Sans MS', sans-serif;
@@ -60,10 +66,8 @@ function QCM({ questionsArray }) {
     return (
         <div style={{ fontFamily: "Comic Sans MS, sans-serif" }}>
             {questionsArray.map((question, index) => (
-                <Card 
-                    key={index} 
-                    className={isFlipped === index ? "flipped" : "not-flipped"}
-                >
+                <CardContainer key={index}>
+                <Card className={isFlipped === index ? "flipped" : "not-flipped"}>
                     {isFlipped !== index ? (
                         <CardContent>
                             <Typography variant="h6">{question.question}</Typography>
@@ -88,9 +92,10 @@ function QCM({ questionsArray }) {
                         </CardContent>
                     )}
                 </Card>
+                </CardContainer>
             ))}
         </div>
     );
 }
 
-export default QCM;
+export default QCM;    

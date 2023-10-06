@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import fteacher from "../Images/teacher.png";
 import inestine from "../Images/inestine.png";
-import C2A1 from "../C2A1";
-import C2E1 from "../C2E1";
-import C2E2 from "../C2E2";
-import TestC2 from "./TestC2";
+import C2A1 from "./C2A1";
+import C2E1 from "./C2E1";
+import C2E2 from "./C2E2";
+import TestC2 from "./QCMC2";
 import styled from "styled-components";
 
 const StyledText = styled.p`

@@ -9,19 +9,27 @@ function App() {
     const getDPath = () => {
         switch(shape) {
             case 'carre':
-                return { path: `M50 50 H250 V250 H50 V50`, perimeter: 800 };
+                // Assumant que le carré a une taille de 200 pour le centrer dans un espace de 350x300
+                return { path: `M75 50 H275 V250 H75 V50`, perimeter: 800 };
             case 'triangle':
-                return { path: `M50 250 L150 50 L250 250 L50 250`, perimeter: 644 };
+                // Ajustant les points pour le centrer
+                return { path: `M175 50 L325 250 L25 250 Z`, perimeter: 644 };
             case 'cercle':
-                return { path: `M150 25 A125 125 0 1 1 149.9999 25.0001`, perimeter: 785 };
+                // Ajustant pour un cercle centré avec un rayon de 100
+                return { path: `M175 50 A100 100 0 0 1 175 250 A100 100 0 0 1 175 50`, perimeter: 2 * Math.PI * 100 }; // 2*pi*r, avec r=100
+                // 2*pi*r, avec r=100
             case 'rectangle':
-                return { path: `M50 50 H300 V150 H50 V50`, perimeter: 900 };
+                // Ajustant pour un rectangle centré de 200x100
+                return { path: `M75 100 H275 V200 H75 V100`, perimeter: 600 };
             case 'quadrilateral':
-                return { path: `M50 50 L150 50 L250 150 L100 250 L50 50`, perimeter: 780 };
+                // Vous devrez ajuster selon la forme exacte de votre quadrilatéral
+                // Exemple : un losange
+                return { path: `M175 50 L325 150 L175 250 L25 150 Z`, perimeter: 780 };
             default:
                 return { path: '', perimeter: 0 };
         }
     };
+    
 
     const startPerimetreAnimation = () => {
         setStartAnimation(true);
@@ -50,8 +58,22 @@ function App() {
             </Box>
             
             <Box marginBottom="15px">
-                <Typography variant="body1">Forme: </Typography>
-                <Select value={shape} onChange={(e) => setShape(e.target.value)}>
+                <Typography variant="body2">Forme: </Typography>
+                <Select value={shape} style={{ 
+        width: '70%', // Élargit le champ de sélection
+        textAlign: 'center' // Centralise le texte
+    }}
+    MenuProps={{
+        anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'left',
+        },
+        transformOrigin: {
+            vertical: 'top',
+            horizontal: 'left',
+        },
+        getContentAnchorEl: null,
+    }} onChange={(e) => setShape(e.target.value)}>
                     <MenuItem value="carre">Carré</MenuItem>
                     <MenuItem value="triangle">Triangle</MenuItem>
                     <MenuItem value="cercle">Cercle</MenuItem>

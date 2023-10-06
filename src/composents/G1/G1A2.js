@@ -65,21 +65,23 @@ function QuizComponent() {
     
         switch (lineRelation) {
             case "parallel":
-                switch (randomVariation) {
-                    case 0:  // Horizontales
-                        return (
-                            <svg width="200" height="100">
-                                <line x1="10" y1="10" x2="190" y2="10" stroke="black" strokeWidth="2"/>
-                                <line x1="10" y1="90" x2="190" y2="90" stroke="black" strokeWidth="2"/>
-                            </svg>
-                        );
-                    case 1:  // Verticales
-                        return (
-                            <svg width="200" height="100">
-                                <line x1="10" y1="10" x2="10" y2="90" stroke="black" strokeWidth="2"/>
-                                <line x1="190" y1="10" x2="190" y2="90" stroke="black" strokeWidth="2"/>
-                            </svg>
-                        );
+    switch (randomVariation) {
+        case 0:  // Horizontales
+            return (
+                <svg width="200" height="100">
+                    <line x1="10" y1="30" x2="190" y2="30" stroke="black" strokeWidth="2"/>
+                    <line x1="10" y1="70" x2="190" y2="70" stroke="black" strokeWidth="2"/>
+                </svg>
+            );
+
+            case 1:  // Verticales
+            return (
+                <svg width="200" height="100">
+                    <line x1="60" y1="10" x2="60" y2="90" stroke="black" strokeWidth="2"/>
+                    <line x1="140" y1="10" x2="140" y2="90" stroke="black" strokeWidth="2"/>
+                </svg>
+            );
+        
                     case 2:  // Inclinées
                         return (
                             <svg width="200" height="100">
@@ -155,25 +157,31 @@ function QuizComponent() {
 
             <div>
                 
-                {["parallel", "perpendicular", "none"].map((answer) => (
-                   <Button 
-                   variant="contained" 
-                   color="primary" 
-                   onClick={() => setUserAnswer(answer)}
-                   style={{ margin: '5px' }}
-               >
-                   {answer === "parallel" ? "∥ " : answer === "perpendicular" ? "⊥" : "Autre"}
-               </Button>
-                
-                ))}
+            {["parallel", "perpendicular", "none"].map((answer) => (
+    <Button 
+        variant="contained" 
+        color="primary" 
+        onClick={() => setUserAnswer(answer)}
+        style={{ margin: '5px', padding: answer === "none" ? '10px' : undefined }}
+    >
+        {answer === "parallel" ? 
+            <span style={{ fontSize: '24px' }}>∥</span> 
+        : answer === "perpendicular" ? 
+            <span style={{ fontSize: '24px' }}>⊥</span> 
+        : 
+            "Autre"}
+    </Button>
+))}
+
+
             </div>
 
             {userAnswer && (
                 <div style={{ marginTop: '20px' }}>
                     {userAnswer === lineRelation ? (
-                        <span style={{ color: 'green' }}>Correct!</span>
+                        <span style={{ color: 'green' }}><StyledText>Correct!</StyledText></span>
                     ) : (
-                        <span style={{ color: 'red' }}>Incorrect! Essayez à nouveau.</span>
+                        <span style={{ color: 'red' }}><StyledText>Incorrect! Essayez à nouveau</StyledText>.</span>
                     )}
                 </div>
             )}

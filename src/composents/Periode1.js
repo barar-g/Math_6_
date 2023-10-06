@@ -44,10 +44,6 @@ function Accueil() {
         alignItems="center"
         style={{ marginTop: "20px" }}
       >
-        <Button onClick={() => navigate('/choix examn')}>Sciencs Naturel</Button>
-        <Button onClick={() => navigate('/Mathexam')}>Mathématique</Button>
-        <Button onClick={() => navigate('/choix examn')}>Français</Button>
-        <Button onClick={() => navigate('/choix examn')}>Arabe</Button>
         <Button onClick={() => navigate('/C1')}>C1</Button>
         <Button onClick={() => navigate('/C2')}>C2</Button>
         <Button onClick={() => navigate('/C3')}>C3</Button>

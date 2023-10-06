@@ -6,7 +6,7 @@ import owl2 from '../Images/owl2.png';
 import owl3 from '../Images/owl3.png';
 import owl4 from '../Images/owl4.png';
 import tree from '../Images/tree.png';  // Assurez-vous que ce chemin d'accès est correct.
-import Test2 from './Test2';
+import Test2 from './QCMC12';
 import P2A3_1 from './P2A3-1'; // Assurez-vous que le chemin est correct.
 import P2A3_2 from './P2A3-2';
 

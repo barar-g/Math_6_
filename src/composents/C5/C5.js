@@ -3,7 +3,7 @@ import fteacher from "../Images/teacher.png";
 import inestine from "../Images/inestine.png";
 import C5A1 from "./C5A1";
 import C5A2 from "./C5A2";
-import TestC5 from "./TestC5";
+import TestC5 from "./QCMC5";
 
 import styled from "styled-components";
 

@@ -136,7 +136,7 @@ const C1A2 = () => {
               
               <br />
               
-              <Grid container spacing={1}>
+              <Grid container spacing={-8}>
                 {[0,1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
                   <Grid item xs={4} key={number}>
                     <VibrantFab onClick={() => handleNumberClick(number)} $isSelected={selectedNumber === number}>

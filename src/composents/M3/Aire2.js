@@ -8,7 +8,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ReplayIcon from '@material-ui/icons/Replay';
 import TextField from '@material-ui/core/TextField';  // Ajout de TextField
 import Aire1 from './Aire1'
-import QCMAire from './QCMAire';
+import QCMM3 from './QCMM3';
 import teacherImage from '../Images/Prof1.png';
 import Formule from './Formule';
 import { Button } from '@mui/material';
@@ -151,7 +151,7 @@ function AngleMeasurement() {
             </CardContent>
         </Card>
         </div>)}
-        {section >= 2 && (<QCMAire></QCMAire>)}
+        {section >= 2 && (<QCMM3></QCMM3>)}
 
         {section < 2 && (  // Notez que j'ai utilisé '< 3' car vous avez 4 sections (0, 1, 2, 3)
                 <Button variant="contained" color="primary" onClick={nextSection} sx={{ mt: 2, alignSelf: 'center' }}>

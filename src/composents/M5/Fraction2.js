@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import teacherImage from '../Images/Prof1.png';
 import Chap10 from './Chap10';
 import P2A4 from './P2A4';
-import QuestionCard from './QcmFraction';
+import QCMM5 from './QCMM5';
 
 const PlayArea = styled(Box)({
   width: '100%',
@@ -146,7 +146,7 @@ const MesurAire = () => {
             
             {section >= 2 && <P2A4 />}
             
-            {section >= 3 && <QuestionCard />}
+            {section >= 3 && <QCMM5 />}
             
             {section < 3 && (  // Notez que j'ai utilisé '< 3' car vous avez 4 sections (0, 1, 2, 3)
                 <Button variant="contained" color="primary" onClick={nextSection} sx={{ mt: 2, alignSelf: 'center' }}>

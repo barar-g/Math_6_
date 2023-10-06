@@ -4,7 +4,7 @@ import inestine from "../Images/inestine.png";
 import C3A1 from "./C3A1";
 import C3A2 from "./C3A2";
 import C3A3 from "./C3A3";
-import TestC3 from "./TestC3";
+import TestC3 from "./QCMC3";
 
 import styled from "styled-components";
 

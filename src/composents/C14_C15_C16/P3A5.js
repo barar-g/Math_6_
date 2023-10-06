@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// Assurez-vous que ce chemin d'accès est correct.
 import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
-import Test5 from "./Test5";
+import Test5 from "./QCMC14";
 import P3A5_2 from "./P3A5-2";
 import Bend from "./Bend";
 import "./bend.css";
 import useSound from "use-sound";
 import correctSound from "../sounds/correct.mp3";
 import incorrectSound from "../sounds/incorrect.mp3";
-// Styles
+import QCMC14 from'./QCMC14';
+
 
 const BandeBox = styled.div`
   width: 150px;
@@ -449,8 +449,12 @@ const P3A5 = () => {
           </div>
         
         </SectionContainer>)}
-        
-      {section < 2 && (
+        {section >= 3 && showSections[1] && (
+<SectionContainer>
+       <QCMC14/>
+        </SectionContainer>)}
+
+      {section < 3 && (
         <ContinueButton onClick={() => setSection(section + 1)}>
           Continuer
         </ContinueButton>
