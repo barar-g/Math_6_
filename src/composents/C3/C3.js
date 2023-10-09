@@ -8,6 +8,7 @@ import TestC3 from "./QCMC3";
 
 import styled from "styled-components";
 
+<<<<<<< Updated upstream
 const StyledText = styled.p`
   padding: 0px 20px;
   display: flex;
@@ -72,6 +73,21 @@ const Title = styled.h1`
     font-size: 24px;
   }
 `;
+=======
+import {
+  Container,
+  Title,
+  SectionContainer,
+  ImageContainer,
+  Card,
+  BodyText,
+  Subtitle, 
+  FormulaBox,
+  FormulaText,
+  StyledText,
+  ContinueButton,
+} from '../Styles/MajorStyles'; 
+>>>>>>> Stashed changes
 
 
 const Subtitle = styled.h2`
