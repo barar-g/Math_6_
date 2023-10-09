@@ -1,73 +1,24 @@
 import React, { useState } from 'react';
 import G3A1 from './G3A1';
-import G3A2 from './G3A2'
-
+import G3A2 from './G3A2';
 import QCMG3 from './QCMG3';
-import Container from '@mui/material/Container';
-import styled from 'styled-components';
+
 import teacher from '../Images/teacher.png';
 
+// Importing styled components from MajorStyles.js
+import {
+    Container,
+    SectionContainer,
+    ImageContainer,
+    Card,
+    BodyText,
+    Subtitle,
+    FormulaBox,
+    FormulaText,
+    ContinueButton,
+    Separator
+} from '../Styles/MajorStyles';
 
-const SectionContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e1e1e1;
-`;
-
-
-
-const ImageContainer = styled.div`
-    flex: 0 0 auto;
-    width: 170px; 
-    margin-right: 20px; 
-    img {
-        width: 100%;
-        height: auto;
-    }
-`;
-
-const Card = styled.div`
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 20px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-    font-family: 'Roboto', sans-serif; 
-    font-size: 16px;
-    line-height: 1.5;
-    color: white; // texte en blanc pour le contraste avec le fond bleu
-    
-    @media (max-width: 480px) {
-        font-size: 14px;
-    }
-`;
-
-const ContinueButton = styled.button`
-display: block;
-margin: 15px 0;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-background-color: #007BFF;
-color: white;
-cursor: pointer;
-font-family: 'Roboto', sans-serif;
-font-size: 16px;
-
-&:hover {
-    background-color: #0056b3;
-}
-`;
-
-const Separator = styled.div`
-    height: 1px;
-    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
-    margin: 20px 0; /* marges pour espacer la barre des sections */
-`;
 
 const C1 = () => {
     const [section, setSection] = useState(0);
@@ -81,15 +32,48 @@ const C1 = () => {
                     </ImageContainer>
                     <Card>
                         <BodyText>
-                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grends nombers.
+                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Mesures des Angles.
                         </BodyText>
                     </Card>
                    
                 </SectionContainer>
                 <br/>
-         
+                {section >= 1 &&  (
+      <Subtitle> Rappel</Subtitle>)}
+      {section >= 1  && (
+      <SectionContainer>
+        <FormulaBox>
+                        <Subtitle>🔍 Concept clés🔍</Subtitle>
+                        <FormulaText>
+    <strong>Mesure des angles :</strong>
+    Un angle est défini par la rencontre de deux demi-droites ayant une origine commune. La mesure de cet angle est l'écart entre ces deux demi-droites et elle est généralement exprimée en degrés (°).
+</FormulaText>
+<FormulaText>
+    <strong>Angle aigu :</strong> 
+    Un angle dont la mesure est comprise entre 0° et 90° (non inclus).
+</FormulaText>
+<FormulaText>
+    <strong>Angle droit :</strong> 
+    Un angle qui mesure exactement 90°.
+</FormulaText>
+<FormulaText>
+    <strong>Angle obtus :</strong>
+    Un angle dont la mesure est comprise entre 90° et 180° (non inclus).
+</FormulaText>
+<FormulaText>
+    <strong>Angle plat :</strong>
+    Un angle qui mesure exactement 180°.
+</FormulaText>
+<FormulaText>
+    <strong>Angle plein :</strong>
+    Un angle qui mesure exactement 360°.
+</FormulaText>
+
+                    </FormulaBox>
+        </SectionContainer>
+      )}
             
-            {section >= 1 && (<div> 
+            {section >= 2 && (<div> 
               
                 <div >
                   
@@ -101,7 +85,7 @@ const C1 = () => {
                 </div>
                 </div> )}
             
-            {section >= 2 && (
+            {section >= 3 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                       
@@ -113,10 +97,10 @@ const C1 = () => {
 
            
 
-            {section >= 3 && (<div><QCMG3/> 
+            {section >= 4 && (<div><QCMG3 /> 
             </div>)}
 
-            {section < 3 && (
+            {section < 4 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>

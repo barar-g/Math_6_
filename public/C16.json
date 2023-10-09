@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Quelle fraction est équivalente à 1/2 ?",
+        "answers": ["3/6", "4/9", "2/3", "5/11"],
+        "correctAnswer": "3/6",
+        "explanation": "3/6 est équivalent à 1/2 car les deux fractions représentent la même valeur quand on les simplifie.",
+        "userAnswer": null
+    },
+    {
+        "question": "Laquelle de ces fractions est équivalente à 2/3 ?",
+        "answers": ["4/6", "6/9", "8/10", "7/11"],
+        "correctAnswer": "4/6",
+        "explanation": "4/6 est équivalent à 2/3 car lorsqu'on simplifie 4/6, on obtient 2/3.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle fraction est équivalente à 3/4 ?",
+        "answers": ["6/10", "9/12", "8/11", "7/10"],
+        "correctAnswer": "9/12",
+        "explanation": "9/12 est équivalent à 3/4 car lorsqu'on simplifie 9/12, on obtient 3/4.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle fraction n'est pas équivalente à 5/10 ?",
+        "answers": ["1/2", "2/4", "3/6", "4/9"],
+        "correctAnswer": "4/9",
+        "explanation": "4/9 n'est pas équivalent à 5/10.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle fraction est équivalente à 4/8 ?",
+        "answers": ["1/2", "2/5", "3/7", "5/10"],
+        "correctAnswer": "1/2",
+        "explanation": "4/8 est équivalent à 1/2 car lorsqu'on simplifie 4/8, on obtient 1/2.",
+        "userAnswer": null
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Quelle est la mesure d'un angle droit?",
+        "answers": ["45°", "90°", "180°", "360°"],
+        "correctAnswer": "90°",
+        "explanation": "Un angle droit mesure 90°.",
+        "userAnswer": null
+    },
+    {
+        "question": "Si un angle est plus petit qu'un angle droit, comment est-il appelé?",
+        "answers": ["Aigu", "Obtus", "Plat", "Complet"],
+        "correctAnswer": "Aigu",
+        "explanation": "Un angle qui mesure moins de 90° est appelé angle aigu.",
+        "userAnswer": null
+    },
+    {
+        "question": "Combien mesure un angle plat?",
+        "answers": ["45°", "90°", "180°", "360°"],
+        "correctAnswer": "180°",
+        "explanation": "Un angle plat mesure 180°.",
+        "userAnswer": null
+    },
+    {
+        "question": "Deux angles sont complémentaires si leur somme est de ...",
+        "answers": ["45°", "90°", "180°", "360°"],
+        "correctAnswer": "90°",
+        "explanation": "Deux angles sont complémentaires si la somme de leurs mesures est de 90°.",
+        "userAnswer": null
+    },
+    {
+        "question": "Deux angles sont supplémentaires si leur somme est de ...",
+        "answers": ["45°", "90°", "180°", "360°"],
+        "correctAnswer": "180°",
+        "explanation": "Deux angles sont supplémentaires si la somme de leurs mesures est de 180°.",
+        "userAnswer": null
+    }
+]

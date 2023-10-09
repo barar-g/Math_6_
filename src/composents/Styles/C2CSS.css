@@ -1,0 +1,90 @@
+.bande-box-container {
+    display: block; /* Make sure the containers stack vertically */
+    margin-bottom: 0px; /* Add some spacing between the containers */
+  }
+  .frac {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+    
+    
+  }
+  .frac1 {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+    
+  
+    
+    
+  }
+  .frac > span {
+    display: block;
+    padding: 0.1em;
+  
+  }
+  .frac span.bottom {
+    border-top: thin solid black;
+  }
+  .frac span.symbol {
+    display: none;
+  }
+  .frac1 > span {
+    display: block;
+    padding: 0.1em;
+  }
+  .frac1 span.bottom {
+    border-top: thin solid black;
+  }
+  .frac1 span.symbol {
+    display: none;
+  }
+  
+  
+  .fractions{
+    padding:30px;
+    font-size: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    &:hover {
+      background-color: #4586a0;
+    }
+  
+  }
+  .mainSymb{
+    
+    font-size: 47px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    &:hover {
+      background-color: #4586a0;
+    }
+  }
+  
+  
+  
+  .symbols{
+    padding:"15px";
+    font-size: "30px";
+    border-radius: "20px";
+    margin-Left: 13px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+     &:hover {
+      background-color: #457fa0;
+     }
+    }
+  .symbols1{
+    padding:"15px";
+    font-size: "30px";
+    border-radius: "20px";
+    margin-right: 65px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+     &:hover {
+       background-color: #457fa0;
+     }
+  }

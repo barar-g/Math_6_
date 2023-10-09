@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Quelle est la droite qui coupe un segment de triangle en deux segments de même longueur?",
+        "answers": ["Médiatrice", "Médiane", "Hauteur", "Bissectrice"],
+        "correctAnswer": "Médiane",
+        "explanation": "La médiane d'un triangle est la droite qui joint un sommet à le milieu du côté opposé.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est la droite perpendiculaire à un côté d'un triangle et passant par le sommet opposé?",
+        "answers": ["Médiane", "Bissectrice", "Médiatrice", "Hauteur"],
+        "correctAnswer": "Hauteur",
+        "explanation": "La hauteur d'un triangle est la droite perpendiculaire à un côté (ou à son prolongement) passant par le sommet opposé.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est la droite qui divise un angle d'un triangle en deux angles égaux?",
+        "answers": ["Hauteur", "Médiane", "Médiatrice", "Bissectrice"],
+        "correctAnswer": "Bissectrice",
+        "explanation": "La bissectrice d'un triangle est la droite qui divise un angle du triangle en deux angles égaux.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est la droite perpendiculaire à un côté d'un triangle, et qui le coupe en deux segments de même longueur?",
+        "answers": ["Hauteur", "Bissectrice", "Médiane", "Médiatrice"],
+        "correctAnswer": "Médiatrice",
+        "explanation": "La médiatrice d'un segment est la droite perpendiculaire à ce segment et qui passe par son milieu.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quel est le point où les trois médianes d'un triangle se rencontrent?",
+        "answers": ["Orthocentre", "Circoncentre", "Centre de gravité", "Incentre"],
+        "correctAnswer": "Centre de gravité",
+        "explanation": "Le centre de gravité, également appelé centroïde, est le point de rencontre des trois médianes d'un triangle.",
+        "userAnswer": null
+    }
+]

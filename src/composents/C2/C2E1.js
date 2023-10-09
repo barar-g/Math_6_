@@ -3,7 +3,11 @@ import { Box, Typography, Button, Grid, Card, CardContent } from "@mui/material"
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import styled from "styled-components";
+import useSound from "use-sound";
+import correctSound from "../sounds/correct.mp3";
+import incorrectSound from "../sounds/incorrect.mp3";
 import { Scale } from '@mui/icons-material';
+import "../Styles/C2CSS.css";
 
 const StyledText = styled.p`
   padding: 0px 20px;
@@ -30,6 +34,8 @@ font-size: 16px;
 }
 `;
 
+
+
 const VerifyButtom = styled.button`
   border-radius: 5px;
   background-color: #007bff;
@@ -51,117 +57,86 @@ const FormulaBox = styled.div`
   background-color: white;
 `;
 
-const ItemTypes = {
-  SIGN: 'sign',
-  NUMBER: 'number',
-};  
-
-const Sign = ({ id, text }) => {
-  const [{ isDragging }, drag] = useDrag({
-    type: ItemTypes.SIGN,
-    item: { id },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-
-  return (
-    <Button
-      ref={drag}
-      variant="contained"
-      style={{
-        opacity: isDragging ? 0.5 : 1, 
-        fontSize: '1.5em', 
-        backgroundColor: 'blue',
-        color: 'white',
-        borderRadius: '50%', // Make button round
-        width: '60px', // Ensure it's a circle, not an oval
-        height: '60px' // Ensure it's a circle, not an oval
-      }}
-    >
-      {text}
-    </Button>
-  );
-};
-
-const Slot = ({ accept, lastDroppedId, handleDrop }) => {
-  const [, drop] = useDrop({
-    accept,
-    drop: (item) => handleDrop(item.id),
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
-  });
-
-  return (
-    <Button
-      ref={drop} 
-      variant="outlined"
-      style={{
-        fontSize: '1.5em', 
-        backgroundColor: 'blue',
-        color: 'white',
-        borderRadius: '50%', // Make button round
-        width: '0px', // Ensure it's a circle, not an oval
-        height: '60px', // Ensure it's a circle, not an oval
-       
-      }}
-    >
-      {lastDroppedId !== null ? lastDroppedId : '?'}
-    </Button>
-  );
-};
 
 const C2A1 = () => {
-  const [numbers, setNumbers] = useState([0, 0]);
   const [signs] = useState(['>', '=', '<']);
   const [droppedSign, setDroppedSign] = useState(null);
-  const [score, setScore] = useState(0);
+  const [selectedSymbol, setSelectedSymbol] = useState(">");
+  const [showCongratulations, setShowCongratulations] = useState(false);
+  const [showX, setShowX] = useState(false);
+  const [opverify, setOpverify] = useState(false);
+  const [play] = useSound(correctSound);
+  const [play1] = useSound(incorrectSound);
+  const [questions, setQuestions] = useState([]);
+
+
+
+
+
+  const generateQuestion = () => {
+    const newQuestions = [generateNumbers()];
+    setQuestions(newQuestions);
+    setShowCongratulations(false);
+    
+  };
+  const generateNumbers = () => {
+    const first = Math.floor(Math.random() * 1000000000);
+    const last = Math.floor(Math.random() * 1000000000);
+    return { first, last };
+  };
+
+  const VerifieSumbol = () => {
+    const first = questions.reduce((sum, q) => sum + Math.floor(q.first), 0);
+    const last = questions.reduce((sum, q) => sum + q.last, 0);
+    if (selectedSymbol === ">" && first >= last) {
+      setShowCongratulations(true);
+      setOpverify(true);
+      play();
+    } else if (selectedSymbol === "<" && last > first) {
+      setShowCongratulations(true);
+      setOpverify(true);
+      play()
+    } else if (selectedSymbol === "=" && last === first) {
+      setShowCongratulations(true);
+      setOpverify(true);
+      play()
+    } else {
+      setShowCongratulations(false);
+      setOpverify(false);
+      play1();
+      setShowX(true); // Show the "X" element
+      setTimeout(() => {
+        setShowX(false); // Hide the "X" element after 2 seconds
+      }, 2000);
+    }
+  };
+  const handleSymbolClick = (symbol) => {
+    setSelectedSymbol(symbol);
+  };
+
+ 
+
+
+
+  const verify = () => {
+    VerifieSumbol();
+  };
+
 
   useEffect(() => {
-    generateNumbers();
+    generateQuestion();
   }, []);
 
-  const generateNumbers = () => {
-    setNumbers([Math.floor(Math.random() * 1000000000), Math.floor(Math.random() * 1000000000)]);
-    setDroppedSign(null);
-  };
+  
 
   const resetGame = () => {
-    setNumbers([0, 0]);
-    setDroppedSign(null);
-    setScore(0);
-  };
-
-  const handleDrop = (sign) => {
-    setDroppedSign(sign);
-  };
-
-  const checkResult = () => {
-    const [number1, number2] = numbers;
-    let isCorrect;
-
-    switch(droppedSign) {
-      case '>':
-        isCorrect = number1 > number2;
-        break;
-      case '=':
-        isCorrect = number1 === number2;
-        break;
-      case '<':
-        isCorrect = number1 < number2;
-        break;
-      default:
-        isCorrect = false;
+    if (opverify) {
+    generateQuestion();
+    setShowCongratulations(false);
+    setOpverify(false);
     }
-
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    generateNumbers();
   };
+
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -170,7 +145,6 @@ const C2A1 = () => {
           display: 'flex', 
           justifyContent: 'center', 
           alignItems: 'center', 
-          height: '50vh', 
           bgcolor: 'background.default',
         }}>
         <Card elevation={3}>
@@ -187,30 +161,57 @@ const C2A1 = () => {
           >
             <div style={{ display: "flex", alignItems: "center" }}>
             <StyledText>
-                  {numbers[0]}
+            {questions.map((q, index) => (
+                    <span>{q.first}</span>
+                  ))}
                 </StyledText>
 
-              <Slot accept={ItemTypes.SIGN} lastDroppedId={droppedSign} handleDrop={handleDrop} />
+              <FormulaBox className="mainSymb">{selectedSymbol}</FormulaBox>
 
               <StyledText>
-                  {numbers[1]}
+              {questions.map((q, index) => (
+                    <span>{q.last}</span>
+                  ))}
                 </StyledText>
             </div>
 </div>
 
             <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
-              {signs.map((sign, index) => (
-                <Grid item key={index}>
-                  <Sign id={sign} text={sign} />
-                </Grid>
-              ))}
+                <FormulaBox 
+                className="symbols" onClick={() => handleSymbolClick("<")}>
+                &#60;
+                </FormulaBox>
+                <FormulaBox 
+                className="symbols"
+                onClick={() => handleSymbolClick("=")}>
+                &#61;
+                </FormulaBox>
+                <FormulaBox className="symbols"
+                onClick={() => handleSymbolClick(">")}>
+                &#62;
+                </FormulaBox>
             </Grid>
+            <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <div  style={{ display: "flex", alignItems: "center" ,marginTop:"10px" }}>
+            <Grid>
+              {showX && <span>✖️</span>}
+              {showCongratulations && <span>✅</span>}
+              </Grid>
+            </div>
+            </div>
             <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
               <Grid item>
-                <VerifyButtom onClick={checkResult} disabled={!droppedSign}>
+                <VerifyButtom onClick={verify}>
                   OK
                 </VerifyButtom>
               </Grid>
+              
               <Grid item>
                 <ResetButton 
                   onClick={resetGame} 

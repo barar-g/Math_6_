@@ -1,13 +1,14 @@
+// Activite de division , remplacement divs.jss
+
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
-  Button,
-  Card,
-  CardContent,
-  Box,
   TextField,
-  Typography,
 } from "@mui/material";
+import vertical from "../Images/vertical.png";
+import horizontal from "../Images/horizontal.png";
+import { color } from "d3";
+
 
 const TriangleContainer = styled.div`
   display: block;
@@ -78,6 +79,7 @@ function P3A3() {
   const [showCongratulations, setShowCongratulations] = useState(false);
   const [devide, setdevide] = useState(false);
   const [step, setStep] = useState(0);
+  const [zero, setZero] = useState(false);
 
   const calculateDivision = () => {
     const newQuestions = [
@@ -89,7 +91,7 @@ function P3A3() {
   };    
     const generateSingleQuestion = () => {
     if (divisor === 0) {
-      alert("Divisor cannot be zero.");
+      setZero(true);
       return;
     } else if (dividend.toString().length != 3 ||divisor.toString().length != 1 ){
       setShowCongratulations(true);
@@ -129,6 +131,7 @@ function P3A3() {
     setdevide(false);
     setStep(0);
     setCalculated(false);
+    setZero(false);
   } 
 
   const forward = () => {
@@ -177,8 +180,168 @@ console.log(step)
               alignItems: "center",
             }}
           >
+<div>
+
+
+              
+{!showCongratulations && !devide && (
+<StyledText1>
+    
+    <span>Bienvenue dans le programme de division </span>
+    </StyledText1 >
+    )}
+                {calculated && devide &&!showCongratulations  && step ===0 && (
+                 <StyledText1 style={{color:"red"}}>
+                 Prenez les deux chiffres ({dividend.toString().slice(0,2)}), combien de {divisor} dans {dividend.toString().slice(0,2)}. obtenez {quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1)}.</StyledText1>
+    )}
+
+{step === 1  && (
+<StyledText1 style={{color:"blue"}}>
+Multipliez les deux chiffres,  {quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1) }  par {divisor}, obtenez  {(quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1) )*divisor}. </StyledText1>
+    )}
+
+{step === 2  && (
+<StyledText1 style={{color:"green"}}>
+      {dividend.toString().slice(0,2)} - {(quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1) )*divisor}= {(dividend.toString().slice(0,2))-((quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1) )*divisor)}, Faites descendre le troisième nombre({dividend[2]}), obtenez {dividend-(((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))+'0')}</StyledText1>
+    )}
+
+{step === 3  && (
+<StyledText1 style={{color:"purple"}}>
+     Combien de {divisor} dans {dividend-(((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))+'0')}?
+    Obtenez {quotient%10} ajoutez derniere, obtenez {quotient}. </StyledText1>
+    )}
+
+
+{step === 4  && (
+<StyledText1 style={{color:"maroon"}}>
+     mulitpliez  le nombre {(quotient%10)} avec {(divisor)} obtenez {(quotient%10)*(divisor)}.</StyledText1>
+    )}
+
+{step === 5  && (
+<StyledText1 style={{color:"navy"}}>
+   {dividend-(((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))+'0')} - {(quotient%10)*(divisor)} = {remainder} &#60; ({(divisor)}) arretez la division. felictiations!</StyledText1>
+    )}
+
+
+{showCongratulations && (
+  <StyledText1>
+    
+  <span>Choisir un divident de 3 unités et un diviseur de 1 unité, cliquer reset</span>
+  </StyledText1>
+)}
+{zero &&(
+  <StyledText1>
+    
+  <span>C est impossible de diviser par zero, cliquer reset.</span>
+  </StyledText1>
+)}
+</div>
+
+
             <div>
-            <div>
+            
+
+            
+
+            
+              <BandeBox>
+                <div className="triangle-activity">
+                <TextField
+          type="text"
+          placeholder="Dividend"
+          value={dividend}
+          maxLength="3"
+          onChange={(e) => setDividend(e.target.value)}
+          style={{ width: "90px", marginBottom:"5px", padding: "-20px 0px"}}
+          fullWidth
+        />
+        {step >= 1 &&(
+        <div>
+        
+                <TextField
+          type="text"
+          placeholder="123"
+          value={(dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor))+' '+'*'}
+          onChange={(e) => setDividend(parseInt(e.target.value))}
+          style={{ width: "90px", marginBottom:"5px"}}
+        />
+
+{step >= 2 &&
+               <TextField
+          type="text"
+          placeholder="Dividend"
+          value={dividend-(((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))+'0')}
+          onChange={(e) => setDividend(parseInt(e.target.value))}
+          style={{ width: "90px" , marginBottom:"5px"}}
+        />
+}
+{step >= 4 &&
+                <TextField
+          type="text"
+          placeholder="Dividend"
+          value={((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))*10+dividend%10)-((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))*10+dividend%10)%divisor}
+          onChange={(e) => setDividend(parseInt(e.target.value))}
+          style={{ width: "90px" , marginBottom:"5px"}}
+        />
+}
+{step >= 5 &&
+              <span style = {{width: "50px" }}>
+            {remainder !== 0 && `Rest=${remainder}`}
+          </span>
+}
+          </div>
+          )}
+           
+          
+        
+                </div>
+                <div>
+                <img src={vertical} alt="Teacher" style={{ width:"30px", height:"250px" }} />
+                </div>
+                <div>
+                <TextField
+          type="number"
+          placeholder="Divisr"
+          value={divisor}
+          onChange={(e) => setDivisor(parseInt(e.target.value))}
+          style={{ width: "90px", marginBottom:"5px"}}
+          fullWidth
+        />
+        
+        <div>
+                <img src={horizontal} alt="Teacher" style={{ width:"120px", height:"35px",   padding: "0px 0px", left:"10px", marginLeft:"-25px" }} />
+                </div>
+        
+        {calculated && devide &&!showCongratulations  && step<3 &&
+                        <TextField
+          type="text"
+          placeholder="123"
+          value={quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1) }
+          onChange={(e) => setDividend(parseInt(e.target.value))}
+          style={{ width: "90px"}}
+        />
+}
+
+        {step >= 3 &&
+                                <TextField
+          type="text"
+          placeholder="123"
+          value={quotient}
+          onChange={(e) => setDividend(parseInt(e.target.value))}
+          style={{ width: "90px", marginBottom:"5px"}}
+        />
+}
+
+
+        {step >= 5 && !showCongratulations &&(
+          <span style={{ width: "90px"}}>
+      Quotient={quotient}
+      </span>
+      )}
+
+                </div>
+              </BandeBox>
+              <div>
               {" "}
               <ResetButton
                 variant="contained"
@@ -205,110 +368,6 @@ console.log(step)
               >Reset
               </VerifieButton>
             </div>
-              <BandeBox>
-                <div className="triangle-activity">
-                <TextField
-          type="text"
-          placeholder="Dividend"
-          value={dividend}
-          maxLength="3"
-          onChange={(e) => setDividend(e.target.value)}
-          style={{ width: "100px", marginBottom:"5px"}}
-          fullWidth
-        />
-        {step >= 1 &&(
-        <div>
-        
-                <TextField
-          type="text"
-          placeholder="123"
-          value={(dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor))+' '+'*'}
-          onChange={(e) => setDividend(parseInt(e.target.value))}
-          style={{ width: "100px", marginBottom:"5px" }}
-        />
-
-{step >= 2 &&
-               <TextField
-          type="text"
-          placeholder="Dividend"
-          value={dividend-(((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))+'0')}
-          onChange={(e) => setDividend(parseInt(e.target.value))}
-          style={{ width: "100px" , marginBottom:"5px"}}
-        />
-}
-{step >= 4 &&
-                <TextField
-          type="text"
-          placeholder="Dividend"
-          value={((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))*10+dividend%10)-((dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)-(dividend.toString().slice(0, 2)%divisor)))*10+dividend%10)%divisor}
-          onChange={(e) => setDividend(parseInt(e.target.value))}
-          style={{ width: "100px" , marginBottom:"5px"}}
-        />
-}
-{step >= 5 &&
-              <span style = {{width: "50px" }}>
-            {remainder !== 0 && `Rest=${remainder}`}
-          </span>
-}
-          </div>
-          )}
-          
-        
-                </div>
-                <div>
-                <TextField
-          type="number"
-          placeholder="Divisr"
-          value={divisor}
-          onChange={(e) => setDivisor(parseInt(e.target.value))}
-          style={{ width: "100px", marginLeft: "10px", marginRight: "10px", marginBottom:"5px"}}
-          fullWidth
-        />{calculated && devide &&!showCongratulations  && step<3 &&
-                        <TextField
-          type="text"
-          placeholder="123"
-          value={quotient.toString().length > 2 ? quotient.toString().slice(0, 2) : quotient.toString().slice(0, 1) }
-          onChange={(e) => setDividend(parseInt(e.target.value))}
-          style={{ width: "100px", marginLeft: "10px", marginRight: "10px", marginBottom:"5px"}}
-        />
-}
-        {step >= 3 &&
-                                <TextField
-          type="text"
-          placeholder="123"
-          value={quotient}
-          onChange={(e) => setDividend(parseInt(e.target.value))}
-          style={{ width: "100px", marginLeft: "10px", marginRight: "10px", marginBottom:"5px"}}
-        />
-}
-        {step >= 5 && !showCongratulations &&(
-          <span style={{ width: "100px",marginLeft: "10px"}}>
-      Quotient={quotient}
-      </span>
-      )}
-
-                </div>
-              </BandeBox>
-            </div>
-            <div>
-            {!showCongratulations && !devide && (
-            <StyledText1>
-                
-                <span>Bienvenue dans le programme de division </span>
-                </StyledText1>
-                )}
-                            {calculated && devide &&!showCongratulations && (
-            <StyledText1>
-                
-                <span>Parfait !!! </span>
-                </StyledText1>
-                )}
-            {showCongratulations && (
-              <StyledText1>
-                
-              <span>Choisir un divident de 3 unités et un diviseur de 1 unité </span>
-              </StyledText1>
-            )}
             </div>
             </div>
             </div>

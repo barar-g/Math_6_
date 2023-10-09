@@ -1,107 +1,25 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import cake from "../Images/cake.png";
 import cake1 from "../Images/cake1.png";
-// Assurez-vous que ce chemin d'accès est correct.
 import Test4 from "./QCMC13";
 import fractionss from "../Images/Fractions.png";
 import fteacher from "../Images/fteacherr.png";
 import fraction from "../Images/fraction.png";
 import P3A4_1 from "./P3A4-1";
 
-// Styles
-const Container = styled.div`
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-`;
+import {
+  Container,
+  SectionContainer,
+  ImageContainer,
+  Card,
+  BodyText,
+  Title,
+  Subtitle,
+  FormulaBox,
+  FormulaText,
+  ContinueButton
+} from '../Styles/MajorStyles';  
 
-const SectionContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e1e1e1;
-`;
-
-const ImageContainer = styled.div`
-  flex: 0 0 auto;
-  width: 150px;
-  margin-right: 20px;
-  img {
-    width: 100%;
-    height: "auto";
-  }
-`;
-
-const Card = styled.div`
-  background-color: #007bff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: white; // texte en blanc pour le contraste avec le fond bleu
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-  }
-`;
-
-const Title = styled.h1`
-  font-family: "Roboto", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #222;
-
-  @media (max-width: 480px) {
-    font-size: 24px;
-  }
-`;
-
-
-const Subtitle = styled.h2`
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  color: #444;
-
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
-`;
-
-const FormulaBox = styled.div`
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 20px;
-  background-color: #f9f9f9;
-`;
-
-const FormulaText = styled(BodyText)`
-  color: black; // Ici nous définissons la couleur en noir
-`;
-
-const ContinueButton = styled.button`
-  display: block;
-  margin: 0px 0;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 // App Component
 const P2A1A = () => {
@@ -256,9 +174,8 @@ const P2A1A = () => {
         </div>
       )}
       {section < 6 && (
-        <ContinueButton onClick={() => setSection(section + 1)}>
-          Continuer
-        </ContinueButton>
+               <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>            
+
       )}
 
     </Container>

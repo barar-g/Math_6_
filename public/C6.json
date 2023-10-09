@@ -1,0 +1,26 @@
+[
+    {
+        "question": "Quel est le résultat de (12 345 multiplié par 678) ajouté à 456 789?",
+        "answers": ["8 819 499", "8 819 590", "8 818 500", "8 820 000"],
+        "correctAnswer": "8 819 499",
+        "explanation": "12 345 x 678 = 8 362 710 et 8 362 710 + 456 789 = 8 819 499."
+    },
+    {
+        "question": "Quel est le résultat de (9 876 multiplié par 543) ajouté à 789 123?",
+        "answers": ["6 151 711", "6 142 711", "6 141 701", "6 151 700"],
+        "correctAnswer": "6 151 711",
+        "explanation": "9 876 x 543 = 5 362 588 et 5 362 588 + 789 123 = 6 151 711."
+    },
+    {
+        "question": "Quel est le produit de (25 467 multiplié par 1 234) ajouté à 987 654?",
+        "answers": ["32 395 232", "32 396 232", "32 394 232", "32 395 223"],
+        "correctAnswer": "32 395 232",
+        "explanation": "25 467 x 1 234 = 31 407 578 et 31 407 578 + 987 654 = 32 395 232."
+    },
+    {
+        "question": "Quel est le résultat de (65 432 multiplié par 321) ajouté à 1 234 567?",
+        "answers": ["22 264 779", "21 264 789", "22 263 779", "21 263 789"],
+        "correctAnswer": "22 264 779",
+        "explanation": "65 432 x 321 = 21 030 212 et 21 030 212 + 1 234 567 = 22 264 779."
+    }
+]

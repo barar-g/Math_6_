@@ -136,23 +136,27 @@ const C1A2 = () => {
               
               <br />
               
-              <Grid container spacing={-8}>
-                {[0,1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
-                  <Grid item xs={4} key={number}>
-                    <VibrantFab onClick={() => handleNumberClick(number)} $isSelected={selectedNumber === number}>
-                      {number}
-                    </VibrantFab>
-                    
-                  </Grid>
-                  
-                ))}
-                <Grid item xs={4}>
-                  <VibrantFab onClick={handleReset}><ReplayIcon /></VibrantFab>
-                </Grid>
-              </Grid>
-              
-              <br />
-              <StyledButton variant="contained" onClick={handleValidate}>Ok</StyledButton>
+              <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" >
+    <Grid container spacing={-8}>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((number) => (
+            <Grid item xs={4} key={number}>
+                <VibrantFab onClick={() => handleNumberClick(number)} $isSelected={selectedNumber === number}>
+                    {number}
+                </VibrantFab>
+            </Grid>
+        ))}
+        <Grid item xs={4}>
+            <VibrantFab onClick={() => handleNumberClick(9)}>9</VibrantFab>
+        </Grid>
+        <Grid item xs={4}>
+            <VibrantFab onClick={handleReset}><ReplayIcon /></VibrantFab>
+        </Grid>
+        <Grid item xs={4}>
+            <VibrantFab variant="contained" onClick={handleValidate}>Ok</VibrantFab>
+        </Grid>
+    </Grid>
+</Box>
+
               {!isValid && <Typography color="error">La réponse est incorrecte. Essayer encore!</Typography>}
               {isValid && showNextButton && <Typography color="primary">Bravo, c'est correct !</Typography>}
 

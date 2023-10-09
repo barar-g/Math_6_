@@ -4,8 +4,23 @@ import inestine from "../Images/inestine.png";
 import C2A1 from "./C2A1";
 import C2E1 from "./C2E1";
 import C2E2 from "./C2E2";
-import TestC2 from "./QCMC2";
+import QCMC2 from "./QCMC2";
 import styled from "styled-components";
+
+
+
+import {
+  Container,
+  SectionContainer,
+  ImageContainer,
+  Card,
+  BodyText,
+  Title,
+  Subtitle,
+  FormulaBox,
+  FormulaText,
+  ContinueButton
+} from '../Styles/MajorStyles'; 
 
 const StyledText = styled.p`
   padding: 0px 20px;
@@ -19,98 +34,9 @@ const StyledText = styled.p`
   }`;
 
 
-const Container = styled.div`
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const SectionContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e1e1e1;
-`;
-
-const ImageContainer = styled.div`
-  flex: 0 0 auto;
-  width: 150px;
-  margin-right: 20px;
-  img {
-    width: 100%;
-    height: "auto";
-  }
-`;
-
-const Card = styled.div`
-  background-color: #007bff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: white; // texte en blanc pour le contraste avec le fond bleu
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-  }
-`;
-
-const Title = styled.h1`
-  font-family: "Roboto", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #222;
-
-  @media (max-width: 480px) {
-    font-size: 24px;
-  }
-`;
 
 
-const Subtitle = styled.h2`
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  color: #444;
 
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
-`;
-
-const FormulaBox = styled.div`
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 20px;
-  background-color: white;
-`;
-
-const FormulaText = styled(BodyText)`
-  color: black; // Ici nous définissons la couleur en noir
-`;
-
-const ContinueButton = styled.button`
-  display: block;
-  margin: 0px 0;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 const C2 = () => {
   const [section, setSection] = useState(0);
@@ -152,8 +78,18 @@ const C2 = () => {
       <SectionContainer>
         <FormulaBox>
                         <Subtitle>🔍 Concept clés🔍</Subtitle>
-                        <FormulaText><strong>Le mediatrice</strong> =La médiatrice est une droite perpendiculaire au segment reliant les deux extrémités d'un segment, coupant celui-ci en deux parties égales.</FormulaText>
-                        <FormulaText><strong> Droite perpendiculaire</strong>= Une droite perpendiculaire est une ligne qui forme un angle de 90 degrés (angle droit) par rapport à une autre ligne ou un plan.</FormulaText>
+                        <FormulaText>
+    <strong>Comparer des nombres :</strong> C'est déterminer lequel est le plus grand, le plus petit ou s'ils sont égaux. On compare d'abord les parties entières, puis les parties après la virgule pour les nombres décimaux. Les nombres négatifs, c'est comme des températures : plus le chiffre est gros, plus il fait froid !
+</FormulaText>
+
+<FormulaText>
+    <strong>Ordonner des nombres :</strong> C'est les mettre dans un certain ordre. Du plus petit au plus grand, c'est comme monter des marches. Du plus grand au plus petit, c'est comme descendre des marches.
+</FormulaText>
+
+<FormulaText>
+    <strong>Astuce :</strong> Pour t'aider, imagine une ligne de nombres. Place les nombres dessus pour voir leur ordre. Avec de la pratique, tout deviendra facile !
+</FormulaText>
+
                     </FormulaBox>
         </SectionContainer>
       )}
@@ -259,7 +195,7 @@ const C2 = () => {
             }}
           >
             <div>
-              <TestC2/>
+              <QCMC2/>
             </div>
             </div>
           )}
@@ -269,9 +205,7 @@ const C2 = () => {
 
 
       {section < 5 && (
-        <ContinueButton onClick={() => setSection(section + 1)}>
-          Continuer
-        </ContinueButton>
+         < ContinueButton onClick={() => setSection(section + 1)}>Continuer</ ContinueButton>
       )}
     </Container>
   );

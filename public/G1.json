@@ -1,0 +1,68 @@
+[
+    {
+        "question": "Quelle est la définition de deux lignes parallèles?",
+        "answers": [
+            "Deux lignes qui se croisent à un angle droit",
+            "Deux lignes qui se croisent mais pas à un angle droit",
+            "Deux lignes qui ne se croisent jamais",
+            "Deux lignes qui se croisent deux fois"
+        ],
+        "correctAnswer": "Deux lignes qui ne se croisent jamais",
+        "explanation": "Deux lignes parallèles sont deux lignes droites coplanaires qui ne se rencontrent pas, quel que soit le prolongement de leur longueur."
+    },
+    {
+        "question": "Quelle est la définition de deux lignes perpendiculaires?",
+        "answers": [
+            "Deux lignes qui se croisent à un angle droit",
+            "Deux lignes qui sont toujours à la même distance l'une de l'autre",
+            "Deux lignes qui ne se croisent jamais",
+            "Deux lignes qui sont courbes"
+        ],
+        "correctAnswer": "Deux lignes qui se croisent à un angle droit",
+        "explanation": "Deux lignes sont perpendiculaires si elles se croisent à un angle droit."
+    },
+    {
+        "question": "Si deux lignes sont perpendiculaires à une troisième ligne, alors elles sont :",
+        "answers": [
+            "Parallèles entre elles",
+            "Perpendiculaires entre elles",
+            "Elles se croisent à un angle aigu",
+            "Elles se croisent à un angle obtus"
+        ],
+        "correctAnswer": "Parallèles entre elles",
+        "explanation": "Si deux lignes sont perpendiculaires à une même troisième ligne, alors elles sont parallèles entre elles."
+    },
+    {
+        "question": "Comment s'appelle le symbole utilisé pour indiquer que deux segments sont perpendiculaires?",
+        "answers": [
+            "||",
+            "∥",
+            "⊥",
+            "="
+        ],
+        "correctAnswer": "⊥",
+        "explanation": "Le symbole ⊥ est utilisé pour indiquer que deux segments ou lignes sont perpendiculaires."
+    },
+    {
+        "question": "Si l'angle entre deux lignes est de 90°, alors ces deux lignes sont :",
+        "answers": [
+            "Parallèles",
+            "Perpendiculaires",
+            "Obliques",
+            "Concurrentes"
+        ],
+        "correctAnswer": "Perpendiculaires",
+        "explanation": "Deux lignes qui forment un angle de 90° entre elles sont perpendiculaires."
+    },
+    {
+        "question": "Deux rails de chemin de fer sont généralement :",
+        "answers": [
+            "Perpendiculaires",
+            "Parallèles",
+            "Concurrentes",
+            "Obliques"
+        ],
+        "correctAnswer": "Parallèles",
+        "explanation": "Les rails d'un chemin de fer sont généralement parallèles entre eux."
+    }
+]

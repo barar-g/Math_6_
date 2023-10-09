@@ -2,73 +2,24 @@ import React, { useState } from 'react';
 import G1A2 from './G1A2'; 
 import G1A1 from './G1A1'; 
 import G1A3 from './G1A3';
-import QCMC1 from '../C1/QCMC1';
-import Container from '@mui/material/Container';
+import G1A4 from './G1A4';
+import QCMG1 from './QCMG1';
 import teacherImage from '../Images/Prof1.png';
-import styled from 'styled-components';
 import teacher from '../Images/teacher.png'
 
-
-const SectionContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e1e1e1;
-`;
-
-
-
-const ImageContainer = styled.div`
-    flex: 0 0 auto;
-    width: 170px; 
-    margin-right: 20px; 
-    img {
-        width: 100%;
-        height: auto;
-    }
-`;
-
-const Card = styled.div`
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 20px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-    font-family: 'Roboto', sans-serif; 
-    font-size: 16px;
-    line-height: 1.5;
-    color: white; // texte en blanc pour le contraste avec le fond bleu
-    
-    @media (max-width: 480px) {
-        font-size: 14px;
-    }
-`;
-
-const ContinueButton = styled.button`
-display: block;
-margin: 15px 0;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-background-color: #007BFF;
-color: white;
-cursor: pointer;
-font-family: 'Roboto', sans-serif;
-font-size: 16px;
-
-&:hover {
-    background-color: #0056b3;
-}
-`;
-
-const Separator = styled.div`
-    height: 1px;
-    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
-    margin: 20px 0; /* marges pour espacer la barre des sections */
-`;
+// Import styles from MajorStyles.js
+import { 
+    Container, 
+    SectionContainer, 
+    ImageContainer, 
+    Card, 
+    BodyText, 
+    ContinueButton, 
+    Separator, 
+    Subtitle, 
+    FormulaBox, 
+    FormulaText 
+} from '../Styles/MajorStyles';
 
 const C1 = () => {
     const [section, setSection] = useState(0);
@@ -89,8 +40,20 @@ const C1 = () => {
                 </SectionContainer>
                 <br/>
          
+                {section >= 1 &&  (
+      <Subtitle> Rappel</Subtitle>)}
+      {section >= 1  && (
+      <SectionContainer>
+        <FormulaBox>
+                        <Subtitle>🔍 Concept clés🔍</Subtitle>
+                        <FormulaText><strong>La parallèle</strong> =Une droite parallèle à une autre est une droite qui, dans un même plan, ne coupe jamais l'autre droite, quelle que soit la distance à laquelle elles sont prolongées.</FormulaText>
+
+                        <FormulaText><strong> Droite perpendiculaire</strong>= Une droite perpendiculaire est une ligne qui forme un angle de 90 degrés (angle droit) par rapport à une autre ligne ou un plan.</FormulaText>
+                    </FormulaBox>
+        </SectionContainer>
+      )}
             
-            {section >= 1 && (<div> 
+            {section >= 2 && (<div> 
 
               
                 <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
@@ -103,7 +66,7 @@ const C1 = () => {
                 </div>
                 </div> )}
             
-            {section >= 2 && (
+            {section >= 3 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
@@ -113,7 +76,7 @@ const C1 = () => {
                 </div>
             )}
 
-            {section >= 3 && (
+            {section >= 4 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                    <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
@@ -123,10 +86,13 @@ const C1 = () => {
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMC1 /> 
+            {section >= 5 && (<div><G1A4 /> 
             </div>)}
 
-            {section < 4 && (
+            {section >= 6 && (<div><QCMG1/> 
+            </div>)}
+
+            {section < 6 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>

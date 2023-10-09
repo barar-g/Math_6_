@@ -6,7 +6,7 @@ import C2 from './composents/C2/C2';
 import C3 from './composents/C3/C3';
 import C4 from './composents/C4/C4';
 import C5 from './composents/C5/C5';
-
+import G2 from './composents/G2/G2';
 import C5A3 from './composents/C6/C5A3';
 import C5A4 from './composents/C6/C5A4';
 import Kangaroo from './composents/C6/Kangaroo';
@@ -61,6 +61,7 @@ function App() {
           <Route path="/M2A3" element ={<M2A3/>}/>
           <Route path="/M2" element ={<M2/>}/>
           <Route path="/G1" element ={<G1/>}/>
+          <Route path="/G2" element ={<G2/>}/>
           <Route path="/G1A2" element ={<G1A2/>}/>
           <Route path="/G3" element ={<G3/>}/>
           <Route path="/G1" element ={<G1/>}/>

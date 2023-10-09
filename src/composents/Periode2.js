@@ -36,6 +36,7 @@ function Acceuil() {
       justifyContent="center"
       height="100vh"
       backgroundColor="#F7F9FA"
+      marginTop="130px"
     >
       
       <Stack
@@ -57,8 +58,7 @@ function Acceuil() {
         <Button onClick={() => navigate('/P2A1C')}>Calcue des prix</Button>
         <Button onClick={() => navigate('/Aire2')}>Mesures des angles</Button>
         <Button onClick={() => navigate('/Fraction2')}>Mesures des aires</Button>
-        <Button onClick={() => navigate('/Chapitre')}>Chapitre</Button>
-        <Button onClick={() => navigate('/P2A1A')}>Division des nombres entiers</Button>
+        
 
       </Stack>
     </Box>

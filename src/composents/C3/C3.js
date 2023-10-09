@@ -4,114 +4,27 @@ import inestine from "../Images/inestine.png";
 import C3A1 from "./C3A1";
 import C3A2 from "./C3A2";
 import C3A3 from "./C3A3";
-import TestC3 from "./QCMC3";
-
+import QCMC3 from "./QCMC3";
 import styled from "styled-components";
 
-const StyledText = styled.p`
-  padding: 0px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1em;
-  font-family: "Comic Sans MS", sans-serif;
-  &:hover {
-    transform: scale(1.05);
-  }`;
-
-  
-const Container = styled.div`
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const SectionContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e1e1e1;
-`;
-
-const ImageContainer = styled.div`
-  flex: 0 0 auto;
-  width: 150px;
-  margin-right: 20px;
-  img {
-    width: 100%;
-    height: "auto";
-  }
-`;
-
-const Card = styled.div`
-  background-color: #007bff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: white; // texte en blanc pour le contraste avec le fond bleu
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-  }
-`;
-
-const Title = styled.h1`
-  font-family: "Roboto", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #222;
-
-  @media (max-width: 480px) {
-    font-size: 24px;
-  }
-`;
+import {
+  Container,
+  Title,
+  SectionContainer,
+  ImageContainer,
+  Card,
+  BodyText,
+  Subtitle,
+  FormulaBox,
+  FormulaText,
+  StyledText,
+  ContinueButton,
+} from '../Styles/MajorStyles'; 
 
 
-const Subtitle = styled.h2`
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  color: #444;
 
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
-`;
 
-const FormulaBox = styled.div`
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 20px;
-  background-color: white;
-`;
 
-const FormulaText = styled(BodyText)`
-  color: black; // Ici nous définissons la couleur en noir
-`;
-
-const ContinueButton = styled.button`
-  display: block;
-  margin: 0px 0;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 const C3 = () => {
   const [section, setSection] = useState(0);
@@ -153,8 +66,18 @@ const C3 = () => {
       <SectionContainer>
         <FormulaBox>
                         <Subtitle>🔍 Concept clés🔍</Subtitle>
-                        <FormulaText><strong>Le mediatrice</strong> =La médiatrice est une droite perpendiculaire au segment reliant les deux extrémités d'un segment, coupant celui-ci en deux parties égales.</FormulaText>
-                        <FormulaText><strong> Droite perpendiculaire</strong>= Une droite perpendiculaire est une ligne qui forme un angle de 90 degrés (angle droit) par rapport à une autre ligne ou un plan.</FormulaText>
+                        <FormulaText>
+    <strong>Unités de longueur :</strong> Pour mesurer à quel point quelque chose est long ou court, nous utilisons des unités de longueur. Les plus courantes sont le millimètre (mm), le centimètre (cm), le mètre (m) et le kilomètre (km).
+</FormulaText>
+
+<FormulaText>
+    <strong>Convertir des unités :</strong> Parfois, nous avons besoin de changer d'une unité à une autre. C'est comme échanger des pièces de monnaie : 100 centimes font 1 euro. De la même manière, 100 centimètres font 1 mètre.
+</FormulaText>
+
+<FormulaText>
+    <strong>Astuce :</strong> Pour passer du mètre au centimètre, multiplie par 100. Pour faire l'inverse, divise par 100. Avec les autres unités, les chiffres peuvent être différents, mais l'idée est la même. Avec un peu de pratique, tu maîtriseras rapidement ces conversions !
+</FormulaText>
+
                     </FormulaBox>
         </SectionContainer>
       )}
@@ -263,7 +186,7 @@ const C3 = () => {
             }}
           >
             <div>
-              <TestC3/>
+              <QCMC3/>
             </div>
             </div>
           )}
@@ -271,10 +194,7 @@ const C3 = () => {
         </SectionContainer>)}
 
       {section < 5 && (
-        <ContinueButton onClick={() => setSection(section + 1)}>
-          Continuer
-        </ContinueButton>
-      )}
+   <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>      )}
     </Container>
   );
 };

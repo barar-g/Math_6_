@@ -6,26 +6,14 @@ import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import teacherImage from '../Images/Prof1.png';
-import QcmFraction from './QCMC16';
+import QCMC16 from './QCMC16';
 import Bande from './Bande';
 import styled from 'styled-components';
+import {ContinueButton} from '../Styles/MajorStyles';
 
-const ContinueButton = styled.button`
-    display: block;
-    margin: 0px 0;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
 
-    &:hover {
-        background-color: #0056b3;
-    }
-`;
+
+
 
 const Chap13 = () => {
     const [section, setSection] = useState(0);
@@ -55,7 +43,7 @@ const Chap13 = () => {
                 </Card>
             )}
 
-            {section >= 3 && <QcmFraction />}
+            {section >= 3 && <QCMC16 />}
 
             {section >= 4 && (
                 <Card style={{ marginBottom: '20px', width: '100%' }}>
@@ -66,8 +54,8 @@ const Chap13 = () => {
             )}
 
             {section < 4 && (
-                <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
-            )}
+               <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>            
+               )}
         </Container>
     );
 }

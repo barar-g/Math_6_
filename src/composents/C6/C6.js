@@ -1,130 +1,87 @@
+
 import React, { useState } from 'react';
 import C5A3 from './C5A3'; 
 import C5A4 from './C5A4'; 
 import C5A5 from './C5A5';
 import QCMC6 from './QCMC6';
 import Container from '@mui/material/Container';
-import styled from 'styled-components';
 import teacher from '../Images/teacher.png';
-
-
-const SectionContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e1e1e1;
-`;
-
-
-
-const ImageContainer = styled.div`
-    flex: 0 0 auto;
-    width: 170px; 
-    margin-right: 20px; 
-    img {
-        width: 100%;
-        height: auto;
-    }
-`;
-
-const Card = styled.div`
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 20px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-    font-family: 'Roboto', sans-serif; 
-    font-size: 16px;
-    line-height: 1.5;
-    color: white; // texte en blanc pour le contraste avec le fond bleu
-    
-    @media (max-width: 480px) {
-        font-size: 14px;
-    }
-`;
-
-const ContinueButton = styled.button`
-display: block;
-margin: 15px 0;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-background-color: #007BFF;
-color: white;
-cursor: pointer;
-font-family: 'Roboto', sans-serif;
-font-size: 16px;
-
-&:hover {
-    background-color: #0056b3;
-}
-`;
-
-const Separator = styled.div`
-    height: 1px;
-    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
-    margin: 20px 0; /* marges pour espacer la barre des sections */
-`;
+import { SectionContainer, ImageContainer, Card, BodyText, Separator, ContinueButton,FormulaText,FormulaBox,Subtitle } from '../Styles/MajorStyles';
 
 const C1 = () => {
     const [section, setSection] = useState(0);
 
     return (
-        <Container >
-           
-                <SectionContainer>
-                    <ImageContainer>
-                        <img src={teacher} alt="Teacher" />
-                    </ImageContainer>
-                    <Card>
-                        <BodyText>
-                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grends nombers.
-                        </BodyText>
-                    </Card>
-                   
-                </SectionContainer>
-                <br/>
-         
-            
-            {section >= 1 && (<div> 
-              
-                <div >
-                  
-                    <div >
-                   
-                        <C5A3 />
-                    </div>
+        <Container>
+            <SectionContainer>
+                <ImageContainer>
+                    <img src={teacher} alt="Teacher" />
+                </ImageContainer>
+                <Card>
+                    <BodyText>
+                        Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grands nombres.
+                    </BodyText>
+                </Card>
+            </SectionContainer>
+
+            {section >= 1 && (
+                <div>
+                    <SectionContainer>
+        <FormulaBox>
+                        <Subtitle>🔍 Concept clés🔍</Subtitle>
+                        <FormulaText>
+    <strong>Multiplication :</strong> La multiplication est une manière rapide d'ajouter le même nombre plusieurs fois.
+</FormulaText>
+
+<FormulaText>
+    <strong>Exemple 1 :</strong> Imaginons que tu as 3 boîtes de crayons, et dans chaque boîte, il y a 4 crayons. Pour trouver le total de crayons, tu peux multiplier : 3 x 4 = 12. Donc, tu as 12 crayons en tout.
+</FormulaText>
+
+<FormulaText>
+    <strong>Exemple 2 :</strong> Si tu as 5 sacs et chaque sac contient 6 jouets, alors le total de jouets est : 5 x 6 = 30. Tu as donc 30 jouets en tout.
+</FormulaText>
+
+<FormulaText>
+    <strong>Astuce :</strong> Quand tu multiplies par 10, tu ajoutes simplement un zéro à la fin du nombre ! Par exemple, 7 x 10 = 70.
+</FormulaText>
+
+
+
+                    </FormulaBox>
+        </SectionContainer>
                     <Separator />
                 </div>
-                </div> )}
+            )}
+
+{section >= 2 && (
+                <div>
+                    <C5A3 />
+                    <Separator />
+                </div>
+            )}
             
-            {section >= 2 && (
+            
+            {section >= 3 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                      
                         <C5A4 />
                     </div>
                     <Separator />
                 </div>
             )}
 
-            {section >= 3 && (
+            {section >= 4 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  
-                    <C5A5 />
+                       <C5A5 />
                     </div>
-                      <Separator />
+                    <Separator />
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMC6 /> 
-            </div>)}
+            {section >= 5 && (<div><QCMC6 /></div>)}
 
-            {section < 4 && (
+            {section < 5 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>

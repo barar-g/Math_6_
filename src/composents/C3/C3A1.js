@@ -3,15 +3,7 @@ import { Box, Typography,  Table, TableBody, TableCell, TableContainer, TableRow
 import { styled } from '@mui/system';
 
 
-const StyledBox = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '70vh',
-  backgroundColor: '#f2f2f2',
-  color: '#333',
-});
+
 
 
 const StyledTableContainer = styled(TableContainer)({
@@ -75,8 +67,9 @@ const Converter = () => {
   };
 
   return (
-    <StyledBox>
-      <Card style={{marginTop: '-100px'}}>
+    
+    <Card style={{marginTop: '20px', width: '95vw', margin: '0 auto'}}>
+
         <CardContent>
           <Box my={2}>
             <TextField
@@ -126,7 +119,7 @@ const Converter = () => {
     </StyledTableContainer>
         </CardContent>
       </Card>
-    </StyledBox>
+  
   );
 }
 

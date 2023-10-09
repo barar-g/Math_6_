@@ -3,147 +3,112 @@ import C1A1 from './C1A1';
 import C1A2 from './C1A2'; 
 import C1A3 from './C1A3';
 import QCMC1 from './QCMC1';
-import Container from '@mui/material/Container';
 import teacherImage from '../Images/Prof1.png';
-import styled from 'styled-components';
 import teacher from '../Images/teacher.png';
 
-
-const SectionContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e1e1e1;
-`;
-
-
-
-const ImageContainer = styled.div`
-    flex: 0 0 auto;
-    width: 170px; 
-    margin-right: 20px; 
-    img {
-        width: 100%;
-        height: auto;
-    }
-`;
-
-const Card = styled.div`
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 20px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-    font-family: 'Roboto', sans-serif; 
-    font-size: 16px;
-    line-height: 1.5;
-    color: white; // texte en blanc pour le contraste avec le fond bleu
-    
-    @media (max-width: 480px) {
-        font-size: 14px;
-    }
-`;
-
-const ContinueButton = styled.button`
-display: block;
-margin: 15px 0;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-background-color: #007BFF;
-color: white;
-cursor: pointer;
-font-family: 'Roboto', sans-serif;
-font-size: 16px;
-
-&:hover {
-    background-color: #0056b3;
-}
-`;
-
-const Separator = styled.div`
-    height: 1px;
-    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
-    margin: 20px 0; /* marges pour espacer la barre des sections */
-`;
+// Import des styles
+import {
+  Container, SectionContainer, ImageContainer,FormulaText, Card, FormulaBox,BodyText,Subtitle, ContinueButton
+} from '../Styles/MajorStyles'; // Assurez-vous que le chemin est correct
 
 const C1 = () => {
     const [section, setSection] = useState(0);
 
     return (
-        <Container >
-           
-                <SectionContainer>
-                    <ImageContainer>
-                        <img src={teacher} alt="Teacher" />
-                    </ImageContainer>
-                    <Card>
-                        <BodyText>
-                            Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grends nombers.
-                        </BodyText>
-                    </Card>
-                   
-                </SectionContainer>
-                <br/>
-         
+        <Container>
+            <SectionContainer>
+                <ImageContainer>
+                    <img src={teacher} alt="Teacher" />
+                </ImageContainer>
+                <Card>
+                    <BodyText>
+                        Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grands nombres.
+                    </BodyText>
+                </Card>
+            </SectionContainer>
             
-            {section >= 1 && (<div> 
+            {section >= 1 && (
+                <div>
+                    <SectionContainer>
+                    <FormulaBox>
+                        <Subtitle>🔍 Concept clés🔍</Subtitle>
+                        <FormulaText>
+    <strong>Les grands nombres :</strong> Plus un nombre a de chiffres, plus il est grand. Ainsi, "100" est plus grand que "99". On utilise des séparateurs, comme une virgule, pour faciliter la lecture: 1 000, 10 000, etc.
+</FormulaText>
 
-               <SectionContainer>
-                    <ImageContainer>
-                    <img src={teacherImage} alt="Enseignant"  />
-                    </ImageContainer>
-                    <Card>
-                        <BodyText>
-                        Écris un nombre et découvre ses détails.
-                        </BodyText>
-                    </Card>
+<FormulaText>
+    <strong>Noms des grands nombres :</strong> 1 000 est un "mille", 1 000 000 est un "million" et 1 000 000 000 est un "milliard".
+</FormulaText>
+
+<FormulaText>
+    <strong>Astuce :</strong> Pense à des situations réelles: une ville a des milliers d'habitants, un pays a des millions d'habitants !
+</FormulaText>
+
+
+
+                    </FormulaBox>
+                    </SectionContainer>
+                    
+
                    
-                </SectionContainer>
-                <br/>
-            <br/>
-            <br/>
-            <br></br>
-            <br/>
-            <br/>
-              
-                <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
-                  
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                   
-                        <C1A1 />
-                    </div>
-                    <Separator />
-                </div>
-                </div> )}
-            
-            {section >= 2 && (
-                <div style={{ marginBottom: '50px', width: '100%' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
-                        <C1A2 />
-                    </div>
-                    <Separator />
                 </div>
             )}
 
+{section >= 2 && (
+                <div>
+                    <SectionContainer>
+                        <ImageContainer>
+                            <img src={teacherImage} alt="Enseignant" />
+                        </ImageContainer>
+                        <Card>
+                            <BodyText>
+                                Écris un nombre et découvre ses détails.
+                            </BodyText>
+                        </Card>
+                    </SectionContainer>
+                    <br></br>
+                    <br></br>
+
+                    <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <C1A1 />
+                        </div>
+                        <div className="separator"></div> {/* Ceci peut aussi être remplacé par un composant stylisé si nécessaire */}
+                    </div>
+                </div>
+            )}
+            
             {section >= 3 && (
                 <div style={{ marginBottom: '50px', width: '100%' }}>
-                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                   <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} />
-                    <C1A3 />
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <ImageContainer>
+                            <img src={teacherImage} alt="Enseignant" />
+                        </ImageContainer>
+                        <C1A2 />
                     </div>
-                      <Separator />
+                    <div className="separator"></div>
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMC1 /> 
-            </div>)}
+            {section >= 4 && (
+                <div style={{ marginBottom: '50px', width: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <ImageContainer>
+                            <img src={teacherImage} alt="Enseignant" />
+                        </ImageContainer>
+                        <C1A3 />
+                    </div>
+                    <div className="separator"></div>
+                </div>
+            )}
 
-            {section < 4 && (
+            {section >= 5 && (
+                <div>
+                    <QCMC1 />
+                </div>
+            )}
+
+            {section < 5 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>

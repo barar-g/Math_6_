@@ -88,8 +88,8 @@ const AngleActivity = () => {
 
     return (
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <Card style={{ width: '80%', maxWidth: '600px', height:'310%', margin: '50px auto', position: 'relative' }}>
-                <CardContent style={{ backgroundColor: '#2193b0', color: '#fff', marginBottom: '20px', textAlign: 'center' }}>
+            <Card style={{ width: '80%', maxWidth: '600px', height:'280%'}}>
+                <CardContent style={{ backgroundColor: '#2193b0', color: '#fff', textAlign: 'center' }}>
                     <StyledText>Formez un angle et découvrez s'il est aigu, droit ou obtus!</StyledText>
                 </CardContent>
                 <div style={{ position: 'relative', width: '100%', height: isSmallScreen ? '300px' : '500px', margin: '0 auto' }}>
@@ -102,22 +102,19 @@ const AngleActivity = () => {
                         <div style={circleStyle}></div>
                     </animated.div>
                 </div>
-                <Button 
+                
+
+            </Card>
+            <StyledText>{message}</StyledText>
+            <Button 
     startIcon={<ReplyIcon style={{ fontSize: '24px' }} />} 
     variant="contained" 
     color="primary" 
     onClick={resetAngle} 
-    style={{
-        position: 'absolute', // positionnement absolu
-        right: '5px',  // positionnement à droite
-        borderRadius: '50%',
-       marginLeft : '80px'
+    style={{  // positionnement à droite
+        borderRadius: '50%'
     }}
 ></Button>
-<CardContent></CardContent>
-
-            </Card>
-            <StyledText>{message}</StyledText>
         </div>
     );
 }

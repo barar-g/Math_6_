@@ -121,19 +121,21 @@ const labels = ['Milliard', 'Million', 'Mille','Cent', 'Unité'];
                             </NumberDisplay>
 
                             </Box>
-                            <Grid container spacing={-8}>
-    {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((number) => (
-        <Grid item xs={4} key={number}>
-            <VibrantFab onClick={() => handleNumberClick(number)}>{number}</VibrantFab>
+                            <Box display="flex" justifyContent="center" alignItems="center">
+    <Grid container spacing={-8}> 
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((number) => (
+            <Grid item xs={4} key={number}>
+                <VibrantFab onClick={() => handleNumberClick(number)}>{number}</VibrantFab>
+            </Grid>
+        ))}
+        <Grid item xs={4}>
+            <VibrantFab onClick={() => handleNumberClick(9)}>9</VibrantFab>
         </Grid>
-    ))}
-    <Grid item xs={4}>
-        <VibrantFab onClick={() => handleNumberClick(9)}>9</VibrantFab>
+        <Grid item xs={4}>
+            <VibrantFab onClick={resetNumber}><ReplayIcon /></VibrantFab>
+        </Grid>
     </Grid>
-    <Grid item xs={4}>
-        <VibrantFab onClick={resetNumber}><ReplayIcon /></VibrantFab>
-    </Grid>
-</Grid>
+</Box>
 
                             
                            

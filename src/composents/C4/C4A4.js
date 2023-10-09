@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
 
@@ -24,12 +24,33 @@ const SmallBoxesContainer = styled.div`
 `;
 
 function C4() {
-  const [originalCount, setOriginalCount] = useState(20);
-  const [toAdd, setToAdd] = useState(5);
+  
+    // Function to generate a random number between min and max (inclusive)
+    const getRandomNumber = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+  
+  
+
+  const [originalCount, setOriginalCount] = useState(getRandomNumber(15, 20));
+  const [toAdd, setToAdd] = useState(getRandomNumber(0, 10));
   const [showResult, setShowResult] = useState(false);
 
   const handleShowResult = () => {
     setShowResult(true);
+  };
+ 
+  
+  useEffect(() => {
+    // Update originalCount and toAdd with new random values
+    setOriginalCount(getRandomNumber(15, 20));
+    setToAdd(getRandomNumber(1, 10));
+  }, []); 
+ 
+  const reset = () => {
+    setOriginalCount(getRandomNumber(15, 20));
+    setToAdd(getRandomNumber(1, 10));
+    setShowResult(false);
   };
 
   return (
@@ -44,7 +65,6 @@ function C4() {
         ))}
       </SmallBoxesContainer>
       <h3>Ajouter: {toAdd}</h3>
-      <Button variant="contained" color="primary" onClick={handleShowResult}>Réponse</Button>
       <SmallBoxesContainer>
         {showResult && Array.from({ length: originalCount + toAdd }).map((_, idx) => (
           <Box 
@@ -54,9 +74,17 @@ function C4() {
         ))}
       </SmallBoxesContainer>
       {showResult && <h4>Total: {originalCount + toAdd}</h4>}
+      
+      {!showResult &&
+      <Button variant="contained" color="primary" onClick={handleShowResult}>Réponse</Button>
+      }
+      {showResult &&
+      <Button variant="contained" color="primary" onClick={reset}>Reset</Button>
+}
     </Container>
   );
 }
 
 export default C4;
+
 

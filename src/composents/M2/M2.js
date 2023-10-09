@@ -1,73 +1,24 @@
 import React, { useState } from 'react'; 
 import M2A2 from './M2A2'
-import QCMM2 from './QCMM2';
-import Container from '@mui/material/Container';
-import styled from 'styled-components';
+import QCMC6 from './QCMM2';
 import teacher from '../Images/teacher.png'
 import M2A1 from './M2A1';
 import M2A3 from './M2A3';
 
-
-const SectionContainer = styled.div`
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e1e1e1;
-`;
-
-
-
-const ImageContainer = styled.div`
-    flex: 0 0 auto;
-    width: 170px; 
-    margin-right: 20px; 
-    img {
-        width: 100%;
-        height: auto;
-    }
-`;
-
-const Card = styled.div`
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 20px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-const BodyText = styled.p`
-    font-family: 'Roboto', sans-serif; 
-    font-size: 16px;
-    line-height: 1.5;
-    color: white; // texte en blanc pour le contraste avec le fond bleu
-    
-    @media (max-width: 480px) {
-        font-size: 14px;
-    }
-`;
-
-const ContinueButton = styled.button`
-display: block;
-margin: 15px 0;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-background-color: #007BFF;
-color: white;
-cursor: pointer;
-font-family: 'Roboto', sans-serif;
-font-size: 16px;
-
-&:hover {
-    background-color: #0056b3;
-}
-`;
-
-const Separator = styled.div`
-    height: 1px;
-    background-color: #ddd; /* couleur de votre choix pour la barre de séparation */
-    margin: 20px 0; /* marges pour espacer la barre des sections */
-`;
+import {
+    Container,
+    SectionContainer,
+    ImageContainer,
+    Card,
+    BodyText,
+    Subtitle,
+    FormulaBox,
+    FormulaText,
+    ContinueButton,
+    Separator,
+    StyledText
+  } from '../Styles/MajorStyles';
+  
 
 const C1 = () => {
     const [section, setSection] = useState(0);
@@ -89,7 +40,22 @@ const C1 = () => {
                 <br/>
          
             
-            {section >= 1 && (<div> 
+{section >= 1 &&  (
+      <Subtitle> Rappel</Subtitle>)}
+      {section >= 1  && (
+      <SectionContainer>
+        <FormulaBox>
+                        <Subtitle>🔍 Concept clés🔍</Subtitle>
+
+                        <FormulaText><strong>Unité de mesure</strong> = L'unité de base pour la mesure de la masse dans le Système International est le kilogramme (kg). D'autres unités dérivées incluent le gramme (g) qui est égal à 1/1000 de kilogramme.</FormulaText>
+                        <FormulaText><strong>Conversion</strong> = 1 kilogramme (kg) est équivalent à 1000 grammes (g), 1 gramme (g) est équivalent à 1000 milligrammes (mg).</FormulaText>
+                        <FormulaText><strong>Balance</strong> = C'est un outil utilisé pour mesurer la masse d'un objet. Les balances modernes peuvent être numériques et donner une lecture directe de la masse, tandis que les balances traditionnelles utilisent un ensemble de poids pour équilibrer et déterminer la masse de l'objet.</FormulaText>
+
+                    </FormulaBox>
+
+        </SectionContainer>
+      )}
+            {section >= 2 && (<div> 
               
                 <div >
                   
@@ -102,7 +68,7 @@ const C1 = () => {
                 </div>
                 </div> )}
              
-            {section >= 2 && (
+            {section >= 3 && (
                    <div style={{ marginBottom: '50px', width: '100%' }}>
                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                    <br/>
@@ -117,7 +83,7 @@ const C1 = () => {
                 </div>
             )}
             
-            {section >= 3 && (
+            {section >= 4 && (
                 
                     <div >
                     <div >
@@ -135,10 +101,10 @@ const C1 = () => {
                 </div>
             )}
 
-            {section >= 4 && (<div><QCMM2 /> 
+            {section >= 5 && (<div><QCMC6 /> 
             </div>)}
 
-            {section < 4 && (
+            {section < 5 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>
