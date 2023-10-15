@@ -130,3 +130,20 @@ export const StyledText = styled.p`
   &:hover {
     transform: scale(1.05);
   }`;
+
+  export const Canvas = styled.div`
+  height: 50vh;
+  width : 40vh;
+  background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')}; // Jaune pour actif, bleu clair sinon
+  border: 1px solid #B0BEC5; // Ajout d'une bordure gris bleuâtre
+  position: relative;
+  cursor: pointer; // Changement de curseur pour indiquer une zone interactive
+
+  &:hover {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); // Lumière brillante lors du survol
+  }
+
+  @media (max-width: 768px) {
+    height: 60vh;
+  }
+`;
