@@ -3,6 +3,9 @@ import { Container, StyledText, Card, Canvas } from '../Styles/MajorStyles';
 import Grid from './Gride';
 import Controls from './Controle';
 import UserLines from './UserLines';
+import { Button } from '@mui/material';
+
+
 
 function App() {
   const [lines, setLines] = useState([]);
@@ -170,8 +173,8 @@ const handleCheck = () => {
 
       <br />
       <br />
-      <button onClick={disableScrolling}>Commencer</button>
-        <button onClick={enableScrolling}>Terminer</button>
+      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
+        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
       <br/>
       <br></br>
       <Canvas

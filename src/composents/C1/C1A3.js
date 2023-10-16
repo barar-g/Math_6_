@@ -106,7 +106,7 @@ const C1A3 = () => {
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12} md={8}>
-        <LinearProgress variant="determinate" value={(progress / 4) * 100} style={{ margin: '20px 0' }} />
+       
         
           <Typography variant="h5">Remplir la table par : {randomNumber}</Typography>
           <TableContainer>

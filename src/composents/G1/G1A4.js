@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState, useEffect, useRef } from 'react';
 import { Container, Card, StyledText } from '../Styles/MajorStyles';
 import Grid from './Gride';
+import { Button } from '@mui/material';
 
 const Canvas = styled.div`
 height: 50vh;
@@ -32,6 +33,14 @@ function Geo1() {
     const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE'];
     const [currentColor, setCurrentColor] = useState(0);
     const canvasRef = useRef(null); // Nouvelle référence pour le Canvas
+
+    function disableScrolling() {
+      document.body.style.overflow = 'hidden';
+  }
+  
+  function enableScrolling() {
+    document.body.style.overflow = '';
+  }
 
 
     const getRelativeCoordinates = (canvas, e) => {
@@ -152,6 +161,8 @@ function Geo1() {
       <br />
       <br />
 
+      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
+        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
       <Canvas
             ref={canvasRef} // Ajoutez la référence ici
             onMouseDown={startLine}

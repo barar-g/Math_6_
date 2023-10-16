@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import { useState, React, useEffect } from 'react';
 import { Container, Card, StyledText, Canvas } from '../Styles/MajorStyles';
 import Grid from './Gride';
+import { Button } from '@mui/material';
 
 function Geo1() {
   const [lines, setLines] = useState(null);
@@ -10,6 +10,14 @@ function Geo1() {
   const [questions, setQuestions] = useState([]);
   const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE'];
   const [currentColor, setCurrentColor] = useState(0);
+
+  function disableScrolling() {
+    document.body.style.overflow = 'hidden';
+}
+
+function enableScrolling() {
+  document.body.style.overflow = '';
+}
 
   const getRelativeCoordinates = (e) => {
     let clientX, clientY;
@@ -149,6 +157,8 @@ return (
 
     <br />
     <br />
+    <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
+        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
 
     <Canvas
       onMouseDown={startLine}

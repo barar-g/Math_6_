@@ -6,12 +6,12 @@ function Controls({ checkMode, lines, handleCheck, handleReset }) {
   return (
     <div>
       {checkMode !== 'reset' && lines.length === 2 && (
-        <Button variant='contained' onClick={handleCheck}>
+        <Button variant='contained' style={{ margin: '10px' }} onClick={handleCheck}>
           <CheckIcon /> 
         </Button>
       )}
       {checkMode === 'reset' && (
-        <Button variant='contained' onClick={handleReset}>
+        <Button variant='contained' style={{ margin: '10px' }} onClick={handleReset}>
           <ReplyIcon/> 
         </Button>
       )}

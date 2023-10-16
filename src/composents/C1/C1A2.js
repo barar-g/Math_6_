@@ -122,7 +122,6 @@ const C1A2 = () => {
 
   return (
     <StyledBox>
-      <LinearProgress variant="determinate" value={(progress / 5) * 100} />
       <Grid container justifyContent="center">
         <Grid item xs={12} md={6}>
           <StyledCard>
