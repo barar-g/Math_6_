@@ -50,6 +50,7 @@ function Accueil() {
         <Button onClick={() => navigate('/C4')}>C4</Button>
         <Button onClick={() => navigate('/C5A1')}>C5</Button>
         <Button onClick={() => navigate('/C6')}>C6</Button>
+        <Button onClick={() => navigate('/C7')}>C7</Button>
         <Button onClick={() => navigate('/M2')}>M2</Button>
         <Button onClick={() => navigate('/G1')}>G1</Button>
         <Button onClick={() => navigate('/G2')}>G2</Button>
