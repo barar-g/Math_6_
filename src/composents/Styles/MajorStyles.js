@@ -147,3 +147,64 @@ export const StyledText = styled.p`
     height: 60vh;
   }
 `;
+
+export const TriangleContainer = styled.div`
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: 120%;  // Increasing the width
+  height: 150%; // Setting a new height value
+  margin-top: 100px;
+  margin-left: 0px;
+`;
+
+
+
+
+export const StyledText1 = styled.p`
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    font-family: 'Comic Sans MS', sans-serif;
+    &:hover {
+        transform: scale(1.05);
+    }
+`;
+export const VerifieButton = styled.button`
+  border-radius: 5px;
+  background-color: #45a05c;
+  margin: 15px 0;
+  color: white;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+export const ResetButton = styled.button`
+  border-radius: 5px;
+  background-color: #007bff;
+  margin: 15px 0;
+  color: white;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+export const BandeBox = styled.div`
+  width: 300px;
+  height: 300px;
+  border: 2px solid #4caf50;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  background-color: white;
+`;
