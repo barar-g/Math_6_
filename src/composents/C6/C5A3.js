@@ -49,35 +49,41 @@ function C6A1() {
     "Dites-moi le nombre de fois que je dois sauter et la distance parcourue pour chaque saut, et je le ferai. Je vous dirai ensuite combien de mètres j'ai parcourus.";
 
     const handleJump = () => {
-      if(numJumps*jumpDistance<=16){
-      setIsJumping(true);
-      setShowMessage(true);
-      setShowInitialMessage(false);
-  
-      // Reset animation distance
-      setAnimationDistance(0);
-  
-      // Jump multiple times based on numJumps
-      for (let i = 0; i < numJumps; i++) {
+      // Check if either numJumps or jumpDistance is blank
+      if (numJumps === '' || jumpDistance === '') {
+        // Don't do anything if either is blank
+        return;
+      }
+    
+      if (numJumps * jumpDistance <= 16 && numJumps * jumpDistance !== 0) {
+        setIsJumping(true);
+        setShowMessage(true);
+        setShowInitialMessage(false);
+    
+        // Reset animation distance
+        setAnimationDistance(0);
+    
+        // Jump multiple times based on numJumps
+        for (let i = 0; i < numJumps; i++) {
+          setTimeout(() => {
+            play();
+            setPosition((prevPosition) => prevPosition + jumpDistance);
+    
+            // Update animation distance
+            setAnimationDistance((prevDistance) => prevDistance + 1);
+          }, i * 1000); // Adjust the delay based on your needs
+        }
+      } else {
         setTimeout(() => {
-          play();
-          setPosition((prevPosition) => prevPosition + jumpDistance);
-  
-          // Update animation distance
-          setAnimationDistance((prevDistance) => prevDistance + 1);
-        }, i * 1000 ); // Adjust the delay based on your needs
-      }}else{
-        setTimeout(()=>{
           setShowWarningMessage(false);
           reset();
-        },3000)
+        }, 3000);
         setShowWarningMessage(true);
-        
       }
-  
+    
       // Set a timeout to clear isJumping after the entire animation is complete
-      
     };
+    
 
   const reset = () => {
     setPosition(0);
@@ -123,7 +129,7 @@ function C6A1() {
             </CardContent>
           </Card>
         )}
-{!showInitialMessage && (
+{!showInitialMessage &&(
           <Card style={{ 
             backgroundColor: 'white', 
             borderRadius: '25px', 
@@ -135,7 +141,7 @@ function C6A1() {
             </CardContent>
           </Card>
         )}
-        {showWarningMessage && (
+        {showWarningMessage &&  (
           <Card style={{ 
             backgroundColor: 'white', 
             borderRadius: '25px', 
@@ -186,6 +192,7 @@ function C6A1() {
               type="number"
               value={numJumps}
               onChange={handleNumJumpsChange}
+              required
               fullWidth
             />
           </Grid>
@@ -195,6 +202,7 @@ function C6A1() {
               type="number"
               value={jumpDistance}
               onChange={handleJumpDistanceChange}
+              required
               fullWidth
             />
           </Grid>
