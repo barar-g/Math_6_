@@ -17,19 +17,20 @@ function Kangaroo({ position, numJumps, jumpDistance, showMessage }) {
   }, []);
 
   const styles = useSpring({
-    from: { transform: `translate3d(0px, 0, 0)` },
+    from: { transform: `translate3d(0, 0, 0)` },
     to: {
       transform: `translate3d(${Math.min(
-        position * 100,
-        windowWidth - 100
-      )}px, ${50 * Math.sin(position * Math.PI)}px, 0)`,
+        position * (5),
+        100 - 5
+      )}vw, ${5 * Math.sin(position * Math.PI)}vh, 0)`,
     },
     config: {
       tension: 170,
     },
   });
+  
 
-  const message = `J'ai sauté ${numJumps} fois, et dans chaque saut, j'ai parcouru ${jumpDistance} mètres. Donc, la distance totale parcourue est ${numJumps} multiplié par ${jumpDistance} métres  ce qui donne   ${position} mètres.`;
+
 
   return (
     <>
@@ -43,9 +44,9 @@ function Kangaroo({ position, numJumps, jumpDistance, showMessage }) {
         <animated.img
           style={{
             ...styles,
-            width: '100px',
+            width: '40px',
             marginBottom: '10px',
-            marginRight: '50px', // Ajout de la marge entre le kangourou et le message
+            marginRight: '50px', 
             marginLeft:'-25px'
           }}
           src={kangarooImg}
@@ -61,7 +62,7 @@ function Kangaroo({ position, numJumps, jumpDistance, showMessage }) {
               zIndex: 1, // Assurer que le message est au-dessus du kangourou
             }}
           >
-            <MessageBubble message={message} />
+            
           </animated.div>
         )}
       </div>

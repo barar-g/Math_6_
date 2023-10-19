@@ -200,8 +200,7 @@ function P3A3() {
 
 
 
-   console.log(step);
-
+  
 
 
 
