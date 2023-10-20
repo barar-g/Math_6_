@@ -1,44 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button, Card as MuiCard, CardContent, Typography, Radio, RadioGroup, FormControlLabel } from "@mui/material";
-
+import { Button,   CardContent, Typography, Radio, RadioGroup, FormControlLabel } from "@mui/material";
+import { Card } from "./Styles/MajorStyles";
 
 const CardContainer = styled.div`
   perspective: 1000px;
   margin: 20px auto;
 `;
 
-const Card = styled(MuiCard)`
-    margin: 30px 0;
-    font-family: 'Comic Sans MS', sans-serif;
-    box-sizing: border-box;
-    width: 100%; 
-    margin: 20px auto;
-    padding: 20px;
-    font-size: 1em;
 
-    &.flipped {
-      transform: rotateY(360deg);
-      transition: transform 2s;
-      perspective: 1000px;
-    }
-
-    &.not-flipped {
-      transform: rotateY(0deg);
-      transition: transform 2s;
-      perspective: 1000px;
-    }
-
-    &:hover {
-        transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-        padding: 10px;
-        font-size: 0.8em;
-    }
-`;
-
+const StyledText = styled.p`
+  padding: 2px 2px;
+  text-align: justify;
+  align-items: center;
+  font-size: 1.2em;
+  font-family: "Comic Sans MS", sans-serif;
+  &:hover {
+    transform: scale(1.05);
+  }`;
 
 
 
@@ -70,25 +49,31 @@ function QCM({ questionsArray }) {
                 <Card className={isFlipped === index ? "flipped" : "not-flipped"}>
                     {isFlipped !== index ? (
                         <CardContent>
-                            <Typography variant="h6">{question.question}</Typography>
+                            <Typography variant="h6"><StyledText>{question.question}</StyledText></Typography>
+                            
                             <RadioGroup
                                 value={selectedAnswers[index] || ''}
                                 onChange={(e) => handleAnswerChange(index, e.target.value)}
                             >
                                 {question.answers.map((answer, aIndex) => (
-                                    <FormControlLabel key={aIndex} value={answer} control={<Radio />} label={answer} />
+                                    <FormControlLabel key={aIndex} value={answer} control={<Radio />} label= <StyledText>{answer}</StyledText> />
                                 ))}
                             </RadioGroup>
-                            <Button variant="contained" color="primary" onClick={() => handleFlip(index)}>Explication</Button>
+                            
+                            <Button variant="contained" color="primary" style={{ padding: '-18px 10px' }} onClick={() => handleFlip(index)}>Explication</Button>
                         </CardContent>
                     ) : (
                         <CardContent>
-                            <Typography variant="h6">Explication:</Typography>
-                            <Typography variant="body1">{question.explanation}</Typography>
-                            <Typography variant="h5" color={correct[index] ? "green" : "red"}>
-                                {correct[index] ? "Bonne réponse!" : "Mauvaise réponse"}
+                             <Typography variant="h5" color={correct[index] ? "green" : "red"}>
+                             <StyledText>  {correct[index] ? "Bonne réponse!" : "Mauvaise réponse"}</StyledText>
                             </Typography>
-                            <Button variant="contained" color="primary" onClick={() => handleFlip(index)}>Retour</Button>
+                            
+                            <Typography variant="h6"><StyledText>Explication:</StyledText></Typography>
+                            
+                            <Typography variant="body1"><StyledText>{question.explanation}</StyledText></Typography>
+                           
+                            
+                            <Button variant="contained" color="primary"  style={{ padding: '-18px 10px' }} onClick={() => handleFlip(index)}>Retour</Button>
                         </CardContent>
                     )}
                 </Card>
