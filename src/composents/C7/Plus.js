@@ -11,7 +11,7 @@ const editableStyle = {
   justifyContent: 'center',
   whiteSpace: 'pre-wrap',
   alignItems: 'center',
-  textAlign: 'center' // Ceci centrera le texte horizontalement
+  textAlign: 'center'
 };
 
 function EditableDiv() {
@@ -19,28 +19,33 @@ function EditableDiv() {
     firstNumber: "",
     secondNumber: ""
   });
+  const [result, setResult] = useState("        "); // 8 spaces for placeholder
+  const [currentStep, setCurrentStep] = useState(7); // Start from the rightmost position
+  const [carry, setCarry] = useState(0);
 
-  const [result, setResult] = useState(null);
-
-  const computeResult = () => {
-    const { firstNumber, secondNumber } = values;
-    setResult(parseInt(firstNumber) + parseInt(secondNumber));
-  };
-
-  const handleKeyPress = (event, field) => {
-    if (field === "firstNumber" || field === "secondNumber") {
-      if (!/^[0-9]*$/.test(event.key) || event.target.innerText.length >= 8) {
-        event.preventDefault();
+  const handleAnimationStep = () => {
+    if (currentStep >= 0) {
+      const firstNumber = values.firstNumber.replace(/\s+/g, '').padStart(8, '0');
+      const secondNumber = values.secondNumber.replace(/\s+/g, '').padStart(8, '0');
+      let sum = parseInt(firstNumber[currentStep]) + parseInt(secondNumber[currentStep]) + carry;
+      if (sum > 9) {
+        setCarry(1);
+        sum -= 10;
+      } else {
+        setCarry(0);
       }
+      const partialResult = result.substr(0, currentStep) + sum + result.substr(currentStep + 1);
+      setResult(partialResult);
+      setCurrentStep(currentStep - 1);
     }
   };
 
   const handleChange = (event, field) => {
+    const currentValue = event.target.innerText;
     setValues(prevValues => ({
       ...prevValues,
-      [field]: event.target.innerText
+      [field]: currentValue
     }));
-    computeResult();
   };
 
   return (
@@ -48,27 +53,24 @@ function EditableDiv() {
       <div style={{ textAlign: 'center' }}>
         <div
           contentEditable
-          onKeyPress={e => handleKeyPress(e, "firstNumber")}
           onInput={e => handleChange(e, "firstNumber")}
           style={{ ...editableStyle, marginBottom: '4px' }}
         ></div>
         <div
           contentEditable
-          style={{ fontSize: '30px', color: 'blue', marginBottom: '4px', textAlign: 'left',paddingLeft: '90px' }}
+          style={{ fontSize: '30px', color: 'blue', marginBottom: '4px', textAlign: 'left', paddingLeft: '90px', border: 'none', outline: 'none' }}
         >+</div>
         <div
           contentEditable
-          onKeyPress={e => handleKeyPress(e, "secondNumber")}
           onInput={e => handleChange(e, "secondNumber")}
           style={{ ...editableStyle, marginBottom: '4px' }}
         ></div>
         <div style={{ ...editableStyle, marginBottom: '4px' }}>--------------------</div>
         <div style={editableStyle}>{result}</div>
+        <button onClick={handleAnimationStep}>Étape suivante</button>
       </div>
     </Card>
   );
 }
 
-
 export default EditableDiv;
-
