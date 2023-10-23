@@ -1,252 +1,153 @@
 import styled from 'styled-components';
-import { useState, React, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Container, Card, StyledText } from '../Styles/MajorStyles';
+import Grid from './Gride';
+import { Button } from '@mui/material';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-`;
-
-
-
-
-
-const StyledText = styled.div`
-box-sizing: border-box;
-width: 100%; 
-height: 80%; 
-
-
-transition: background-color 0.4s, transform 0.3s;
+const Canvas = styled.div`
+height: 50vh;
+width: 40vh;
+background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')};
+border: 1px solid #B0BEC5;
+position: relative;
 cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 1em;
-font-family: 'Comic Sans MS', sans-serif;
-&:hover {
-    transform: scale(1.05);
+
+svg {
+    pointer-events: none;
 }
-`;
 
-const Card = styled.div`
-  background-color: white;
-  width : 90%;
-  padding: 20px;
-  border-radius: 50px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #E1F5FE;
-  transition: all 0.3s ease;
+&:hover {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+}
 
-  &:hover {
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-  }
+@media (max-width: 768px) {
+    height: 60vh;
+}
 `;
 
 function Geo1() {
-  const [lines, setLines] = useState(null); // Use a single line instead of an array of lines
-  const [drawing, setDrawing] = useState(false);
-  const [checkMode, setCheckMode] = useState('parallel'); // 'parallel', 'perpendicular'
-  const [message, setMessage] = useState('Tracez deux lignes perpandiculaire');
-  const [questions, setQuestions] = useState([]);
+    const [lines, setLines] = useState(null);
+    const [drawing, setDrawing] = useState(false);
+    const [message, setMessage] = useState('Tracez deux lignes perpendiculaires');
+    const [questions, setQuestions] = useState([]);
+    const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE'];
+    const [currentColor, setCurrentColor] = useState(0);
+    const canvasRef = useRef(null); // Nouvelle référence pour le Canvas
 
-  const getRelativeCoordinates = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    };
+    function disableScrolling() {
+      document.body.style.overflow = 'hidden';
+  }
+  
+  function enableScrolling() {
+    document.body.style.overflow = '';
+  }
+
+
+    const getRelativeCoordinates = (canvas, e) => {
+      let clientX, clientY;
+
+      if (e.touches) {
+          clientX = e.touches[0].clientX;
+          clientY = e.touches[0].clientY;
+      } else {
+          clientX = e.clientX;
+          clientY = e.clientY;
+      }
+
+      const rect = canvas.getBoundingClientRect();
+      return {
+          x: clientX - rect.left,
+          y: clientY - rect.top,
+      };
   };
-  
-  const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE']; // Palette de couleurs
 
+  const startLine = (e) => {
+      if (e.type === "touchstart") {
+          e = e.touches[0];
+      }
+      if (e.target.tagName === "BUTTON") return;
 
+      const coords = getRelativeCoordinates(canvasRef.current, e);
+      setLines({ start: [coords.x, coords.y], end: [coords.x, coords.y] });
+      setDrawing(true);
+  };
 
-const [currentColor, setCurrentColor] = useState(0);
+  const moveLine = (e) => {
+      if (e.type === "touchmove") {
+          e = e.touches[0];
+      }
+      if (!drawing || !lines) return;
 
+      const coords = getRelativeCoordinates(canvasRef.current, e);
+      setLines((prevLine) => ({ start: prevLine.start, end: [coords.x, coords.y] }));
+  };
 
+    const endLine = (e) => {
+        e.preventDefault();
+        if (!drawing || !lines) return;
 
-const startLine = (e) => {
-  if (e.target.tagName === "BUTTON") return;
+        if (arePerpendicular()) {
+            setMessage(<span style={{ color: 'green' }}>Correct!. Répétez.</span>);
+        } else {
+            setMessage(<span style={{ color: 'red' }}>Incorrect! La ligne n'est pas perpendiculaire. Répétez.</span>);
+        }
 
-  const coords = getRelativeCoordinates(e);
-  setLines({ start: [coords.x, coords.y], end: [coords.x, coords.y] });
-  setDrawing(true);
-};
+        setTimeout(() => {
+            setMessage('Tracez deux lignes perpendiculaires');
+            setLines(null);
+            newCoordinates();
+        }, 2000);
 
-const moveLine = (e) => {
-  if (!drawing || !lines) return; // No need to update if no line is drawn or drawing is not in progress
+        setDrawing(false);
+    };
 
-  const coords = getRelativeCoordinates(e);
+    const THRESHOLD = 0.1;
+    const MARGIN = 5;
 
-  // Update the end coordinates of the drawn line
-  setLines((prevLine) => ({ start: prevLine.start, end: [coords.x, coords.y] }));
-};
+    const newCoordinates = () => {
+        setQuestions([generateNewCoordinates()]);
+    };
 
-const endLine = () => {
-  if (!drawing || !lines) return; // No need to update if drawing is not in progress or no line is drawn
+    const generateNewCoordinates = () => {
+        return {
+            X1: Math.floor(Math.random() * 100) + 1,
+            Y1: Math.floor(Math.random() * 100) + 1,
+            X2: Math.floor(Math.random() * 1000) + 1,
+            Y2: Math.floor(Math.random() * 1000) + 1
+        };
+    };
 
-  // Check if the drawn line is parallel
-  if (arePerpendicular()) {
-    
-    setMessage(<span style={{ color: 'green' }}>Correct!. Repeat.</span>);
-    setTimeout(() => {
-      setMessage('Tracez deux lignes perpendiculaire');
-    }, 2000);
+    const arePerpendicular = () => {
+        if (!lines || questions.length === 0) return false;
 
-  } else {
-    setMessage(<span style={{ color: 'red' }}>Incorrect! The line is not perpendiculaire. Repeat.</span>);
-    setTimeout(() => {
-      setMessage('Tracez deux lignes perpendiculaire');
-    }, 2000);
-  }
-  
+        const { X1, Y1, X2, Y2 } = questions[0]; // Utiliser directement le premier élément puisque vous avez toujours un seul élément dans le tableau
 
-  setTimeout(() => {
-    setLines(null);
-    newcoordinates();
-    
-  }, 2000);
-  setDrawing(false);
-};
+        const referenceLine = { start: [X1, Y1], end: [X2, Y2] };
 
+        const deltaY1 = lines.end[1] - lines.start[1];
+        const deltaX1 = lines.end[0] - lines.start[0];
 
-  // ... [le reste de votre code]
+        const deltaY2 = referenceLine.end[1] - referenceLine.start[1];
+        const deltaX2 = referenceLine.end[0] - referenceLine.start[0];
 
-const THRESHOLD = 0.1; // Correspond à 5% de tolérance
+        if ((Math.abs(deltaX1) < MARGIN && Math.abs(deltaY2) < MARGIN) || 
+            (Math.abs(deltaY1) < MARGIN && Math.abs(deltaX2) < MARGIN)) {
+            return true;
+        }
 
-const newcoordinates = () => {
-  const newQuestions = [generatenewcoordinates()];
-  setQuestions(newQuestions);
-};
+        const m1 = deltaY1 / deltaX1;
+        const m2 = deltaY2 / deltaX2;
 
-const generatenewcoordinates = () => {
-    const X1 = Math.floor(Math.random() * 100) + 1
-    const Y1 = Math.floor(Math.random() * 100) + 1
+        return Math.abs(m1 * m2 + 1) < THRESHOLD;
+    };
 
-    const X2 = Math.floor(Math.random() * 1000) + 1
-    const Y2 = Math.floor(Math.random() * 1000) + 1
+    useEffect(() => {
+        newCoordinates();
+    }, []);
 
-    return {X1, X2, Y1, Y2}
-};
-
-const areParallel = () => {
-
-  const X1 = questions.reduce((sum, q) => sum + Math.floor(q.X1), 0)
-  const Y1 = questions.reduce((sum, q) => sum + Math.floor(q.Y1), 0)
-  const X2 = questions.reduce((sum, q) => sum + Math.floor(q.X2), 0) 
-  const Y2 = questions.reduce((sum, q) => sum + Math.floor(q.Y2), 0) 
-    if (!lines) return false;
-
-    
-
-    const referenceLine = { start: [X1, Y1], end: [X2, Y2] }; // Define a reference line (you can adjust as needed)
-
-    const deltaY1 = lines.end[1] - lines.start[1];
-    const deltaX1 = lines.end[0] - lines.start[0];
-
-    const deltaY2 = referenceLine.end[1] - referenceLine.start[1];
-    const deltaX2 = referenceLine.end[0] - referenceLine.start[0];
-
-    const MARGIN = 5;  // 5 pixels de tolérance
-
-    // Si les deux lignes sont approximativement verticales
-    if (Math.abs(deltaX1) < MARGIN && Math.abs(deltaX2) < MARGIN) {
-        return true;
-    }
-
-    // Si les deux lignes sont approximativement horizontales
-    if (Math.abs(deltaY1) < MARGIN && Math.abs(deltaY2) < MARGIN) {
-        return true;
-    }
-
-    // Si une ligne est approximativement verticale/horizontale et l'autre non
-    if ((Math.abs(deltaX1) < MARGIN || Math.abs(deltaX2) < MARGIN) || (Math.abs(deltaY1) < MARGIN || Math.abs(deltaY2) < MARGIN)) {
-        return false;
-    }
-
-    // Si aucune des lignes n'est verticale ou horizontale, nous vérifions les pentes
-    const m1 = deltaY1 / deltaX1;
-    const m2 = deltaY2 / deltaX2;
-
-    // Vérifie si les pentes sont proches l'une de l'autre
-    return Math.abs(m1 - m2) <= THRESHOLD;
-};
-
-
-
-const arePerpendicular = () => {
-    if (!lines) return false;
-
-  const X1 = questions.reduce((sum, q) => sum + Math.floor(q.X1), 0)
-  const Y1 = questions.reduce((sum, q) => sum + Math.floor(q.Y1), 0)
-  const X2 = questions.reduce((sum, q) => sum + Math.floor(q.X2), 0) 
-  const Y2 = questions.reduce((sum, q) => sum + Math.floor(q.Y2), 0) 
-
-  const referenceLine = { start: [X1, Y1], end: [X2, Y2] };
-
-    
-
-    const deltaY1 = lines.end[1] - lines.start[1];
-    const deltaX1 = lines.end[0] - lines.start[0];
-
-    const deltaY2 = referenceLine.end[1] - referenceLine.start[1];
-    const deltaX2 = referenceLine.end[0] - referenceLine.start[0];
-
- // La valeur de tolérance pour décider si une ligne est proche d'être horizontale ou verticale
-const MARGIN = 5;  // 5 pixels de tolérance, par exemple
-
-// Si une ligne est approximativement verticale et l'autre approximativement horizontale
-if ((Math.abs(deltaX1) < MARGIN && Math.abs(deltaY2) < MARGIN) || (Math.abs(deltaY1) < MARGIN && Math.abs(deltaX2) < MARGIN)) {
-    return true;
-}
-
-// Si une ligne est approximativement verticale/horizontale et l'autre non
-if ((Math.abs(deltaX1) < MARGIN && Math.abs(deltaY2) >= MARGIN) || (Math.abs(deltaY1) < MARGIN && Math.abs(deltaX2) >= MARGIN) || (Math.abs(deltaX1) >= MARGIN && Math.abs(deltaY2) < MARGIN) || (Math.abs(deltaY1) >= MARGIN && Math.abs(deltaX2) < MARGIN)) {
-    return false;
-}
-
-
-    
-
-    const m1 = deltaY1 / deltaX1;
-    const m2 = deltaY2 / deltaX2;
-
-    return Math.abs(m1 * m2 + 1) < THRESHOLD;
-};
-
-useEffect(() => {
-  // This effect will run whenever the 'points' state changes.
-  newcoordinates();
-
-}, []);
-
-const Canvas = styled.div`
-  height: 50vh;
-  width : 40vh;
-  background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')}; // Jaune pour actif, bleu clair sinon
-  border: 1px solid #B0BEC5; // Ajout d'une bordure gris bleuâtre
-  position: relative;
-  cursor: pointer; // Changement de curseur pour indiquer une zone interactive
-
-  &:hover {
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); // Lumière brillante lors du survol
-  }
-
-  @media (max-width: 768px) {
-    height: 60vh;
-  }
-`;
-
-  
-  
-  
-
-
-  
  
+
+  
 
   return (
     <Container>
@@ -260,14 +161,20 @@ const Canvas = styled.div`
       <br />
       <br />
 
+      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
+        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
       <Canvas
-        onMouseDown={startLine}
-        onMouseMove={moveLine}
-        onMouseUp={endLine}
-      >
+            ref={canvasRef} // Ajoutez la référence ici
+            onMouseDown={startLine}
+            onMouseMove={moveLine}
+            onMouseUp={endLine}
+            onTouchStart={startLine}
+            onTouchMove={moveLine}
+            onTouchEnd={endLine}
+        >
         <svg style={{ width: '100%', height: '100%' }}>
           {/* ... (previous code) */}
-
+<Grid/>
           {/* Draw the reference line */}
           {questions.map((q) => ( 
           <line

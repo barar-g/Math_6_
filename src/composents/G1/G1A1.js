@@ -1,99 +1,63 @@
-import styled from 'styled-components';
-import ReplyIcon from '@mui/icons-material/Reply';
-import CheckIcon from '@mui/icons-material/Check';
 import { useState } from 'react';
+import { Container, StyledText, Card, Canvas } from '../Styles/MajorStyles';
+import Grid from './Gride';
+import Controls from './Controle';
+import UserLines from './UserLines';
 import { Button } from '@mui/material';
 
-const GRID_SIZE = 20; // Espace entre les lignes de la grille en pixels
-const GRID_COLOR = "#E0E0E0"; // Couleur des lignes de la grille
 
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-`;
-
-const ButtonContainer = styled.div`
-  margin: 20px;
-`;
-
-
-
-const StyledText = styled.div`
-box-sizing: border-box;
-width: 100%; 
-height: 80%; 
-
-
-transition: background-color 0.4s, transform 0.3s;
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 1em;
-font-family: 'Comic Sans MS', sans-serif;
-&:hover {
-    transform: scale(1.05);
-}
-`;
-
-const Card = styled.div`
-  background-color: white;
-  width : 90%;
-  padding: 20px;
-  border-radius: 50px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #E1F5FE;
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-  }
-`;
 
 function App() {
   const [lines, setLines] = useState([]);
   const [drawing, setDrawing] = useState(false);
-  const [checkMode, setCheckMode] = useState('parallel'); // 'parallel', 'perpendicular'
-  const [message, setMessage] = useState('Tracez deux lignes parallel');
+  const [checkMode, setCheckMode] = useState('parallel');
+  const [message, setMessage] = useState('Tracez deux lignes parallèles');
 
-  const getRelativeCoordinates = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+  const getRelativeCoordinates = (e, targetElement) => {
+    const rect = targetElement.getBoundingClientRect();
     return {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     };
   };
+
+  function disableScrolling() {
+    document.body.style.overflow = 'hidden';
+}
+
+function enableScrolling() {
+  document.body.style.overflow = '';
+}
+
   
-  const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE']; // Palette de couleurs
 
-
-
-const [currentColor, setCurrentColor] = useState(0);
-
-const getNextColor = () => {
-  setCurrentColor((currentColor + 1) % colors.length);
-};
+  const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE'];
+  const [currentColor, setCurrentColor] = useState(0);
 
   const startLine = (e) => {
-    if (e.target.tagName === "BUTTON") return;  // Ensure we don't start drawing when clicking on the button
+    if (e.target.tagName === "BUTTON") return;
   
-    const coords = getRelativeCoordinates(e);
+    let coords;
+    if (e.type === "touchstart") {
+      const touch = e.touches[0];
+      coords = getRelativeCoordinates(touch, e.currentTarget);
+    } else {
+      coords = getRelativeCoordinates(e, e.currentTarget);
+    }
+  
     setDrawing(true);
     setLines([...lines, { start: [coords.x, coords.y], end: [coords.x, coords.y] }]);
   };
   
-
   const moveLine = (e) => {
     if (!drawing) return;
-    const coords = getRelativeCoordinates(e);
-    
+  
+    const coords = e.type === "touchmove" ? e.touches[0] : e;
+    const relativeCoords = getRelativeCoordinates(coords, e.currentTarget);
+  
     const newLines = [...lines];
     const currentLine = newLines[newLines.length - 1];
-    currentLine.end = [coords.x, coords.y];
+    currentLine.end = [relativeCoords.x, relativeCoords.y];
     setLines(newLines);
   };
   
@@ -101,9 +65,6 @@ const getNextColor = () => {
   const endLine = () => {
     setDrawing(false);
   };
-
-  // ... [le reste de votre code]
-
 const THRESHOLD = 0.1; // Correspond à 5% de tolérance
 
 const areParallel = () => {
@@ -143,8 +104,6 @@ const areParallel = () => {
     return Math.abs(m1 - m2) <= THRESHOLD;
 };
 
-
-
 const arePerpendicular = () => {
     if (lines.length !== 2) return false;
 
@@ -169,35 +128,12 @@ if ((Math.abs(deltaX1) < MARGIN && Math.abs(deltaY2) < MARGIN) || (Math.abs(delt
 if ((Math.abs(deltaX1) < MARGIN && Math.abs(deltaY2) >= MARGIN) || (Math.abs(deltaY1) < MARGIN && Math.abs(deltaX2) >= MARGIN) || (Math.abs(deltaX1) >= MARGIN && Math.abs(deltaY2) < MARGIN) || (Math.abs(deltaY1) >= MARGIN && Math.abs(deltaX2) < MARGIN)) {
     return false;
 }
-
-
-    
-
     const m1 = deltaY1 / deltaX1;
     const m2 = deltaY2 / deltaX2;
 
     return Math.abs(m1 * m2 + 1) < THRESHOLD;
 };
 
-const Canvas = styled.div`
-  height: 50vh;
-  width : 40vh;
-  background-color: ${(props) => (props.isActive ? '#FFC107' : '#E1F5FE')}; // Jaune pour actif, bleu clair sinon
-  border: 1px solid #B0BEC5; // Ajout d'une bordure gris bleuâtre
-  position: relative;
-  cursor: pointer; // Changement de curseur pour indiquer une zone interactive
-
-  &:hover {
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); // Lumière brillante lors du survol
-  }
-
-  @media (max-width: 768px) {
-    height: 60vh;
-  }
-`;
-
-  
-  
   
 const handleCheck = () => {
     if (checkMode === 'parallel') {
@@ -229,77 +165,36 @@ const handleCheck = () => {
 
   return (
     <Container>
-       <div className="messageContainer" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-   
-    <Card>
-        <StyledText>{message}</StyledText>
-    </Card>
-</div>
+      <div className="messageContainer" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <Card>
+          <StyledText>{message}</StyledText>
+        </Card>
+      </div>
 
-  <br/>
-  <br/>
+      <br />
+      <br />
+      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
+        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
+      <br/>
+      <br></br>
+      <Canvas
+        onMouseDown={startLine}
+        onMouseMove={moveLine}
+        onMouseUp={endLine}
+        onTouchStart={startLine}
+        onTouchMove={moveLine}
+        onTouchEnd={endLine}
+      >
+        <svg style={{ width: '100%', height: '100%' }}>
+          <Grid />
+          <UserLines lines={lines} currentColor={currentColor} colors={colors} />
+        </svg>
+        
 
-    <Canvas
-  onMouseDown={startLine}
-  onMouseMove={moveLine}
-  onMouseUp={endLine}
->
-  <svg style={{ width: '100%', height: '100%' }}>
-    {/* Génération des lignes de la grille */}
-    {Array.from({ length: 50 }).map((_, index) => (
-      <>
-        {/* Ligne verticale */}
-        <line
-          key={`v-${index}`}
-          x1={index * GRID_SIZE}
-          y1={0}
-          x2={index * GRID_SIZE}
-          y2="100%"
-          stroke={GRID_COLOR}
-          strokeWidth="1"
-        />
-        {/* Ligne horizontale */}
-        <line
-          key={`h-${index}`}
-          x1={0}
-          y1={index * GRID_SIZE}
-          x2="100%"
-          y2={index * GRID_SIZE}
-          stroke={GRID_COLOR}
-          strokeWidth="1"
-        />
-      </>
-    ))}
+      </Canvas>
 
-    {/* Lignes tracées par l'utilisateur */}
-    {lines.map((line, index) => (
-      <line
-        key={index}
-        x1={line.start[0]} 
-        y1={line.start[1]}
-        x2={line.end[0]} 
-        y2={line.end[1]}
-        stroke={colors[currentColor]}
-        strokeWidth="3"
-      />
-    ))}
-  </svg>
-</Canvas>
-
-    <ButtonContainer>
-    {checkMode !== 'reset' && lines.length === 2 && (
-      <Button variant='contained' onClick={handleCheck}>
-        <CheckIcon /> 
-      </Button>
-    )}
-    {checkMode === 'reset' && (
-      <Button variant='contained' onClick={handleReset}>
-        <ReplyIcon/> 
-      </Button>
-    )}
-    </ButtonContainer>
-   
-  </Container>
+      <Controls checkMode={checkMode} lines={lines} handleCheck={handleCheck} handleReset={handleReset} />
+    </Container>
   );
 }
 
