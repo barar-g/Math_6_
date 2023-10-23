@@ -95,8 +95,7 @@ const AngleActivity = () => {
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-      <Button variant="contained" style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
-      <Button variant="contained" style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
+   
       <StyledText>Formez un angle et découvrez s'il est aigu, droit ou obtus!</StyledText>
       <div style={{ position: 'relative', width: '100%', height: '500px', margin: '0 auto' }}>
         <div style={{ ...segmentStyle }}></div>
