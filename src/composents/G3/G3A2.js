@@ -26,21 +26,38 @@ const AngleActivity = () => {
     setStartX(e.touches[0].clientX);
   };
 
+
   const handleTouchMove = (e) => {
     e.preventDefault();
-
+  
     if (isDragging) {
-      // Mesurer la distance parcourue par le toucher
       const touchX = e.touches[0].clientX;
-      const distance = touchX - startX;
+      let distance = touchX - startX;
       const maxAngle = 180;
-      
-      // Calculer l'angle en fonction de la distance (ajuster la formule selon vos besoins)
-      const newAngle = Math.min(Math.max(0, (distance / window.innerWidth) * maxAngle), maxAngle);
-
+      const sensitivity = 2;  // Ajustez cette valeur pour contrôler la sensibilité du mouvement
+  
+      // Si l'angle est entre 80 et 100 degrés, ajustez la distance pour inverser le mouvement
+      if (angle > 80 && angle < 100) {
+        distance = -distance;
+      }
+  
+      // Ajouter ou soustraire à l'angle basé sur le mouvement du doigt
+      let newAngle;
+      if (angle < 100) {
+        newAngle = Math.min(Math.max(0, angle + (distance / window.innerWidth) * maxAngle * sensitivity), maxAngle);
+      } else {
+        newAngle = Math.min(Math.max(0, angle - (distance / window.innerWidth) * maxAngle * sensitivity), maxAngle);
+      }
+      // S'assurer que l'angle reste entre 0 et 180 degrés
+      newAngle = Math.min(Math.max(0, newAngle), maxAngle);
+  
       setAngle(newAngle);
+      setStartX(touchX);  // Mettre à jour startX pour le prochain mouvement
     }
   };
+  
+  
+  
 
   const handleTouchEnd = () => {
     enableScrolling();
@@ -67,7 +84,7 @@ const AngleActivity = () => {
     bottom: '50%', 
     left: '50%',
     width: '4px',
-    height: '40%', // Ajuster la hauteur du segment selon vos préférences
+    height: '35%', // Ajuster la hauteur du segment selon vos préférences
     marginLeft: '-2px', // Ajuster la marge pour centrer le segment
     borderRadius: '2px',
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
