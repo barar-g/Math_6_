@@ -42,14 +42,12 @@ function C6A1() {
   const [showInitialMessage, setShowInitialMessage] = useState(true);
   const [animationDistance, setAnimationDistance] = useState(0);
   const [showWarningMessage, setShowWarningMessage] = useState(false);
+
   const [Ruler, setRuler] = useState(0);
   const [showKangaroo, setShowKangaroo] = useState(true);
   const[index, setIndex]=useState(true);
 
-  
 
-
-  
 
   
 
@@ -57,22 +55,27 @@ function C6A1() {
     "Dites-moi le nombre de fois que je dois sauter et la distance parcourue pour chaque saut, et je le ferai. Je vous dirai ensuite combien de mètres j'ai parcourus.";
 
     const handleJump = () => {
+
       if (numJumps === '' || jumpDistance === '') {
         // Handle invalid input here
         return;
       }
     
       if (numJumps * jumpDistance <= 60 && numJumps * jumpDistance !== 0) {
+
         setIsJumping(true);
         setShowMessage(true);
         setShowInitialMessage(false);
     
+
         setAnimationDistance(0);
     
+
         for (let i = 0; i < numJumps; i++) {
           setTimeout(() => {
             play();
             setPosition((prevPosition) => prevPosition + jumpDistance);
+
             setAnimationDistance((prevDistance) => prevDistance + 1);
     
             if (i === numJumps - 1) {
@@ -80,6 +83,7 @@ function C6A1() {
               setIsJumping(false); // Set isJumping to false after the loop is complete
             }
           }, i * 1000);
+
         }
       } else {
         setTimeout(() => {
@@ -88,9 +92,11 @@ function C6A1() {
         }, 3000);
         setShowWarningMessage(true);
       }
+
     };
     
   
+
     
 
   const reset = () => {
@@ -102,9 +108,11 @@ function C6A1() {
     setShowInitialMessage(true);
     setAnimationDistance(0);
     setShowWarningMessage(false);
+
     setRuler(0);
     setIndex(0);
   
+
 
   };
   useEffect(() => {
@@ -126,6 +134,7 @@ function C6A1() {
       setJumpDistance(parseInt(event.target.value))
     }
   };
+
 
   
   const message = `J'ai sauté ${numJumps} fois, et dans chaque saut, j'ai parcouru ${jumpDistance} mètres. Donc, la distance totale parcourue est ${numJumps} multiplié par ${jumpDistance} métres  ce qui donne   ${numJumps*jumpDistance} mètres.`;
@@ -150,6 +159,7 @@ useEffect(() => {
   
   
   
+
   
 
   return (
@@ -187,7 +197,9 @@ useEffect(() => {
             width: '80%', // Ajustez comme vous le souhaitez
           }}>
             <CardContent>
+
               <div style={{ color: 'red' }}> {numJumps}x{jumpDistance} ={numJumps*jumpDistance} metres, Le distance total doit etre inferieur a 60 metres</div>
+
             </CardContent>
           </Card>
         )}
@@ -202,11 +214,14 @@ useEffect(() => {
                 showMessage={showMessage}
                 initialMessage={initialMessage}
               />
+
             )}
+
               <div style={{
                 marginTop: '10px',
                 height: '20px',
                 backgroundColor: '#4CAF50',
+
                 width: `${animationDistance * (7.5)*jumpDistance}vw`, // Adjust width based on your needs
                 transition: 'width 0.5s',
               }}/>
@@ -224,6 +239,7 @@ useEffect(() => {
       </FractionBande1>
     ))}
   </BandeBox1>
+
             </Box>
           </Grid>
           <Grid item xs={6}>
@@ -262,8 +278,10 @@ useEffect(() => {
               variant="contained"
               color="primary"
               onClick={reset}
+
               disabled={isJumping}
               
+
               
               fullWidth
             >

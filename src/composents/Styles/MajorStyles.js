@@ -208,3 +208,14 @@ export const BandeBox = styled.div`
   border-radius: 15px;
   background-color: white;
 `;
+
+export const circleStyle = {
+  position: 'absolute',
+  top: 0,
+  left: '50%',
+  transform: 'translateX(-50%)',
+  width: '16px',
+  height: '16px',
+  backgroundColor: '#2193b0',
+  borderRadius: '50%',
+};

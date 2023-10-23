@@ -13,9 +13,11 @@ function Kangaroo({ position, numJumps, jumpDistance, showMessage }) {
     from: { transform: `translate3d(0, 0, 0)` },
     to: {
       transform: `translate3d(${Math.min(
+
         position * (7.5),
         100 - 7.5
       )}vw, ${7.5 * Math.sin(position * Math.PI)}vh, 0)`,
+
     },
     config: {
       tension: 170,
