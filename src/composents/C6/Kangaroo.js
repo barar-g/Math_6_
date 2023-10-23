@@ -5,24 +5,19 @@ import kangarooImg from '../Images/kangaro.png';
 import MessageBubble from '../MessageBubble'; // N'oubliez pas d'importer la nouvelle composante
 
 function Kangaroo({ position, numJumps, jumpDistance, showMessage }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+ 
 
   const styles = useSpring({
     from: { transform: `translate3d(0, 0, 0)` },
     to: {
       transform: `translate3d(${Math.min(
-        position * (5),
-        100 - 5
-      )}vw, ${5 * Math.sin(position * Math.PI)}vh, 0)`,
+
+        position * (7.5),
+        100 - 7.5
+      )}vw, ${7.5 * Math.sin(position * Math.PI)}vh, 0)`,
+
     },
     config: {
       tension: 170,

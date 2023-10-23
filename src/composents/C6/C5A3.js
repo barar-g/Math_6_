@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Card, CardContent, Box, TextField, Grid } from '@mui/material';
 import useSound from 'use-sound';
 import jumpSound from '../sounds/jump.mp3';
@@ -43,35 +43,47 @@ function C6A1() {
   const [animationDistance, setAnimationDistance] = useState(0);
   const [showWarningMessage, setShowWarningMessage] = useState(false);
 
+  const [Ruler, setRuler] = useState(0);
+  const [showKangaroo, setShowKangaroo] = useState(true);
+  const[index, setIndex]=useState(true);
+
+
+
   
 
   const initialMessage =
     "Dites-moi le nombre de fois que je dois sauter et la distance parcourue pour chaque saut, et je le ferai. Je vous dirai ensuite combien de mètres j'ai parcourus.";
 
     const handleJump = () => {
-      // Check if either numJumps or jumpDistance is blank
+
       if (numJumps === '' || jumpDistance === '') {
-        // Don't do anything if either is blank
+        // Handle invalid input here
         return;
       }
     
-      if (numJumps * jumpDistance <= 16 && numJumps * jumpDistance !== 0) {
+      if (numJumps * jumpDistance <= 60 && numJumps * jumpDistance !== 0) {
+
         setIsJumping(true);
         setShowMessage(true);
         setShowInitialMessage(false);
     
-        // Reset animation distance
+
         setAnimationDistance(0);
     
-        // Jump multiple times based on numJumps
+
         for (let i = 0; i < numJumps; i++) {
           setTimeout(() => {
             play();
             setPosition((prevPosition) => prevPosition + jumpDistance);
-    
-            // Update animation distance
+
             setAnimationDistance((prevDistance) => prevDistance + 1);
-          }, i * 1000); // Adjust the delay based on your needs
+    
+            if (i === numJumps - 1) {
+              // This is the last iteration of the loop
+              setIsJumping(false); // Set isJumping to false after the loop is complete
+            }
+          }, i * 1000);
+
         }
       } else {
         setTimeout(() => {
@@ -80,9 +92,11 @@ function C6A1() {
         }, 3000);
         setShowWarningMessage(true);
       }
-    
-      // Set a timeout to clear isJumping after the entire animation is complete
+
     };
+    
+  
+
     
 
   const reset = () => {
@@ -94,8 +108,18 @@ function C6A1() {
     setShowInitialMessage(true);
     setAnimationDistance(0);
     setShowWarningMessage(false);
-  };
 
+    setRuler(0);
+    setIndex(0);
+  
+
+
+  };
+  useEffect(() => {
+    reset();
+  }, []);
+
+  
   const handleNumJumpsChange = (event) => {
     if(parseInt(event.target.value)<0){
       setNumJumps(0);
@@ -111,7 +135,31 @@ function C6A1() {
     }
   };
 
-  const message = `J'ai sauté ${numJumps} fois, et dans chaque saut, j'ai parcouru ${jumpDistance} mètres. Donc, la distance totale parcourue est ${numJumps} multiplié par ${jumpDistance} métres  ce qui donne   ${position} mètres.`;
+
+  
+  const message = `J'ai sauté ${numJumps} fois, et dans chaque saut, j'ai parcouru ${jumpDistance} mètres. Donc, la distance totale parcourue est ${numJumps} multiplié par ${jumpDistance} métres  ce qui donne   ${numJumps*jumpDistance} mètres.`;
+
+  
+const updatePosition = () => {
+    setPosition((position-10));
+    setRuler(position);
+    setAnimationDistance((position-10)/jumpDistance);
+    setIndex((prevIndex) => prevIndex + 1);
+};
+
+useEffect(() => {
+  if (
+    (position > 10)||(position > 20)||(position > 30)||(position > 40 )||
+    (position > 50)
+    ){
+    updatePosition();
+  }
+}, [position]);
+  
+  
+  
+  
+
   
 
   return (
@@ -149,13 +197,16 @@ function C6A1() {
             width: '80%', // Ajustez comme vous le souhaitez
           }}>
             <CardContent>
-              <div style={{ color: 'red' }}> {numJumps}x{jumpDistance} ={numJumps*jumpDistance} metres, Le distance total doit etre inferieur a 16 metres</div>
+
+              <div style={{ color: 'red' }}> {numJumps}x{jumpDistance} ={numJumps*jumpDistance} metres, Le distance total doit etre inferieur a 60 metres</div>
+
             </CardContent>
           </Card>
         )}
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Box my={2}>
+            {showKangaroo && (
               <Kangaroo
                 position={position}
                 numJumps={numJumps}
@@ -163,27 +214,32 @@ function C6A1() {
                 showMessage={showMessage}
                 initialMessage={initialMessage}
               />
+
+            )}
+
               <div style={{
                 marginTop: '10px',
                 height: '20px',
                 backgroundColor: '#4CAF50',
-                width: `${animationDistance * (5)*jumpDistance}vw`, // Adjust width based on your needs
+
+                width: `${animationDistance * (7.5)*jumpDistance}vw`, // Adjust width based on your needs
                 transition: 'width 0.5s',
               }}/>
-              <BandeBox1>
-          {[...Array(17)].map((_, index) => (
-            <FractionBande1>
-              
-                <div class="frac">
-                  <span>{`${index}`}</span>
-                  <span class="symbol">/</span>
-                  <span class="bottom"></span>
-                </div>
-              
-            </FractionBande1>
-            
-          ))}
-        </BandeBox1>
+             <BandeBox1>
+    {[...Array(11)].map((_, i) => (
+      <FractionBande1 key={i}>
+        <div className="frac">
+        
+        <span>{i + ((index)*10)}</span>
+        
+       
+          <span className="symbol">/</span>
+          <span className="bottom"></span>
+        </div>
+      </FractionBande1>
+    ))}
+  </BandeBox1>
+
             </Box>
           </Grid>
           <Grid item xs={6}>
@@ -222,6 +278,10 @@ function C6A1() {
               variant="contained"
               color="primary"
               onClick={reset}
+
+              disabled={isJumping}
+              
+
               
               fullWidth
             >
