@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Grid, Alert } from "@mui/material";
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { Box, Button, Grid, Alert } from "@mui/material";
+import { DndProvider, useDrag, useDrop, useDragLayer } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import { isMobile } from 'react-device-detect';
 import styled from "styled-components";
 
 const ItemType = 'card';  
@@ -16,6 +18,7 @@ const StyledText = styled.p`
   &:hover {
     transform: scale(1.05);
   }`;
+
 const ResetButton = styled.button`
 border-radius: 5px;
 background-color: #45a05c;
@@ -24,7 +27,6 @@ color: white;
 border: none;
 font-family: "Roboto", sans-serif;
 font-size: 16px;
-
 &:hover {
   background-color: #0056b3;
 }
@@ -38,16 +40,71 @@ const VerifyButtom = styled.button`
   border: none;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-
   &:hover {
     background-color: #0056b3;
   }
 `;
 
+const layerStyles = {
+  position: 'fixed',
+  pointerEvents: 'none',
+  zIndex: 100,
+  left: 0,
+  top: 0,
+  width: '100%',
+  height: '100%',
+};
+
+function getItemStyles(currentOffset) {
+  if (!currentOffset) {
+    return {
+      display: 'none',
+    };
+  }
+  
+  const { x, y } = currentOffset;
+  const transform = `translate(${x}px, ${y}px)`;
+  return {
+    transform,
+    WebkitTransform: transform,
+  };
+}
+
+const CustomDragLayer = () => {
+  const {
+    itemType,
+    isDragging,
+    item,
+    currentOffset,
+  } = useDragLayer((monitor) => ({
+    item: monitor.getItem(),
+    itemType: monitor.getItemType(),
+    currentOffset: monitor.getSourceClientOffset(),
+    isDragging: monitor.isDragging(),
+  }));
+
+  if (!isDragging) {
+    return null;
+  }
+
+  return (
+    <div style={layerStyles}>
+      <div style={getItemStyles(currentOffset)}>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: '#0000FF', color: 'white' }} 
+        >
+          {item.text}
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 const Card = ({ id, text, moveCard }) => {
   const [{ isDragging }, drag] = useDrag({
     type: ItemType,
-    item: { id },
+    item: { id, text },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {
@@ -63,7 +120,7 @@ const Card = ({ id, text, moveCard }) => {
     <Button
       ref={drag}
       variant="contained"
-      style={{ opacity: isDragging ? 0.5 : 1, backgroundColor: '#0000FF', color: 'white' }} 
+      style={{ opacity: isDragging ? 0 : 1, backgroundColor: '#0000FF', color: 'white' }} 
     >
       {text}
     </Button>
@@ -144,9 +201,10 @@ const C2A1 = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
       <Box>
-        <StyledText >
+        <CustomDragLayer />
+        <StyledText>
           C2A1 : Jeu du plus grand nombre
         </StyledText>
         {showResult && (
@@ -163,7 +221,7 @@ const C2A1 = () => {
             </Grid>
           ))}
         </Grid>
-        <StyledText >
+        <StyledText>
           Tableau
         </StyledText>
         <Grid container spacing={2} justifyContent="center">
@@ -180,7 +238,7 @@ const C2A1 = () => {
             </VerifyButtom>
           </Grid>
           <Grid item>
-            <ResetButton  onClick={resetGame}>
+            <ResetButton onClick={resetGame}>
               RESET
             </ResetButton>
           </Grid>

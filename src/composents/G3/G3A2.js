@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Button from '@mui/material/Button';
 import ReplyIcon from '@mui/icons-material/Reply';
-import { StyledText, circleStyle } from '../Styles/MajorStyles';
+import { Card, StyledText, circleStyle } from '../Styles/MajorStyles';
 import { ButtonBase } from '@mui/material';
 
 function disableScrolling() {
@@ -96,7 +96,7 @@ const AngleActivity = () => {
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
    
-      <StyledText>Formez un angle et découvrez s'il est aigu, droit ou obtus!</StyledText>
+   <Card> <StyledText>Formez un angle et découvrez s'il est aigu, droit ou obtus!</StyledText></Card>
       <div style={{ position: 'relative', width: '100%', height: '500px', margin: '0 auto' }}>
         <div style={{ ...segmentStyle }}></div>
         <animated.div
@@ -120,7 +120,7 @@ const AngleActivity = () => {
         onClick={resetAngle}
         style={{ marginTop: '1rem', minWidth: '120px' }}
       >
-        Réinitialiser
+       
       </Button>
     </div>
   );
