@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Card, CardContent, Box, TextField, Grid } from '@mui/material';
-<<<<<<< HEAD:src/composents/C5/C5A3.js
 import useSound from "use-sound";
 import jumpSound from '../sounds/jump.mp3';
 import Kangaroo from '../Kangaroo';
-=======
-import useSound from 'use-sound';
-import jumpSound from './jump.mp3';
-import Kangaroo from './Kangaroo';
-import ReplyIcon from '@mui/icons-material/Reply';
->>>>>>> 0f40bc53a4fe27f40c3406ab74b1fbb04978e7ae:src/composents/C5A3.js
 
 function C6A1() {
   const [position, setPosition] = useState(0);
