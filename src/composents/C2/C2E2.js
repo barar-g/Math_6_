@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { Card as Card1} from '../Styles/MajorStyles';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ReplyIcon from '@mui/icons-material/Reply';
+import inestine from "../Images/inestine.png";
 
 const ItemType = 'card';  
 
@@ -183,6 +184,18 @@ const C2A1 = () => {
   return (
     <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
       <Box>
+      <img
+  src={inestine}
+  alt="Teacher"
+  style={{
+    marginTop: "25px",
+    width: "50%", // ou une valeur spécifique comme "100px"
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
+  }}
+/>
+
         <CustomDragLayer />
        <Card1><StyledText>
           Ordonnez ces nomber de plus haut vers le plus petis 
