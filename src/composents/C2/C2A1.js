@@ -5,6 +5,10 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
 import { isMobile } from 'react-device-detect';
 import styled from "styled-components";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ReplyIcon from '@mui/icons-material/Reply';
+import { Card as Card1 } from '../Styles/MajorStyles';
+
 
 const ItemType = 'card';  
 
@@ -19,31 +23,7 @@ const StyledText = styled.p`
     transform: scale(1.05);
   }`;
 
-const ResetButton = styled.button`
-border-radius: 5px;
-background-color: #45a05c;
-margin: 15px 0;
-color: white;
-border: none;
-font-family: "Roboto", sans-serif;
-font-size: 16px;
-&:hover {
-  background-color: #0056b3;
-}
-`;
 
-const VerifyButtom = styled.button`
-  border-radius: 5px;
-  background-color: #007bff;
-  margin: 15px 0;
-  color: white;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 const layerStyles = {
   position: 'fixed',
@@ -204,16 +184,12 @@ const C2A1 = () => {
     <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
       <Box>
         <CustomDragLayer />
-        <StyledText>
-          C2A1 : Jeu du plus grand nombre
-        </StyledText>
-        {showResult && (
-          <Alert severity={success ? "success" : "error"}>
-            {success
-              ? "Félicitations, vous avez formé le plus grand nombre possible !"
-              : `Désolé, vous n'avez pas formé le plus grand nombre possible.`}
-          </Alert>
-        )}
+       <Card1> <StyledText>
+           Formez le  plus grand nombre possible
+        </StyledText></Card1>
+        <br></br>
+        <br></br>
+       
         <Grid container spacing={2} justifyContent="center">
           {cards.map((card, index) => (
             <Grid item key={index}>
@@ -222,7 +198,7 @@ const C2A1 = () => {
           ))}
         </Grid>
         <StyledText>
-          Tableau
+        <br></br>
         </StyledText>
         <Grid container spacing={2} justifyContent="center">
           {table.map((slot, index) => (
@@ -233,14 +209,22 @@ const C2A1 = () => {
         </Grid>
         <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
           <Grid item>
-            <VerifyButtom onClick={checkResult} disabled={!finished}>
-              OK
-            </VerifyButtom>
+          <Button onClick={checkResult} variant='contained' color='primary' disabled={!finished}>
+              <CheckCircleIcon></CheckCircleIcon>
+            </Button>
           </Grid>
           <Grid item>
-            <ResetButton onClick={resetGame}>
-              RESET
-            </ResetButton>
+            <Button variant='contained' color='primary' onClick={resetGame}>
+              <ReplyIcon></ReplyIcon>
+            </Button>
+            <br></br>
+            {showResult && (
+          <Alert severity={success ? "success" : "error"}>
+            {success
+              ? "Félicitations, vous avez formé le plus grand nombre possible !"
+              : `Désolé, vous n'avez pas formé le plus grand nombre possible.`}
+          </Alert>
+        )}
           </Grid>
         </Grid>
       </Box>

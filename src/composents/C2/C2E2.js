@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Grid, Card, CardContent } from "@mui/material";
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { Box, Button, Grid, Alert } from "@mui/material";
+import { DndProvider, useDrag, useDrop, useDragLayer } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-
+import { TouchBackend } from 'react-dnd-touch-backend';
+import { isMobile } from 'react-device-detect';
 import styled from "styled-components";
+import { Card as Card1} from '../Styles/MajorStyles';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ReplyIcon from '@mui/icons-material/Reply';
+
+const ItemType = 'card';  
 
 const StyledText = styled.p`
   padding: 0px 20px;
@@ -15,193 +21,215 @@ const StyledText = styled.p`
   &:hover {
     transform: scale(1.05);
   }`;
-  
-const ResetButton = styled.button`
-border-radius: 5px;
-background-color: #45a05c;
-margin: 15px 0;
-color: white;
-border: none;
-font-family: "Roboto", sans-serif;
-font-size: 16px;
 
-&:hover {
-  background-color: #0056b3;
-}
-`;
 
-const VerifyButtom = styled.button`
-  border-radius: 5px;
-  background-color: #007bff;
-  margin: 15px 0;
-  color: white;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
 
-  &:hover {
-    background-color: #0056b3;
+const layerStyles = {
+  position: 'fixed',
+  pointerEvents: 'none',
+  zIndex: 100,
+  left: 0,
+  top: 0,
+  width: '100%',
+  height: '100%',
+};
+
+function getItemStyles(currentOffset) {
+  if (!currentOffset) {
+    return {
+      display: 'none',
+    };
   }
-`;
+  
+  const { x, y } = currentOffset;
+  const transform = `translate(${x}px, ${y}px)`;
+  return {
+    transform,
+    WebkitTransform: transform,
+  };
+}
 
+const CustomDragLayer = () => {
+  const {
+    itemType,
+    isDragging,
+    item,
+    currentOffset,
+  } = useDragLayer((monitor) => ({
+    item: monitor.getItem(),
+    itemType: monitor.getItemType(),
+    currentOffset: monitor.getSourceClientOffset(),
+    isDragging: monitor.isDragging(),
+  }));
 
+  if (!isDragging) {
+    return null;
+  }
 
-const ItemTypes = {
-  NUMBER: 'number',
-};  
+  return (
+    <div style={layerStyles}>
+      <div style={getItemStyles(currentOffset)}>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: '#0000FF', color: 'white' }} 
+        >
+          {item.text}
+        </Button>
+      </div>
+    </div>
+  );
+};
 
-const Number = ({ id, text }) => {
+const Card = ({ id, text, moveCard }) => {
   const [{ isDragging }, drag] = useDrag({
-    type: ItemTypes.NUMBER,
-    item: { id },
+    type: ItemType,
+    item: { id, text },
+    end: (item, monitor) => {
+      const dropResult = monitor.getDropResult();
+      if (item && dropResult) {
+        moveCard(item.id, dropResult.id);
+      }
+    },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
 
-  const buttonWidth = `${text.toString().length * 10 + 10}px`;  // Calculate button width based on number length
-
   return (
     <Button
       ref={drag}
       variant="contained"
-      style={{
-        opacity: isDragging ? 0.5 : 1, 
-        fontSize: '1.5em', 
-        backgroundColor: 'blue',
-        color: 'white',
-        borderRadius: '10px', // Rounded rectangle shape
-        width: buttonWidth, 
-        height: '60px' 
-      }}
+      style={{ opacity: isDragging ? 0 : 1, backgroundColor: '#0000FF', color: 'white' }} 
     >
       {text}
     </Button>
   );
 };
 
-const Slot = ({ accept, lastDroppedId, handleDrop }) => {
-  const [, drop] = useDrop({
+const Slot = ({ id, accept, lastDroppedId, moveCard }) => {
+  const [{ isOver, canDrop }, drop] = useDrop({
     accept,
-    drop: (item) => handleDrop(item.id),
+    drop: () => ({ id }),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
   });
 
-  const buttonWidth = lastDroppedId !== null ? `${lastDroppedId.toString().length * 10 + 10}px` : '60px';  // Calculate button width based on number length
-
   return (
-    <Button
-      ref={drop} 
-      
-      style={{
-        fontSize: '1.5em', 
-        backgroundColor: 'blue',
-        color: 'white',
-        borderRadius: '10px', // Rounded rectangle shape
-        width: '60px', 
-        height: '60px' ,
-      }}
-    >
-      {lastDroppedId !== null ? lastDroppedId : '?'}
+    <Button ref={drop} variant="outlined">
+      {lastDroppedId !== null ? lastDroppedId : 'Vide'}
     </Button>
   );
 };
 
 const C2A1 = () => {
-  const [numbers, setNumbers] = useState([0, 0, 0, 0]);
-  const [droppedNumbers, setDroppedNumbers] = useState([null, null, null, null]);
-  const [score, setScore] = useState(0);
+  const [cards, setCards] = useState([]);
+  const [table, setTable] = useState(Array(4).fill(null)); 
+  const [finished, setFinished] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
-    generateNumbers();
+    const newCards = [];
+    while(newCards.length < 4) {
+      const randomNumber = Math.floor(Math.random() * 10000);
+      if (!newCards.includes(randomNumber)) {
+        newCards.push(randomNumber);
+      }
+    }
+    setCards(newCards);
   }, []);
 
-  const generateNumbers = () => {
-    setNumbers([
-      Math.floor(Math.random() * 10000), 
-      Math.floor(Math.random() * 10000),
-      Math.floor(Math.random() * 10000),
-      Math.floor(Math.random() * 10000)
-    ]);
-    setDroppedNumbers([null, null, null, null]);
+  const moveCard = (cardId, slotId) => {
+    setTable(table.map((item, index) => index === slotId ? cardId : item));
+    setCards(cards.filter(item => item !== cardId));
   };
 
-  const resetGame = () => {
-    setNumbers([0, 0, 0, 0]);
-    setDroppedNumbers([null, null, null, null]);
-    setScore(0);
-  };
-
-  const handleDrop = (index) => (number) => {
-    let newDroppedNumbers = [...droppedNumbers];
-    newDroppedNumbers[index] = number;
-    setDroppedNumbers(newDroppedNumbers);
-  };
+  useEffect(() => {
+    if (cards.length === 3) {
+      setFinished(true);
+    }
+  }, [cards]);
 
   const checkResult = () => {
-    let orderedNumbers = [...numbers].sort((a, b) => b - a);
-    if (JSON.stringify(droppedNumbers) === JSON.stringify(orderedNumbers)) {
-      setScore(score + 1);
+    const sortedTable = [...table].sort((a, b) => b - a);
+    const isOrderedDescending = table.every((num, idx) => num === sortedTable[idx]);
+  
+    if (isOrderedDescending) {
+      setSuccess(true);
+    } else {
+      setSuccess(false);
     }
+    setShowResult(true);
+  };
+  
 
-    generateNumbers();
+  const resetGame = () => {
+    const newCards = [];
+    while(newCards.length < 4) {
+      const randomNumber = Math.floor(Math.random() * 10000);
+      if (!newCards.includes(randomNumber)) {
+        newCards.push(randomNumber);
+      }
+    }
+    setCards(newCards);
+    setTable(Array(4).fill(null));
+    setFinished(false);
+    setSuccess(false);
+    setShowResult(false);
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Box 
-        sx={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          height: '50vh', 
-          bgcolor: 'background.default',
-        }}>
-        <Card elevation={3}>
-          <CardContent>
-            <StyledText>
-            Organisez les nombres en ordre décroissant
-            </StyledText>
-           
-            <Grid container spacing={2} justifyContent="center">
-              {droppedNumbers.map((droppedNumber, index) => (
-                <Grid item key={index}>
-                  <Slot accept={ItemTypes.NUMBER} lastDroppedId={droppedNumber} handleDrop={handleDrop(index)} />
-                </Grid>
-              ))}
+    <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
+      <Box>
+        <CustomDragLayer />
+       <Card1><StyledText>
+          Ordonnez ces nomber de plus haut vers le plus petis 
+        </StyledText></Card1> 
+        <br></br>
+        <br></br>
+        
+        <Grid container spacing={2} justifyContent="center">
+          {cards.map((card, index) => (
+            <Grid item key={index}>
+              <Card id={card} text={card} moveCard={moveCard} />
             </Grid>
-            <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
-              {numbers.map((number, index) => (
-                <Grid item key={index} >
-                  <Number id={number} text={number} />
-                </Grid>
-              ))}
+          ))}
+        </Grid>
+        <br></br>
+        <Grid container spacing={2} justifyContent="center">
+          {table.map((slot, index) => (
+            <Grid item key={index}>
+              <Slot id={index} accept={ItemType} lastDroppedId={slot} moveCard={moveCard} />
             </Grid>
-         
-            <Grid container spacing={2} justifyContent="center" style={{marginTop: '0em'}}>
-              <Grid item>
-                <VerifyButtom  onClick={checkResult} disabled={droppedNumbers.includes(null)}>
-                  OK
-                </VerifyButtom>
-              </Grid>
-              <Grid item>
-                <ResetButton
-                  variant="contained" 
-                  onClick={resetGame}
-                >
-                  RESET
-                </ResetButton>
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
+          ))}
+        </Grid>
+        <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
+          <Grid item>
+            <Button onClick={checkResult} variant='contained' color='primary' disabled={!finished}>
+              <CheckCircleIcon></CheckCircleIcon>
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant='contained' color='primary' onClick={resetGame}>
+              <ReplyIcon></ReplyIcon>
+            </Button>
+            <br></br>
+          
+          </Grid>
+          <br></br>
+          {showResult && (
+          <Alert severity={success ? "success" : "error"}>
+            {success
+              ? "Félicitations, ces nomber sont bien Ordonner de l'ordere decroissant  !"
+              : `Désolé, ces nomber ne sont pas  Ordonner de l'ordere decroissant.`}
+          </Alert>
+        )}
+        </Grid>
       </Box>
     </DndProvider>
   );
 };
 
 export default C2A1;
-
