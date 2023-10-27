@@ -1,132 +1,461 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Box,  Button, Typography, Card, CardContent, Grid } from '@mui/material';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import styled from "styled-components";
+import useSound from "use-sound";
+import correctSound from "../sounds/correct.mp3";
+import incorrectSound from "../sounds/incorrect.mp3";
+
+const StyledText = styled.p`
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-family: "Comic Sans MS", sans-serif;
+  &:hover {
+    transform: scale(1.05);
+  }`;
+  
+const ResetButton = styled.button`
+border-radius: 5px;
+background-color: #45a05c;
+margin: 15px 0;
+color: white;
+border: none;
+font-family: "Roboto", sans-serif;
+font-size: 16px;
+
+&:hover {
+  background-color: #0056b3;
+}
+`;
+
+
+
+const VerifieButton = styled.button`
+  border-radius: 5px;
+  background-color: #45a05c;
+  margin: 15px 0;
+  color: white;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const VerifieButton1 = styled.button`
+  border-radius: 5px;
+  background-color:  #f0f0f0;
+  margin: 15px 0;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+const VerifieButton2 = styled.button`
+  border-radius: 5px;
+  background-color:  #a6c9e2;
+  margin: 15px 0;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const FormulaBox = styled.div`
+  padding: 15px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: white;
+  margin-Left:0px;
+  font-size: 26px;
+  
+`;
+const FormulaBox1 = styled.div`
+  padding: 15px 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  margin-Left:0px;
+  font-size: 26px;
+ 
+`;
+const FormulaBox12 = styled.div`
+  padding: 15px 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #a6c9e2;
+  margin-Left:0px;
+  font-size: 26px;
+ 
+`;
 
 const ItemTypes = {
   BRACKET: 'bracket',
 };
 
-function Bracket({ id, text }) {
-  const [{ isDragging }, drag] = useDrag({
-    type: ItemTypes.BRACKET,
-    item: { id },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
 
-  return (
-    <Button
-      ref={drag}
-      variant="contained"
-      style={{
-        opacity: isDragging ? 0.5 : 1, 
-        fontSize: '1.5em', 
-        backgroundColor: 'blue',
-        color: 'white',
-        borderRadius: '50%',
-        width: '60px',
-        height: '60px',
-      }}
-    >
-      {text}
-    </Button>
-  );
-}
-
-function Slot({ accept, lastDroppedId, handleDrop }) {
-  const [, drop] = useDrop({
-    accept,
-    drop: (item) => handleDrop(item.id),
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
-  });
-
-  return (
-    <Button
-      ref={drop} 
-      variant="outlined"
-      style={{
-        fontSize: '1.5em', 
-        backgroundColor: 'blue',
-        color: 'white',
-        borderRadius: '50%',
-        width: '60px',
-        height: '60px',
-      }}
-    >
-      {lastDroppedId !== null ? lastDroppedId : '?'}
-    </Button>
-  );
-}
 
 function C5A2() {
-  const [equation, setEquation] = useState('2 * 1 + 5 - 4');
-  const [brackets, setBrackets] = useState([]);
-  const [droppedBrackets, setDroppedBrackets] = useState([null, null]);
+  const [step, setStep] = useState(4);
+  const[move, setMove] = useState(0);
+  const [showCongratulations, setShowCongratulations] = useState(false);
+  const [showX, setShowX] = useState(false);
+  const [opverify, setOpverify] = useState(false);
+  const [play] = useSound(correctSound);
+  const [play1] = useSound(incorrectSound);
+  const [questions, setQuestions] = useState([]);
+  const[firstcase, setfirstcase] = useState(false);
+  const[secondcase, setsecondcase]= useState(false);
+  const[thirdcase, setthirdcase]=useState(false);
+
+
+
+
+  const forward = () => {
+    if (step < 4) {
+      setStep(step + 1);
+      if (move === 0 && step === 1) {
+        setfirstcase(true);
+        setsecondcase(false);
+        setthirdcase(false);
+      } else if (move === 2 && step === 3) {
+        setthirdcase(true);
+        setfirstcase(false);
+        setsecondcase(false);
+      } else {
+        setsecondcase(true);
+        setfirstcase(false);
+        setthirdcase(false);
+      }
+    }
+  }
+  
+  const Backward = () => {
+    if ((step - move) > 1) {
+      setStep(step - 1);
+      if (move === 0 && step == 3) {
+        setfirstcase(true);
+        setsecondcase(false);
+        setthirdcase(false);
+      } else if (move === 1 && step === 4) {
+        setthirdcase(true);
+        setfirstcase(false);
+        setsecondcase(false);
+      } else {
+        setsecondcase(true);
+        setfirstcase(false);
+        setthirdcase(false);
+      }
+      
+    }
+  }
+  
+  const forwardM = () => {
+    if ((step - move) > 1) {
+      setMove(move + 1);
+      if (move === 0 && step === 1) {
+        setfirstcase(true);
+        setsecondcase(false);
+        setthirdcase(false);
+      } else if (move === 1 && step === 4) {
+        setthirdcase(true);
+        setfirstcase(false);
+        setsecondcase(false);
+      } else {
+        setsecondcase(true);
+        setfirstcase(false);
+        setthirdcase(false);
+      }
+    }
+  }
+  
+  const BackwardM = () => {
+    if (move > 0) {
+      setMove(move - 1);
+      if (move === 1 && step ===  2) {
+        setfirstcase(true);
+        setsecondcase(false);
+        setthirdcase(false);
+      } else if (move === 3 && step === 4) {
+        setthirdcase(true);
+        setfirstcase(false);
+        setsecondcase(false);
+      } else {
+        setsecondcase(true);
+        setfirstcase(false);
+        setthirdcase(false);
+      }
+    }
+  }
+  
 
   const resetGame = () => {
-    setEquation('2 * 1 + 5 - 4');
-    setBrackets(['(', ')']);
-    setDroppedBrackets([null, null]);
-  };
-
-  const handleDrop = (index) => (bracket) => {
-    let newDroppedBrackets = [...droppedBrackets];
-    newDroppedBrackets[index] = bracket;
-    setDroppedBrackets(newDroppedBrackets);
-  };
-
-  const checkAnswer = () => {
-    try {
-      const userAnswer = `${droppedBrackets[0] ? droppedBrackets[0] : ''}${equation}${droppedBrackets[1] ? droppedBrackets[1] : ''}`;
-      const isCorrect = eval(userAnswer) === 3;
-      alert(isCorrect ? 'Correct!' : 'Incorrect.');
-    } catch (error) {
-      alert('Incorrect.');
+    if (opverify) {
+    generateQuestion();
+    setShowCongratulations(false);
+    setOpverify(false);
+    setMove(0);
+    setStep(4);
     }
   };
+
+  const verify = () => {
+    VerifieSumbol();
+  };
+
+  
+
+
+
+
+  const generateQuestion = () => {
+    const newQuestions = [generateNumbers()];
+    setQuestions(newQuestions);
+    setShowCongratulations(false);
+    
+  };
+  const generateNumbers = () => {
+    const getRandomNumber = (exclude) => {
+      let num;
+      do {
+        num = Math.floor(Math.random() * 5) + 1;
+      } while (exclude.includes(num) || num <= 0);
+      return num;
+    };
+  
+    let firstnumber, secondnumber, thirdnumber;
+  
+    firstnumber = getRandomNumber([]);
+    secondnumber = getRandomNumber([firstnumber]);
+    thirdnumber = getRandomNumber([firstnumber, secondnumber]);
+  
+    const fourthnumber = getRandomNumber([firstnumber, secondnumber, thirdnumber]);
+  
+    const first = Math.floor((Math.floor(firstnumber + secondnumber) * thirdnumber) - fourthnumber);
+    const second = Math.floor(firstnumber + Math.floor(secondnumber * thirdnumber) - fourthnumber);
+    const third = firstnumber + secondnumber * (thirdnumber - fourthnumber);
+  
+    const options = [first, second, third];
+    const positiveOptions = options.filter(option => option > 0);
+    const randomIndex = Math.floor(Math.random() * positiveOptions.length);
+    const answer = positiveOptions[randomIndex];
+    console.log(options);
+    console.log(answer);
+    console.log(first);
+  
+    return { firstnumber, secondnumber, thirdnumber, fourthnumber, first, second, third, answer };
+  };
+  
+  
+  
+
+  const VerifieSumbol = () => {
+    const first = questions.reduce((sum, q) => sum + Math.floor(q.first), 0);
+    const second = questions.reduce((sum, q) => sum + Math.floor(q.second), 0);
+    const third =questions.reduce((sum, q) => sum + Math.floor(q.third), 0);
+    const answer = questions.reduce((sum, q) => sum + Math.floor(q.answer), 0);
+
+    if (answer == first && firstcase) {
+      setShowCongratulations(true);
+      setOpverify(true);
+      play();
+    } 
+    else if (answer == second && secondcase) {
+      setShowCongratulations(true);
+      setOpverify(true);
+      play()
+    } else if (answer == third && thirdcase) {
+      setShowCongratulations(true);
+      setOpverify(true);
+      play()
+    } else{
+      setShowCongratulations(false);
+      setOpverify(false);
+      play1();
+      setShowX(true); // Show the "X" element
+      setTimeout(() => {
+        setShowX(false); // Hide the "X" element after 2 seconds
+      }, 2000);
+    }
+  };
+  console.log('step is'+step);
+  console.log('move is'+move);
+  
+  console.log(firstcase);
+  console.log(secondcase);
+  console.log(thirdcase);
+  useEffect(() => {
+    generateQuestion();
+  }, []);
 
   return (
     <DndProvider backend={HTML5Backend}>
       <Box sx={{ '& > :not(style)': { m: 1 } }}>
         <Card elevation={3}>
           <CardContent>
-            <Typography variant="h6">
-              Placez des parenthèses dans l'équation suivante pour que le résultat soit 3 : {equation}.
-            </Typography>
-            <Grid container spacing={2} justifyContent="center" alignItems="center">
-              <Grid item>
-                <Slot accept={ItemTypes.BRACKET} lastDroppedId={droppedBrackets[0]} handleDrop={handleDrop(0)} />
-              </Grid>
-              <Grid item>
-                <Typography variant="h5">{equation}</Typography>
-              </Grid>
-              <Grid item>
-                <Slot accept={ItemTypes.BRACKET} lastDroppedId={droppedBrackets[1]} handleDrop={handleDrop(1)} />
-              </Grid>
+            <StyledText >
+              Placez des parenthèses dans l'équation suivante pour que le résultat soit: 
+            </StyledText>
+            <StyledText >
+            {questions.map((q, index) => (
+                    <span>{q.answer}</span>
+                  ))}
+            </StyledText>
+
+
+            <Grid container spacing={1} justifyContent="center" style={{marginTop: '0em'}}>
+              {move == 0 &&
+               <FormulaBox12 className="symbols"
+                >
+                &#40;
+                </FormulaBox12>
+}
+                <FormulaBox 
+                className="symbols" >
+                {questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}
+                </FormulaBox>
+                {step==1 &&
+                <FormulaBox1 className="symbols"
+                >
+                &#41;
+                </FormulaBox1>
+}
+                <FormulaBox 
+                className="symbols"
+              >
+                +
+                </FormulaBox>
+                {move==1 &&
+               <FormulaBox12 className="symbols"
+                >
+                &#40;
+                </FormulaBox12>
+}
+                <FormulaBox className="symbols"
+                >
+                {questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}
+                </FormulaBox>
+                {step==2 &&
+                <FormulaBox1 className="symbols"
+                >
+                &#41;
+                </FormulaBox1>
+}
+                <FormulaBox className="symbols"
+                >
+                &#215;
+                </FormulaBox>
+                {move==2 &&
+               <FormulaBox12 className="symbols"
+                >
+                &#40;
+                </FormulaBox12>
+}
+                <FormulaBox className="symbols"
+                >
+                {questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}
+                </FormulaBox>
+                {step==3 &&
+                <FormulaBox1 className="symbols"
+                >
+                &#41;
+                </FormulaBox1>
+}
+                <FormulaBox className="symbols"
+                >
+                -
+                </FormulaBox>
+                {move==3 &&
+               <FormulaBox12 className="symbols"
+                >
+                &#40;
+                </FormulaBox12>
+}
+                <FormulaBox className="symbols"
+                >
+                {questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}
+                </FormulaBox>
+                {step==4 &&
+                <FormulaBox1 className="symbols"
+                >
+                &#41;
+                </FormulaBox1>
+}
             </Grid>
-            <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
-              {brackets.map((bracket, index) => (
-                <Grid item key={index}>
-                  <Bracket id={bracket} text={bracket} />
-                </Grid>
-              ))}
-            </Grid>
-            <Grid container spacing={2} justifyContent="center" style={{marginTop: '2em'}}>
-              <Grid item>
-                <Button variant="contained" color="primary" onClick={checkAnswer} disabled={droppedBrackets.includes(null)}>
-                  OK
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button variant="contained" color="error" onClick={resetGame}>
-                  Reset
-                </Button>
-              </Grid>
+           
+            <Grid container spacing={2} justifyContent="center" style={{marginTop: '1em'}}>
+            <div>
+              {" "}
+              <div>
+              <ResetButton
+                variant="contained"
+                type="submit"
+                style={{ marginRight: "10px" }}
+                onClick={verify}
+                
+              >
+                Verifier
+              </ResetButton>
+              <VerifieButton
+             onClick={resetGame} 
+              >Reset
+              </VerifieButton>
+              </div>
+              <div>
+              <VerifieButton2
+              style={{ marginRight: "1px", marginLeft:"0px" }}
+              onClick={BackwardM}
+              
+              >&#60;
+              </VerifieButton2>
+              <VerifieButton2
+              style={{ marginRight: "20px" }}
+              onClick={forwardM}
+              
+              >&#62;
+              </VerifieButton2>
+              
+              {showX && <span>✖️</span>}
+              {showCongratulations && <span>✅</span>}
+              
+              <VerifieButton1
+              style={{ marginLeft: "20px" }}
+              onClick={Backward}
+              
+              >&#60;
+              </VerifieButton1>
+              <VerifieButton1
+              style={{ marginRight: "px" }}
+              onClick={forward}
+              
+              >&#62;
+              </VerifieButton1>
+              </div>
+            </div>
+          
             </Grid>
           </CardContent>
         </Card>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import kangarooImg from '../Images/kangaro.png';
-import MessageBubble from '../MessageBubble'; // N'oubliez pas d'importer la nouvelle composante
+
 
 function Kangaroo({ position, numJumps, jumpDistance, showMessage }) {
   
