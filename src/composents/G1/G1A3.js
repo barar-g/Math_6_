@@ -40,6 +40,7 @@ function enableScrolling() {
   const startLine = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    disableScrolling();
 
     if (e.target.tagName === "BUTTON") return;
 
@@ -49,6 +50,7 @@ function enableScrolling() {
   };
 
   const moveLine = (e) => {
+    disableScrolling();
     e.preventDefault();
     e.stopPropagation();
 
@@ -61,6 +63,7 @@ function enableScrolling() {
   const endLine = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    enableScrolling();
 
     if (!drawing || !lines) return;
 
@@ -83,7 +86,7 @@ function enableScrolling() {
     setDrawing(false);
   };
 
-  const THRESHOLD = 0.1;
+  const THRESHOLD = 0.3;
 
   const newcoordinates = () => {
     const newQuestions = [generatenewcoordinates()];
@@ -157,9 +160,6 @@ return (
 
     <br />
     <br />
-    <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
-        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
-
     <Canvas
       onMouseDown={startLine}
       onMouseMove={moveLine}

@@ -35,6 +35,7 @@ function enableScrolling() {
   const [currentColor, setCurrentColor] = useState(0);
 
   const startLine = (e) => {
+    disableScrolling();
     if (e.target.tagName === "BUTTON") return;
   
     let coords;
@@ -51,7 +52,7 @@ function enableScrolling() {
   
   const moveLine = (e) => {
     if (!drawing) return;
-  
+    disableScrolling();
     const coords = e.type === "touchmove" ? e.touches[0] : e;
     const relativeCoords = getRelativeCoordinates(coords, e.currentTarget);
   
@@ -64,8 +65,10 @@ function enableScrolling() {
 
   const endLine = () => {
     setDrawing(false);
+    enableScrolling();
+
   };
-const THRESHOLD = 0.1; // Correspond à 5% de tolérance
+const THRESHOLD = 0.3; // Correspond à 5% de tolérance
 
 const areParallel = () => {
     if (lines.length !== 2) return false;
@@ -79,7 +82,7 @@ const areParallel = () => {
     const deltaY2 = line2.end[1] - line2.start[1];
     const deltaX2 = line2.end[0] - line2.start[0];
 
-    const MARGIN = 5;  // 5 pixels de tolérance
+    const MARGIN = 20;  // 5 pixels de tolérance
 
     // Si les deux lignes sont approximativement verticales
     if (Math.abs(deltaX1) < MARGIN && Math.abs(deltaX2) < MARGIN) {
@@ -117,7 +120,7 @@ const arePerpendicular = () => {
     const deltaX2 = line2.end[0] - line2.start[0];
 
  // La valeur de tolérance pour décider si une ligne est proche d'être horizontale ou verticale
-const MARGIN = 5;  // 5 pixels de tolérance, par exemple
+const MARGIN = 20;  // 5 pixels de tolérance, par exemple
 
 // Si une ligne est approximativement verticale et l'autre approximativement horizontale
 if ((Math.abs(deltaX1) < MARGIN && Math.abs(deltaY2) < MARGIN) || (Math.abs(deltaY1) < MARGIN && Math.abs(deltaX2) < MARGIN)) {
@@ -173,8 +176,7 @@ const handleCheck = () => {
 
       <br />
       <br />
-      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
-        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
+    
       <br/>
       <br></br>
       <Canvas

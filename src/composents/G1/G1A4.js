@@ -62,6 +62,7 @@ function Geo1() {
   };
 
   const startLine = (e) => {
+    disableScrolling();
       if (e.type === "touchstart") {
           e = e.touches[0];
       }
@@ -73,6 +74,7 @@ function Geo1() {
   };
 
   const moveLine = (e) => {
+    disableScrolling();
       if (e.type === "touchmove") {
           e = e.touches[0];
       }
@@ -83,6 +85,7 @@ function Geo1() {
   };
 
     const endLine = (e) => {
+      enableScrolling();
         e.preventDefault();
         if (!drawing || !lines) return;
 
@@ -101,8 +104,8 @@ function Geo1() {
         setDrawing(false);
     };
 
-    const THRESHOLD = 0.1;
-    const MARGIN = 5;
+    const THRESHOLD = 0.3;
+    const MARGIN = 20;
 
     const newCoordinates = () => {
         setQuestions([generateNewCoordinates()]);
@@ -160,9 +163,6 @@ function Geo1() {
 
       <br />
       <br />
-
-      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
-        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
       <Canvas
             ref={canvasRef} // Ajoutez la référence ici
             onMouseDown={startLine}
