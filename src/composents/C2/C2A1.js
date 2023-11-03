@@ -119,7 +119,7 @@ const Slot = ({ id, accept, lastDroppedId, moveCard }) => {
 
   return (
     <Button ref={drop} variant="outlined">
-      {lastDroppedId !== null ? lastDroppedId : 'Vide'}
+      {lastDroppedId !== null ? lastDroppedId : '?'}
     </Button>
   );
 };

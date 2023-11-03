@@ -37,17 +37,30 @@ const StyledButton = styled(Button)`
     marginRight : 2px
 `;
 
-function AngleSorting() {
-    const [order, setOrder] = useState([]);
-    const [anglesData, setAnglesData] = useState(generateAngles());
-    const [message, setMessage] = useState('');
 
-    function generateAngles() {
-        return Array(5).fill().map((_, index) => ({
-            id: String.fromCharCode(65 + index),
-            angle: 20 + Math.floor(Math.random() * 140)
-        }));
-    }
+
+    function AngleSorting() {
+        const [order, setOrder] = useState([]);
+        const [anglesData, setAnglesData] = useState(generateAngles());
+        const [message, setMessage] = useState('');
+    
+        function generateAngles() {
+            const angles = [];
+            while (angles.length < 5) {
+              const newAngle = 20 + Math.floor(Math.random() * 140);
+              let isFarEnough = true;
+              for (const angle of angles) {
+                if (Math.abs(angle.angle - newAngle) < 20) {
+                  isFarEnough = false;
+                  break;
+                }
+              }
+              if (isFarEnough) {
+                angles.push({ id: String.fromCharCode(65 + angles.length), angle: newAngle });
+              }
+            }
+            return angles;
+          }
     
 
     const handleAngleSelection = (angleType) => {

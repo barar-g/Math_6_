@@ -34,6 +34,12 @@ function Geo1() {
     const [currentColor, setCurrentColor] = useState(0);
     const canvasRef = useRef(null); // Nouvelle référence pour le Canvas
 
+    // Fonction pour calculer la distance entre deux points
+const calculateDistance = (x1, y1, x2, y2) => {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+};
+
+
     function disableScrolling() {
       document.body.style.overflow = 'hidden';
   }
@@ -62,6 +68,7 @@ function Geo1() {
   };
 
   const startLine = (e) => {
+    disableScrolling();
       if (e.type === "touchstart") {
           e = e.touches[0];
       }
@@ -73,6 +80,7 @@ function Geo1() {
   };
 
   const moveLine = (e) => {
+    disableScrolling();
       if (e.type === "touchmove") {
           e = e.touches[0];
       }
@@ -82,27 +90,43 @@ function Geo1() {
       setLines((prevLine) => ({ start: prevLine.start, end: [coords.x, coords.y] }));
   };
 
-    const endLine = (e) => {
-        e.preventDefault();
-        if (!drawing || !lines) return;
+  const endLine = (e) => {
+    enableScrolling();
+    e.preventDefault();
+    if (!drawing || !lines) return;
 
-        if (arePerpendicular()) {
-            setMessage(<span style={{ color: 'green' }}>Correct!. Répétez.</span>);
-        } else {
-            setMessage(<span style={{ color: 'red' }}>Incorrect! La ligne n'est pas perpendiculaire. Répétez.</span>);
-        }
+    const lineLength = calculateDistance(
+        lines.start[0], lines.start[1], 
+        lines.end[0], lines.end[1]
+    );
 
-        setTimeout(() => {
-            setMessage('Tracez deux lignes perpendiculaires');
-            setLines(null);
-            newCoordinates();
-        }, 2000);
-
+    // Si la ligne est trop courte, réinitialisez les lignes comme si rien n'était tracé
+    if (lineLength < 30) {
+        setLines(null);
+        setMessage('La ligne est trop courte. Essayez à nouveau.');
         setDrawing(false);
-    };
+        return; // Ajoutez return pour sortir de la fonction si la ligne est trop courte
+    }
 
-    const THRESHOLD = 0.1;
-    const MARGIN = 5;
+    // Continuer avec la logique existante si la ligne est suffisamment longue
+    if (arePerpendicular()) {
+        setMessage(<span style={{ color: 'green' }}>Correct!. Répétez.</span>);
+    } else {
+        setMessage(<span style={{ color: 'red' }}>Incorrect! La ligne n'est pas perpendiculaire. Répétez.</span>);
+    }
+
+    setTimeout(() => {
+        setMessage('Tracez deux lignes perpendiculaires');
+        setLines(null);
+        newCoordinates();
+    }, 2000);
+
+    setDrawing(false);
+};
+
+
+    const THRESHOLD = 0.3;
+    const MARGIN = 20;
 
     const newCoordinates = () => {
         setQuestions([generateNewCoordinates()]);
@@ -160,9 +184,6 @@ function Geo1() {
 
       <br />
       <br />
-
-      <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
-        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
       <Canvas
             ref={canvasRef} // Ajoutez la référence ici
             onMouseDown={startLine}

@@ -10,6 +10,9 @@ function Geo1() {
   const [questions, setQuestions] = useState([]);
   const colors = ['#FF1744', '#00E676', '#651FFF', '#FF9100', '#E1F5FE'];
   const [currentColor, setCurrentColor] = useState(0);
+  
+  
+ 
 
   function disableScrolling() {
     document.body.style.overflow = 'hidden';
@@ -37,9 +40,16 @@ function enableScrolling() {
     };
   };
 
+  const calculateDistance = (start, end) => {
+    return Math.sqrt(
+      (end[0] - start[0]) ** 2 + (end[1] - start[1]) ** 2
+    );
+  };
+  
   const startLine = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    disableScrolling();
 
     if (e.target.tagName === "BUTTON") return;
 
@@ -49,6 +59,7 @@ function enableScrolling() {
   };
 
   const moveLine = (e) => {
+    disableScrolling();
     e.preventDefault();
     e.stopPropagation();
 
@@ -61,29 +72,40 @@ function enableScrolling() {
   const endLine = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
+    enableScrolling();
+  
     if (!drawing || !lines) return;
-
-    if (areParallel()) {
-      setMessage(<span style={{ color: 'green' }}>Correct!. Repeat.</span>);
-      setTimeout(() => {
-        setMessage('Tracez deux lignes parallel');
-      }, 2000);
+  
+    const distance = calculateDistance(lines.start, lines.end);
+    if (distance < 30) {
+      setMessage('La ligne est trop courte. Essayez à nouveau.');
+      // If the line is shorter than 30 pixels, ignore it
+      setLines(null);
     } else {
-      setMessage(<span style={{ color: 'red' }}>Incorrect! The line is not parallel. Repeat.</span>);
+      // If the line is 30 pixels or longer, check if it's parallel
+      if (areParallel()) {
+        setMessage(<span style={{ color: 'green' }}>Correct! Repeat.</span>);
+        setTimeout(() => {
+          setMessage('Tracez deux lignes parallel');
+        }, 2000);
+      } else {
+        setMessage(<span style={{ color: 'red' }}>Incorrect! The line is not parallel. Repeat.</span>);
+        setTimeout(() => {
+          setMessage('Tracez deux lignes parallel');
+        }, 2000);
+      }
+  
+      // Prepare for the next line
       setTimeout(() => {
-        setMessage('Tracez deux lignes parallel');
+        setLines(null);
+        newcoordinates();
       }, 2000);
     }
-
-    setTimeout(() => {
-      setLines(null);
-      newcoordinates();
-    }, 2000);
     setDrawing(false);
   };
+  
 
-  const THRESHOLD = 0.1;
+  const THRESHOLD = 0.3;
 
   const newcoordinates = () => {
     const newQuestions = [generatenewcoordinates()];
@@ -157,9 +179,6 @@ return (
 
     <br />
     <br />
-    <Button variant = 'contained' style={{ margin: '10px' }} onClick={disableScrolling}>Commencer</Button>
-        <Button variant = 'contained' style={{ margin: '10px' }} onClick={enableScrolling}>Terminer</Button>
-
     <Canvas
       onMouseDown={startLine}
       onMouseMove={moveLine}

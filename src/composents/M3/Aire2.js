@@ -1,168 +1,114 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import Draggable from 'react-draggable';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import IconButton from '@material-ui/core/IconButton';
-import CheckIcon from '@material-ui/icons/Check';
-import ReplayIcon from '@material-ui/icons/Replay';
-import TextField from '@material-ui/core/TextField';  // Ajout de TextField
-import Aire1 from './Aire1'
+import Aire1 from './Aire1'; 
+import M3 from './M3'; 
 import QCMM3 from './QCMM3';
 import teacherImage from '../Images/Prof1.png';
-import Formule from './Formule';
-import { Button } from '@mui/material';
+import teacher from '../Images/teacher.png';
+import styled from 'styled-components';
 
-const StyledSVG = styled.svg`
-    position: relative;
-    z-index: 1;
-`;
-
-const RapporteurDiv = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    cursor: pointer;
-    opacity: 0.7;
-`;
+// Import des styles
+import {
+  Container, SectionContainer, ImageContainer,FormulaText, Card, FormulaBox,BodyText,Subtitle, ContinueButton
+} from '../Styles/MajorStyles'; // Assurez-vous que le chemin est correct
+import Rapporteur from './Rapporteur';
 
 
-
-
-function Rapporteur() {
-    return (
-        <svg width="300" height="150" viewBox="0 0 400 200">
-            <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style={{ stopColor: "#dfe4ea", stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: "#ced6e0", stopOpacity: 1 }} />
-                </linearGradient>
-            </defs>
-            <circle cx="200" cy="200" r="180" fill="url(#gradient)" stroke="black" strokeWidth="2" />
-            <line x1="20" y1="200" x2="380" y2="200" stroke="black" strokeWidth="2" />
-            {Array.from({ length: 180 }).map((_, i) => (
-                <line
-                    key={i}
-                    x1="200"
-                    y1={i % 10 === 0 ? "195" : "200"}
-                    x2="200"
-                    y2={i % 10 === 0 ? "30" : "40"}
-                    stroke={i % 10 === 0 ? "#2f3542" : "#747d8c"}
-                    strokeWidth={i % 10 === 0 ? "2" : "1"}
-                    transform={`rotate(${i}, 200, 200)`}
-                />
-            ))}
-            {Array.from({ length: 19 }).map((_, i) => (
-                <text
-                    key={i}
-                    x="200"
-                    y="25"
-                    fill="#2f3542"
-                    fontSize="12"
-                    fontWeight="bold"
-                    textAnchor="middle"
-                    transform={`rotate(${i * 10}, 200, 200)`}
-                >
-                    {i * 10}
-                </text>
-            ))}
-        </svg>
-    );
-}
-
-function AngleMeasurement() {
-    const [angleData, setAngleData] = useState({ angle: 20 + Math.floor(Math.random() * 140) });
-    const [userInput, setUserInput] = useState('');
-    const [message, setMessage] = useState('');
-
-    const handleSubmit = () => {
-        if (Math.abs(angleData.angle - parseInt(userInput)) <= 5) {
-            setMessage('Bravo! Vous êtes très proche.');
-        } else {
-            setMessage(`Désolé! L'angle correct est: ${angleData.angle}°`);
-        }
-    };
-
-    const handleReset = () => {
-        setAngleData({ angle: 20 + Math.floor(Math.random() * 140) });
-        setUserInput('');
-        setMessage('');
-    };
-
+const C1 = () => {
     const [section, setSection] = useState(0);
-    const nextSection = () => {
-      setSection(prevSection => prevSection + 1);
-    };
-    const [showSections, setShowSections] = useState([true, true, true]);
 
-    return ( <div> <div> <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} /> {showSections[0] && (<Aire1></Aire1>)}
-   
-    <br></br>
-    
-   
-     {section >= 1 && (<div>  <img src={teacherImage} alt="Enseignant" style={{ maxWidth: '50%', height: 'auto' }} /> <Formule></Formule> 
-        <Card style={{ maxWidth: 500, maxHeight : 700  , margin: '10px auto' }}>
-            <CardContent>
-                <div style={{ position: 'relative', width: '500px', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <StyledSVG width="500" height="500" viewBox="0 0 500 500">
-                        <line 
-                            x1="200" 
-                            y1="250" 
-                            x2="200" 
-                            y2="150" 
-                            stroke="black" 
-                            strokeWidth="3"
-                        />
-                        <line 
-                            x1="200" 
-                            y1="250" 
-                            x2={200 + 100 * Math.cos(Math.PI / 2 - angleData.angle * Math.PI / 180)} 
-                            y2={250 - 100 * Math.sin(Math.PI / 2 - angleData.angle * Math.PI / 180)} 
-                            stroke="blue" 
-                            strokeWidth="3"
-                        />
-                    </StyledSVG>
+    return (
+        <Container>
+            <SectionContainer>
+                <ImageContainer>
+                    <img src={teacher} alt="Teacher" />
+                </ImageContainer>
+                <Card>
+                    <BodyText>
+                        Salut! Aujourd'hui, on va parler d'un sujet intéressant : Mesure des angles.
+                    </BodyText>
+                </Card>
+            </SectionContainer>
+            
+            {section >= 1 && (
+                <div>
+                    <SectionContainer>
+                    <FormulaBox>
+                        <Subtitle>🔍 Concept clés🔍</Subtitle>
+                        <FormulaText>
+    <strong>Les grands nombres :</strong> Plus un nombre a de chiffres, plus il est grand. Ainsi, "100" est plus grand que "99". On utilise des séparateurs, comme une virgule, pour faciliter la lecture: 1 000, 10 000, etc.
+</FormulaText>
+
+<FormulaText>
+    <strong>Noms des grands nombres :</strong> 1 000 est un "mille", 1 000 000 est un "million" et 1 000 000 000 est un "milliard".
+</FormulaText>
+
+<FormulaText>
+    <strong>Astuce :</strong> Pense à des situations réelles: une ville a des milliers d'habitants, un pays a des millions d'habitants !
+</FormulaText>
+
+
+
+                    </FormulaBox>
+                    </SectionContainer>
                     
-                    <Draggable>
-                        <RapporteurDiv>
-                            <Rapporteur />
-                        </RapporteurDiv>
-                    </Draggable>
-                </div>
-                
-                <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                    <TextField
-                        label="Entrez votre mesure"
-                        type="number"
-                        value={userInput}
-                        onChange={(e) => setUserInput(e.target.value)}
-                        variant="outlined"
-                        style={{ marginBottom: '10px' }}
-                    />
-                    <IconButton color="primary" onClick={handleSubmit}>
-                        <CheckIcon />
-                    </IconButton>
-                    <IconButton color="secondary" onClick={handleReset}>
-                        <ReplayIcon />
-                    </IconButton>
-                    <div style={{ marginTop: '10px', fontSize: '18px' }}>{message}</div>
-                </div>
-            </CardContent>
-        </Card>
-        </div>)}
-        {section >= 2 && (<QCMM3></QCMM3>)}
 
-        {section < 2 && (  // Notez que j'ai utilisé '< 3' car vous avez 4 sections (0, 1, 2, 3)
-                <Button variant="contained" color="primary" onClick={nextSection} sx={{ mt: 2, alignSelf: 'center' }}>
-                    Continuer
-                </Button>
+                   
+                </div>
             )}
-        </div>  </div>
+
+{section >= 2 && (
+                <div>
+                    <SectionContainer>
+                        <ImageContainer>
+                            <img src={teacherImage} alt="Enseignant" />
+                        </ImageContainer>
+                        <Card>
+                            <BodyText>
+                                Écris un nombre et découvre ses détails.
+                            </BodyText>
+                        </Card>
+                    </SectionContainer>
+                    <br></br>
+                    <br></br>
+
+                    <div style={{ marginBottom: '50px', width: '100%', height:'100%' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <Aire1 />
+                        </div>
+                        <div className="separator"></div> {/* Ceci peut aussi être remplacé par un composant stylisé si nécessaire */}
+                    </div>
+                </div>
+            )}
+            
+            {section >= 3 && (
+                <div style={{ marginBottom: '50px', width: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                   
+                        <M3 />
+                    </div>
+                    <div className="separator"></div>
+                </div>
+            )}
+
+            {section >= 4 && (
+                <div style={{ marginBottom: '50px', width: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <ImageContainer>
+                            <img src={teacherImage} alt="Enseignant" />
+                        </ImageContainer>
+                        <QCMM3 />
+                    </div>
+                    <div className="separator"></div>
+                </div>
+            )}
+
+           
+
+            {section < 4 && (
+                <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
+            )}
+        </Container>
     );
 }
 
-export default AngleMeasurement;
-
-
-
+export default C1;
