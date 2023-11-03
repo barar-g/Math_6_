@@ -2,13 +2,30 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import ReplyIcon from '@mui/icons-material/Reply';
 import Slider from '@mui/material/Slider';
-import { Card, StyledText, circleStyle } from '../Styles/MajorStyles';
+import { Card, StyledText } from '../Styles/MajorStyles';
 
 const AngleActivity = () => {
   const [angle, setAngle] = useState(8);
   const [message, setMessage] = useState("glisser le slider pour ouvrir l'angle");
   const [messageColor, setMessageColor] = useState("#000");
 
+
+  const getTextPosition = (radius, angle) => {
+    // Calculer la position à mi-chemin de l'arc pour l'angle donné
+    const halfAngle = angle / 2;
+    // Calculer la distance où le texte doit être placé
+    // Plus l'angle est grand, plus la distance peut être petite
+    const distance = angle < 90 ? radius + 40 : radius + 20;
+    
+    // Utiliser polarToCartesian pour trouver le point le long du bord de l'arc
+    const position = polarToCartesian(100, 100, distance, halfAngle);
+    
+    // Retourner cette position
+    return position;
+  };
+  
+  
+  
   const handleSliderChange = (event, newValue) => {
     setAngle(newValue);
   };
@@ -35,6 +52,29 @@ const AngleActivity = () => {
     setMessageColor(color);
 };
 
+  const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
+    const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+    return {
+      x: centerX + (radius * Math.cos(angleInRadians)),
+      y: centerY + (radius * Math.sin(angleInRadians))
+    };
+  }
+  const describeArc = (x, y, radius, startAngle, endAngle) => {
+    const start = polarToCartesian(x, y, radius, endAngle);
+    const end = polarToCartesian(x, y, radius, startAngle);
+    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    const d = [
+      "M", start.x, start.y, 
+      "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y,
+      "L", x, y,
+      "Z"
+    ].join(" ");
+    return d;
+  };
+
+  const radius = 60; 
+
+
 
 
   const resetAngle = () => {
@@ -46,13 +86,13 @@ const AngleActivity = () => {
     position: 'absolute',
     bottom: '50%', 
     left: '50%',
-    width: '4px',
-    height: '35%',
+    width: '6px',
+    height: '70%',
     marginLeft: '-2px',
     borderRadius: '2px',
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
     transformOrigin: 'bottom',
-    transition: '0.2s',
+    transition: 'none',
     backgroundColor: '#2193b0'
   };
   
@@ -62,22 +102,33 @@ const AngleActivity = () => {
       <Card>
         <StyledText>Formez un angle et découvrez s'il est aigu, droit ou obtus!</StyledText>
       </Card>
-      <div style={{ position: 'relative', width: '100%', height: '400px', margin: '0 auto' }}>
-        <div style={{ ...segmentStyle }}></div>
-        <div
-          style={{
-            ...segmentStyle,
-            transform: `rotate(${angle}deg)`
-          }}
-        >
-          <div ></div>
-        </div>
-      </div>
+    <br></br>
+      <div style={{ position: 'relative', width: '200px', height: '200px', margin: '40px auto' }}>
+  <svg width="200" height="200" viewBox="0 0 200 200" style={{ position: 'absolute', top: '0', left: '0' }}>
+    <path d={describeArc(100, 100, radius, 0, angle)} fill="red" />
+    {angle > 0 && ( // On ne montre le texte que si l'angle est supérieur à 0
+      <text x={getTextPosition(radius, angle).x} y={getTextPosition(radius, angle).y} fill="white" dy=".3em" textAnchor="middle">
+        {angle}°
+      </text>
+    )}
+  </svg>
+  <div style={{ ...segmentStyle, top: '50%', transform: 'translate(-50%, -100%)' }}></div>
+  <div
+    style={{
+      ...segmentStyle,
+      top: '50%',
+      transform: `translate(-50%, -100%) rotate(${angle}deg)`
+    }}
+  >
+  </div>
+</div>
+<br></br>
       <Card>
       <StyledText style={{color: messageColor}}>{message}</StyledText>
       </Card>
 
       <div style={{ width: '80%', marginTop: '20px' }}>
+      <StyledText>Angle actuel: {angle}°</StyledText> {/* Ligne ajoutée pour afficher l'angle actuel */}
         <Slider
           value={angle}
           min={0}
