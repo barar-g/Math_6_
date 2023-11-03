@@ -3,6 +3,7 @@ import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
 import Divs from "./Divs";
 import QCM11 from "./QCMC11";
+import Audio from "./Audio11" ;
 
 // Import des styles
 import {
@@ -78,6 +79,9 @@ const P3A8 = () => {
           le nombre 573 est divisible par 3 car le somme de ces unites est  </FormulaText>
           <FormulaText><strong>divisible par 5 </strong>=Un nombre est divisible par 5 si il finit par 0 ou 5<br></br>
           le nombre 573 n est pas divisible par 5 car il finit par 3  </FormulaText>
+          <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
       </FormulaBox>
 </SectionContainer>
 )}

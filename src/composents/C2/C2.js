@@ -6,6 +6,7 @@ import C2E1 from "./C2E1";
 import C2E2 from "./C2E2";
 import QCMC2 from "./QCMC2";
 import styled from "styled-components";
+import Audio from "./Audio2" ;
 
 
 
@@ -89,6 +90,9 @@ const C2 = () => {
 <FormulaText>
     <strong>Astuce :</strong> Pour t'aider, imagine une ligne de nombres. Place les nombres dessus pour voir leur ordre. Avec de la pratique, tout deviendra facile !
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
                     </FormulaBox>
         </SectionContainer>

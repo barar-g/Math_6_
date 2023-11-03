@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import fteacher from "../Images/teacher.png";
 import inestine from "../Images/inestine.png";
+import Audio from "./Audio5" ;
 import C5A1 from "./C5A1";
 import C5A2 from "./C5A2";
 import TestC5 from "./QCMC5";
@@ -78,9 +79,13 @@ const C5 = () => {
 <FormulaText>
     <strong>Astuce :</strong> Quand tu vois des parenthèses, pense à faire ce qui est à l'intérieur en premier !
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
 
                     </FormulaBox>
+
         </SectionContainer>
       )}
       {section >= 2 && showSections[2] && (

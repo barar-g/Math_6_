@@ -7,6 +7,7 @@ import QCMC6 from './QCMC6';
 import Container from '@mui/material/Container';
 import teacher from '../Images/teacher.png';
 import { SectionContainer, ImageContainer, Card, BodyText, Separator, ContinueButton,FormulaText,FormulaBox,Subtitle } from '../Styles/MajorStyles';
+import Audio from "./Audio6" ;
 
 const C1 = () => {
     const [section, setSection] = useState(0);
@@ -44,6 +45,9 @@ const C1 = () => {
 <FormulaText>
     <strong>Astuce :</strong> Quand tu multiplies par 10, tu ajoutes simplement un zéro à la fin du nombre ! Par exemple, 7 x 10 = 70.
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
 
 

@@ -3,6 +3,7 @@ import teacherImage from '../Images/teacher.png';
 import Test1 from './QCMC10';
 import P2A2_1 from './P2A2-1';
 import P2A2_2 from './P2A2-2';
+import Audio from "./Audio10";
 
 // Import des styles
 import {
@@ -118,8 +119,11 @@ const App = () => {
                         <Subtitle>🔍 Formules Clés 🔍</Subtitle>
                         <FormulaText><strong>Bénéfice</strong> = Prix de vente - Prix d'achat</FormulaText>
                         <FormulaText><strong>Perte</strong> = Prix d'achat - Prix de vente</FormulaText>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+<Audio/>
+</div>
                     </FormulaBox>
-                    <SkipIcon onClick={() => toggleSection(4)}> {showSections[4] ? "^" : "v"}</SkipIcon>
+                    
                 </SectionContainer>
             )}
 

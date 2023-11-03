@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import styled from 'styled-components';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 const StyledText = styled.p`
-    padding: 10px 20px;
+    padding: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +22,13 @@ function CalculateSquareArea() {
     const [sideLength, setSideLength] = useState(10);
     const pixelsPerCm = 30;
     const sideLengthInPx = sideLength * pixelsPerCm;
+    const generateNumber=()=>{
+        return Math.floor(Math.random() * 11) + 2
+    }
+    const [sideNumber, setsideNumber] = useState(generateNumber);
+    const [ShowCongrats, setShowCongrats] = useState(false);
+    const [opverify, setOpverify] = useState(false);
+    const [showX, setShowX] = useState(false);
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -36,6 +45,31 @@ function CalculateSquareArea() {
         boxShadow: '4px 4px 15px rgba(0,0,0,0.2)',
         
     };
+    const verify=()=>{
+        if (sideNumber == sideLength) {
+            setShowCongrats(true);
+        }else{
+            setShowCongrats(false);
+            setOpverify(false);
+            setShowX(true);
+           
+            setTimeout(() => {
+              setShowX(false); // Hide the "X" element after 2 seconds
+            }, 2000);
+        }
+        console.log(sideNumber);
+
+    }
+    useEffect(() => {
+        // Update originalCount and toAdd with new random values
+        setsideNumber(generateNumber);
+        setShowCongrats(false);
+        
+      }, []); 
+      const reset = () => {
+        setShowCongrats(false);
+        setsideNumber(Math.floor(Math.random() * 11) + 2)// Hide the "X" element after 2 seconds
+      };
 
     return (
         <Box sx={containerStyle}>
@@ -66,7 +100,26 @@ function CalculateSquareArea() {
                 >
                     <RemoveIcon />
                 </Button>
-                <StyledText variant="body1">{sideLength}</StyledText>
+                {!ShowCongrats && 
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={verify}
+                >
+                    <CheckCircleIcon />
+                </Button>
+                
+}
+{ShowCongrats && 
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={reset}
+                >
+                    <RestartAltIcon />
+                </Button>
+
+}
                 <Button
                     variant="outlined"
                     color="primary"
@@ -78,9 +131,21 @@ function CalculateSquareArea() {
             <StyledText variant="body1" gutterBottom>
                 Côté = {sideLength} cm
             </StyledText>
-            <StyledText variant="body1" gutterBottom>
-                La surface du carré est  {sideLength}×{sideLength} = {sideLength * sideLength} cm², ce qui signifie qu'on peut y placer {sideLength * sideLength} petits carrés !
+            {ShowCongrats &&
+            <StyledText>
+                correct ✅
+               
+                
+                <span style={{alignItems:"center"}}>{sideNumber}x{sideNumber}={sideNumber*sideNumber}</span>
             </StyledText>
+
+            }
+             <div>{showX && <span>✖️</span>}
+          </div>
+            <StyledText variant="body1" gutterBottom>
+                Quelle doit etre le mesure du coté  pour que La surface soit {sideNumber*sideNumber}!
+            </StyledText>
+           
         </Box>
     );
 }

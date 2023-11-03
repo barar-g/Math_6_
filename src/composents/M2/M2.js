@@ -4,7 +4,7 @@ import QCMC6 from './QCMM2';
 import teacher from '../Images/teacher.png'
 import M2A1 from './M2A1';
 import M2A3 from './M2A3';
-
+import Audio from "./AudioM2";
 import {
     Container,
     SectionContainer,
@@ -50,6 +50,9 @@ const C1 = () => {
                         <FormulaText><strong>Unité de mesure</strong> = L'unité de base pour la mesure de la masse dans le Système International est le kilogramme (kg). D'autres unités dérivées incluent le gramme (g) qui est égal à 1/1000 de kilogramme.</FormulaText>
                         <FormulaText><strong>Conversion</strong> = 1 kilogramme (kg) est équivalent à 1000 grammes (g), 1 gramme (g) est équivalent à 1000 milligrammes (mg).</FormulaText>
                         <FormulaText><strong>Balance</strong> = C'est un outil utilisé pour mesurer la masse d'un objet. Les balances modernes peuvent être numériques et donner une lecture directe de la masse, tandis que les balances traditionnelles utilisent un ensemble de poids pour équilibrer et déterminer la masse de l'objet.</FormulaText>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+<Audio/>
+</div>
 
                     </FormulaBox>
 
