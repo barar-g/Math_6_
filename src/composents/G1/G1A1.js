@@ -7,11 +7,19 @@ import { Button } from '@mui/material';
 
 
 
+
 function App() {
   const [lines, setLines] = useState([]);
   const [drawing, setDrawing] = useState(false);
   const [checkMode, setCheckMode] = useState('parallel');
   const [message, setMessage] = useState('Tracez deux lignes parallèles');
+
+  const calculateDistance = (start, end) => {
+    const dx = start[0] - end[0];
+    const dy = start[1] - end[1];
+    return Math.sqrt(dx * dx + dy * dy);
+};
+
 
   const getRelativeCoordinates = (e, targetElement) => {
     const rect = targetElement.getBoundingClientRect();
@@ -63,11 +71,24 @@ function enableScrolling() {
   };
   
 
-  const endLine = () => {
-    setDrawing(false);
-    enableScrolling();
+  const MIN_LINE_LENGTH = 30; // Ici, 10 pixels, mais vous pouvez ajuster cette valeur selon vos besoins
 
+  const endLine = () => {
+      setDrawing(false);
+      enableScrolling();
+  
+      const newLines = [...lines];
+      const currentLine = newLines[newLines.length - 1];
+      const distance = calculateDistance(currentLine.start, currentLine.end);
+  
+      if (distance < MIN_LINE_LENGTH) {
+          newLines.pop();  // Supprime la ligne si elle est trop courte
+          setMessage('La ligne est trop courte. Essayez à nouveau.');
+      }
+  
+      setLines(newLines);
   };
+  
 const THRESHOLD = 0.3; // Correspond à 5% de tolérance
 
 const areParallel = () => {
@@ -195,7 +216,16 @@ const handleCheck = () => {
 
       </Canvas>
 
-      <Controls checkMode={checkMode} lines={lines} handleCheck={handleCheck} handleReset={handleReset} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+    <Controls checkMode={checkMode} lines={lines} handleCheck={handleCheck} handleReset={handleReset} />
+
+    
+</div>
+
     </Container>
   );
 }

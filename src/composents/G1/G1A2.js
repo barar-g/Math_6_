@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
 
+
+
+
 const Card = styled.div`
   background-color: white;
   width: 90%;
@@ -40,27 +43,18 @@ function QuizComponent() {
   const [lineRelation, setLineRelation] = useState(null);
   const [userAnswer, setUserAnswer] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [lineVariation, setLineVariation] = useState(null);
+
 
   const generateLines = () => {
     setUserAnswer(null);
     setShowAnswer(false);
     const randomChoice = Math.floor(Math.random() * 3);
-    switch (randomChoice) {
-      case 0:
-        setLineRelation("parallel");
-        break;
-      case 1:
-        setLineRelation("perpendicular");
-        break;
-      default:
-        setLineRelation("none");
-        break;
-    }
+    const randomVariation = Math.floor(Math.random() * 3);
+    setLineRelation(randomChoice === 0 ? "parallel" : randomChoice === 1 ? "perpendicular" : "none");
+    setLineVariation(randomVariation);
   };
-
-  useEffect(() => {
-    generateLines();
-  }, []);
+  
 
   const checkAnswer = (answer) => {
     setUserAnswer(answer);
@@ -68,11 +62,9 @@ function QuizComponent() {
   };
 
   const renderLines = () => {
-    const randomVariation = Math.floor(Math.random() * 3);
-
     switch (lineRelation) {
       case "parallel":
-        switch (randomVariation) {
+        switch (lineVariation) {
           case 0:  // Horizontales
             return (
               <svg width="200" height="100">
@@ -99,7 +91,7 @@ function QuizComponent() {
         }
         break;
       case "perpendicular":
-        switch (randomVariation) {
+        switch (lineVariation) {
           case 0:  // Standard
             return (
               <svg width="200" height="100">
@@ -116,17 +108,18 @@ function QuizComponent() {
             );
           case 2:  // Inclinées
             return (
-              <svg width="200" height="100">
-                <line x1="30" y1="30" x2="170" y2="70" {...lineStyle} />
-                <line x1="170" y1="30" x2="30" y2="70" {...lineStyle} />
-              </svg>
+              <svg width="200" height="200">
+              <line x1="30" y1="30" x2="170" y2="70" {...lineStyle} />
+              <line x1="170" y1="70" x2="130" y2="210" {...lineStyle} />
+            </svg>
+
             );
           default:
             return null;
         }
         break;
       case "none":
-        switch (randomVariation) {
+        switch (lineVariation) {
           case 0:  // Votre SVG original pour "aucune des deux"
             return (
               <svg width="200" height="100">
@@ -156,20 +149,30 @@ function QuizComponent() {
         return null;
     }
   };
+  
+  
+
+  const handleNextButtonClick = () => {
+    generateLines();
+    setShowAnswer(false);
+  };
+  useEffect(() => {
+    generateLines(); // Génère les lignes initiales dès le chargement du composant
+  }, []);
 
   return (
     <div style={{ textAlign: 'center' }}>
       <Card>
         <br />
         <Card>
-          <StyledText> Ces deux lignes sont-elles parallèles, perpendiculaires ou autre relation ?</StyledText>
+          <StyledText> Ces deux lignes sont-elles parallèles, perpendiculaires ou d'une autre relation ?</StyledText>
         </Card>
         <br />
         <br />
         <div style={{ marginBottom: '20px' }}>
           {renderLines()}
         </div>
-  
+
         <div>
           {["parallel", "perpendicular", "none"].map((answer) => (
             <Button
@@ -188,32 +191,30 @@ function QuizComponent() {
             </Button>
           ))}
         </div>
-  
-        {showAnswer && userAnswer === lineRelation && (
+
+        {showAnswer && (
           <div style={{ marginTop: '20px' }}>
-            <span style={{ color: 'green' }}><StyledText>Correct!</StyledText></span>
+            {userAnswer === lineRelation ? (
+              <span style={{ color: 'green' }}><StyledText>Correct!</StyledText></span>
+            ) : (
+              <span style={{ color: 'red' }}><StyledText>Faux! La réponse correcte est {lineRelation}</StyledText></span>
+            )}
           </div>
         )}
-  
-        {showAnswer && userAnswer !== lineRelation && (
-          <div style={{ marginTop: '20px' }}>
-            <span style={{ color: 'red' }}><StyledText>Faux! La réponse correcte est {lineRelation}</StyledText></span>
-          </div>
-        )}
-  
+
         <br />
         <Button
           variant="contained"
           color="secondary"
-          onClick={generateLines}
+          onClick={handleNextButtonClick}
           style={{ marginTop: '20px' }}
+          disabled={!showAnswer}
         >
           Suivant
         </Button>
       </Card>
     </div>
   );
-  
 }
 
 export default QuizComponent;

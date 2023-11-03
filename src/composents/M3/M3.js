@@ -71,7 +71,7 @@ function Rapporteur() {
 
 
 function AngleMeasurement() {
-    const [angleData, setAngleData] = useState({ angle: 20 + Math.floor(Math.random() * 140) });
+    const [angleData, setAngleData] = useState({ angle: 20 + Math.floor(Math.random() * 81) });
     const [userInput, setUserInput] = useState('');
     const [message, setMessage] = useState('');
 
@@ -85,7 +85,7 @@ function AngleMeasurement() {
     };
 
     const handleReset = () => {
-        setAngleData({ angle: 20 + Math.floor(Math.random() * 140) });
+        setAngleData({ angle: 20 + Math.floor(Math.random() * 81) });
         setUserInput('');
         setMessage('');
     };

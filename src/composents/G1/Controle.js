@@ -1,21 +1,28 @@
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 import ReplyIcon from '@mui/icons-material/Reply';
 import CheckIcon from '@mui/icons-material/Check';
 
 function Controls({ checkMode, lines, handleCheck, handleReset }) {
   return (
-    <div>
-      {checkMode !== 'reset' && lines.length === 2 && (
-        <Button variant='contained' style={{ margin: '10px' }} onClick={handleCheck}>
+    <Box display="flex" justifyContent="center" alignItems="center">
+      <Box ml={3} mr={20}> {/* Add left and right margin to the first button */}
+        <Button 
+          variant='contained' 
+        
+          onClick={handleCheck}
+        >
           <CheckIcon /> 
         </Button>
-      )}
-      {checkMode === 'reset' && (
-        <Button variant='contained' style={{ margin: '10px' }} onClick={handleReset}>
-          <ReplyIcon/> 
-        </Button>
-      )}
-    </div>
+      </Box>
+      {/* The second button does not need an additional left margin since the first button's right margin already creates the necessary space */}
+      <Button 
+        variant='contained' 
+     
+        onClick={handleReset}
+      >
+        <ReplyIcon /> 
+      </Button>
+    </Box>
   );
 }
 

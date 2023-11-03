@@ -11,7 +11,7 @@ const CardContainer = styled.div`
 
 const StyledText = styled.p`
   padding: 2px 2px;
-  text-align: justify;
+ 
   align-items: center;
   font-size: 1.2em;
   font-family: "Comic Sans MS", sans-serif;

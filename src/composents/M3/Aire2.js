@@ -24,7 +24,7 @@ const C1 = () => {
                 </ImageContainer>
                 <Card>
                     <BodyText>
-                        Salut! Aujourd'hui, on va parler d'un sujet intéressant : Les grands nombres.
+                        Salut! Aujourd'hui, on va parler d'un sujet intéressant : Mesure des angles.
                     </BodyText>
                 </Card>
             </SectionContainer>
