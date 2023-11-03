@@ -3,6 +3,7 @@ import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
 import Geo from "./Geo";
 import QCMG2 from './QCMG2';
+import Audio from "./AudioG2";
 
 // Import styled components from MajorStyles.js
 import {
@@ -81,6 +82,9 @@ const G1 = () => {
     3. À partir de C, tracez une droite parallèle à [BC] pour rencontrer la précédente en D.<br/>
     4. Reliez A et D.
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+<Audio/>
+</div>
 
                     </FormulaBox>
         </SectionContainer>

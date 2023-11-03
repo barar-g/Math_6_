@@ -11,6 +11,7 @@ import exemple1 from '../Images/exemple1.png';
 import exemple2 from '../Images/exemple2.png';
 import Test3 from './QCMC9';
 import P2A1A_1 from './P2A1A-1';
+import Audio from "./Audio09" ;
 
 import { Container, SectionContainer, ImageContainer, Card, BodyText,
     Title, Subtitle, FormulaBox, FormulaText, ContinueButton } from '../Styles/MajorStyles';
@@ -75,9 +76,11 @@ const P2A1A = () => {
                            
                         </Card>
                     </div>
+            
                   
                 </SectionContainer>
             )}
+           
 {section >= 2 && showSections[2] && (
     <Subtitle>Exemple de division</Subtitle>
 )}
@@ -179,6 +182,14 @@ const P2A1A = () => {
                     
                 </SectionContainer>
             )}
+              {section >= 4 && showSections[4] && (
+            <SectionContainer>
+            <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
+
+            </SectionContainer>
+             )}
 
 {section >= 5 && showSections[5] && (
     <Subtitle>Activité</Subtitle>

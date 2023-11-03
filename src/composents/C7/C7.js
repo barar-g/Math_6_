@@ -3,6 +3,8 @@ import Plus from './Plus';
 import QCMC7 from './QCMC7';
 import teacher from '../Images/teacher.png';
 import prof from '../Images/Prof1.png';
+import Audio from "./Audio7" ;
+
 
 // Importation des styles depuis MajorStyles
 import {
@@ -45,6 +47,9 @@ const C2 = () => {
 <FormulaText>
 <strong>Regle de retenir :</strong>Si on ajoute des nombre et que le resultat superieur ou egale a 10, on ecrit le premier nombre et on retietnt le 1.
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
 
                     </FormulaBox>

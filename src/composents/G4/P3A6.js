@@ -18,6 +18,7 @@ import QCMG4 from "./QCMG4";
 import Triangle from "./triangle";
 import Triangle1 from "./triangle1";
 import "../C14_C15_C16/bend.css";
+import  Audio from "./AudioG4";
 
 const P3A6 = () => {
   const [section, setSection] = useState(0);
@@ -63,6 +64,9 @@ const P3A6 = () => {
             <FormulaText>
               <strong>Plage de longueurs valides</strong>= Pour qu'un triangle soit valide, la longueur du troisième côté doit être comprise entre la différence des longueurs des côtés  et leur somme.
             </FormulaText>
+            <div style={{ display: "flex", alignItems: "center" }}>
+            <Audio/>
+            </div>
           </FormulaBox>
         </SectionContainer>
       )}

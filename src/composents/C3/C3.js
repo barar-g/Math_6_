@@ -6,6 +6,7 @@ import C3A2 from "./C3A2";
 import C3A3 from "./C3A3";
 import QCMC3 from "./QCMC3";
 import styled from "styled-components";
+import Audio from "./Audio3" ;
 
 import {
   Container,
@@ -77,6 +78,9 @@ const C3 = () => {
 <FormulaText>
     <strong>Astuce :</strong> Pour passer du mètre au centimètre, multiplie par 100. Pour faire l'inverse, divise par 100. Avec les autres unités, les chiffres peuvent être différents, mais l'idée est la même. Avec un peu de pratique, tu maîtriseras rapidement ces conversions !
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
                     </FormulaBox>
         </SectionContainer>

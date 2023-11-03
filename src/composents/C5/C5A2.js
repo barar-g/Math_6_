@@ -6,6 +6,7 @@ import styled from "styled-components";
 import useSound from "use-sound";
 import correctSound from "../sounds/correct.mp3";
 import incorrectSound from "../sounds/incorrect.mp3";
+import { TrendingUpRounded } from '@mui/icons-material';
 
 const StyledText = styled.p`
   padding: 0px 20px;
@@ -122,6 +123,10 @@ function C5A2() {
   const[firstcase, setfirstcase] = useState(false);
   const[secondcase, setsecondcase]= useState(false);
   const[thirdcase, setthirdcase]=useState(false);
+  const[firstexp, setfirstexp] = useState(false);
+  const[secondexp, setsecondexp]= useState(false);
+  const[thirdexp, setthirdexp]=useState(false);
+
 
 
 
@@ -211,6 +216,9 @@ function C5A2() {
     setOpverify(false);
     setMove(0);
     setStep(4);
+    setfirstcase(false);
+    setsecondcase(false);
+    setthirdcase(false);
     }
   };
 
@@ -274,15 +282,24 @@ function C5A2() {
       setShowCongratulations(true);
       setOpverify(true);
       play();
+      setfirstexp(true);
+      setsecondexp(false);
+      setthirdexp(false);
     } 
     else if (answer == second && secondcase) {
       setShowCongratulations(true);
       setOpverify(true);
-      play()
+      play();
+      setfirstexp(false);
+      setsecondexp(true);
+      setthirdexp(false);
     } else if (answer == third && thirdcase) {
       setShowCongratulations(true);
       setOpverify(true);
-      play()
+      play();
+      setfirstexp(false);
+      setsecondexp(false);
+      setthirdexp(true);
     } else{
       setShowCongratulations(false);
       setOpverify(false);
@@ -454,9 +471,87 @@ function C5A2() {
               >&#62;
               </VerifieButton1>
               </div>
+              
             </div>
+            
+           
           
             </Grid>
+            <div>
+            {showCongratulations && secondexp &&
+             <StyledText>{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+&#40;{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#215;{questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}&#41;-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+&#40;{questions.map((q, index) => (
+                    <span>{Math.floor(q.secondnumber*q.thirdnumber)}</span>
+                  ))}&#41;-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor(q.firstnumber+q.secondnumber*q.thirdnumber)}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor(q.firstnumber+q.secondnumber*q.thirdnumber-q.fourthnumber)}</span>
+                  ))}
+                  </StyledText>}
+            </div>
+            <div>
+            {showCongratulations && firstexp &&
+            <StyledText>&#40;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#41;&#215;{questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;&#40;{questions.map((q, index) => (
+                    <span>{Math.floor(q.secondnumber+q.firstnumber)}</span>
+                  ))}&#41;&#215;{questions.map((q, index) => (
+                    <span>{Math.floor(q.thirdnumber)}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor((q.firstnumber+q.secondnumber))*q.thirdnumber}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor((q.firstnumber+q.secondnumber)*q.thirdnumber-q.fourthnumber)}</span>
+                  ))}
+                  </StyledText>}
+            </div>
+            <div>
+            {showCongratulations && thirdexp &&
+             <StyledText>{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#215;&#40;{questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#41;&#61;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#215;&#40;{questions.map((q, index) => (
+                    <span>{Math.floor(q.thirdnumber-q.fourthnumber)}</span>
+                  ))}&#41;&#61;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{Math.floor(q.secondnumber*(q.thirdnumber-q.fourthnumber))}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor(q.firstnumber+q.secondnumber*(q.thirdnumber-q.fourthnumber))}</span>
+                  ))}
+                  </StyledText>}
+            </div>
           </CardContent>
         </Card>
       </Box>

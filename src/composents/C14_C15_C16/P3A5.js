@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
+import  Audio from "./Audio14";
 
 import P3A5_2 from "./P3A5-2";
 import Bend from "./Bend";
@@ -208,6 +209,9 @@ const P3A5 = () => {
                         <Subtitle>🔍 Concept clés🔍</Subtitle>
                         <FormulaText>Lors de la comparaison de fractions, se concentrer sur les numérateurs est crucial, car un numérateur plus grand signifie plus de morceaux. Si les dénominateurs sont les mêmes, comparer les numérateurs suffit pour déterminer la fraction la plus grande. Sinon, il faut trouver des fractions équivalentes avec le même dénominateur pour une comparaison précise. Cela permet des comparaisons efficaces pour déterminer la plus grande ou la plus petite fraction.
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
                     </FormulaBox>
         </SectionContainer>)}
         {section >= 2 && showSections[2] && (

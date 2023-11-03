@@ -8,6 +8,7 @@ import tree from '../Images/tree.png';
 import Test2 from './QCMC12';
 import P2A3_1 from './P2A3-1';
 import P2A3_2 from './P2A3-2';
+import Audio from "./Audio12" ;
 
 import {
     Container,
@@ -124,6 +125,7 @@ const P2A1B = () => {
                     <SkipIcon onClick={() => toggleSection(3)}> {showSections[3] ? "^" : "v"}</SkipIcon>
                 </SectionContainer>
             )}
+             
 
             {section >= 4 && showSections[4] &&  (
                 <SectionContainer>
@@ -135,6 +137,14 @@ const P2A1B = () => {
                     <SkipIcon onClick={() => toggleSection(4)}> {showSections[4] ? "^" : "v"}</SkipIcon>
                 </SectionContainer>
             )}
+             {section >= 4 && showSections[4] && (
+            <SectionContainer>
+            <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
+
+            </SectionContainer>
+             )}
                {section >= 5 && showSections[5] && (
                 <Subtitle>QCM</Subtitle>)}
 

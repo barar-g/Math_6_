@@ -6,6 +6,7 @@ import C4A4 from './C4A4';
 import QCMC4 from './QCMC4';
 import teacher from '../Images/teacher.png';
 import prof from '../Images/Prof1.png';
+import Audio from "./Audio4" ;
 
 // Importation des styles depuis MajorStyles
 import {
@@ -52,6 +53,9 @@ const C2 = () => {
 <FormulaText>
     <strong>Astuce :</strong> Pour t'aider, imagine une pile de blocs. Ajouter, c'est mettre plus de blocs sur la pile. Retrancher, c'est en enlever.
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
 
 
