@@ -6,6 +6,7 @@ import G1A4 from './G1A4';
 import QCMG1 from './QCMG1';
 import teacherImage from '../Images/Prof1.png';
 import teacher from '../Images/teacher.png'
+import Audio from "./AudioG1";
 
 // Import styles from MajorStyles.js
 import { 
@@ -49,6 +50,9 @@ const C1 = () => {
                         <FormulaText><strong>La parallèle</strong> =Une droite parallèle à une autre est une droite qui, dans un même plan, ne coupe jamais l'autre droite, quelle que soit la distance à laquelle elles sont prolongées.</FormulaText>
 
                         <FormulaText><strong> Droite perpendiculaire</strong>= Une droite perpendiculaire est une ligne qui forme un angle de 90 degrés (angle droit) par rapport à une autre ligne ou un plan.</FormulaText>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+<Audio/>
+</div>
                     </FormulaBox>
         </SectionContainer>
       )}

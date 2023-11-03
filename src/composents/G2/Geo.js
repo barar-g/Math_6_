@@ -39,32 +39,7 @@ const StyledText1 = styled.p`
     transform: scale(1.05);
   }
 `;
-const VerifieButton = styled.button`
-  border-radius: 5px;
-  background-color: #45a05c;
-  margin: 15px 0;
-  color: white;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
 
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-const ResetButton = styled.button`
-  border-radius: 5px;
-  background-color: #007bff;
-  margin: 15px 0;
-  color: white;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 const BandeBox = styled.div`
   width: 300px;
@@ -118,6 +93,21 @@ function TriangleActivity1() {
     return {Q,Q1,Q2,Q3,Number}
 
   }
+  const roundDecimal = (number) => {
+    const integerPart = Math.floor(number);
+    const decimalPart = number - integerPart;
+  
+    if (decimalPart >= 0.85) {
+      return Math.ceil(number); // Round up to the nearest integer
+    } else if (decimalPart <= 0.15) {
+      return Math.floor(number); // Round down to the nearest integer
+    } else {
+      return number; // Do not change for numbers between 1.1 and 1.9
+    }
+    
+  };
+  
+  
 
 
   const VerifyOrder =() =>{
@@ -129,13 +119,13 @@ function TriangleActivity1() {
 
     
     if (A === A1 &&
-      parseInt((calculateDistance(points.A, points.B) / 37.8).toFixed(1))=== Number &&
-      parseInt((calculateDistance(points.C, points.B) / 37.8).toFixed(1))=== Number &&
-      parseInt((calculateDistance(points.C, points.D) / 37.8).toFixed(1))=== Number 
+      parseInt(roundDecimal((calculateDistance(points.A, points.B) / 37.8).toFixed(1)))== Number &&
+      parseInt(roundDecimal((calculateDistance(points.C, points.B) / 37.8).toFixed(1)))== Number &&
+      parseInt(roundDecimal((calculateDistance(points.C, points.D) / 37.8).toFixed(1)))== Number 
       ||
       A === A2 &&
-      parseInt((calculateDistance(points.A, points.B) / 37.8).toFixed(1))=== parseInt((calculateDistance(points.C, points.B)  / 37.8).toFixed(1))*Number ||
-      parseInt((calculateDistance(points.C, points.B) / 37.8).toFixed(1))=== parseInt((calculateDistance(points.A, points.B)  / 37.8).toFixed(1))*Number
+      parseInt(roundDecimal((calculateDistance(points.A, points.B) / 37.8).toFixed(1)))== parseInt(roundDecimal((calculateDistance(points.C, points.B)  / 37.8).toFixed(1)))*Number ||
+      parseInt(roundDecimal((calculateDistance(points.C, points.B) / 37.8).toFixed(1)))== parseInt(roundDecimal((calculateDistance(points.A, points.B)  / 37.8).toFixed(1)))*Number
 
       ){
       setShowCongratulations(true);
@@ -152,7 +142,9 @@ function TriangleActivity1() {
       console.log(A1)
       console.log(A2)
       console.log(Number)
-      console.log(parseInt((calculateDistance(points.A, points.B) / 37.8).toFixed(0)))
+      console.log(parseInt((calculateDistance(points.A, points.B) / 37.8)))
+      console.log(Math.floor(parseInt((calculateDistance(points.A, points.B) / 37.8))))
+      console.log(parseInt((calculateDistance(points.A, points.B) / 37.8).toFixed(1)))
     }
     }
   };
@@ -171,9 +163,16 @@ function TriangleActivity1() {
   };
   
 
-  const drawLine = (start, end) => {
+  const drawLine = (start, end, strokeWidth) => {
     return (
-      <line x1={start.x} y1={start.y} x2={end.x} y2={end.y} stroke="black" />
+      <line
+        x1={start.x}
+        y1={start.y}
+        x2={end.x}
+        y2={end.y}
+        stroke="black"
+        strokeWidth={strokeWidth}
+      />
     );
   };
 
@@ -249,16 +248,16 @@ function TriangleActivity1() {
                 onClick={handlePointClick}
                 className={`step-${step}`}
               >
-                {points.A && step >= 1 && drawCircle(points.A, 2)}
-                {points.B && step >= 2 && drawCircle(points.B, 2)}
-                {points.C && step >= 2 && drawCircle(points.C, 2)}
-                {points.D && step >= 2 && drawCircle(points.D, 2)}
+                {points.A && step >= 1 && drawCircle(points.A, 2.5)}
+                {points.B && step >= 2 && drawCircle(points.B, 2.5)}
+                {points.C && step >= 2 && drawCircle(points.C, 2.5)}
+                {points.D && step >= 2 && drawCircle(points.D, 2.5)}
 
-                {points.A && points.B && drawLine(points.A, points.B)}
-                {points.C && drawLine(points.B, points.C)}
-                {points.C && drawLine(points.B, points.C)}
-                {points.D && drawLine(points.D, points.C)}
-                {points.D && drawLine(points.D, points.A)}
+                {points.A && points.B && drawLine(points.A, points.B,3.2)}
+                {points.C && drawLine(points.B, points.C,3.2)}
+                {points.C && drawLine(points.B, points.C,3.2)}
+                {points.D && drawLine(points.D, points.C,3.2)}
+                {points.D && drawLine(points.D, points.A,3.2)}
 
 
 
@@ -330,22 +329,22 @@ function TriangleActivity1() {
             <span style={{ marginRight: "10px" }}>
               AB = {!points.A && 0}
               {points.A && points.B &&
-              (calculateDistance(points.A, points.B) / 37.8).toFixed(1)}cm
+              roundDecimal((calculateDistance(points.A, points.B) / 37.8).toFixed(1))}cm
             </span>
             <span style={{ marginRight: "10px" }}>
             AD = {!points.D && 0}
               {points.A && points.D &&
-              (calculateDistance(points.A, points.D) / 37.8).toFixed(1)}cm
+              roundDecimal((calculateDistance(points.A, points.D) / 37.8).toFixed(1))}cm
             </span>
             <span style={{ marginRight: "10px" }}>
             BC = {!points.C && 0}
               {points.B && points.C &&
-              (calculateDistance(points.B, points.C) / 37.8).toFixed(1)}cm
+              roundDecimal((calculateDistance(points.B, points.C) / 37.8).toFixed(1))}cm
             </span>
             <span>
             CD = {!points.D && 0}
               {points.D && points.C &&
-              (calculateDistance(points.D, points.C) / 37.8).toFixed(1)}cm
+            roundDecimal(  (calculateDistance(points.D, points.C) / 37.8).toFixed(1))}cm
             </span>
           </StyledText1>
         </div>

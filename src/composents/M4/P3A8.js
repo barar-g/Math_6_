@@ -16,6 +16,7 @@ import fteacher from "../Images/fteacherr.png";
 import inestine from "../Images/inestine.png";
 import Perim from "./Perimetre";
 import QCMM4 from "./QCMM4";
+import Audio from "./AudioM4";
 
 
 
@@ -65,6 +66,9 @@ const P3A8 = () => {
                         <FormulaText><strong>Definition</strong>= L'aire est la mesure de la surface à l'intérieur des limites d'une figure géométrique, exprimée en unités carrées..</FormulaText>
                         <FormulaText><strong>Le perimetre de carre</strong>= Le périmètre d'un carré est la somme des longueurs de ses quatre côtés, où tous les côtés ont la même longueur. Si "c" représente la longueur d'un côté du carré, alors le périmètre serait égal à 4c.</FormulaText>
                         <FormulaText><strong>L aire de carre</strong>= 'aire d'un carré est calculée en multipliant la longueur d'un côté par lui-même (côté * côté) ou en élevant le côté au carré.</FormulaText>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+<Audio/>
+</div>
                     </FormulaBox>
         </SectionContainer>
       )}

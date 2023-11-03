@@ -5,6 +5,7 @@ import C1A3 from './C1A3';
 import QCMC1 from './QCMC1';
 import teacherImage from '../Images/Prof1.png';
 import teacher from '../Images/teacher.png';
+import Audio from "./Audio1" ;
 
 // Import des styles
 import {
@@ -43,6 +44,9 @@ const C1 = () => {
 <FormulaText>
     <strong>Astuce :</strong> Pense à des situations réelles: une ville a des milliers d'habitants, un pays a des millions d'habitants !
 </FormulaText>
+<div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
 
 
 

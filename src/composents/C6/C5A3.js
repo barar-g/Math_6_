@@ -52,7 +52,7 @@ function C6A1() {
   
 
   const initialMessage =
-    "Dites-moi le nombre de fois que je dois sauter et la distance parcourue pour chaque saut, et je le ferai. Je vous dirai ensuite combien de mètres j'ai parcourus.";
+    "Dites-moi le nombre de fois que je dois sauter et la distance  pour chaque saut.";
 
     const handleJump = () => {
 
@@ -137,7 +137,7 @@ function C6A1() {
 
 
   
-  const message = `J'ai sauté ${numJumps} fois, et dans chaque saut, j'ai parcouru ${jumpDistance} mètres. Donc, la distance totale parcourue est ${numJumps} multiplié par ${jumpDistance} métres  ce qui donne   ${numJumps*jumpDistance} mètres.`;
+  const message = `Nombre des sautes = ${numJumps} mètres, Distance de chaque  saut = ${jumpDistance} mètres, la distance totale = ${numJumps}×${jumpDistance}= ${numJumps*jumpDistance} mètres.`;
 
   
 const updatePosition = () => {

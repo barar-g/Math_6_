@@ -6,6 +6,10 @@ import fractionss from "../Images/Fractions.png";
 import fteacher from "../Images/fteacherr.png";
 import fraction from "../Images/fraction.png";
 import P3A4_1 from "./P3A4-1";
+import Audio from "./Audio13";
+
+
+
 
 import {
   Container,
@@ -155,6 +159,9 @@ const P2A1A = () => {
               <strong>Dénominateur</strong>: Le nombre du bas dans une fraction,
               indiquant en combien de parts le tout a été divisé.
             </FormulaText>
+            <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
           </FormulaBox>
         </SectionContainer>
       )}
