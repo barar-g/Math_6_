@@ -121,7 +121,7 @@ function C5A2() {
   const [play1] = useSound(incorrectSound);
   const [questions, setQuestions] = useState([]);
   const[firstcase, setfirstcase] = useState(false);
-  const[secondcase, setsecondcase]= useState(false);
+  const[secondcase, setsecondcase]= useState(true);
   const[thirdcase, setthirdcase]=useState(false);
   const[firstexp, setfirstexp] = useState(false);
   const[secondexp, setsecondexp]= useState(false);
@@ -157,7 +157,7 @@ function C5A2() {
         setfirstcase(true);
         setsecondcase(false);
         setthirdcase(false);
-      } else if (move === 1 && step === 4) {
+      } else if (move === 1 && step === 3) {
         setthirdcase(true);
         setfirstcase(false);
         setsecondcase(false);
@@ -216,9 +216,8 @@ function C5A2() {
     setOpverify(false);
     setMove(0);
     setStep(4);
-    setfirstcase(false);
-    setsecondcase(false);
-    setthirdcase(false);
+
+    setShowX(false);
     }
   };
 
@@ -262,9 +261,7 @@ function C5A2() {
     const positiveOptions = options.filter(option => option > 0);
     const randomIndex = Math.floor(Math.random() * positiveOptions.length);
     const answer = positiveOptions[randomIndex];
-    console.log(options);
-    console.log(answer);
-    console.log(first);
+ 
   
     return { firstnumber, secondnumber, thirdnumber, fourthnumber, first, second, third, answer };
   };
@@ -285,6 +282,7 @@ function C5A2() {
       setfirstexp(true);
       setsecondexp(false);
       setthirdexp(false);
+
     } 
     else if (answer == second && secondcase) {
       setShowCongratulations(true);
@@ -293,6 +291,7 @@ function C5A2() {
       setfirstexp(false);
       setsecondexp(true);
       setthirdexp(false);
+
     } else if (answer == third && thirdcase) {
       setShowCongratulations(true);
       setOpverify(true);
@@ -300,6 +299,7 @@ function C5A2() {
       setfirstexp(false);
       setsecondexp(false);
       setthirdexp(true);
+
     } else{
       setShowCongratulations(false);
       setOpverify(false);
@@ -307,7 +307,7 @@ function C5A2() {
       setShowX(true); // Show the "X" element
       setTimeout(() => {
         setShowX(false); // Hide the "X" element after 2 seconds
-      }, 2000);
+      }, 3000);
     }
   };
   console.log('step is'+step);
@@ -478,7 +478,83 @@ function C5A2() {
           
             </Grid>
             <div>
-            {showCongratulations && secondexp &&
+            {(showX&&secondcase)  &&
+             <StyledText>{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+&#40;{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#215;{questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}&#41;-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+&#40;{questions.map((q, index) => (
+                    <span>{Math.floor(q.secondnumber*q.thirdnumber)}</span>
+                  ))}&#41;-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor(q.firstnumber+q.secondnumber*q.thirdnumber)}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor(q.firstnumber+q.secondnumber*q.thirdnumber-q.fourthnumber)}</span>
+                  ))}
+                  </StyledText>}
+            </div>
+            <div>
+            {(showX&&firstcase)  &&
+            <StyledText>&#40;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#41;&#215;{questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;&#40;{questions.map((q, index) => (
+                    <span>{Math.floor(q.secondnumber+q.firstnumber)}</span>
+                  ))}&#41;&#215;{questions.map((q, index) => (
+                    <span>{Math.floor(q.thirdnumber)}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor((q.firstnumber+q.secondnumber))*q.thirdnumber}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor((q.firstnumber+q.secondnumber)*q.thirdnumber-q.fourthnumber)}</span>
+                  ))}
+                  </StyledText>}
+            </div>
+            <div>
+            {(showX&&thirdcase) &&
+             <StyledText>{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#215;&#40;{questions.map((q, index) => (
+                    <span>{q.thirdnumber}</span>
+                  ))}-{questions.map((q, index) => (
+                    <span>{q.fourthnumber}</span>
+                  ))}&#41;&#61;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{q.secondnumber}</span>
+                  ))}&#215;&#40;{questions.map((q, index) => (
+                    <span>{Math.floor(q.thirdnumber-q.fourthnumber)}</span>
+                  ))}&#41;&#61;{questions.map((q, index) => (
+                    <span>{q.firstnumber}</span>
+                  ))}+{questions.map((q, index) => (
+                    <span>{Math.floor(q.secondnumber*(q.thirdnumber-q.fourthnumber))}</span>
+                  ))}&#61;{questions.map((q, index) => (
+                    <span>{Math.floor(q.firstnumber+q.secondnumber*(q.thirdnumber-q.fourthnumber))}</span>
+                  ))}
+                  </StyledText>}
+
+
+
+                  {showCongratulations && secondexp &&
              <StyledText>{questions.map((q, index) => (
                     <span>{q.firstnumber}</span>
                   ))}+&#40;{questions.map((q, index) => (

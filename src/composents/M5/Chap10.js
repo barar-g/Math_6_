@@ -27,7 +27,6 @@ function CalculateSquareArea() {
     }
     const [sideNumber, setsideNumber] = useState(generateNumber);
     const [ShowCongrats, setShowCongrats] = useState(false);
-    const [opverify, setOpverify] = useState(false);
     const [showX, setShowX] = useState(false);
 
     const theme = useTheme();
@@ -74,6 +73,9 @@ function CalculateSquareArea() {
     return (
         <Box sx={containerStyle}>
             <StyledText variant="h6">Aire d'un carré</StyledText>
+            <StyledText variant="body1" gutterBottom>
+                Quelle doit etre le mesure du coté  pour que La surface soit {sideNumber*sideNumber}!
+            </StyledText>
             <Box
                 sx={{
                     width: `${sideLengthInPx}px`,
@@ -142,9 +144,7 @@ function CalculateSquareArea() {
             }
              <div>{showX && <span>✖️</span>}
           </div>
-            <StyledText variant="body1" gutterBottom>
-                Quelle doit etre le mesure du coté  pour que La surface soit {sideNumber*sideNumber}!
-            </StyledText>
+           
            
         </Box>
     );
