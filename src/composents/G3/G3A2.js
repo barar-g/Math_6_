@@ -22,7 +22,7 @@ const AngleActivity = () => {
     
     // Retourner cette position
     return position;
-  };
+  }; 
   
   
   
