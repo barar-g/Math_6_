@@ -34,6 +34,8 @@ import Chap13 from'./composents/C16/Chap13';
 import Fraction2 from './composents/M5/Fraction2';
 import Periode1 from './composents/Periode1';
 import Periode2 from './composents/Periode2';
+import Science from './composents/Science';
+import EquilibrAlimantaire from './composents/Science/EquilibreAlimantaire';
 
 
 
@@ -70,6 +72,8 @@ function App() {
           <Route path="/G1" element ={<G1/>}/>
           <Route path="/Periode1" element ={<Periode1/>}/>
           <Route path="/Periode2" element ={<Periode2/>}/>
+          <Route path="/Science" element ={<Science/>}/>
+          <Route path="/EquilibrAlimantaire" element ={<EquilibrAlimantaire/>}/>
           <Route path="/P2A1A" element ={<P2A1A/>}/>
           <Route path="/P2A1C" element ={<P2A1C/>}/>
           <Route path="/P2A1B" element ={<P2A1B/>}/>

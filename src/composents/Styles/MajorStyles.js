@@ -29,9 +29,9 @@ export const ImageContainer = styled.div`
 
 export const Card = styled.div`
   background-color: white;
-  width : 90%;
+  width : 97%;
   padding: 5px;
-  border-radius: 50px;
+  border-radius: 60px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #E1F5FE;
   transition: all 0.3s ease;
@@ -93,7 +93,7 @@ export const FormulaBox = styled.div`
 export const FormulaText = styled.p`
 padding: 10px 20px;
 align-items: center;
-font-size: 1em;  // Increased font size for emphasis
+font-size: 1.2em;  // Increased font size for emphasis
 font-family: 'Comic Sans MS', sans-serif;
 `;
 
