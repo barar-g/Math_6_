@@ -28,6 +28,8 @@ function CalculateSquareArea() {
     const [sideNumber, setsideNumber] = useState(generateNumber);
     const [ShowCongrats, setShowCongrats] = useState(false);
     const [showX, setShowX] = useState(false);
+    const [opVerify, setOpverify] = useState(false);
+
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
