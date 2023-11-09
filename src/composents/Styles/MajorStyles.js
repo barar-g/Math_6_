@@ -29,7 +29,7 @@ export const ImageContainer = styled.div`
 
 export const Card = styled.div`
   background-color: white;
-  width : 90%;
+  width : 97%;
   padding: 5px;
   border-radius: 60px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);

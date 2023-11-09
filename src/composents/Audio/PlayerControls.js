@@ -37,28 +37,34 @@ const togglePlayAndPause = () => {
   }
 };
 
-function disableScrolling() {
-  document.body.style.overflow = 'hidden';
-}
 
-function enableScrolling() {
-  document.body.style.overflow = '';
-}
 
-const handleTouchStart = (e) => {
+const handleSeekTouchStart = (e) => {
+  // Prevent the default touch action, like scrolling or zooming.
   e.preventDefault();
-  disableScrolling();
-  setPlayed(parseFloat(e.target.value));
-  playerRef.current?.seekTo(parseFloat(e.target.value));
+  
   setSeeking(true);
 };
 
 
-const handleTouchEnd = () => {
-  enableScrolling();
+const handleSeekTouchMove = (e) => {
+
+  // Prevent the default touch action, like scrolling or zooming.
+  e.preventDefault();
+
+  setPlayed(parseFloat(e.target.value));
 };
 
+const handleSeekTouchEnd = (e) => {
+  // Prevent the default touch action, like scrolling or zooming.
+  e.preventDefault();
+  playerRef.current?.seekTo(parseFloat(e.target.value));
+  setSeeking(false);
+};
+
+
 const handleSeekMouseDown = (e) => {
+  
   setSeeking(true);
 };
 
@@ -106,14 +112,16 @@ useMemo(() => {
         <input
           type="range"
           min={0}
-          max={0.999999}
+          max={0.999999999999}
           step="any"
           value={played}
           onMouseDown={handleSeekMouseDown}
           onChange={handleSeekChange}
           onMouseUp={handleSeekMouseUp}
-          onTouchEnd={handleTouchEnd}
-          onTouchStart={handleTouchStart}
+          onTouchMove={handleSeekTouchMove}
+          onTouchEnd={handleSeekTouchEnd}
+          onTouchStart={handleSeekTouchStart}
+
           style={{
             width: "180%",
             height: "1rem",
@@ -131,22 +139,6 @@ useMemo(() => {
     </div>
 
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", alignItems: "center", padding: "1rem 0" }}>
-      {/* loop button */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button
-          onClick={toggleLoop}
-          style={{
-            fontWeight: "bold",
-            padding: "0.8rem",
-            border: "1px solid #00a5ff",
-            borderRadius: "50%",
-            backgroundColor: "transparent",
-          }}
-          className={loop ? "text-cyan-500" : ""}
-        >
-          <ImLoop />
-        </button>
-      </div>
 
       {/* play/pause button */}
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -163,6 +155,26 @@ useMemo(() => {
           {playing ? <CiPause1 /> : <CiPlay1 />}
         </button>
       </div>
+
+      {/* loop button */}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <button
+          onClick={toggleLoop}
+          style={{
+            display: "none",
+            fontWeight: "bold",
+            padding: "0.8rem",
+            border: "1px solid #00a5ff",
+            borderRadius: "50%",
+            backgroundColor: "transparent",
+          }}
+          className={loop ? "text-cyan-500" : ""}
+        >
+          <ImLoop />
+        </button>
+      </div>
+
+      
 
       {/* volume control */}
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.1rem" }}>
