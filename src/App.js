@@ -35,7 +35,9 @@ import Fraction2 from './composents/M5/Fraction2';
 import Periode1 from './composents/Periode1';
 import Periode2 from './composents/Periode2';
 import Science from './composents/Science';
-import EquilibrAlimantaire from './composents/Science/EquilibreAlimantaire';
+import EquilibrAlimantaire from './composents/Science/Chapitre1/EquilibreAlimantaire';
+import EquilibrEnergitique from './composents/Science/Chapitre2/EquilibreEnergitique';
+import Desertification from './composents/Science/Chapitre3/Desertification';
 
 
 
@@ -74,6 +76,8 @@ function App() {
           <Route path="/Periode2" element ={<Periode2/>}/>
           <Route path="/Science" element ={<Science/>}/>
           <Route path="/EquilibrAlimantaire" element ={<EquilibrAlimantaire/>}/>
+          <Route path="/EquilibrEnergitique" element ={<EquilibrEnergitique/>}/>
+          <Route path="/Desertfication" element ={<Desertification/>}/>
           <Route path="/P2A1A" element ={<P2A1A/>}/>
           <Route path="/P2A1C" element ={<P2A1C/>}/>
           <Route path="/P2A1B" element ={<P2A1B/>}/>
