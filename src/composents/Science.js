@@ -44,7 +44,9 @@ function Accueil() {
         alignItems="center"
         style={{ marginTop: "20px" }}
       >
-        <Button onClick={() => navigate('/EquilibrAlimantaire')}>Equilibr Alimantaire</Button>
+        <Button onClick={() => navigate('/EquilibrAlimantaire')}>Equilibre Alimantaire</Button>
+        <Button onClick={() => navigate('/EquilibrEnergitique')}>Equilibre Energitique</Button>
+        <Button onClick={() => navigate('/Desertfication')}>Desertfication</Button>
         
       </Stack>
     </Box>
