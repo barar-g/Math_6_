@@ -49,7 +49,6 @@ function CalculateSquareArea() {
             setShowCongrats(true);
         }else{
             setShowCongrats(false);
-            setOpverify(false);
             setShowX(true);
            
             setTimeout(() => {
