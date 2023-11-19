@@ -166,147 +166,9 @@ const C1 = () => {
             <br></br>
                     <br></br>
                       
-            {section >= 3 && (
-                <div style={{ marginBottom: '50px', width: '100%' }}>
+           
 
-<Card>  <FormulaText> <strong>2. Les parasitoses intestinales </strong></FormulaText>    
-                        <img src={parasites} alt="parasites" style={imageStyle} /> 
-                        <FormulaText>
-                        C'est quand des parasites, comme des vers, vivent dans l'intestin. Ils peuvent venir de l'eau ou de la nourriture contaminées.</FormulaText>
-<div style={{ display: "flex", alignItems: "center" }}>
-  <Audio/>
-</div>
-</Card>
-                </div>
-            )}
-
-            {section >= 4 && (
-                <div style={{ marginBottom: '50px', width: '100%' }}>
-                    <Card>
-    <FormulaText>  <strong>3. Le ver de Guinée </strong> </FormulaText>   
-     
-    <img src={Guinea} alt="Guinea" style={imageStyle} /> 
-    <FormulaText>
-     C'est une infection par un ver qui peut sortir de la peau. On l'attrape en buvant de l'eau qui contient des larves de ver.
-</FormulaText>
-    <div style={{ display: "flex", alignItems: "center" }}>
-  <Audio/>
-</div>
-</Card>
-
-                </div>
-            )}
-
-            {section >= 5 && (
-                <div>
-                    <Card>
-    <FormulaText> <strong>4. La bilharziose </strong> </FormulaText>    
-    <img src={bilharziose} alt="bilharziose" style={imageStyle} /> 
-    <FormulaText>
-   C'est une infection causée par des vers parasites dans l'eau douce. Elle peut être attrapée en nageant ou en marchant dans l'eau contaminée.
-</FormulaText>
-
-
-
-   <div style={{ display: "flex", alignItems: "center" }}>
-  <Audio/>
-</div>
-</Card>
-
-                </div>
-            )}
- <br></br>
- <br></br>
-
- {section >= 6 && (
-                <div>
-                    <Card>
-    <FormulaText> <strong>5. Le Malaria (Paludisme) </strong></FormulaText>    
-    <img src={Paludisme} alt="Paludisme" style={imageStyle} /> 
-    <FormulaText>
-    Le paludisme, ou malaria, est une maladie grave transmise par les piqûres de certains types de moustiques,
-     les Anophèles, qui se développent dans l'eau stagnante. Les parasites du paludisme infectent d'abord les moustiques,
-      qui transmettent ensuite la maladie aux humains lorsqu'ils piquent pour se nourrir de sang.</FormulaText>
-
-
-
-   <div style={{ display: "flex", alignItems: "center" }}>
-  <Audio/>
-</div>
-</Card>
-
-                </div>
-            )}
-
-
-
-{section >= 7 && (
-                <div>
-                    <Card>
-    <FormulaText> <strong></strong></FormulaText>    
-    <img src={Protegemaladie} alt="Protegemaladie" style={imageStyle} /> 
-    <FormulaText> <strong>
-    Les règles d'hygiène et les modes de prévention pour le paludisme comprennent :</strong> </FormulaText>
-    <FormulaText>
-    <strong>Dormir sous une moustiquaire :</strong> Cela empêche les moustiques de piquer pendant la nuit.
-</FormulaText>
-
-<FormulaText>
-    <strong>Pas d'eau qui stagne :</strong> Il faut vider les endroits où il y a de l'eau qui ne bouge pas pour que les moustiques ne puissent pas y pondre leurs œufs.
-</FormulaText>
-
-<FormulaText>
-    <strong>Mettre du répulsif :</strong> Un produit spécial sur la peau pour que les moustiques ne s'approchent pas.
-</FormulaText>
-
-<FormulaText>
-    <strong>Porter des manches longues et des pantalons :</strong> Ainsi, les moustiques ne peuvent pas piquer la peau.
-</FormulaText>
-
-<FormulaText>
-    <strong>Utiliser des sprays anti-moustiques dans la maison :</strong> Pour tuer les moustiques qui sont à l'intérieur.
-</FormulaText>
-
-<FormulaText>
-    <strong>Si on va quelque part où il y a beaucoup de paludisme, on peut prendre des médicaments spéciaux :</strong> Mais il faut demander à un docteur d'abord.
-</FormulaText>
-
-
-
-
-
-   <div style={{ display: "flex", alignItems: "center" }}>
-  <Audio/>
-</div>
-</Card>
-
-                </div>
-            )}
-
-{section >= 8 && (
-                <div>
-                    <Card>
-    <FormulaText> <strong></strong></FormulaText>    
-    <img src={Protegemaladie} alt="Protegemaladie" style={imageStyle} /> 
-    <FormulaText>
-    Pour prévenir les risques sanitaires liés à l'eau, il faut :
-
-aménager le point d'eau pour éviter que les hommes et les animaux ne viennent le souiller,
-construire et utiliser une douche et des latrines,
-purifier et filtrer l'eau de boisson.
-</FormulaText>
-
-
-
-   <div style={{ display: "flex", alignItems: "center" }}>
-  <Audio/>
-</div>
-</Card>
-
-                </div>
-            )}
-
-{section >= 9 && (
+{section >= 3 && (
                 <div>
                     <QCMC1 />
                 </div>
@@ -314,7 +176,7 @@ purifier et filtrer l'eau de boisson.
 
 
 
-            {section < 9 && (
+            {section < 3 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>
