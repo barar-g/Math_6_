@@ -49,6 +49,7 @@ function Accueil() {
         <Button onClick={() => navigate('/Desertfication')}>Desertfication</Button>
         <Button onClick={() => navigate('/Pollution')}>Pollution</Button>
         <Button onClick={() => navigate('/EauEtSante')}>L'eau et la Santé</Button>
+        <Button onClick={() => navigate('/Vaccination')}>La Vaccination</Button>
       </Stack>
     </Box>
   );
