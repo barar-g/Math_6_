@@ -10,7 +10,7 @@ import Audio from "./Audio1" ;
 import {
   Container, SectionContainer, ImageContainer,FormulaText, Card, FormulaBox,BodyText,Subtitle, ContinueButton
 } from '../../Styles/MajorStyles'; 
-import EquilibreActivité from './EquilibreActivité';
+
 
 
 const imageStyle = {
@@ -162,12 +162,8 @@ const C1 = () => {
             )}
  <br></br>
  <br></br>
+
 {section >= 6 && (
-                <div>
-                    <EquilibreActivité/>
-                </div>
-            )}
-{section >= 7 && (
                 <div>
                     <QCMC1 />
                 </div>
@@ -175,7 +171,7 @@ const C1 = () => {
 
 
 
-            {section < 7 && (
+            {section < 6 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>

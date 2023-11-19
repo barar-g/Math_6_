@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import QCMC1 from './QCMC1';
 import Vac from '../../Images/Vac.png';
-import Vaccination from '../../Images/Vaccination.png';
+import Vaccination from '../../Images/vaccination.png';
 import Paludisme from '../../Images/Paludisme.png';
 import parasites from  '../../Images/parasites.png';
 import Guinea from '../../Images/Guinea.png';
