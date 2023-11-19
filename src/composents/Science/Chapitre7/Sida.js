@@ -6,12 +6,12 @@ import Sida from '../../Images/Sida.png';
 import Virus1 from '../../Images/Virus1.png';
 import doctor from '../../Images/doctor.png';
 import malade from '../../Images/malade.png';
-import vaccination from '../../Images/vaccination.png';
+import vaccination from '../../Images/Vaccination.png';
 import Audio from "./Audio1" ;
 import {
   Container,FormulaText, Card, ContinueButton
 } from '../../Styles/MajorStyles'; 
-import EquilibreActivité from './EquilibreActivité';
+
 
 
 const imageStyle = {
