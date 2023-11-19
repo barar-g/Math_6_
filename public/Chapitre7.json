@@ -1,0 +1,37 @@
+[
+  {
+      "question": " Que signifie sida ? VIH ?",
+      "answers": ["Syndrome d'Immunodéficience Acquise, Virus de l'Immunodéficience Humaine.", "Le SIDA signifie Système Immunitaire Défectueux et Actif.", "Le SIDA signifie Syndrome d'Infection Durable et Aiguë."],
+      "correctAnswer": "Syndrome d'Immunodéficience Acquise, Virus de l'Immunodéficience Humaine.",
+      "explanation": "Le Sida signifie : Syndrome d’Immunodéficience  Acquise et le  VIH signifie : Virus de l'immunodéficience Humaine.",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment savoir si une personne est malade du sida ? ",
+      "answers": ["En observant les symptômes extérieurs tels que la toux et la fièvre.", "Il faut passer le test VIH.", "En se basant sur la couleur de la peau de la personne."],
+      "correctAnswer": "Il faut passer le test VIH.",
+      "explanation": "Les lipides, les glucides, les protéines, les vitamines, les sels minéraux et l’eau sont les principaux composants des alimants",
+      "userAnswer": null
+    },
+    {
+      "question": " Comment appelle-t-on une personne qui porte le virus sans être malade ?",
+      "answers": ["Un séropositif.", "Un malade asymptomatique.", "Un porteur de virus inactif."],
+      "correctAnswer": "Un séropositif.",
+      "explanation": "Un séropositif est une personne qui porte le virus sans être malade",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment se transmet le sida ? ",
+      "answers": ["par les rapports sexuels non protégés", "le riz, le couscous, le pain", "Par l'inhalation d'air dans des endroits surpeuplés."],
+      "correctAnswer": "par les rapports sexuels non protégés",
+      "explanation": " Le transmition de sida est fait par les rapports sexuels non protégés ou par la transfusion sanguine. ou par les objets coupants infectés ou le passage de la mère à l'enfant (grossesse, accouchement, allaitement)",
+      "userAnswer": null
+    },
+    {
+      "question": " Comment se protéger ou éviter le sida ? ",
+      "answers": ["Éviter les lieux publics.", "Utiliser les préservatifs ou Transfuser du sang non infecté ou Utiliser du matériel stérilisé ", "Manger des aliments riches en vitamines."],
+      "correctAnswer": "Utiliser les préservatifs ou Transfuser du sang non infecté ou Utiliser du matériel stérilisé ",
+      "explanation": "Utiliser les préservatifs ou Transfuser du sang non infecté ou Utiliser du matériel stérilisé ",
+      "userAnswer": null
+    }
+  ] 
