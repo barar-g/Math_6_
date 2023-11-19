@@ -40,6 +40,7 @@ import EquilibrEnergitique from './composents/Science/Chapitre2/EquilibreEnergit
 import Desertification from './composents/Science/Chapitre3/Desertification';
 import Pollution from './composents/Science/Chapitre4/Pollution';  
 import EauEtSante from './composents/Science/Chapitre5/EauEtSante';
+import Vaccination from './composents/Science/Chapitre6/Vaccination';
 import Sida from './composents/Science/Chapitre7/Sida';
 
 
@@ -83,6 +84,7 @@ function App() {
           <Route path="/Desertfication" element ={<Desertification/>}/>
           <Route path="/Pollution" element ={<Pollution/>}/>
           <Route path="/EauEtSante" element ={<EauEtSante/>}/>
+          <Route path="/Vaccination" element ={<Vaccination/>}/>
           <Route path="/P2A1A" element ={<P2A1A/>}/>
           <Route path="/P2A1C" element ={<P2A1C/>}/>
           <Route path="/P2A1B" element ={<P2A1B/>}/>
