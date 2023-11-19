@@ -10,6 +10,7 @@ import balance from '../../Images/balance.png';
 import apple from '../../Images/apple.png';
 import man from '../../Images/man.png';
 
+
 import Audio from "./Audio2" ;
 import {
   Container, SectionContainer, ImageContainer,FormulaText, Card, FormulaBox,BodyText,Subtitle, ContinueButton

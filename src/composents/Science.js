@@ -50,6 +50,8 @@ function Accueil() {
         <Button onClick={() => navigate('/Pollution')}>Pollution</Button>
         <Button onClick={() => navigate('/EauEtSante')}>L'eau et la Santé</Button>
         <Button onClick={() => navigate('/Vaccination')}>La Vaccination</Button>
+        <Button onClick={() => navigate('/Sida')}>Sida</Button>
+
       </Stack>
     </Box>
   );

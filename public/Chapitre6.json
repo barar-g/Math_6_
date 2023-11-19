@@ -1,0 +1,44 @@
+[
+  {
+      "question": " Qu'est-ce que la vaccination ?",
+      "answers": ["C'est l'administration de vitamines pour renforcer le système immunitaire.", "C'est une méthode de relaxation utilisée pour réduire le stress.", "protection contre certaines maladies infectieuses et en éviter la propagation."],
+      "correctAnswer": "protection contre certaines maladies infectieuses et en éviter la propagation.",
+      "explanation": "La vaccination est la protection contre certaines maladies infectieuses et en éviter la propagation.",
+      "userAnswer": null
+    },
+    {
+      "question": "Quelle est la différence entre un vaccin et un sérum ? ",
+      "answers": ["Le vaccin et le sérum sont deux termes interchangeables désignant la même chose.", "Le vaccin agit exclusivement sur les virus, tandis que le sérum agit sur les bactéries.", "Le vaccin est un moyen préventif, le sérum est un moyen curatif."],
+      "correctAnswer": "Le vaccin est un moyen préventif, le sérum est un moyen curatif.",
+      "explanation": "Le vaccin est un moyen préventif, le sérum est un moyen curatif.",
+      "userAnswer": null
+    },
+    {
+      "question": "Qu'est -ce qu'un carnet de vaccination ? ",
+      "answers": ["Carte sur laquelle on note toutes les vaccinations et leurs dates. Il montre que chacun a été vacciné et à jour dans ses vaccins.", "C'est un outil utilisé par les médecins pour prescrire des vaccins."],
+      "correctAnswer": "Carte sur laquelle on note toutes les vaccinations et leurs dates. Il montre que chacun a été vacciné et à jour dans ses vaccins.",
+      "explanation": "Le carnet vaccination est une carte sur laquelle on note toutes les vaccinations et leurs dates. Il montre que chacun a été vacciné et à jour dans ses vaccins.",
+      "userAnswer": null
+    },
+    {
+      "question": "Quels sont les vaccins obligatoires en Mauritanie ou quelles sont les maladies liées à la vaccination ? ",
+      "answers": ["la rougeole, la diphtérie, la coqueluche, la tuberculose, le tétanos et la poliomyélite.", "Les vaccins obligatoires en Mauritanie incluent uniquement ceux contre la grippe et le rhume.", "Les maladies liées à la vaccination comprennent le paludisme et la fièvre jaune."],
+      "correctAnswer": "la rougeole, la diphtérie, la coqueluche, la tuberculose, le tétanos et la poliomyélite.",
+      "explanation": "Les vaccins obligatoires en Mauritanie incluent uniquement ceux contre la grippe et le rhume.",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment est administré un vaccin ?",
+      "answers": ["injection (piqûre) ou ingestion (voie orale).", "Un vaccin est administré par inhalation.", "Les vaccins sont uniquement administrés par voie nasale"],
+      "correctAnswer": "injection (piqûre) ou ingestion (voie orale).",
+      "explanation": "Un vaccin est administré par injection (piqûre) ou ingestion (voie orale).",
+      "userAnswer": null
+    },
+    {
+      "question": "Cite trois maladies que l'on peut prévenir par un vaccin ?",
+      "answers": ["La rougeole, La poliomyélite et la tuberculose", "La maladie d'Alzheimer", "L'hypertension"],
+      "correctAnswer": "La rougeole, La poliomyélite et la tuberculose",
+      "explanation": "Les trois maladies que l'on peut prévenir par un vaccin ? ",
+      "userAnswer": null
+    }
+  ] 

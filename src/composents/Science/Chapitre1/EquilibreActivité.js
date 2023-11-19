@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PatesImage from '../../Images/pates.png';
-import RizImage from '../../Images/riz.png';
+import RizImage from '../../Images/Riz.png';
 // Continuez à importer d'autres images ici
 
 function FoodQuiz() {
