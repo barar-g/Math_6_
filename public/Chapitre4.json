@@ -1,0 +1,51 @@
+[
+  {
+      "question": "Qu'est-ce que la pollution ? ",
+      "answers": ["la dégradation du milieu naturel par des produits et déchets toxiques dangereux pour la santé.", "l'amélioration de la qualité de l'air et de l'eau."],
+      "correctAnswer": "la dégradation du milieu naturel par des produits et déchets toxiques dangereux pour la santé.",
+      "explanation": "La pollution est la dégradation du milieu naturel par des produits et déchets toxiques dangereux pour la santé.",
+      "userAnswer": null
+    },
+    {
+      "question": "Qu’est-ce qu'une décharge sauvage ? ",
+      "answers": ["l'entassement des ordures et des déchets à l'air libre.", "Une décharge sauvage est une méthode écologique de gestion des déchets.", " Une décharge sauvage est un parc naturel protégé."],
+      "correctAnswer": "l'entassement des ordures et des déchets à l'air libre.",
+      "explanation": "Une décharge sauvage est l'entassement des ordures et des déchets à l'air libre.",
+      "userAnswer": null
+    },
+    {
+      "question": " Quelles sont les causes de la pollution ?",
+      "answers": ["Les ordures et les déchets.", "Les fumées des voitures et des usines.", " Les cadavres des animaux."],
+      "correctAnswer": "Les ordures et les déchets.",
+      "explanation": "Les ordures et les déchets.",
+      "userAnswer": null
+    },
+    {
+      "question": " Comment se débarrasser des ordures ? ",
+      "answers": ["Les trier et les recycler", "Les brûler dans la cour.", "Les jeter n'importe où."],
+      "correctAnswer": "Les trier et les recycler",
+      "explanation": "Les trier et les recycler",
+      "userAnswer": null
+    },
+    {
+      "question": "Quelles sont les solutions de lutte contre la pollution ?  ",
+      "answers": ["Promouvoir l'utilisation de véhicules fortement polluants.", "Encourager les décharges sauvages comme moyen de gestion des déchets.", "Interdire les décharges sauvages et les voitures trop fumantes."],
+      "correctAnswer": "Interdire les décharges sauvages et les voitures trop fumantes.",
+      "explanation": "Les alimants qui contiennent des glucides sont Les graisses, la crème, l'huile",
+      "userAnswer": null
+    },
+    {
+      "question": "Quelles sont les maladies provoquées par les décharges sauvages ?",
+      "answers": ["Les décharges sauvages n'ont aucun impact sur la santé.", "le riz, le couscous, le pain", "Le tétanos et la gale."],
+      "correctAnswer": "Le tétanos et la gale.",
+      "explanation": " les maladies provoquées par les décharges sauvages sont Le tétanos et la gale.",
+      "userAnswer": null
+    },
+    {
+      "question": " Quelles sont les maladies liées à la pollution atmosphérique ?",
+      "answers": ["La pollution atmosphérique favorise la santé respiratoire.", " La pollution atmosphérique n'a aucun impact sur la santé.", "L'asthme."],
+      "correctAnswer": "L'asthme.",
+      "explanation": "L'asthme.",
+      "userAnswer": null
+    }
+  ] 

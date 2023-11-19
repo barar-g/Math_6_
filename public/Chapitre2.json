@@ -1,0 +1,45 @@
+[
+  {
+      "question": "Qu’appelle-t-on équilibre énergétique ? ",
+      "answers": ["C'est le rapport entre la quantité de protéines et de lipides dans l'alimentation.", "C'est la quantité totale d'eau consommée par jour.","C'est l'énergie apportée par les aliments quotidiens égale à l'énergie dépensée pendant le jour."],
+      "correctAnswer": "C'est l'énergie apportée par les aliments quotidiens égale à l'énergie dépensée pendant le jour.",
+      "explanation": "L'équilibre énergétique est l'énergie apportée par les aliments quotidiens égale à l'énergie dépensée pendant le jour.",
+      "userAnswer": null
+    },
+    {
+      "question": " Pourquoi le petit déjeuner est-il important ?  ",
+      "answers": ["Parce que c'est le premier repas de la journée qui aide à bien commencer le travail.", "Parce que manger un petit déjeuner lourd est la meilleure façon de perdre du poids.", " Parce que sauter le petit déjeuner stimule le métabolisme."],
+      "correctAnswer": "Parce que c'est le premier repas de la journée qui aide à bien commencer le travail.",
+      "explanation": "le petit déjeuner est le premier repas de la journée qui aide à bien commencer le travail.",
+      "userAnswer": null
+    },
+    {
+      "question": " Qu’est-ce que la ration alimentaire ? ",
+      "answers": ["la ration alimentaire est la quantité de nourriture dont le corps a besoin chaque jour. Elle varie avec : l'âge, le sexe et le travail fourni.", "La ration alimentaire est une mesure de la quantité totale d'eau que le corps doit consommer quotidiennement.","La ration alimentaire est déterminée uniquement en fonction de la taille d'une personne."],
+      "correctAnswer": "la ration alimentaire est la quantité de nourriture dont le corps a besoin chaque jour. Elle varie avec : l'âge, le sexe et le travail fourni.",
+      "explanation": "la ration alimentaire est la quantité de nourriture dont le corps a besoin chaque jour. Elle varie avec : l'âge, le sexe et le travail fourni.",
+      "userAnswer": null
+    },
+    {
+      "question": "Cite u maladie liée à d'alimentation",
+      "answers": ["Diabète", "Asthme", "Hypertension artérielle"," Rhume des foins"],
+      "correctAnswer": "Diabète",
+      "explanation": ") Le diabète c'est lorsqu'on mange trop de sucre. ",
+      "userAnswer": null
+    },
+    {
+      "question": "Qu'est-ce que la sous-alimentation ? ",
+      "answers": ["C'est un apport énergétique insuffisant.", "C'est une surconsommation d'aliments riches en nutriments.", " C'est une condition caractérisée par une consommation excessive de vitamines.","C'est une surcharge pondérale due à une activité physique insuffisante."],
+      "correctAnswer": "C'est un apport énergétique insuffisant.",
+      "explanation": "C'est un apport énergétique insuffisant.",
+      "userAnswer": null
+    },
+
+    {
+      "question": " Pourquoi doit- on faire attention à une consommation riche en glucides et en lipides ? ",
+      "answers": ["Parce que cela améliore la santé cardiovasculaire.", "Parce que l'excès de glucides et de lipides peut conduire à l'obésité et provoquer des maladies cardio-vasculaires.", " Parce que les glucides et les lipides sont essentiels à une bonne santé et ne présentent aucun risque."],
+      "correctAnswer": "Parce que l'excès de glucides et de lipides peut conduire à l'obésité et provoquer des maladies cardio-vasculaires.",
+      "explanation": "Une alimentation riche en glucides ou en lipides peut entraîner l'obésité et provoquer des maladies cardio-vasculaires vasculaires.",
+      "userAnswer": null
+    }
+  ] 
