@@ -38,6 +38,8 @@ import Science from './composents/Science';
 import EquilibrAlimantaire from './composents/Science/Chapitre1/EquilibreAlimantaire';
 import EquilibrEnergitique from './composents/Science/Chapitre2/EquilibreEnergitique';
 import Desertification from './composents/Science/Chapitre3/Desertification';
+import Pollution from './composents/Science/Chapitre4/Pollution';  
+import EauEtSante from './composents/Science/Chapitre5/EauEtSante';
 
 
 
@@ -78,6 +80,8 @@ function App() {
           <Route path="/EquilibrAlimantaire" element ={<EquilibrAlimantaire/>}/>
           <Route path="/EquilibrEnergitique" element ={<EquilibrEnergitique/>}/>
           <Route path="/Desertfication" element ={<Desertification/>}/>
+          <Route path="/Pollution" element ={<Pollution/>}/>
+          <Route path="/EauEtSante" element ={<EauEtSante/>}/>
           <Route path="/P2A1A" element ={<P2A1A/>}/>
           <Route path="/P2A1C" element ={<P2A1C/>}/>
           <Route path="/P2A1B" element ={<P2A1B/>}/>

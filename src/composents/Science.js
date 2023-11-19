@@ -47,7 +47,8 @@ function Accueil() {
         <Button onClick={() => navigate('/EquilibrAlimantaire')}>Equilibre Alimantaire</Button>
         <Button onClick={() => navigate('/EquilibrEnergitique')}>Equilibre Energitique</Button>
         <Button onClick={() => navigate('/Desertfication')}>Desertfication</Button>
-        
+        <Button onClick={() => navigate('/Pollution')}>Pollution</Button>
+        <Button onClick={() => navigate('/EauEtSante')}>L'eau et la Santé</Button>
       </Stack>
     </Box>
   );
