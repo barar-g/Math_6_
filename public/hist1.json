@@ -1,0 +1,38 @@
+[
+  {
+      "question": "كم عمره ﷺ عند وفاة أمه",
+      "answers": ["ثماني سنوات", "خمس سنوات", "عشر سنوات"],
+      "correctAnswer": "ثماني سنوات",
+      "explanation": "ثماني سنوات",
+      "userAnswer": null
+    },
+    {
+      "question": "في أي موقع ولد النبي ﷺ ؟",
+      "answers": ["مكة المكرمة", "يثرب", "الطائف"],
+      "correctAnswer":"مكة المكرمة",
+      "explanation": "",
+      "userAnswer": null
+    },
+    {
+      "question": "من كفله بعد وفاة أمه ﷺ",
+      "answers": ["جده عبد المطلب", "عمه ابو طالب","أبوه عبد الله"
+    ],
+      "correctAnswer":"جده عبد المطلب",
+      "explanation": "",
+      "userAnswer": null
+    },
+    {
+      "question": "فيم شارك أهل مكة ؟",
+      "answers": ["حرب الفجار و إعادو بناء الكعبة", "الحروب على القبائل الأخرى"],
+      "correctAnswer":"حرب الفجار و إعادو بناء الكعبة",
+      "explanation": "",
+      "userAnswer": null
+    },
+    {
+      "question": "ماذا اسندت له خديجة ؟",
+      "answers": ["رعاية الغنم", "التجارة"],
+      "correctAnswer": "التجارة",
+      "explanation": "",
+      "userAnswer": null
+    }
+  ] 

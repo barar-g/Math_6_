@@ -48,6 +48,7 @@ function Acceuil() {
         <Button onClick={() => navigate('/Periode1')}>Periode1</Button>
         <Button onClick={() => navigate('/Periode2')}>Periode2</Button>
         <Button onClick={() => navigate('/Science')}>Science</Button>
+        <Button onClick={() => navigate('/Histoire')}>التاريخ</Button>
         
 
       </Stack>

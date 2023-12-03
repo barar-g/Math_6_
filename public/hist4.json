@@ -1,0 +1,32 @@
+[
+  {
+      "question": "متى تضاعف أذى قريش على المسلمين؟ "      ,
+      "answers": ["بعد وفاة حمزة بن عبد المطلب", "بعد وفاة أبو طالب"      , "بعد وفاة الرسول ﷺ"],
+      "correctAnswer": "بعد وفاة أبو طالب",
+      "explanation":"" ,
+      "userAnswer": null
+    },
+    {
+      "question": "أي مدينة آمنة بالرسول ﷺ؟",
+      "answers": ["الطائف", "يثرب", "دمشق"],
+      "correctAnswer":"يثرب",
+      "explanation": "",
+      "userAnswer": null
+    },
+    {
+      "question": "ما أول خطوة قام بها ﷺ عند وصوله ليثرب؟      "      ,
+      "answers": ["استبدل يثرب باسم المدينة       "      , "أعلان الحرب على قريش"
+    ],
+      "correctAnswer":"استبدل يثرب باسم المدينة       ",
+      "explanation": "",
+      "userAnswer": null
+    },
+    {
+      "question": "لم حارب قريشا ؟"      ,
+      "answers": ["لكونهم عقبة في نشر الاسلام"      , "لنهب الثروات في مكة"
+    ],
+      "correctAnswer":"لكونهم عقبة في نشر الاسلام",
+      "explanation": "",
+      "userAnswer": null
+    }
+  ] 
