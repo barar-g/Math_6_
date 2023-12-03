@@ -63,7 +63,7 @@
       "question": "Qu’appelle-t-on malnutrition ?",
       "answers": ["mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens.", "c'est quand on mange trop de chocolat et de pizzas, mais pas assez de bonbons et de sodas.", " c'est simplement un régime de burgers et de frites avec crème glacée à chaque repas."],
       "correctAnswer": "mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens.",
-      "explanation": "Le malnutrition est mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens.",
+      "explanation": "La mal nutrition est la mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens ",
       "userAnswer": null
     }
   ] 
