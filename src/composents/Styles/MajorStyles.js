@@ -49,7 +49,7 @@ export const SmallCard = styled.div`
   background-color: #fafafa;
   height: 60px;
     width: 98%;
-  margin: 0 4px 8px;
+  margin: 0 8px 16px;
   padding: 8px;
   display: flex;
   flex-direction: row;
@@ -57,6 +57,10 @@ export const SmallCard = styled.div`
   align-items: center;
   transition: all 0.2s ease-in-out;
   line-height: 24px;
+  &:hover {
+     box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.15), 0px 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
   `;
 
 export const BodyText = styled.p`
