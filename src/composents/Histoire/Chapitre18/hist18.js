@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
+import pic1 from '../../Images/pic34.png';
 import pic2 from '../../Images/pic2.png';
 
 
@@ -75,7 +75,7 @@ const C1 = () => {
                  <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+<img src={pic1} alt="Teacher" style={imageStyle} /> 
 <br></br>        
  <Card>
 

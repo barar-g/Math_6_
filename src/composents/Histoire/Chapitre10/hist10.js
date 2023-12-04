@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic21 from '../../Images/pic21.png';
+import pic22 from '../../Images/pic22.png';
 
 
 import Audio from "./Audio1" ;
@@ -38,13 +38,13 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                           
                   <br></br>
                   <Card >
-                    
+                  <br></br>
+
+             
+<img src={pic21} alt="Teacher" style={imageStyle} /> 
                        
                        <FormulaText dir="rtl"><strong> <SmallCard>الإمبراطورية حيز جغرافي كبير؛ يخضع لسلطة الإمبراطورية عدة ممالك.
                         </SmallCard> <SmallCard>أما إمبراطورية غانا فخضعت لها عدة ممالك من أهمها:</SmallCard>
@@ -67,13 +67,13 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+              
 <br></br>        
  <Card>
+ <br></br>
 
+             
+<img src={pic22} alt="Teacher" style={imageStyle} /> 
  <FormulaText dir="rtl"><strong> 
 <SmallCard>
  لغت إمبراطورية غانا أوج ازدهارها في القرنين 10 و 11 الميلاديين   

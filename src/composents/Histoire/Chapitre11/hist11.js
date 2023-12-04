@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic23 from '../../Images/pic23.png';
+import pic24 from '../../Images/pic24.png';
 
 
 import Audio from "./Audio1" ;
@@ -38,13 +38,14 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
+                           
+                  <br></br>
+                  
+                  <Card >
+                  <br></br>
 
              
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
-                  <br></br>
-                  <Card >
-                    
+<img src={pic23} alt="Teacher" style={imageStyle} /> 
                   <FormulaText dir="rtl"><strong><SmallCard>
 كلمة التكرور اسم للمنطقة الواقعة بين المحيط الأطلسي بالسنغال
                          و بين آدرار أيضا و يشكل نعر السينغال المحور الرئيسي لهذه المنطقة، 
@@ -67,14 +68,15 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
-<br></br>        
+               
+<br></br>      
+   
  <Card>
 
-                       
+ <br></br>
+
+             
+<img src={pic24} alt="Teacher" style={imageStyle} />        
  <FormulaText dir="rtl"><strong>
  <SmallCard>
  يعود قيام مملكة التكرور إلى سلالة اديا أغو التي

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic1 from '../../Images/pic29.png';
+import pic2 from '../../Images/pic30.png';
 
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -27,26 +27,36 @@ const C1 = () => {
 
     return (
         <Container >
-         <FormulaText dir="rtl"><strong>الملف الخامس عشر : مملكة اوداغست
+         <FormulaText dir="rtl"><strong>الملف الخامس عشر : دور موريتانيا في نشر الإسلام
 </strong></FormulaText>
 <Card dir="rtl">
                        
-                       <FormulaText > <strong>-أتعرف على دخول موريتانيا في نشر الإسلام
+                       <FormulaText > <strong>-أتعرف على دور موريتانيا في نشر الإسلام
 
 </strong>
 <br></br>
 <strong>-أتعرف على دور المرابطين و الطرق الصوفية في نشره</strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                         
                   <br></br>
                   <Card >
-                    
+                  <br></br>
+
+             
+<img src={pic1} alt="Teacher" style={imageStyle} /> 
                        
-                       <FormulaText dir="rtl"><strong>دخل الأسلام إلى موريتانيا عن طريق التجار ز الفاتحين العرب الذين وصلو هذه البلاد من الشرق العربي حاملين الرسالو المحمدية و سرعان ما توطدت أركانه في العهد المرابطي فأصبحت البلاد حلقة مهمة في توصيل الإسلام إلى البلاد الإفريقية و قد حمل الموريتانيون على عواتقهم نشر الإسلام في الربوع الأفريقية فنشرو العقيدة و درسو القرآن الكربم و مبادئ الإسلام السمحة و أخلاقه الرفيعة.</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        دخل الأسلام إلى موريتانيا عن طريق التجار ز الفاتحين العرب الذين وصلو هذه البلاد من الشرق 
+                        العربي حاملين الرسالو المحمدية
+                        </SmallCard><SmallCard>
+                         و سرعان ما توطدت أركانه في العهد المرابطي فأصبحت البلاد
+                         حلقة مهمة في توصيل الإسلام إلى البلاد الإفريقية
+                         
+                         </SmallCard><SmallCard>
+                          و قد حمل الموريتانيون على عواتقهم نشر الإسلام
+                         في أفريقيا فنشرو العقيدة و درسو القرآن الكربم و مبادئ الإسلام السمحة و أخلاقه الرفيعة.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,16 +67,24 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
+                
+<br></br>        
+ <Card>
+ <br></br>
 
              
 <img src={pic2} alt="Teacher" style={imageStyle} /> 
-<br></br>        
- <Card>
-
                        
- <FormulaText dir="rtl"><strong>لقد اتجه المرابطون إلى القبائل السودانية الوثنية و أدخلوها ملة الإسلام كما أعادو إلى الإسلام قبائل أخرى كانت قد ارتدت عنه
-تواصل المد الإسلامي من بعدهم على يد حركة الأمامية في منطق فواتاتورز بزعامة سليمان بال ثم الحج عمر تال في نفس المنطقة كما لعبت الطرق الصوفية هي الأخرى دورا كبيرا في هذا المجال.</strong></FormulaText>
+ <FormulaText dir="rtl"><strong>
+ <SmallCard>
+    لقد اتجه المرابطون
+     إلى القبائل السودانية الوثنية و أدخلوها ملة الإسلام كما أعادو إلى الإسلام قبائل أخرى كانت قد ارتدت عنه
+     </SmallCard><SmallCard>
+تواصل المد الإسلامي من بعدهم على يد حركة الأمامية في
+ منطق فواتاتورز بزعامة سليمان بال ثم الحج عمر تال في نفس 
+ المنطقة
+ </SmallCard><SmallCard>
+  كما لعبت الطرق الصوفية هي الأخرى دورا كبيرا في هذا المجال.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

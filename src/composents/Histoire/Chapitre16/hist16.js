@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic1 from '../../Images/pic33.png';
+import pic2 from '../../Images/pic32.png';
 
 
 import Audio from "./Audio1" ;
@@ -37,13 +37,13 @@ const C1 = () => {
 <strong>-أتعرف على فتوحات المرابطين و الحضارة المرابطية</strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                          
                   <br></br>
                   <Card >
-                    
+                  <br></br>
+
+             
+<img src={pic1} alt="Teacher" style={imageStyle} /> 
                        
                        <FormulaText dir="rtl"><strong>
                         <SmallCard>
@@ -68,13 +68,13 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
+               
+<br></br>        
+ <Card>
+ <br></br>
 
              
 <img src={pic2} alt="Teacher" style={imageStyle} /> 
-<br></br>        
- <Card>
-
                        
  <FormulaText dir="rtl"><strong>
  <SmallCard>

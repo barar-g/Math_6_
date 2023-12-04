@@ -40,7 +40,7 @@ const C1 = () => {
                            <br></br>
 
              
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+              
                   <br></br>
                   <Card >
                     
@@ -64,7 +64,7 @@ const C1 = () => {
                  <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+
 <br></br>        
  <Card>
 

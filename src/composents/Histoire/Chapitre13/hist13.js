@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic25 from '../../Images/pic25.png';
+import pic26 from '../../Images/pic26.png';
 
 
 import Audio from "./Audio1" ;
@@ -37,14 +37,14 @@ const C1 = () => {
 <strong>-أبين تاريخ وصول الفتح الإسلامي في موريتانيا</strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                        
                   <br></br>
                   <Card >
                     
-                       
+                  <br></br>
+
+             
+<img src={pic26} alt="Teacher" style={imageStyle} /> 
                        <FormulaText dir="rtl"><strong>
                         <SmallCard>
                         الاديان التي سبقت الاسلام كثيرا كان اخرها المسيحيه التي قال فيها عيسى عليه السلام
@@ -66,13 +66,13 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+            
 <br></br>        
  <Card>
+ <br></br>
 
+             
+<img src={pic25} alt="Teacher" style={imageStyle} /> 
                        
  <FormulaText dir="rtl"><strong>
     <SmallCard>
