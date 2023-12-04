@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC2';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic3 from '../../Images/pic3.png';
+import pic4 from '../../Images/pic4.png';
 
 
 import Audio from "./Audio2" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -38,15 +38,20 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                          
                   <br></br>
                   <Card >
-                    
+                  <br></br>
+
+             
+<img src={pic3} alt="Teacher" style={imageStyle} /> 
                        
-                       <FormulaText dir="rtl"><strong>لما بلغ رسول الله ﷺ الأربعين من عمره أرسله الله للعالمين بشيرا و نذيرا و كان أول ما بدأ به الوحي الرؤيا الصادقة. و بينما هو قائم على الجبل اذ ظهر له جبريل و قال له ابشر يا محمد انت رسول الله إلى هذه الأمة.
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        لما بلغ رسول الله ﷺ الأربعين من عمره أرسله الله للعالمين بشيرا و نذيرا و كان أول ما بدأ به الوحي الرؤيا الصادقة.
+                        </SmallCard><SmallCard>
+                         و بينما هو قائم على الجبل اذ ظهر له جبريل و قال له ابشر يا محمد انت رسول الله إلى هذه الأمة.
+                         </SmallCard>
 </strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
@@ -58,15 +63,22 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+               
 <br></br>        
  <Card>
+ <br></br>
 
+             
+<img src={pic4} alt="Teacher" style={imageStyle} /> 
                        
- <FormulaText dir="rtl"><strong>بادرت خديجة بنت خويلد إلى التصديق بالنبي ﷺ كما آمن ابن عمه على ابن أبي طالب و زيد بن حارثة و أم أيمن ثم أبو بكر، و كان الرسول ﷺ يجتمع بهم في دار الأرقم بن أبي الأرقم ليرشدهم و يعلمهم سرا حتى نزلت عليه الآية الكريمة (فَاصْدَعْ بِمَا تُؤْمَرُ وَأَعْرِضْ عَنِ الْمُشْرِكِينَ) فبدأت الدعوة جهرا
+ <FormulaText dir="rtl"><strong>
+    <SmallCard>
+    بادرت خديجة بنت خويلد إلى التصديق بالنبي ﷺ كما آمن ابن عمه على ابن أبي طالب و زيد بن حارثة و أم أيمن ثم أبو بكر،
+    </SmallCard><SmallCard>
+     و كان الرسول ﷺ يجتمع بهم في دار الأرقم بن أبي الأرقم ليرشدهم و يعلمهم سرا
+     </SmallCard><SmallCard>
+      حتى نزلت عليه الآية الكريمة (فَاصْدَعْ بِمَا تُؤْمَرُ وَأَعْرِضْ عَنِ الْمُشْرِكِينَ) فبدأت الدعوة جهرا
+      </SmallCard>
 </strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>

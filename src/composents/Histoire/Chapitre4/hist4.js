@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic7 from '../../Images/pic7.png';
+import pic8 from '../../Images/pic8.png';
 
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -41,12 +41,17 @@ const C1 = () => {
                            <br></br>
 
              
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
-                  <br></br>
+                 
                   <Card >
-                    
+                  <img src={pic7} alt="Teacher" style={imageStyle} /> 
+                  <br></br>
                        
-                       <FormulaText dir="rtl"><strong>عزمت قريش على القضاء على الإسلام فوجهت جيشا عظيما بتمويل من اليهود فحفر المسلمون خندقا حول المدينة. و في السنة السابعة قام النبي ﷺ بفتح خيبر ثم فتح مكة في السنة الثامنة.</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        عزمت قريش على القضاء على الإسلام فوجهت جيشا عظيما بتمويل من اليهود
+                         فحفر المسلمون خندقا حول المدينة.
+                         </SmallCard><SmallCard>
+                          و في السنة السابعة قام النبي ﷺ بفتح خيبر ثم فتح مكة في السنة الثامنة.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,15 +62,20 @@ const C1 = () => {
                  
               
                  
+               
+
                  <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
-<br></br>        
+      
  <Card>
-
+ <br></br>
+ <img src={pic8} alt="Teacher" style={imageStyle} /> 
+  
                        
- <FormulaText dir="rtl"><strong>في عهد أبي بكر بدأ الفتح الإسلامي يتجاوز حدود الجزيرة العربية ألى الشام و العراق و قد سار الخليفتات عمر و عثمان على نهجه في توسيع رقعة العالم الإسلامي و جاءت الدولة الأموية فبلغ العالم الإسلامي أوج اتساعه.</strong></FormulaText>
+ <FormulaText dir="rtl"><strong>
+   <SmallCard>
+    في عهد أبي بكر بدأ الفتح الإسلامي يتجاوز حدود الجزيرة العربية ألى الشام و العراق 
+    </SmallCard> <SmallCard> 
+    و قد سار  عمر و عثمان على نهجه  و جاءت الدولة الأموية فبلغ العالم الإسلامي أوج اتساعه.</SmallCard> </strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

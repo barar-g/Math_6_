@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic19 from '../../Images/pic19.png';
+import pic20 from '../../Images/pic20.png';
 
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -38,15 +38,18 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                         
                   <br></br>
                   <Card >
-                    
+                  <br></br>
+
+             
+<img src={pic19} alt="Teacher" style={imageStyle} /> 
                        
-                       <FormulaText dir="rtl"><strong>من أهم المساجد في المشرق الإسلامي المسجد الحرام و المسجد النبوي و المسجد الأقصى و جامع الأزهر و جامع بغداد و الجامع الأموي بدمشق.</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                       <SmallCard>
+                        من أهم المساجد في المشرق الإسلامي المسجد الحرام,المسجد النبوي
+                         ,المسجد الأقصى, جامع الأزهر, جامع بغداد و الجامع الأموي بدمشق.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,15 +60,17 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+                 
 <br></br>        
  <Card>
+ <br></br>
 
+             
+<img src={pic20} alt="Teacher" style={imageStyle} /> 
                        
- <FormulaText dir="rtl"><strong>أشهر المساجد في المغرب و الأندلس هي: جامع القيروان-جامع الزيتونة-جامع قرطبة-جامع القرويين-جامع شنقيط.</strong></FormulaText>
+ <FormulaText dir="rtl"><strong>
+    <SmallCard>
+    أشهر المساجد في المغرب و الأندلس هي:جامع شنقيط -جامع القيروان-جامع الزيتونة - جامع قرطبة- .</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

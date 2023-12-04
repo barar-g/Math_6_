@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
-
+import pic1 from '../../Images/pic14.png';
+import pic15 from '../../Images/pic15.png';
+import pic16 from '../../Images/pic16.png';
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -39,14 +39,16 @@ const C1 = () => {
 </FormulaText>
                            </Card>
                            <br></br>
-
+                      
+                  <Card >
+                         <img src={pic15} alt="Teacher" style={imageStyle} /> 
              
                   <img src={pic1} alt="Teacher" style={imageStyle} /> 
                   <br></br>
-                  <Card >
-                    
                        
-                       <FormulaText dir="rtl"><strong>ظهر نشاط واسع في عهد بني أمية شمل جميع مناحي المعرفة كما ازدهر فن الهندسة المعمارية و الموسيقى.</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        ظهر نشاط واسع في عهد بني أمية شمل جميع مناحي المعرفة كما ازدهر فن الهندسة المعمارية و الموسيقى.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,15 +59,20 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+              
 <br></br>        
  <Card>
+ <br></br>
 
+             
+<img src={pic16} alt="Teacher" style={imageStyle} /> 
                        
- <FormulaText dir="rtl"><strong>ازدهرت الحياة العلمية بشكل واسع في العهد العباسي و تونعت مجالاتها كما ازدهرت العمارة،ونظم الجيش و الوزارة،وشمل الاهتمام التجارة و الزراعة و الصناعة و الموسيقى و الغناء.</strong></FormulaText>
+ <FormulaText dir="rtl"><strong>
+ <SmallCard>
+    ازدهرت الحياة العلمية بشكل واسع في العهد العباسي
+     و تونعت مجالاتها 
+     </SmallCard><SmallCard>
+     كما ازدهرت العمارة،ونظم الجيش و الوزارة،وشمل الاهتمام التجارة و الزراعة و الصناعة و الموسيقى و الغناء.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

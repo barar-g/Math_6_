@@ -42,6 +42,23 @@ export const Card = styled.div`
   }
 `;
 
+export const SmallCard = styled.div`
+  all: unset;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 60px;
+    width: 98%;
+  margin: 0 4px 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+  `;
+
 export const BodyText = styled.p`
 padding: 10px 20px;
 align-items: center;

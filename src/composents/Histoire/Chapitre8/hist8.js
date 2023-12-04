@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic17 from '../../Images/pic17.png';
+import pic18 from '../../Images/pic18.png';
 
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -38,15 +38,18 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                         
                   <br></br>
                   <Card >
+                  <br></br>
+
+             
+<img src={pic17} alt="Teacher" style={imageStyle} /> 
                     
                        
-                       <FormulaText dir="rtl"><strong>من أهم المدن الإسلامية في المشرق: مكة و المدينة و صنعاء و دمشق و حلب و القدس و البصرة و الكوفة و بغداد و الفسطاط و القاهرة.</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        من أهم المدن الإسلامية في المشرق: مكة و المدينة و صنعاء و دمشق و حلب و القدس و البصرة و الكوفة و بغداد و الفسطاط و القاهرة.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,15 +60,17 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+                
 <br></br>        
  <Card>
 
-                       
- <FormulaText dir="rtl"><strong>من أشهر الإسلامية في المغرب و الأندلس : القيروان في تونس و فاس و مراكش في المغرب و قرطبة و الزهراء في الأندلس.</strong></FormulaText>
+ <br></br>
+
+             
+<img src={pic18} alt="Teacher" style={imageStyle} />     
+ <FormulaText dir="rtl"><strong>
+ <SmallCard>
+    من أشهر الإسلامية في المغرب و الأندلس : القيروان في تونس و فاس و مراكش في المغرب و قرطبة و الزهراء في الأندلس.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

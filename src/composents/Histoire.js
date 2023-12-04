@@ -16,7 +16,7 @@ function Accueil() {
         padding: "18px 36px",
         fontSize: "18px",
         textTransform: "none",
-        width: "200px",
+        width: "100px",
         backgroundColor: '#0000FF',
         '&:hover': {
           backgroundColor: '#0000FF',
@@ -27,7 +27,7 @@ function Accueil() {
     </MuiButton>
   );
 
-  return (
+  return ( <div>
     <Box
       display="flex"
       flexDirection="column"
@@ -35,6 +35,7 @@ function Accueil() {
       justifyContent="center"
       height="100vh"
       backgroundColor="#F7F9FA"
+      style={{ paddingTop: "300px" }} 
     >
       
       <Stack
@@ -64,7 +65,7 @@ function Accueil() {
         <Button onClick={() => navigate('/Hist18')}>18الملف</Button>
 
       </Stack>
-    </Box>
+    </Box> </div>
   );
 }
 

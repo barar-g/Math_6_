@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
-
+import pic9 from '../../Images/pic9.png';
+import pic11 from '../../Images/pic11.png';
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -38,15 +37,18 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                           
                   <br></br>
                   <Card >
-                    
-                       
-                       <FormulaText dir="rtl"><strong>كانت فترة خلافة أبي بكر و عمر فترة توسع الدولة الإسلامية خارج الجزيرة العربية.</strong></FormulaText>
+                  <br></br>
+
+             
+<img src={pic9} alt="Teacher" style={imageStyle} /> 
+                     
+               
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        كانت فترة خلافة أبي بكر و عمر فترة توسع الدولة الإسلامية خارج الجزيرة العربية.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,15 +59,20 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+                 
 <br></br>        
  <Card>
+ <br></br>
 
+             
+<img src={pic11} alt="Teacher" style={imageStyle} /> 
                        
- <FormulaText dir="rtl"><strong>واصل عثمان الفتوحات التي تمت في عهد أبي بكر و عمر، و في عهد علي وقعت الفتنة الكبرى و عمل علي على جمع كلمة المسلمين تحت راية واحدة.</strong></FormulaText>
+ <FormulaText dir="rtl"><strong>
+ <SmallCard>
+    واصل عثمان الفتوحات التي تمت في عهد أبي بكر و عمر،
+
+    </SmallCard><SmallCard>
+     و في عهد علي وقعت الفتنة الكبرى و عمل علي على جمع كلمة المسلمين تحت راية واحدة.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

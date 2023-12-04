@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC1';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic12 from '../../Images/pic12.png';
+import pic13 from '../../Images/pic13.png';
 
 
 import Audio from "./Audio1" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -38,15 +38,18 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                           
                   <br></br>
                   <Card >
+                  <br></br>
+
+             
+<img src={pic12} alt="Teacher" style={imageStyle} /> 
                     
                        
-                       <FormulaText dir="rtl"><strong>حض الإسلام على التعلم حيث دعا القرآن إلى التفكر و التأمل و النظر و أول ما نزل من القرآن :(اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ)</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                       <SmallCard>
+                        حض الإسلام على التعلم حيث دعا القرآن إلى التفكر و التأمل و النظر و أول ما نزل من القرآن :(اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ)</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -57,15 +60,16 @@ const C1 = () => {
                  
               
                  
-                 <br></br>
-
-             
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+                 
 <br></br>        
  <Card>
 
-                       
- <FormulaText dir="rtl"><strong>تبنى المسلمون منذ عهد النبي ﷺ رسالة واضحة تقتضي نشر العلم في جميع بقاع العالم.</strong></FormulaText>
+ <br></br>             
+<img src={pic13} alt="Teacher" style={imageStyle} /> 
+
+ <FormulaText dir="rtl"><strong>
+    <SmallCard>
+    تبنى المسلمون منذ عهد النبي ﷺ رسالة واضحة تقتضي نشر العلم في جميع بقاع العالم.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>

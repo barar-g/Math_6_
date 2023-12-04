@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import QCMC2 from './QCMC3';
 
-import pic1 from '../../Images/pic1.png';
-import pic2 from '../../Images/pic2.png';
+import pic5 from '../../Images/pic5.png';
+import pic6 from '../../Images/pic6.png';
 
 
 import Audio from "./Audio3" ;
 import {
-  Container,FormulaText, Card, ContinueButton
+  Container,FormulaText, Card, ContinueButton, SmallCard
 } from '../../Styles/MajorStyles'; 
 
 
@@ -38,15 +38,22 @@ const C1 = () => {
 </strong>
 </FormulaText>
                            </Card>
-                           <br></br>
-
-             
-                  <img src={pic1} alt="Teacher" style={imageStyle} /> 
+                         
                   <br></br>
                   <Card >
+                  <br></br>
+
+             
+<img src={pic5} alt="Teacher" style={imageStyle} /> 
                     
                        
-                       <FormulaText dir="rtl"><strong>اتجه رسول الله ﷺ إلى الطائف يدعو أهلها إلى الاسلام و لكنهم أعرضو عنه ثم دعا القبائل العربية في موسم الحج رغم مضايقة قريش له فآمن به أهل يثرب و دعوة للهجرة إليهم. فهاجر إليهم بصحبة أبي بكر رضي الله عنه حيث وصلاها في السنة الثالثة عشرة بعد البعثة.</strong></FormulaText>
+                       <FormulaText dir="rtl"><strong>
+                        <SmallCard>
+                        اتجه رسول الله ﷺ إلى الطائف يدعو أهلها إلى الاسلام و لكنهم أعرضو عنه
+                        </SmallCard><SmallCard>
+                         ثم دعا القبائل العربية في موسم الحج رغم مضايقة قريش له فآمن به أهل يثرب و دعوة للهجرة إليهم
+                         </SmallCard><SmallCard>
+                         . فهاجر إليهم بصحبة أبي بكر رضي الله عنه حيث وصلاها في السنة الثالثة عشرة بعد البعثة.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
@@ -60,13 +67,18 @@ const C1 = () => {
                  <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
-<br></br>        
+ 
  <Card>
-
+ <img src={pic6} alt="Teacher" style={imageStyle} /> 
+<br></br>       
                        
- <FormulaText dir="rtl"><strong>استبدل ﷺ يثرب باسم المدينة و كانت هجرته إليها فاتحة عهد جديد للأمة الاسلامية و اصبح يومها من الأيام الخالدة في الأسلام.
-أسس ﷺ الدول الإسلامية و بني المسجد كما كتب وثيقة لتنظيم العلاقات ثم حارب قريشا بوصفها العقبة الأولى في نشر الاسلام و قام بالغزوات.</strong></FormulaText>
+ <FormulaText dir="rtl"><strong>
+    <SmallCard>
+    استبدل ﷺ يثرب باسم المدينة و كانت هجرته إليها فاتحة عهد جديد للأمة الاسلامية و اصبح يومها من الأيام الخالدة في الأسلام.
+    </SmallCard><SmallCard>
+أسس ﷺ الدول الإسلامية و بني المسجد كما كتب وثيقة لتنظيم العلاقات
+</SmallCard><SmallCard>
+ ثم حارب قريشا بوصفها العقبة الأولى في نشر الاسلام و قام بالغزوات.</SmallCard></strong></FormulaText>
                        <div style={{ display: "flex", alignItems: "center" }}>
   <Audio/>
 </div>
