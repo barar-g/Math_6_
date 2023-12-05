@@ -9,7 +9,7 @@ function QCMC1(){
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/hist10.json'); // Notez le chemin d'accès absolu
+        const response = await fetch('/hist11.json'); // Notez le chemin d'accès absolu
         const result = await response.json();
         setData(result);
       } catch (error) {
