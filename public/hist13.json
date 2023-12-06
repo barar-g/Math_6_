@@ -1,0 +1,32 @@
+[
+  {
+      "question": 
+      "ما الأديان التي كانت قبل الإسلام"
+            ,
+      "answers": ["الديانة اليهودية"
+      , "الديانة المسيحية و الوثنيه"
+      ],
+      "correctAnswer": "الديانة المسيحية و الوثنيه",
+      "explanation":"" ,
+      "userAnswer": null
+    },
+    {
+      "question": "من مؤسس دولة المرابطين"
+      ,
+      "answers": ["قبائل صنهاجة"
+      , "قبائل ادوعلي"
+    ],
+      "correctAnswer":"قبائل صنهاجة",
+      "explanation": "",
+      "userAnswer": null
+    },
+    {
+      "question": "من فقيه دولة المرابطين"      ,
+      "answers": ["محمد بن تاشفين", "عبد الله بن ياسين"
+
+    ],
+      "correctAnswer":"محمد بن تاشفين",
+      "explanation": "",
+      "userAnswer": null
+    }
+  ] 
