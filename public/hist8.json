@@ -3,14 +3,14 @@
       "question": "أي هذه المدن ليست من أهم المدن الاسلامية في الشرق"      ,
       "answers": ["القدس", "حلب", "قرطاج      "],
       "correctAnswer": "قرطاج      ",
-      "explanation":"" ,
+      "explanation":"قرطاج      " ,
       "userAnswer": null
     },
     {
       "question": "أي هذه المدن ليست من أهم المدن الاسلامية في الغرب",
       "answers": ["القيروان", "سيناء", "الكوفة"],
       "correctAnswer":"القيروان",
-      "explanation": "",
+      "explanation": "القيروان",
       "userAnswer": null
     }
   ] 

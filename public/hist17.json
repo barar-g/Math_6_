@@ -6,7 +6,8 @@
       , "الإمارة نظام أصله في آسيا"
       , "الإمارة نظام قبلي"],
       "correctAnswer": "الإمارة نظام مأخوذ من الإسلام",
-      "explanation":"" ,
+      "explanation":"الإمارة نظام مأخوذ من الإسلام",
+      
       "userAnswer": null
     },
     {
@@ -17,7 +18,7 @@
       , "قبائل بني حسان"],
       "correctAnswer":"قبائل ادوعيش"
       ,
-      "explanation": "",
+      "explanation": "قبائل ادوعيش",
       "userAnswer": null
     }
   ] 
