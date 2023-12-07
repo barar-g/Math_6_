@@ -7,7 +7,8 @@
     ],
       "correctAnswer": "الفاتحين و التجار"
       ,
-      "explanation":"" ,
+      "explanation":"الفاتحين و التجار"
+      ,
       "userAnswer": null
     },
     {
@@ -17,7 +18,7 @@
       , "شرق افريقيا"
       , "شمال افريقيا"],
       "correctAnswer":"غرب افريقيا",
-      "explanation": "",
+      "explanation": "غرب افريقيا",
       "userAnswer": null
     }
   ] 

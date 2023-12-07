@@ -5,7 +5,7 @@
       "answers": ["تقع في الجنوب الغربي من آسيا", "من المحيط الأطلسي شرقا إلى ادرار غربا"
       ],
       "correctAnswer": "من المحيط الأطلسي شرقا إلى ادرار غربا",
-      "explanation":"" ,
+      "explanation":"من المحيط الأطلسي شرقا إلى ادرار غربا" ,
       "userAnswer": null
     },
     {
@@ -14,7 +14,7 @@
       "answers": ["من اليمن", "من امريكا الجنوبية"
     ],
       "correctAnswer":"من اليمن",
-      "explanation": "",
+      "explanation": "من اليمن",
       "userAnswer": null
     }
   ] 

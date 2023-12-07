@@ -7,7 +7,7 @@
       , "الديانة المسيحية و الوثنيه"
       ],
       "correctAnswer": "الديانة المسيحية و الوثنيه",
-      "explanation":"" ,
+      "explanation": "الديانة المسيحية و الوثنيه" ,
       "userAnswer": null
     },
     {
@@ -17,7 +17,7 @@
       , "قبائل ادوعلي"
     ],
       "correctAnswer":"قبائل صنهاجة",
-      "explanation": "",
+      "explanation": "قبائل صنهاجة",
       "userAnswer": null
     },
     {
@@ -26,7 +26,7 @@
 
     ],
       "correctAnswer":"محمد بن تاشفين",
-      "explanation": "",
+      "explanation": "محمد بن تاشفين",
       "userAnswer": null
     }
   ] 
