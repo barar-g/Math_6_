@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import QCMC1 from './QCMC1';
-import Vac from '../../Images/Vac.png';
-import Vaccination from '../../Images/vaccination.png';
+import Vac from '../../Images/Vaccination.png';
+
 import Paludisme from '../../Images/Paludisme.png';
 import parasites from  '../../Images/parasites.png';
 import Guinea from '../../Images/Guinea.png';
 import bilharziose from '../../Images/bilharziose.png';
 import Protegemaladie from '../../Images/Protegemaladie.png';
 import Audio from "./Audio1" ;
+import Vaccination from '../../Images/Vaccination.png';
 import {
   Container, SectionContainer, ImageContainer,FormulaText, Card, FormulaBox,BodyText,Subtitle, ContinueButton
 } from '../../Styles/MajorStyles'; 
