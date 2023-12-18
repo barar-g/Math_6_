@@ -1,23 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button as MuiButton, Stack } from '@mui/material';
-import { Box  } from '@mui/system';
+import { Box } from '@mui/system';
 
 
-function Acceuil() {
+function Accueil() {
   const navigate = useNavigate();
-  const scale = 0.8;
 
   const Button = ({ children, onClick }) => (
     <MuiButton 
       variant="contained" 
       onClick={onClick}
       style={{
-        borderRadius: 35 * scale,
-        padding: `${18 * scale}px ${36 * scale}px`,
-        fontSize: `${18 * scale}px`,
+        borderRadius: 35,
+        padding: "18px 36px",
+        fontSize: "18px",
         textTransform: "none",
-        width: `${200 * scale}px`,
+        width: "200px",
         backgroundColor: '#0000FF',
         '&:hover': {
           backgroundColor: '#0000FF',
@@ -45,15 +44,13 @@ function Acceuil() {
         alignItems="center"
         style={{ marginTop: "20px" }}
       >
-        <Button onClick={() => navigate('/Periode1')}>Periode1</Button>
-        <Button onClick={() => navigate('/Periode2')}>Periode2</Button>
-        <Button onClick={() => navigate('/Science')}>Science</Button>
-        <Button onClick={() => navigate('/Histoire')}>التاريخ</Button>
-        <Button onClick={() => navigate('/Islamique')}>التربية الاسلامية </Button>        
-
+        <Button onClick={() => navigate('/Islamique1')}>السيرة النبوية </Button>
+       
       </Stack>
     </Box>
   );
 }
 
-export default Acceuil;
+export default Accueil;
+
+
