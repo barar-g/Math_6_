@@ -4,8 +4,8 @@ import QCMC1 from './QCMC1';
 import pic1 from '../../Images/pic41.png';
 import pic2 from '../../Images/pic40.png';
 import pic42 from '../../Images/pic42.png';
-
-
+import pic44 from '../../Images/pic44.png';
+import pic45 from '../../Images/pic45.png';
 import Audio from "./Audio1" ;
 import {
   Container,FormulaText, Card, ContinueButton, SmallCard
@@ -108,7 +108,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+<img src={pic44} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>تحالف يهود بني النضير وبني وائل، ودعوا قريشًا وغطفان لحرب النبي محمد، صلى الله عليه وسلم.
@@ -262,14 +262,13 @@ const C1 = () => {
 <img src={pic2} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
-    <SmallCard>عاد النبي محمد، صلى الله عليه وسلم، إلى المدينة بعد انسحاب الأحزاب، وتلقى أمرًا من الله عبر جبريل بالتوجه إلى بني قريظة الذين خانوا العهد.
+    <SmallCard>نقضت قريش عهد الحديبية بالاعتداء على بني خزاعة، حلفاء النبي محمد، صلى الله عليه وسلم. حاول أبو سفيان تدارك الموقف لكن طلبه رفض.
     </SmallCard><SmallCard>
-    أمر النبي بألا يُصلى العصر إلا في بني قريظة، فحاصرهم لمدة 25 يومًا.
+    في العاشر من رمضان في السنة الثامنة للهجرة، خرج النبي بـ10,000 مجاهد إلى مكة، وفتحها بدون قتال يذكر.
     </SmallCard><SmallCard>
-    طلب الأوس من النبي معاملة مواليهم كما فعل مع موالي الخزرج. حكم سعد بن معاذ بقتل رجال بني قريظة وتقسيم أموالهم وسبي ذراريهم ونسائهم.
-    </SmallCard><SmallCard>
-    أقر النبي هذا الحكم باعتباره حكم الله. نُفذ الحكم، واستشهد سعد بن معاذ لاحقًا بسبب جرح ناتج عن سهم في الخندق، وهُز عرش الرحمن لموته.
+    عفا النبي عن أهل مكة، ودخل الكثيرون في دين الإسلام أفواجًا.
     </SmallCard></strong></FormulaText>
+
 
 
 
@@ -284,12 +283,128 @@ const C1 = () => {
 
 
 {section >= 7 && (
+                <div>
+                 
+                 <SmallCard>
+<FormulaText dir="rtl"><strong> 
+فتح مكة المكرمة
+     </strong></FormulaText>
+ </SmallCard>
+                         
+                  <br></br>
+                  <Card >
+                  <br></br>
+
+             
+<img src={pic45} alt="Teacher" style={imageStyle} /> 
+                       
+<FormulaText dir="rtl"><strong>
+    <SmallCard>نقضت قريش عهد الحديبية بالاعتداء على بني خزاعة، حلفاء النبي محمد، صلى الله عليه وسلم. حاول أبو سفيان تدارك الموقف لكن طلبه رفض.
+    </SmallCard><SmallCard>
+    في العاشر من رمضان في السنة الثامنة للهجرة، خرج النبي بـ10,000 مجاهد إلى مكة، وفتحها بدون قتال يذكر.
+    </SmallCard><SmallCard>
+    عفا النبي عن أهل مكة، ودخل الكثيرون في دين الإسلام أفواجًا.
+    </SmallCard></strong></FormulaText>
+
+
+
+
+                       <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
+                           </Card>
+                    <br></br>
+                   
+                </div>
+            )}
+
+{section >= 8 && (
+                <div>
+                 
+                 <SmallCard>
+<FormulaText dir="rtl"><strong> 
+غزوة حنين     </strong></FormulaText>
+ </SmallCard>
+                         
+                  <br></br>
+                  <Card >
+                  <br></br>
+
+             
+<img src={pic45} alt="Teacher" style={imageStyle} /> 
+                       
+<FormulaText dir="rtl"><strong>
+    <SmallCard>لما علمت هوازن بفتح مكة، جمع مالك بن عوف جيشهم، وانضمت إليهم ثقيف بقيادة كنانة بن عدي.
+    </SmallCard><SmallCard>
+    خرج النبي محمد، صلى الله عليه وسلم، لمواجهتهم بـ12,000 مسلم بعد تعيين عتاب بن أسيد على مكة.
+    </SmallCard><SmallCard>
+    في وادي حنين، كمنت هوازن للمسلمين وهاجمتهم، مما أدى لانهزام أغلب المسلمين. ثبت النبي وبعض الصحابة.
+    </SmallCard><SmallCard>
+    نادى العباس بأمر النبي أصحاب السمرة، فاستجابوا وقاتلوا. رمى النبي بحصيات نحو الكفار ونادى بالنصر.
+    </SmallCard><SmallCard>
+    وبإذن الله، نصر الله المسلمين وغنموا أموال وذراري هوازن. لاحقًا، رد النبي الذراري إلى هوازن بعد أن جاؤوا خائفين مستنجدين.
+    </SmallCard></strong></FormulaText>
+
+
+
+
+
+                       <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
+                           </Card>
+                    <br></br>
+                   
+                </div>
+            )}
+
+{section >= 9 && (
+                <div>
+                 
+                 <SmallCard>
+<FormulaText dir="rtl"><strong> 
+الخلفاء الراشدون </strong></FormulaText>
+ </SmallCard>
+                         
+                  <br></br>
+                  <Card >
+                  <br></br>
+
+             
+<img src={pic45} alt="Teacher" style={imageStyle} /> 
+                       
+<FormulaText dir="rtl"><strong>
+    <SmallCard>لما علمت هوازن بفتح مكة، جمع مالك بن عوف جيشهم، وانضمت إليهم ثقيف بقيادة كنانة بن عدي.
+    </SmallCard><SmallCard>
+    خرج النبي محمد، صلى الله عليه وسلم، لمواجهتهم بـ12,000 مسلم بعد تعيين عتاب بن أسيد على مكة.
+    </SmallCard><SmallCard>
+    في وادي حنين، كمنت هوازن للمسلمين وهاجمتهم، مما أدى لانهزام أغلب المسلمين. ثبت النبي وبعض الصحابة.
+    </SmallCard><SmallCard>
+    نادى العباس بأمر النبي أصحاب السمرة، فاستجابوا وقاتلوا. رمى النبي بحصيات نحو الكفار ونادى بالنصر.
+    </SmallCard><SmallCard>
+    وبإذن الله، نصر الله المسلمين وغنموا أموال وذراري هوازن. لاحقًا، رد النبي الذراري إلى هوازن بعد أن جاؤوا خائفين مستنجدين.
+    </SmallCard></strong></FormulaText>
+
+
+
+
+
+                       <div style={{ display: "flex", alignItems: "center" }}>
+  <Audio/>
+</div>
+                           </Card>
+                    <br></br>
+                   
+                </div>
+            )}
+
+{section >= 10 && (
                 <div dir="rtl">
                     <QCMC1 />
                 </div>
             )}
 
-            {section < 7 && (
+            {section < 10 && (
                 <ContinueButton onClick={() => setSection(section + 1)}>Continuer</ContinueButton>
             )}
         </Container>
