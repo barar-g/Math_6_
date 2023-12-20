@@ -34,9 +34,11 @@ import Chap13 from'./composents/C16/Chap13';
 import Fraction2 from './composents/M5/Fraction2';
 import Periode1 from './composents/Periode1';
 import Periode2 from './composents/Periode2';
+import Islamique from './composents/Islamique';
 import Science from './composents/Science';
 import Histoire from './composents/Histoire';
 import Hist1 from './composents/Histoire/Chapitre1/hist1';
+import Islamique1 from './composents/Islam/Chapitre1/Islamique1';
 import Hist2 from './composents/Histoire/Chapitre2/hist2';
 import Hist3 from './composents/Histoire/Chapitre3/hist3';
 import Hist4 from './composents/Histoire/Chapitre4/hist4';
@@ -97,6 +99,7 @@ function App() {
           <Route path="/G1" element ={<G1/>}/>
           <Route path="/Periode1" element ={<Periode1/>}/>
           <Route path="/Periode2" element ={<Periode2/>}/>
+          <Route path="/Islamique" element ={<Islamique/>}/>
           <Route path="/Science" element ={<Science/>}/>
           <Route path="/Histoire" element ={<Histoire/>}/>
           <Route path="/Hist1" element ={<Hist1/>}/>
@@ -136,6 +139,8 @@ function App() {
           <Route path="/Aire2" element ={<Aire2/>}/>
           <Route path="/Fraction2" element ={<Fraction2/>}/>
           <Route path="/Sida" element ={<Sida/>}/>
+          <Route path="/Islamique1" element ={<Islamique1/>}/>
+          
          
         </Routes>
       
