@@ -8,7 +8,7 @@ import Guinea from '../../Images/Guinea.png';
 import bilharziose from '../../Images/bilharziose.png';
 import Protegemaladie from '../../Images/Protegemaladie.png';
 import Audio from "./Audio1" ;
-import Vaccination from '../../Images/vaccination.png';
+import Vaccination from '../../Images/Vaccination.png';
 import {
   Container, SectionContainer, ImageContainer,FormulaText, Card, FormulaBox,BodyText,Subtitle, ContinueButton
 } from '../../Styles/MajorStyles'; 
