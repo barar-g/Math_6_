@@ -45,8 +45,12 @@ function Accueil() {
         style={{ marginTop: "20px" }}
       >
         <Button onClick={() => navigate('/Islamique1')}>السيرة النبوية </Button>
+<<<<<<< HEAD
         <Button onClick={() => navigate('/Islamique2')}>الاخلاق</Button>
        
+=======
+        <Button onClick={() => navigate('/Islamique3')}>العقيدة</Button>
+>>>>>>> 079b292d7758166fc30072f8d57f50c26eb74dae
       </Stack>
     </Box>
   );
