@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import QCMC1 from './QCMC1';
 
-import pic1 from '../../Images/pic47.png';
-import pic2 from '../../Images/pic48.png';
-import pic50 from '../../Images/pic50.png';
-import pic49 from '../../Images/pic49.png';
-import pic51 from '../../Images/pic51.png';
+import pic61 from '../../Images/pic61.png';
+import pic62 from '../../Images/pic62.png';
+import pic63 from '../../Images/pic63.png';
+import pic64 from '../../Images/pic64.png';
+import pic65 from '../../Images/pic65.png';
+import pic66 from '../../Images/pic66.png';
+import pic67 from '../../Images/pic67.png';
+import pic68 from '../../Images/pic68.png';
+import pic69 from '../../Images/pic69.png';
+import pic70 from '../../Images/pic70.png';
+import pic71 from '../../Images/pic71.png';
 import Audio from "./Audio1" ;
 import {
   Container,FormulaText, Card, ContinueButton, SmallCard
@@ -29,7 +35,9 @@ const C1 = () => {
     return (
         <Container >
         <SmallCard>
-<FormulaText dir="rtl"><strong> حكم الزكاة و شروطها</strong></FormulaText>
+<FormulaText dir="rtl"><strong>
+     حكم الزكاة و شروطها
+    </strong></FormulaText>
  </SmallCard>
                          
                   <br></br>
@@ -37,7 +45,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic1} alt="Teacher" style={imageStyle} /> 
+<img src={pic61} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>خـص الله تعالى الأصناف الثمانيـة بالـزكاة، و هــم الفقراء و المساكين و السعاة</SmallCard><SmallCard>
@@ -55,7 +63,9 @@ const C1 = () => {
                 <div>
                  
                  <SmallCard>
-<FormulaText dir="rtl"><strong>الحكمة من الزكاة</strong></FormulaText>
+<FormulaText dir="rtl"><strong>
+    الحكمة من الزكاة
+    </strong></FormulaText>
  </SmallCard>
                          
                   <br></br>
@@ -63,7 +73,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+<img src={pic62} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>زكاة الفطـر واجبـة علـى كل مسـلم قـادر علـى إخراجهـا، و يجـب أن يخرجهـا كل مسـلم عـن
@@ -85,7 +95,9 @@ const C1 = () => {
                 <div>
                  
                  <SmallCard>
-<FormulaText dir="rtl"><strong> مستحقو الزكاة</strong></FormulaText>
+<FormulaText dir="rtl"><strong> 
+    مستحقو الزكاة
+    </strong></FormulaText>
  </SmallCard>
                          
                   <br></br>
@@ -93,7 +105,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+<img src={pic63} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>تجـب الـزكاة علـى كل مسـلم ملـك النصـاب ملـكا تامـا و حـال عليـه الحـول، </SmallCard><SmallCard>وهـي أحـد أركان
@@ -115,7 +127,8 @@ const C1 = () => {
                 <div>
                  
                  <SmallCard>
-<FormulaText dir="rtl"><strong> زكاة العين
+<FormulaText dir="rtl"><strong> 
+    زكاة العين
 </strong></FormulaText>
  </SmallCard>
                          
@@ -124,7 +137,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic49} alt="Teacher" style={imageStyle} /> 
+<img src={pic65} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>تجـب زكاة العيـن إذا بلـغ الذهـب و الفضـة النصـاب و حـال عليهمـا الحـول</SmallCard><SmallCard>و النصـاب في الذهـب
@@ -155,7 +168,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic49} alt="Teacher" style={imageStyle} /> 
+<img src={pic64} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard> تجب الزكاة في الحبوب و هي (20) صنفا:</SmallCard><SmallCard> 
@@ -185,7 +198,10 @@ const C1 = () => {
                 <div>
                  
                  <SmallCard>
-<FormulaText dir="rtl"><strong> زكاة الإبل</strong></FormulaText>
+<FormulaText dir="rtl"><strong> 
+    زكاة الإبل
+
+    </strong></FormulaText>
  </SmallCard>
                          
                   <br></br>
@@ -193,7 +209,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic50} alt="Teacher" style={imageStyle} /> 
+<img src={pic66} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>فريضة الصدقة التي فرضها رسول الله صلى الله عليه وسلم في الإبل هي :</SmallCard><SmallCard>من (9-5)شاة</SmallCard><SmallCard>(14-10)شاتان.</SmallCard><SmallCard>(15 - 19) 3شياه .</SmallCard>
@@ -226,7 +242,10 @@ const C1 = () => {
                 <div>
                  
                  <SmallCard>
-<FormulaText dir="rtl"><strong> زكاة الغنم </strong></FormulaText>
+<FormulaText dir="rtl"><strong> 
+    زكاة الغنم 
+
+    </strong></FormulaText>
  </SmallCard>
                          
                   <br></br>
@@ -234,7 +253,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic2} alt="Teacher" style={imageStyle} /> 
+<img src={pic67} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>تجـب الـزكاة في الغنـم إذا بلغـت أربعيـن، و فيهـا شـاة واحـدة عمرهـا سـنة أو أكثـر</SmallCard>
@@ -270,7 +289,7 @@ const C1 = () => {
                   <Card >
                   <br></br>
 
-                  <img src={pic50} alt="Teacher" style={imageStyle} /> 
+                  <img src={pic68} alt="Teacher" style={imageStyle} /> 
 
 
                        
@@ -307,7 +326,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic51} alt="Teacher" style={imageStyle} /> 
+<img src={pic69} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>ن الله تبارك و تعالى قد شرع لنا فريضة الزكاة من أجل حل مشاكل الفقر و العجز و اإلفالس و
@@ -339,7 +358,7 @@ const C1 = () => {
                   <br></br>
 
              
-<img src={pic51} alt="Teacher" style={imageStyle} /> 
+<img src={pic70} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>يجــب صيــام شــهر رمضــان علــى كل مســلم إذا رأى الهلال أو ثبــت عنــده برؤيــة عدليــن أو
@@ -366,7 +385,7 @@ const C1 = () => {
                 <div>
                  
                  <SmallCard>
-<FormulaText dir="rtl"><strong> حج</strong>
+<FormulaText dir="rtl"><strong> الحج</strong>
 </FormulaText>
  </SmallCard>
                          
@@ -375,7 +394,7 @@ const C1 = () => {
                   <br></br>
 
              
-                  <img src={pic50} alt="Teacher" style={imageStyle} /> 
+                  <img src={pic71} alt="Teacher" style={imageStyle} /> 
                        
 <FormulaText dir="rtl"><strong>
     <SmallCard>الحج فرض مرة في العمر على الحر المسلم العاقل البالغ المستطيع، و أركانه أربعة، و هي :</SmallCard><SmallCard>
