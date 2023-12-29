@@ -1,7 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button as MuiButton, Stack, Grid } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box  } from '@mui/system';
+import CalculateTwoToneIcon from '@mui/icons-material/CalculateTwoTone';
+import LibraryBooksTwoToneIcon from '@mui/icons-material/LibraryBooksTwoTone';
+import BiotechTwoToneIcon from '@mui/icons-material/BiotechTwoTone';
+import MosqueTwoToneIcon from '@mui/icons-material/MosqueTwoTone';
 import PercentIcon from '@mui/icons-material/Percent';
 import styled from "styled-components";
 
@@ -13,7 +17,7 @@ const BandeBox = styled.div`
   border:'none';
 `;
 
-function Accueil() {
+function Acceuil() {
   const navigate = useNavigate();
   const scale = 0.8;
 
@@ -22,11 +26,33 @@ function Accueil() {
       variant="contained" 
       onClick={onClick}
       style={{
-        padding: "10px 20px",
+        padding: "30px 60px",
         fontSize: `18px`,
         textTransform: "none",
         width: `${200 * scale}px`,
-        backgroundColor: '#FF69B4',
+        backgroundColor: '#87CEEB',
+        color: 'black',
+        '&:hover': {
+          backgroundColor: '#0000FF',
+        },
+      }}
+    >
+      {children}
+    </MuiButton>
+  );
+
+  
+
+  const Button1 = ({ children, onClick }) => (
+    <MuiButton 
+      variant="contained" 
+      onClick={onClick}
+      style={{
+        padding: "30px 60px",
+        fontSize: `18px`,
+        textTransform: "none",
+        width: `${200 * scale}px`,
+        backgroundColor: '#00BFFF',
         color: 'black',
         '&:hover': {
           backgroundColor: '#0000FF',
@@ -45,57 +71,38 @@ function Accueil() {
       justifyContent="center"
       height="100vh"
       backgroundColor="#F7F9FA"
-    >
       
+    >
       <BandeBox>
       
       
       <Grid container spacing={2} style={{  justifyContent:"center"}}>
 
       <Grid item >
-    <Button justifyContent="center" onClick={() => navigate('/Islamique1')}>
+    <Button justifyContent="center" onClick={() => navigate('/Periode1')}>
     <Box display="flex" flexDirection="column" alignItems="center">
-    
-    <div>السيرة النبوية </div>
-  </Box>
-      </Button>
-  </Grid>
-
-
-  <Grid item >
-    <Button justifyContent="center" onClick={() => navigate('/Islamique2')}>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    
-    <div>الاخلاق</div>
+    <PercentIcon style={{ fontSize: 35, border: 'none' }}/>
+    <div>Periode1</div>
   </Box>
       </Button>
   </Grid>
 
   <Grid item >
-    <Button justifyContent="center" onClick={() => navigate('/Islamique3')}>
+    <Button1 justifyContent="center" onClick={() => navigate('/Periode2')}>
     <Box display="flex" flexDirection="column" alignItems="center">
-    
-    <div>العقيدة</div>
+    <CalculateTwoToneIcon style={{ fontSize: 35, border: 'none' }}/>
+    <div>Periode2</div>
   </Box>
-      </Button>
+      </Button1>
   </Grid>
-
-  <Grid item >
-    <Button justifyContent="center" onClick={() => navigate('/Islamique4')}>
-    <Box display="flex" flexDirection="column" alignItems="center">
-   
-    <div>العبادات</div>
-  </Box>
-      </Button>
-  </Grid>
+  
 
   
-      </Grid>
-      </BandeBox>
+
+</Grid>
+</BandeBox>
     </Box>
   );
 }
 
-export default Accueil;
-
-
+export default Acceuil;

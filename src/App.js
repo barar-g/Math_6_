@@ -37,10 +37,12 @@ import Periode2 from './composents/Periode2';
 import Islamique from './composents/Islamique';
 import Science from './composents/Science';
 import Histoire from './composents/Histoire';
+import Math from './composents/Math';
 import Hist1 from './composents/Histoire/Chapitre1/hist1';
 import Islamique1 from './composents/Islam/Chapitre1/Islamique1';
 import Islamique2 from './composents/Islam/Chapitre2/Islamique2';
 import Islamique3 from './composents/Islam/Chapitre3/Islamique3';
+import Islamique4 from './composents/Islam/Chapitre4/Islamique4';
 import Hist2 from './composents/Histoire/Chapitre2/hist2';
 import Hist3 from './composents/Histoire/Chapitre3/hist3';
 import Hist4 from './composents/Histoire/Chapitre4/hist4';
@@ -65,7 +67,7 @@ import Pollution from './composents/Science/Chapitre4/Pollution';
 import EauEtSante from './composents/Science/Chapitre5/EauEtSante';
 import Vaccination from './composents/Science/Chapitre6/Vaccination';
 import Sida from './composents/Science/Chapitre7/Sida';
-
+import Evaluation from './composents/Evaluation'
 
 
 
@@ -144,7 +146,10 @@ function App() {
           <Route path="/Islamique1" element ={<Islamique1/>}/>
           <Route path="/Islamique2" element ={<Islamique2/>}/>
           <Route path="/Islamique3" element ={<Islamique3/>}/>
-         
+          <Route path="/Islamique4" element ={<Islamique4/>}/>   
+          <Route path="/Islamique4" element ={<Islamique4/>}/>   
+          <Route path="/Math" element ={<Math/>}/>   
+          <Route path="/Evaluation" element ={<Evaluation/>}/>   
         </Routes>
       
       </div>
