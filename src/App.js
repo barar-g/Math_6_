@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Accueil from './composents/Accueil';
+import Math from './composents/Math';
+import QuizTest from './composents/home/QuizTest';
+
 import C1 from './composents/C1/C1';
 import C2 from './composents/C2/C2';
 import C3 from './composents/C3/C3';
@@ -78,13 +81,13 @@ function App() {
         <Routes>
            
           <Route path= "/" element={<Accueil/>} />
-          
+          <Route path= "/QuizTest" element={<QuizTest/>} />
           <Route path="/C1" element ={<C1/>}/>
           <Route path="/C2" element ={<C2/>}/>
           <Route path="/C3" element ={<C3/>}/>
           <Route path="/C4" element ={<C4/>}/>
           <Route path="/C5A1" element ={<C5/>}/>
-         
+          <Route path="/Math" element ={<Math/>}/>
           <Route path="/C5A3" element ={<C5A3/>}/>
           <Route path="/C5A4" element ={<C5A4/>}/>
           <Route path="/Kangaroo" element ={<Kangaroo/>}/>

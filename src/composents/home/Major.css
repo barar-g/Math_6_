@@ -1,0 +1,117 @@
+.app-container {
+    max-width: 100%;
+    margin: 5px; /* This adds a margin of 20px on all sides */
+    padding: 10px; /* Optional: If you want additional space inside the container */
+    box-sizing: border-box; /* This ensures that padding does not add to the total width */
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px; /* Space between the grid and full-width cards */
+  }
+
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed; /* or absolute */
+    bottom: 30px;
+    left: 5px;
+    right: 5px;
+    margin: 5px;
+    background-color: #fff; /* or any color that fits your design */
+  }
+  
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .full-width-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px; /* This adds a margin on the top of the first full-width card */
+  }
+  
+  .full-card {
+    width: calc(100% - 40px); /* Adjusts the width to account for the margins */
+    margin-bottom: 20px; /* This adds a margin below each full-width card */
+    /* If you do not want the last card to have a margin at the bottom, you can target it with a specific CSS selector or logic within your component */
+  }
+  
+  /* The rest of your CSS remains the same */
+  
+  .question-text {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .option-button {
+    border-radius: 20px;
+    padding: 15px 30px;
+    font-size: 1em;
+    color: #333;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .option-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .option-button.selected {
+    color: #fff;
+     text-align: center;
+  }
+  
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .card-content h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  .card-content p {
+    color: #666;
+    font-size: 1em;
+    text-align: center;
+  }
+/* Existing styles... */
+
+@keyframes rotateCard360 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-180deg);
+    }
+  }
+  
+  .card-rotated {
+    animation: rotateCard360 1s ease-in-out;
+  }
+  
+  .option-button.selected {
+    background-color: #cceeff; /* or any other color you prefer */
+  }
+  
+  
+  
+  

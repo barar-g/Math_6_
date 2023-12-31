@@ -1,58 +1,51 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box  } from '@mui/system';
+import rocketIcon from '../composents/home/Icones/rocket-lunch.png';
+import statsIcon from '../composents/home/Icones/stats.png';
+import timeIcon from '../composents/home/Icones/time-twenty-four.png';
+import quiz from '../composents/home/Icones/quiz.png';
+import flask from '../composents/home/Icones/flask-potion.png';
+import historyIcon from '../composents/home/Icones/history-book.png'; // Renommé pour éviter un conflit de nom
+import praying from '../composents/home/Icones/praying.png';
+import calculator from '../composents/home/Icones/calculator-simple.png';
+import '../composents/home/Major.css';
 
-
-function Acceuil() {
+const Card = ({ title, content, icon, full, navigateTo }) => {
   const navigate = useNavigate();
-  const scale = 0.8;
 
-  const Button = ({ children, onClick }) => (
-    <MuiButton 
-      variant="contained" 
-      onClick={onClick}
-      style={{
-        borderRadius: 35 * scale,
-        padding: `${18 * scale}px ${36 * scale}px`,
-        fontSize: `${18 * scale}px`,
-        textTransform: "none",
-        width: `${200 * scale}px`,
-        backgroundColor: '#0000FF',
-        '&:hover': {
-          backgroundColor: '#0000FF',
-        },
-      }}
-    >
-      {children}
-    </MuiButton>
-  );
+  const handleClick = () => {
+    if (navigateTo) {
+      navigate(navigateTo);
+    }
+  };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      backgroundColor="#F7F9FA"
-    >
-      
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/Periode1')}>Periode1</Button>
-        <Button onClick={() => navigate('/Periode2')}>Periode2</Button>
-        <Button onClick={() => navigate('/Science')}>Science</Button>
-        <Button onClick={() => navigate('/Histoire')}>التاريخ</Button>
-        <Button onClick={() => navigate('/Islamique')}>التربية الاسلامية </Button>        
+    <div className={`card ${full ? 'full-card' : ''}`} onClick={handleClick}>
+      {icon && <img src={icon} alt={title} className="card-icon" />}
+      <div className="card-content">
+        <h2>{title}</h2>
+        <p>{content}</p>
+      </div>
+    </div>
+  );
+};
 
-      </Stack>
-    </Box>
+function Acceuil() {
+  return (
+    <div className="app-container">
+      <div className="card-grid">
+        <Card title="Temps passé" content="Savoir le temps passé sur chaque matière" icon={timeIcon} />
+        <Card title="Résultats" content="Résultats des quiz par matière" icon={statsIcon} />
+        <Card title="Quiz du jour" content="Test aléatoire sur tes matières!" icon={quiz} navigateTo="/QuizTest" />
+        <Card title="Major+" content="Travailler sur tes points faibles!" icon={rocketIcon} />
+      </div>
+      <div className="full-width-container">
+        <Card title="Science" content="" icon={flask} full navigateTo="/Science" />
+        <Card title="Math" content="" icon={calculator} full navigateTo="/Math" />
+        <Card title="التاريخ" content="" icon={historyIcon} full navigateTo="/Histoire" />
+        <Card title="التربية الاسلامية" content="" icon={praying} full navigateTo="/Islamique" />
+      </div>
+    </div>
   );
 }
 
