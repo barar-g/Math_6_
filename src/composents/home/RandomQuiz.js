@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, Button, LinearProgress } from '@mui/material';
 import './Major.css'; // Make sure this path is correct for your project structure
 import { IconButton } from '@mui/material';
@@ -32,7 +33,13 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
   const progress = (currentQuestionIndex / questions.length) * 100;
 
-  
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (navigate) {
+      navigate(navigate);
+    }
+  };
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -119,7 +126,7 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
      
       <div style={{ display: 'flex', alignItems: 'center',width:"100%" }}>
       <span style={{ marginRight: '20px' }}>
-      <IconButton variant="outlined" color="primary" onClick={""}>
+      <IconButton variant="outlined" color="primary" onClick={"handleClick"}>
     <CloseIcon />
   </IconButton>
   </span>
