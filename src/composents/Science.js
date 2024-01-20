@@ -1,62 +1,33 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box } from '@mui/system';
-
+import flaskIcon from '../composents/home/Icones/flask-potion.png'; // Utiliser l'icône flask
+import '../composents/home/Major.css'; // Importer les styles
 
 function Accueil() {
   const navigate = useNavigate();
 
-  const Button = ({ children, onClick }) => (
-    <MuiButton 
-      variant="contained" 
-      onClick={onClick}
-      style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
-        textTransform: "none",
-        width: "200px",
-        backgroundColor: '#0000FF',
-        '&:hover': {
-          backgroundColor: '#0000FF',
-        },
-      }}
-    >
-      {children}
-    </MuiButton>
+  const CardButton = ({ title, navigateTo }) => (
+    <div className="card full-card" onClick={() => navigate(navigateTo)}>
+      <img src={flaskIcon} alt={title} className="card-icon" />
+      <div className="card-content">
+        <h2>{title}</h2>
+      </div>
+    </div>
   );
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      backgroundColor="#F7F9FA"
-    >
-      
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/EquilibrAlimantaire')}>Equilibre Alimantaire</Button>
-        <Button onClick={() => navigate('/EquilibrEnergitique')}>Equilibre Energitique</Button>
-        <Button onClick={() => navigate('/Desertfication')}>Desertfication</Button>
-        <Button onClick={() => navigate('/Pollution')}>Pollution</Button>
-        <Button onClick={() => navigate('/EauEtSante')}>L'eau et la Santé</Button>
-        <Button onClick={() => navigate('/Vaccination')}>La Vaccination</Button>
-        <Button onClick={() => navigate('/Sida')}>Sida</Button>
-
-      </Stack>
-    </Box>
+    <div className="app-container">
+      <div className="card-grid">
+        <CardButton title="Equilibre Alimantaire" navigateTo="/EquilibrAlimantaire" />
+        <CardButton title="Equilibre Energitique" navigateTo="/EquilibrEnergitique" />
+        <CardButton title="Desertification" navigateTo="/Desertfication" />
+        <CardButton title="Pollution" navigateTo="/Pollution" />
+        <CardButton title="L'eau et la Santé" navigateTo="/EauEtSante" />
+        <CardButton title="La Vaccination" navigateTo="/Vaccination" />
+        <CardButton title="Sida" navigateTo="/Sida" />
+      </div>
+    </div>
   );
 }
 
 export default Accueil;
-
-

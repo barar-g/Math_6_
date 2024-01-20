@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, Typography, Button, LinearProgress } from '@mui/material';
-import './Major.css'; // Make sure this path is correct for your project structure
-import { IconButton } from '@mui/material';
+import { Card, CardContent, Button, LinearProgress, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { StyledText1 ,FormulaText} from '../Styles/MajorStyles';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import ArrowBack from '@mui/icons-material/ArrowBack';
 import ArrowForward from '@mui/icons-material/ArrowForward';
-
-
+import { StyledText1, FormulaText } from '../Styles/MajorStyles';
+import './Major.css'; // Adjust path as needed
 
 const QCMComponent = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const [userResponses, setUserResponses] = useState([]);
-  const successColor = '#28a745'; // Green color for correct answers
-const failureColor = '#dc3545'; // Red color for incorrect answers
   const [isCorrect, setIsCorrect] = useState(null);
   const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
   const [finalScore, setFinalScore] = useState(null);
-  const [showFinalScore, setShowFinalScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [startTime, setStartTime] = useState(null);
   const [isRotated, setIsRotated] = useState(false);
-
   const [showFeedback, setShowFeedback] = useState(false);
-// Other state declarations...
-const [showAnswers, setShowAnswers] = useState(false); // Add this line
+  const [QuestionsAnswered, setQuestionsAnswered] = useState(false);
+
+  const successColor = '#28a745'; // Green color for correct answers
+  const failureColor = '#dc3545'; // Red color for incorrect answers
 
   const currentQuestion = questions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
@@ -36,27 +29,19 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (navigate) {
-      navigate(navigate);
-    }
+    navigate("/");
   };
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setIsCorrect(option === currentQuestion.correctAnswer);
-    
-    // Start the rotation
+    setQuestionsAnswered(true);
     setIsRotated(true);
 
-    // Set a timeout to display feedback after rotation
     setTimeout(() => {
       setShowFeedback(true);
-    }, 500); // Adjust based on rotation duration
-  };
-
-  const handleRestartCard = () => {
-    setIsRotated(false);
-    setShowFeedback(false);
+      checkAnswer(option); // Call checkAnswer here
+    }, 1200);
   };
 
   const checkAnswer = (option) => {
@@ -69,25 +54,28 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
       ...prevResponses,
       {
         question: currentQuestion.text,
+        options: currentQuestion.options,
         selectedOption: option,
-        isCorrect: isAnswerCorrect
+        correctAnswer: currentQuestion.correctAnswer,
+        isCorrect: isAnswerCorrect,
+        explanation: currentQuestion.explanation
       },
     ]);
 
-
-    // Move to the next question after a slight delay
-    setTimeout(() => {
-      if (!isLastQuestion) {
+    if (!isLastQuestion) {
+      setTimeout(() => {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-       
         setSelectedOption('');
-        setShowAnswers(false);
-      } else {
+        setShowFeedback(false);
+        setQuestionsAnswered(false);
+        setIsRotated(false);
+      }, 10000000); // Adjust delay as needed
+    } else {
+      setTimeout(() => {
         setAllQuestionsAnswered(true);
-        setShowFinalScore(true);
         calculateFinalScore();
-      }
-    }, 500);
+      }, 1500);
+    }
   };
 
   const calculateFinalScore = () => {
@@ -99,10 +87,11 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setSelectedOption('');
       setIsCorrect(null);
-      setShowAnswers(false);
+      setShowFeedback(false);
+      setQuestionsAnswered(false);
+      setIsRotated(false);
     } else {
       setAllQuestionsAnswered(true);
-      setShowFinalScore(true);
       calculateFinalScore();
     }
   };
@@ -114,27 +103,25 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
     setIsCorrect(null);
     setAllQuestionsAnswered(false);
     setFinalScore(null);
-    setShowFinalScore(false);
     setScore(0);
+    setIsRotated(false);
     
   };
 
- 
-
   return (
+   
     <div className="app-container">
-     
-      <div style={{ display: 'flex', alignItems: 'center',width:"100%" }}>
-      <span style={{ marginRight: '20px' }}>
-      <IconButton variant="outlined" color="primary" onClick={"handleClick"}>
-    <CloseIcon />
-  </IconButton>
-  </span>
-  <LinearProgress variant="determinate" value={progress} style={{ flexGrow: 1 }} />
-  <span style={{ marginLeft: '20px' }}>
-    {currentQuestionIndex + 1}/10
-  </span>
-</div>
+       {!allQuestionsAnswered && currentQuestion && (
+      <div style={{ display: 'flex', alignItems: 'center', width: "100%" }}>
+        <IconButton variant="outlined" color="primary" onClick={handleClick}>
+          <CloseIcon />
+        </IconButton>
+        <LinearProgress variant="determinate" value={progress+10} style={{ flexGrow: 1 }} />
+        <span style={{ marginLeft: '20px' }}>
+          {currentQuestionIndex + 1}/{questions.length}
+        </span>
+      </div>
+    )}
 
       <br />
 
@@ -143,7 +130,6 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
           <CardContent>
             {(!isRotated || !showFeedback) ? (
               <>
-                {/* Question and Options */}
                 <FormulaText>{currentQuestion.text}</FormulaText>
                 <div>
                   {currentQuestion.options.map((option, index) => (
@@ -161,56 +147,92 @@ const [showAnswers, setShowAnswers] = useState(false); // Add this line
               </>
             ) : (
               <div style={{ textAlign: 'center' }}>
-                {/* Feedback and Explanation */}
-                <FormulaText variant="body2" style={{ color: isCorrect ? successColor : failureColor }}>
+                <FormulaText style={{ color: isCorrect ? successColor : failureColor }}>
                   {isCorrect ? 'Bonne réponse!' : 'Mauvaise réponse!'}
                 </FormulaText>
-                <FormulaText>  Explication: </FormulaText>
-                 <FormulaText>{currentQuestion.explanation} {/* Assuming each question has an 'explanation' field */}
-                </FormulaText>
-                <div style={{ textAlign: 'right', marginTop: '20px' }}>
-                <RefreshIcon variant="contained" color="primary" onClick={handleRestartCard} >
-                    
-                  </RefreshIcon>
-                </div>
+                <FormulaText>Explication: {currentQuestion.explanation}</FormulaText>
+              
+
               </div>
             )}
           </CardContent>
         </Card>
       )}
 
-      {allQuestionsAnswered && showFinalScore && (
-        <Card className="result-card">
-          <CardContent>
-            <FormulaText variant="h5" component="h2">
-              Résultats du quiz
+{allQuestionsAnswered && (
+  <div>
+    <FormulaText variant="h5" component="h2" style={{ textAlign: 'center', marginBottom: '20px' }}>
+      Résultats du Quiz 
+    </FormulaText>
+    {userResponses.map((response, index) => (
+      <Card key={index} className="question-card" style={{ marginBottom: '10px', padding: '10px' }}>
+        <CardContent>
+          <FormulaText style={{ marginBottom: '15px' }}>{index + 1}. {response.question}</FormulaText>
+          <div style={{ marginBottom: '20px' }}>
+            {response.options.map((option, idx) => (
+              <Button 
+                key={idx}
+                variant="outlined"
+                style={{ 
+                  display: 'flex', // Use flex to align items
+                  justifyContent: 'space-between', // Space between option text and icon
+                  marginBottom: '10px',
+                  width: '100%',
+                  border: '1px solid #ccc',
+                  boxShadow: 'none',
+                  color: '#555',
+                  pointerEvents: 'none',
+                  textTransform: 'none',
+                }}
+                disabled
+              >
+                <FormulaText>{option}</FormulaText>
+                {option === response.correctAnswer && (
+                  <span style={{ color: 'green', fontSize: '2em' }}>✓</span> // Checkmark for correct answer
+                )}
+                {option === response.selectedOption && option !== response.correctAnswer && (
+                  <span style={{ color: 'red', fontSize: '2em' }}>✕</span> // Crossmark for incorrect answer
+                )}
+              </Button>
+            ))}
+          </div>
+          {response.isCorrect ? (
+            <FormulaText style={{ color: successColor }}>
+              Tu a choise la bonne réponse!
             </FormulaText>
-            <FormulaText variant="h6">
-              Votre score : {finalScore.toFixed(2)}
+          ) : (
+            <FormulaText style={{ color: failureColor }}>
+             Tu a choisie un mal réponse! 
             </FormulaText>
-            <Button variant="contained" color="primary" onClick={handleReset}>
-              Recommencer
-            </Button>
-          </CardContent>
-        </Card>
-      )}
-<div className="footer-buttons">
-<button  color="secondary">
-        Mini-cours
-      </button>
-     
-      <IconButton aria-label="next question" onClick={goToNextQuestion} disabled={isLastQuestion || allQuestionsAnswered}>
+          )}
+          <FormulaText> {response.explanation} </FormulaText>
+        </CardContent>
+      </Card>
+    ))}
+    <FormulaText variant="h6" style={{ textAlign: 'center', marginTop: '20px' }}>
+      Your Score: {finalScore.toFixed(2)}%
+    </FormulaText>
+    <Button variant="contained" color="primary" onClick={handleReset} style={{ marginTop: '10px', display: 'block' }}>
+      Restart Quiz
+    </Button>
+  </div>
+)}
+
+
+
+
+{!allQuestionsAnswered && currentQuestion && (
+      <div className="footer-buttons">
+        <button color="secondary">
+          Mini-cours
+        </button>
+        <IconButton aria-label="next question" onClick={goToNextQuestion} disabled={!QuestionsAnswered || isLastQuestion || allQuestionsAnswered}>
           <ArrowForward />
         </IconButton>
-    </div>
-
+      </div>
+)}
     </div>
   );
 };
 
 export default QCMComponent;
-
-
-//  <Typography variant="body1" style={{ textAlign: 'center' }}>
-// Temps écoulé : {formatElapsedTime(totalElapsedTime)}
-//</Typography>

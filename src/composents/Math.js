@@ -1,54 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box } from '@mui/system';
-
+import calculatorIcon from '../composents/home/Icones/calculator-simple.png'; // Assurez-vous d'avoir le bon chemin
+import '../composents/home/Major.css'; // Importer les styles
 
 function Accueil() {
   const navigate = useNavigate();
 
-  const Button = ({ children, onClick }) => (
-    <MuiButton 
-      variant="contained" 
-      onClick={onClick}
-      style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
-        textTransform: "none",
-        width: "100px",
-        backgroundColor: '#0000FF',
-        '&:hover': {
-          backgroundColor: '#0000FF',
-        },
-      }}
-    >
-      {children}
-    </MuiButton>
+  const CardButton = ({ title, navigateTo }) => (
+    <div className="card full-card" onClick={() => navigate(navigateTo)}>
+      <img src={calculatorIcon} alt={title} className="card-icon" />
+      <div className="card-content">
+        <h2>{title}</h2>
+      </div>
+    </div>
   );
 
-  return ( <div>
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      backgroundColor="#F7F9FA"
-      style={{ paddingTop: "300px" }} 
-    >
-      
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-      <Button onClick={() => navigate('/Periode1')}>Periode1</Button>
-     <Button onClick={() => navigate('/Periode2')}>Periode2</Button>
-      </Stack>
-    </Box> </div>
+  return (
+    <div className="app-container">
+      <div className="card-grid">
+        <CardButton title="Periode1" navigateTo="/Periode1" />
+        <CardButton title="Periode2" navigateTo="/Periode2" />
+      </div>
+    </div>
   );
 }
 

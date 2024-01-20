@@ -1,65 +1,37 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box } from '@mui/system';
-
+import calculatorIcon from '../composents/home/Icones/calculator-simple.png'; // Assurez-vous d'avoir le bon chemin
+import '../composents/home/Major.css'; // Importer les styles
 
 function Accueil() {
   const navigate = useNavigate();
 
-  const Button = ({ children, onClick }) => (
-    <MuiButton 
-      variant="contained" 
-      onClick={onClick}
-      style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
-        textTransform: "none",
-        width: "200px",
-        backgroundColor: '#0000FF',
-        '&:hover': {
-          backgroundColor: '#0000FF',
-        },
-      }}
-    >
-      {children}
-    </MuiButton>
+  const CardButton = ({ title, navigateTo }) => (
+    <div className="card full-card" onClick={() => navigate(navigateTo)}>
+      <img src={calculatorIcon} alt={title} className="card-icon" />
+      <div className="card-content">
+        <h2>{title}</h2>
+      </div>
+    </div>
   );
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      backgroundColor="#F7F9FA"
-    >
-      
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/C1')}>C1</Button>
-        <Button onClick={() => navigate('/C2')}>C2</Button>
-        <Button onClick={() => navigate('/C3')}>C3</Button>
-        <Button onClick={() => navigate('/C4')}>C4</Button>
-        <Button onClick={() => navigate('/C5A1')}>C5</Button>
-        <Button onClick={() => navigate('/C6')}>C6</Button>
-        <Button onClick={() => navigate('/C7')}>C7</Button>
-        <Button onClick={() => navigate('/M2')}>M2</Button>
-        <Button onClick={() => navigate('/G1')}>G1</Button>
-        <Button onClick={() => navigate('/G2')}>G2</Button>
-        <Button onClick={() => navigate('/G3')}>G3</Button>
-      </Stack>
-    </Box>
+    <div className="app-container">
+      <div className="card-grid">
+        <CardButton title="C1" navigateTo="/C1" />
+        <CardButton title="C2" navigateTo="/C2" />
+        <CardButton title="C3" navigateTo="/C3" />
+        <CardButton title="C4" navigateTo="/C4" />
+        <CardButton title="C5" navigateTo="/C5A1" />
+        <CardButton title="C6" navigateTo="/C6" />
+        <CardButton title="C7" navigateTo="/C7" />
+        <CardButton title="M2" navigateTo="/M2" />
+        <CardButton title="G1" navigateTo="/G1" />
+        <CardButton title="G2" navigateTo="/G2" />
+        <CardButton title="G3" navigateTo="/G3" />
+      </div>
+    </div>
   );
 }
 
 export default Accueil;
-
-

@@ -1,67 +1,37 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box  } from '@mui/system';
-
+import calculatorIcon from '../composents/home/Icones/calculator-simple.png'; // Assurez-vous d'avoir le bon chemin
+import '../composents/home/Major.css'; // Importer les styles
 
 function Acceuil() {
   const navigate = useNavigate();
-  const scale = 0.8;
 
-  const Button = ({ children, onClick }) => (
-    <MuiButton 
-      variant="contained" 
-      onClick={onClick}
-      style={{
-        borderRadius: 35 * scale,
-        padding: `${18 * scale}px ${36 * scale}px`,
-        fontSize: `${18 * scale}px`,
-        textTransform: "none",
-        width: `${200 * scale}px`,
-        backgroundColor: '#0000FF',
-        '&:hover': {
-          backgroundColor: '#0000FF',
-        },
-      }}
-    >
-      {children}
-    </MuiButton>
+  const CardButton = ({ title, navigateTo }) => (
+    <div className="card full-card" onClick={() => navigate(navigateTo)}>
+      <img src={calculatorIcon} alt={title} className="card-icon" />
+      <div className="card-content">
+        <h2>{title}</h2>
+      </div>
+    </div>
   );
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      backgroundColor="#F7F9FA"
-      marginTop="130px"
-    >
-      
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/P2A1A')}>Division des nombres entiers</Button>
-        <Button onClick={() => navigate('/P2A1B')}>les multiples et les diviseurs</Button>
-        <Button onClick={() => navigate('/P3A3')}>Caractères de divisibilité</Button>
-        <Button onClick={() => navigate('/P3A4')}>Les Fractions</Button>
-        <Button onClick={() => navigate('/Chap13')}>Fractions équivalents</Button>
-        <Button onClick={() => navigate('/P3A5')}>Comparaison des fraction</Button>
-        <Button onClick={() => navigate('/P3A6')}>Construction des triangles</Button>
-        <Button onClick={() => navigate('/P3A7')}>Droites remerquable</Button>
-        <Button onClick={() => navigate('/P3A8')}>Perimetres et Aires</Button>
-        <Button onClick={() => navigate('/P2A1C')}>Calcue des prix</Button>
-        <Button onClick={() => navigate('/Aire2')}>Mesures des angles</Button>
-        <Button onClick={() => navigate('/Fraction2')}>Mesures des aires</Button>
-        
-
-      </Stack>
-    </Box>
+    <div className="app-container">
+      <div className="card-grid">
+        <CardButton title="Division des nombres entiers" navigateTo="/P2A1A" />
+        <CardButton title="les multiples et les diviseurs" navigateTo="/P2A1B" />
+        <CardButton title="Caractères de divisibilité" navigateTo="/P3A3" />
+        <CardButton title="Les Fractions" navigateTo="/P3A4" />
+        <CardButton title="Fractions équivalents" navigateTo="/Chap13" />
+        <CardButton title="Comparaison des fraction" navigateTo="/P3A5" />
+        <CardButton title="Construction des triangles" navigateTo="/P3A6" />
+        <CardButton title="Droites remerquable" navigateTo="/P3A7" />
+        <CardButton title="Perimetres et Aires" navigateTo="/P3A8" />
+        <CardButton title="Calcue des prix" navigateTo="/P2A1C" />
+        <CardButton title="Mesures des angles" navigateTo="/Aire2" />
+        <CardButton title="Mesures des aires" navigateTo="/Fraction2" />
+      </div>
+    </div>
   );
 }
 

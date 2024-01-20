@@ -1,71 +1,43 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box } from '@mui/system';
-
+import historyIcon from '../composents/home/Icones/history-book.png'; // Assurez-vous d'avoir le bon chemin
+import '../composents/home/Major.css'; // Importer les styles
 
 function Accueil() {
   const navigate = useNavigate();
 
-  const Button = ({ children, onClick }) => (
-    <MuiButton 
-      variant="contained" 
-      onClick={onClick}
-      style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
-        textTransform: "none",
-        width: "100px",
-        backgroundColor: '#0000FF',
-        '&:hover': {
-          backgroundColor: '#0000FF',
-        },
-      }}
-    >
-      {children}
-    </MuiButton>
+  const CardButton = ({ title, navigateTo }) => (
+    <div className="card full-card" onClick={() => navigate(navigateTo)}>
+      <img src={historyIcon} alt={title} className="card-icon" />
+      <div className="card-content">
+        <h2>{title}</h2>
+      </div>
+    </div>
   );
 
-  return ( <div>
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      backgroundColor="#F7F9FA"
-      style={{ paddingTop: "300px" }} 
-    >
-      
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/Hist1')}>1الملف</Button>
-        <Button onClick={() => navigate('/Hist2')}>2الملف</Button>
-        <Button onClick={() => navigate('/Hist3')}>3الملف</Button>
-        <Button onClick={() => navigate('/Hist4')}>4الملف</Button>
-        <Button onClick={() => navigate('/Hist5')}>5الملف</Button>
-        <Button onClick={() => navigate('/Hist6')}>6الملف</Button>
-        <Button onClick={() => navigate('/Hist7')}>7الملف</Button>
-        <Button onClick={() => navigate('/Hist8')}>8الملف</Button>
-        <Button onClick={() => navigate('/Hist9')}>9الملف</Button>
-        <Button onClick={() => navigate('/Hist10')}>10الملف</Button>
-        <Button onClick={() => navigate('/Hist11')}>11الملف</Button>
-        <Button onClick={() => navigate('/Hist12')}>12الملف</Button>
-        <Button onClick={() => navigate('/Hist13')}>13الملف</Button>
-        <Button onClick={() => navigate('/Hist14')}>14الملف</Button>
-        <Button onClick={() => navigate('/Hist15')}>15الملف</Button>
-        <Button onClick={() => navigate('/Hist16')}>16الملف</Button>
-        <Button onClick={() => navigate('/Hist17')}>17الملف</Button>
-        <Button onClick={() => navigate('/Hist18')}>18الملف</Button>
-
-      </Stack>
-    </Box> </div>
+  return (
+    <div className="app-container">
+      <div className="card-grid">
+        <CardButton title="1الملف" navigateTo="/Hist1" />
+        <CardButton title="2الملف" navigateTo="/Hist2" />
+        <CardButton title="3الملف" navigateTo="/Hist3" />
+        <CardButton title="4الملف" navigateTo="/Hist4" />
+        <CardButton title="5الملف" navigateTo="/Hist5" />
+        <CardButton title="6الملف" navigateTo="/Hist6" />
+        <CardButton title="7الملف" navigateTo="/Hist7" />
+        <CardButton title="8الملف" navigateTo="/Hist8" />
+        <CardButton title="9الملف" navigateTo="/Hist9" />
+        <CardButton title="10الملف" navigateTo="/Hist10" />
+        <CardButton title="11الملف" navigateTo="/Hist11" />
+        <CardButton title="12الملف" navigateTo="/Hist12" />
+        <CardButton title="13الملف" navigateTo="/Hist13" />
+        <CardButton title="14الملف" navigateTo="/Hist14" />
+        <CardButton title="15الملف" navigateTo="/Hist15" />
+        <CardButton title="16الملف" navigateTo="/Hist16" />
+        <CardButton title="17الملف" navigateTo="/Hist17" />
+        <CardButton title="18الملف" navigateTo="/Hist18" />
+      </div>
+    </div>
   );
 }
 
