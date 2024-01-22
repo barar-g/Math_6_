@@ -44,6 +44,7 @@ function Acceuil() {
         <Card title="Math" content="" icon={calculator} full navigateTo="/Math" />
         <Card title="التاريخ" content="" icon={historyIcon} full navigateTo="/Histoire" />
         <Card title="التربية الاسلامية" content="" icon={praying} full navigateTo="/Islamique" />
+        <Card title="العربية" content="" icon={praying} full navigateTo="/Arabe" />
       </div>
     </div>
   );
