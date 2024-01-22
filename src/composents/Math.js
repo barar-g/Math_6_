@@ -1,23 +1,37 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box } from '@mui/system';
+import { Button as MuiButton, Stack, Grid } from '@mui/material';
+import { Box  } from '@mui/system';
+import CalculateTwoToneIcon from '@mui/icons-material/CalculateTwoTone';
+import LibraryBooksTwoToneIcon from '@mui/icons-material/LibraryBooksTwoTone';
+import BiotechTwoToneIcon from '@mui/icons-material/BiotechTwoTone';
+import MosqueTwoToneIcon from '@mui/icons-material/MosqueTwoTone';
+import PercentIcon from '@mui/icons-material/Percent';
+import styled from "styled-components";
 
 
-function Accueil() {
+const BandeBox = styled.div`
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #F7F9FA;
+  border:'none';
+`;
+
+function Acceuil() {
   const navigate = useNavigate();
+  const scale = 0.8;
 
   const Button = ({ children, onClick }) => (
     <MuiButton 
       variant="contained" 
       onClick={onClick}
       style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
+        padding: "30px 60px",
+        fontSize: `18px`,
         textTransform: "none",
-        width: "100px",
-        backgroundColor: '#0000FF',
+        width: `${200 * scale}px`,
+        backgroundColor: '#87CEEB',
+        color: 'black',
         '&:hover': {
           backgroundColor: '#0000FF',
         },
@@ -27,7 +41,29 @@ function Accueil() {
     </MuiButton>
   );
 
-  return ( <div>
+  
+
+  const Button1 = ({ children, onClick }) => (
+    <MuiButton 
+      variant="contained" 
+      onClick={onClick}
+      style={{
+        padding: "30px 60px",
+        fontSize: `18px`,
+        textTransform: "none",
+        width: `${200 * scale}px`,
+        backgroundColor: '#00BFFF',
+        color: 'black',
+        '&:hover': {
+          backgroundColor: '#0000FF',
+        },
+      }}
+    >
+      {children}
+    </MuiButton>
+  );
+
+  return (
     <Box
       display="flex"
       flexDirection="column"
@@ -35,21 +71,38 @@ function Accueil() {
       justifyContent="center"
       height="100vh"
       backgroundColor="#F7F9FA"
-      style={{ paddingTop: "300px" }} 
-    >
       
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-      <Button onClick={() => navigate('/Periode1')}>Periode1</Button>
-     <Button onClick={() => navigate('/Periode2')}>Periode2</Button>
-      </Stack>
-    </Box> </div>
+    >
+      <BandeBox>
+      
+      
+      <Grid container spacing={2} style={{  justifyContent:"center"}}>
+
+      <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Periode1')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    <PercentIcon style={{ fontSize: 35, border: 'none' }}/>
+    <div>Periode1</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button1 justifyContent="center" onClick={() => navigate('/Periode2')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    <CalculateTwoToneIcon style={{ fontSize: 35, border: 'none' }}/>
+    <div>Periode2</div>
+  </Box>
+      </Button1>
+  </Grid>
+  
+
+  
+
+</Grid>
+</BandeBox>
+    </Box>
   );
 }
 
-export default Accueil;
+export default Acceuil;

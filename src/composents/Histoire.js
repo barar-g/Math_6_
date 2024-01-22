@@ -1,23 +1,33 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
+import { Button as MuiButton, Stack, Grid } from '@mui/material';
 import { Box } from '@mui/system';
+import PercentIcon from '@mui/icons-material/Percent';
+import styled from "styled-components";
 
+
+const BandeBox = styled.div`
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #F7F9FA;
+  border:'none';
+`;
 
 function Accueil() {
   const navigate = useNavigate();
+  const scale = 0.8;
 
   const Button = ({ children, onClick }) => (
     <MuiButton 
       variant="contained" 
       onClick={onClick}
       style={{
-        borderRadius: 35,
-        padding: "18px 36px",
-        fontSize: "18px",
+        padding: "10px 20px",
+        fontSize: `18px`,
         textTransform: "none",
-        width: "100px",
-        backgroundColor: '#0000FF',
+        width: `${200 * scale}px`,
+        backgroundColor: '#98FB98',
+        color: 'black',
         '&:hover': {
           backgroundColor: '#0000FF',
         },
@@ -27,7 +37,7 @@ function Accueil() {
     </MuiButton>
   );
 
-  return ( <div>
+  return (
     <Box
       display="flex"
       flexDirection="column"
@@ -35,38 +45,187 @@ function Accueil() {
       justifyContent="center"
       height="100vh"
       backgroundColor="#F7F9FA"
-      style={{ paddingTop: "300px" }} 
     >
       
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/Hist1')}>1الملف</Button>
-        <Button onClick={() => navigate('/Hist2')}>2الملف</Button>
-        <Button onClick={() => navigate('/Hist3')}>3الملف</Button>
-        <Button onClick={() => navigate('/Hist4')}>4الملف</Button>
-        <Button onClick={() => navigate('/Hist5')}>5الملف</Button>
-        <Button onClick={() => navigate('/Hist6')}>6الملف</Button>
-        <Button onClick={() => navigate('/Hist7')}>7الملف</Button>
-        <Button onClick={() => navigate('/Hist8')}>8الملف</Button>
-        <Button onClick={() => navigate('/Hist9')}>9الملف</Button>
-        <Button onClick={() => navigate('/Hist10')}>10الملف</Button>
-        <Button onClick={() => navigate('/Hist11')}>11الملف</Button>
-        <Button onClick={() => navigate('/Hist12')}>12الملف</Button>
-        <Button onClick={() => navigate('/Hist13')}>13الملف</Button>
-        <Button onClick={() => navigate('/Hist14')}>14الملف</Button>
-        <Button onClick={() => navigate('/Hist15')}>15الملف</Button>
-        <Button onClick={() => navigate('/Hist16')}>16الملف</Button>
-        <Button onClick={() => navigate('/Hist17')}>17الملف</Button>
-        <Button onClick={() => navigate('/Hist18')}>18الملف</Button>
+      <BandeBox>
+      
+      
+      <Grid container spacing={2} style={{  justifyContent:"center"}}>
 
-      </Stack>
-    </Box> </div>
+      <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist1')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>1الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist2')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>2الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist3')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>3الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist4')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>4الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist5')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>5الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist6')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>6الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist7')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>7الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist8')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>8الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist9')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>9الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+        
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist10')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>10الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist11')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>11الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist12')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>12الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist13')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>13الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist14')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>14الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist15')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>15الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist16')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>16الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist17')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>17الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Hist18')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>18الملف</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+      </Grid>
+      </BandeBox>
+    </Box>
   );
 }
 
 export default Accueil;
+
+

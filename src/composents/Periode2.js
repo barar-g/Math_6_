@@ -1,10 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button as MuiButton, Stack } from '@mui/material';
-import { Box  } from '@mui/system';
+import { Button as MuiButton, Stack, Grid } from '@mui/material';
+import { Box } from '@mui/system';
+import PercentIcon from '@mui/icons-material/Percent';
+import styled from "styled-components";
 
 
-function Acceuil() {
+const BandeBox = styled.div`
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #F7F9FA;
+  border:'none';
+`;
+
+function Accueil() {
   const navigate = useNavigate();
   const scale = 0.8;
 
@@ -13,12 +22,12 @@ function Acceuil() {
       variant="contained" 
       onClick={onClick}
       style={{
-        borderRadius: 35 * scale,
-        padding: `${18 * scale}px ${36 * scale}px`,
-        fontSize: `${18 * scale}px`,
+        padding: "10px 20px",
+        fontSize: `18px`,
         textTransform: "none",
         width: `${200 * scale}px`,
-        backgroundColor: '#0000FF',
+        backgroundColor: '#00BFFF',
+        color: 'black',
         '&:hover': {
           backgroundColor: '#0000FF',
         },
@@ -36,33 +45,133 @@ function Acceuil() {
       justifyContent="center"
       height="100vh"
       backgroundColor="#F7F9FA"
-      marginTop="130px"
     >
       
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ marginTop: "20px" }}
-      >
-        <Button onClick={() => navigate('/P2A1A')}>Division des nombres entiers</Button>
-        <Button onClick={() => navigate('/P2A1B')}>les multiples et les diviseurs</Button>
-        <Button onClick={() => navigate('/P3A3')}>Caractères de divisibilité</Button>
-        <Button onClick={() => navigate('/P3A4')}>Les Fractions</Button>
-        <Button onClick={() => navigate('/Chap13')}>Fractions équivalents</Button>
-        <Button onClick={() => navigate('/P3A5')}>Comparaison des fraction</Button>
-        <Button onClick={() => navigate('/P3A6')}>Construction des triangles</Button>
-        <Button onClick={() => navigate('/P3A7')}>Droites remerquable</Button>
-        <Button onClick={() => navigate('/P3A8')}>Perimetres et Aires</Button>
-        <Button onClick={() => navigate('/P2A1C')}>Calcue des prix</Button>
-        <Button onClick={() => navigate('/Aire2')}>Mesures des angles</Button>
-        <Button onClick={() => navigate('/Fraction2')}>Mesures des aires</Button>
-        
+      <BandeBox>
+      
+      
+      <Grid container spacing={2} style={{  justifyContent:"center"}}>
 
-      </Stack>
+      <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P2A1A')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+ 
+    <div>Division des nombres entiers</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/C2')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+  
+    <div>les multiples et les diviseurs</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P3A3')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>Caractères de divisibilité</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P3A4')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>Les Fractions</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Chap13')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+  
+    <div>Fractions équivalents</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P3A5')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>Comparaison des fraction</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P3A6')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>Construction des triangles</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P3A7')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>Droites remerquable</div>
+  </Box>
+      </Button>
+  </Grid>
+
+
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P3A8')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+  
+    <div>Perimetres et Aires</div>
+  </Box>
+      </Button>
+  </Grid>
+
+        
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/P2A1C')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    
+    <div>Calcue des prix</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Aire2')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>Mesures des angles</div>
+  </Box>
+      </Button>
+  </Grid>
+
+  <Grid item >
+    <Button justifyContent="center" onClick={() => navigate('/Fraction2')}>
+    <Box display="flex" flexDirection="column" alignItems="center">
+   
+    <div>Mesures des aires</div>
+  </Box>
+      </Button>
+  </Grid>
+
+      </Grid>
+      </BandeBox>
     </Box>
   );
 }
 
-export default Acceuil;
+export default Accueil;
+
+
