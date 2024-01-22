@@ -69,6 +69,8 @@ import Pollution from './composents/Science/Chapitre4/Pollution';
 import EauEtSante from './composents/Science/Chapitre5/EauEtSante';
 import Vaccination from './composents/Science/Chapitre6/Vaccination';
 import Sida from './composents/Science/Chapitre7/Sida';
+import Arabe from './composents/Arabe'
+import Arabe1 from './composents/Arabe/Chapitre1/Arabe1'
 
 
 
@@ -150,6 +152,7 @@ function App() {
           <Route path="/Islamique1" element ={<Islamique1/>}/>
           <Route path="/Islamique2" element ={<Islamique2/>}/>
           <Route path="/Islamique3" element ={<Islamique3/>}/>
+          <Route path="/Islamique4" element ={<Islamique4/>}/>
          
         </Routes>
       
