@@ -63,12 +63,7 @@ const ExamenQCM = () => {
           explanation: 'Le pourcentage de marge brute est obtenu en soustrayant le coût du prix de vente, puis en divisant le résultat par le prix de vente, et enfin en multipliant le tout par 100.',
           options: ['((Prix de vente - Coût) / Prix de vente) * 100', '((Prix de vente - Coût) / Coût) * 100', '((Coût - Prix de vente) / Coût) * 100', '((Coût - Prix de vente) / Prix de vente) * 100'],
         },
-        {
-          text: 'Quelle est la formule pour calculer le pourcentage de marge nette ?',
-          correctAnswer: '(Bénéfice net / Prix de vente) * 100',
-          explanation: 'Le pourcentage de marge nette est obtenu en divisant le bénéfice net par le prix de vente, puis en multipliant le résultat par 100.',
-          options: ['(Bénéfice net / Prix de vente) * 100', '(Bénéfice net / Prix de revient) * 100', '(Prix de vente / Bénéfice net) * 100', '(Prix de revient / Bénéfice net) * 100'],
-        },
+  
         // Ajoutez d'autre question ici
     ];
     return (

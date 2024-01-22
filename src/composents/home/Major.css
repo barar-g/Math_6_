@@ -27,7 +27,7 @@
   
   .card {
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 20px;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -96,16 +96,22 @@
 /* Existing styles... */
 
 @keyframes rotateCard360 {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(-180deg);
-    }
+  from {
+    transform: rotateY(0deg);
+    opacity: 1;
   }
+  50% {
+    opacity: 0; /* Fade out the content in the middle of the rotation */
+  }
+  to {
+    transform: rotateY(180deg);
+    opacity: 1;
+  }
+}
+
   
   .card-rotated {
-    animation: rotateCard360 1s ease-in-out;
+    animation: rotateCard360 2s ease-in-out;
   }
   
   .option-button.selected {
