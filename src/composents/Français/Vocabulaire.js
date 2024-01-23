@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import vocabularyData from './Vocabulaire.json'; // Make sure the path to your JSON data is correct
 import './Vocabulaire.css'; // Update the path if necessary
 import Fratecher from '../Images/Fratecher.png'
+import { FormulaText } from '../Styles/MajorStyles';
+
 const VocabularyTrainer = () => {
   const [selectedChoice, setSelectedChoice] = useState('');
   const [answerChecked, setAnswerChecked] = useState(false);
@@ -42,19 +44,19 @@ const VocabularyTrainer = () => {
             className={`choice-button ${answerChecked ? (choice === vocabularyData.correctAnswer ? 'correct' : 'incorrect') : ''}`}
             disabled={answerChecked}
           >
-            {choice}
+          <FormulaText>{choice}</FormulaText>  
           </button>
         ))}
       </div>
       {!answerChecked ? (
         <button className="validate-button" onClick={checkAnswer}>
-          Valider
+         <FormulaText>Valider</FormulaText> 
         </button>
       ) : (
         <div className="feedback">
           <p>{isCorrect ? 'Super!' : 'Essaie encore!'}</p>
           <button className="continue-button" onClick={handleContinue}>
-            CONTINUER
+          <FormulaText>CONTINUER</FormulaText>  
           </button>
         </div>
       )}
