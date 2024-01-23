@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Accueil from './composents/Accueil';
 import Math from './composents/Math';
+import Français from './composents/Français';
 import QuizTest from './composents/home/QuizTest';
-
+import Vocabulaire from './composents/Français/Vocabulaire';
 import C1 from './composents/C1/C1';
 import C2 from './composents/C2/C2';
 import C3 from './composents/C3/C3';
@@ -149,6 +150,8 @@ function App() {
           <Route path="/Islamique2" element ={<Islamique2/>}/>
           <Route path="/Islamique3" element ={<Islamique3/>}/>
           <Route path="/Islamique4" element ={<Islamique4/>}/>   
+          <Route path="/Français" element ={<Français/>}/>   
+          <Route path= "/Vocabulaire" element={<Vocabulaire/>} />
          
         </Routes>
       

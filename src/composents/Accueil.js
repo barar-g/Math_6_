@@ -7,6 +7,8 @@ import quiz from '../composents/home/Icones/quiz.png';
 import flask from '../composents/home/Icones/flask-potion.png';
 import historyIcon from '../composents/home/Icones/history-book.png'; // Renommé pour éviter un conflit de nom
 import praying from '../composents/home/Icones/praying.png';
+import Fraçais from '../composents/home/Icones/language-learning.png';
+
 import calculator from '../composents/home/Icones/calculator-simple.png';
 import '../composents/home/Major.css';
 
@@ -44,6 +46,8 @@ function Acceuil() {
         <Card title="Math" content="" icon={calculator} full navigateTo="/Math" />
         <Card title="التاريخ" content="" icon={historyIcon} full navigateTo="/Histoire" />
         <Card title="التربية الاسلامية" content="" icon={praying} full navigateTo="/Islamique" />
+        <Card title="Français" content="" icon={Fraçais} full navigateTo="/Français" />
+
       </div>
     </div>
   );

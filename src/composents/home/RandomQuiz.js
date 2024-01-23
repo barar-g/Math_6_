@@ -18,7 +18,7 @@ const QCMComponent = ({ questions }) => {
   const [isRotated, setIsRotated] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [QuestionsAnswered, setQuestionsAnswered] = useState(false);
-
+  const [animationFinished, setAnimationFinished] = useState(true);
   const successColor = '#28a745'; // Green color for correct answers
   const failureColor = '#dc3545'; // Red color for incorrect answers
 
@@ -79,7 +79,7 @@ const QCMComponent = ({ questions }) => {
   };
 
   const calculateFinalScore = () => {
-    setFinalScore((score / questions.length) * 100);
+    setFinalScore(((score / questions.length)*10));
   };
 
   const goToNextQuestion = () => {
@@ -164,6 +164,9 @@ const QCMComponent = ({ questions }) => {
     <FormulaText variant="h5" component="h2" style={{ textAlign: 'center', marginBottom: '20px' }}>
       Résultats du Quiz 
     </FormulaText>
+    <FormulaText variant="h6" style={{ textAlign: 'center', marginTop: '20px' }}>
+      Your Score: {finalScore.toFixed(2)}/{questions.length}
+    </FormulaText>
     {userResponses.map((response, index) => (
       <Card key={index} className="question-card" style={{ marginBottom: '10px', padding: '10px' }}>
         <CardContent>
@@ -209,9 +212,7 @@ const QCMComponent = ({ questions }) => {
         </CardContent>
       </Card>
     ))}
-    <FormulaText variant="h6" style={{ textAlign: 'center', marginTop: '20px' }}>
-      Your Score: {finalScore.toFixed(2)}%
-    </FormulaText>
+   
     <Button variant="contained" color="primary" onClick={handleReset} style={{ marginTop: '10px', display: 'block' }}>
       Restart Quiz
     </Button>

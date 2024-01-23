@@ -1,0 +1,127 @@
+/* src/styles/VocabularyTrainer.css */
+.vocabulary-trainer {
+    font-family: 'Arial', sans-serif; /* This is a placeholder, use the font that matches your design */
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .teacher-image {
+    width: 150px; /* Adjust the size to fit your design */
+    margin-bottom: 20px;
+  }
+  
+  .word-to-translate {
+    font-size: 1.5rem; /* Adjust the size to fit your design */
+    color: #333; /* Adjust the color to fit your design */
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .choice-button {
+    display: block;
+    width: calc(100% - 40px); /* Full width with padding */
+    margin: 10px auto;
+    padding: 15px;
+    border: 2px solid transparent; /* Transparent border used to maintain layout when changing to green/red */
+    border-radius: 20px;
+    background-color: #f7f7f7; /* Light grey background */
+    color: #333; /* Dark text for contrast */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s;
+  }
+  
+  .choice-button:hover {
+    background-color: #e2e2e2; /* Slightly darker on hover */
+  }
+  
+  .choice-button.correct {
+    border-color: #4CAF50; /* Green border for correct choice */
+    background-color: #ebf8eb; /* Light green background for correct choice */
+  }
+  
+  .choice-button.incorrect {
+    border-color: #F44336; /* Red border for incorrect choice */
+    background-color: #fdecea; /* Light red background for incorrect choice */
+  }
+  
+  .validate-button {
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .validate-button:hover {
+    background-color: #43A047; /* Darker green on hover */
+  }
+  
+  .feedback {
+    font-size: 1.2rem; /* Adjust the size to fit your design */
+    color: #4CAF50; /* Green text for feedback */
+    margin-top: 20px;
+  }
+  
+  .continue-button {
+    width: calc(100% - 40px);
+    padding: 15px;
+    background-color: #008CBA; /* Blue background for continue button */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .continue-button:hover {
+    background-color: #007BAA; /* Darker blue on hover */
+  }
+  
+
+  .word-teacher-container {
+    display: flex;
+    align-items: center; /* This will vertically center-align the items */
+    justify-content: center; /* This will horizontally center the items on the page */
+    margin-bottom: 20px; /* Spacing between this section and the choices */
+  }
+  
+  .teacher-image {
+    width: 150px; /* Adjust as needed */
+    margin-right: 20px; /* Spacing between image and word card */
+  }
+  
+ /* src/styles/VocabularyTrainer.css */
+/* ...other styles... */
+
+.word-card {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 10px 20px;
+    position: relative; /* Position relative is needed for absolute positioning of the pseudo-element */
+    margin: 0; /* Adjust or remove margin as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    /* Additional styling here */
+  }
+  
+  .word-card::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Position the tail just below the word card */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tail below the word card */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent; /* Create the triangle */
+    border-top-color: #f0f0f0; /* Match the color of the word card */
+  }
