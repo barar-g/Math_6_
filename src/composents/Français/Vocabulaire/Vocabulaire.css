@@ -18,14 +18,14 @@
   .word-to-translate {
     font-size: 1.5rem; /* Adjust the size to fit your design */
     color: #333; /* Adjust the color to fit your design */
-    margin: 20px 0;
+    margin: 4px 0;
     font-weight: bold;
   }
   
   .choice-button {
     border: 1px solid #ddd;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     display: flex;
@@ -33,9 +33,20 @@
     align-items: center; 
     width: calc(100% - 10px); /* Adjusts the width to account for the margins */
     margin-bottom: 20px; /* This adds a margin below each full-width card */
-    
+    flex-direction: row; /* Aligner l'image et le texte horizontalement */
+    justify-content: start;
   }
-  
+       
+  .choice-image {
+    width: 70px; /* Ajustez la taille selon vos besoins */
+    height: 70px; /* Ajustez la hauteur selon vos besoins */
+    margin-right: 40px; /* Espacement entre l'image et le texte */
+  }
+
+  .choice-text {
+    /* Style pour le texte à côté de l'image */
+    flex-grow: 1; /* Le texte prend l'espace restant */
+  }
   .choice-button:hover {
     background-color: #e2e2e2; /* Slightly darker on hover */
   }
@@ -54,7 +65,7 @@
     background-color: #4CAF50; /* Green background */
     border: 1px solid #ddd;
     border-radius: 20px;
-    padding: 20px;
+    padding: 4px;
    
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     display: flex;
@@ -75,8 +86,8 @@
   }
   
   .continue-button {
-    width: calc(100% - 40px);
-    padding: 15px;
+    width: calc(100% - 10px);
+    padding: 4px;
     background-color: #008CBA; /* Blue background for continue button */
     color: white;
     border: none;
@@ -98,32 +109,38 @@
   }
   
   .teacher-image {
-    width: 150px; /* Adjust as needed */
-    margin-right: 20px; /* Spacing between image and word card */
+    width: 200px; /* Adjust as needed */
+    margin-right: 10px; /* Spacing between image and word card */
   }
   
- /* src/styles/VocabularyTrainer.css */
-/* ...other styles... */
 
-.word-card {
-    display: inline-block;
-    background-color: #f0f0f0;
-    border-radius: 20px;
-    padding: 10px 20px;
-    position: relative; /* Position relative is needed for absolute positioning of the pseudo-element */
-    margin: 0; /* Adjust or remove margin as needed */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    /* Additional styling here */
-  }
-  
-  .word-card::after {
+  .word-card {
+    background-color: #43A047; /* Changer la couleur de fond en blanc */
+    border-radius: 20px; /* Réduire le rayon pour les coins arrondis */
+    padding: 4px; /* Ajuster le padding pour mieux aligner le texte */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour la profondeur */
+    font-family: sans-serif; /* Utiliser une police générique */
+    max-width: 200px; /* Définir une largeur maximale pour la carte */
+    text-align: center; /* Centrer le texte */
+}
+
+.word-card::after {
     content: '';
     position: absolute;
-    bottom: -10px; /* Position the tail just below the word card */
-    left: 50%;
-    transform: translateX(-50%); /* Center the tail below the word card */
-    width: 0;
-    height: 0;
-    border: 10px solid transparent; /* Create the triangle */
-    border-top-color: #f0f0f0; /* Match the color of the word card */
-  }
+    bottom: -6px; /* Ajuster pour aligner avec le bas de la carte */
+    left: 7px; /* Ajuster pour positionner la pointe de la bulle */
+    background-color: #43A047;
+    border-radius: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+  
+  /* ... */
+  

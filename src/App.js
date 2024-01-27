@@ -4,7 +4,7 @@ import Accueil from './composents/Accueil';
 import Math from './composents/Math';
 import Français from './composents/Français';
 import QuizTest from './composents/home/QuizTest';
-import Vocabulaire from './composents/Français/Vocabulaire';
+import Vocabulaire from './composents/Français/Vocabulaire/Vocabulaire';
 import C1 from './composents/C1/C1';
 import C2 from './composents/C2/C2';
 import C3 from './composents/C3/C3';
