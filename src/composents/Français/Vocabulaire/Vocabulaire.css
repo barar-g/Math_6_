@@ -35,6 +35,7 @@
     margin-bottom: 20px; /* This adds a margin below each full-width card */
     flex-direction: row; /* Aligner l'image et le texte horizontalement */
     justify-content: start;
+    
   }
        
   .choice-image {
@@ -123,6 +124,11 @@
     font-family: sans-serif; /* Utiliser une police générique */
     max-width: 200px; /* Définir une largeur maximale pour la carte */
     text-align: center; /* Centrer le texte */
+    display: flex; /* Utilisez flexbox pour l'alignement */
+    justify-content: center; /* Centrer le contenu horizontalement */
+    align-items: center; /* Centrer le contenu verticalement */
+    flex-wrap: wrap; /* Permettre aux éléments de se mettre à la ligne si nécessaire */
+    padding: 8px; /* Ajuster le padding selon l'espace nécessaire */
 }
 
 .word-card::after {
@@ -139,7 +145,12 @@
 }
 
 
-
+.word-image {
+  width: 50px; /* Ajustez la taille selon vos besoins */
+  height: auto;
+  margin-right: 10px; /* Espacement entre l'image et le texte */
+  align-self: center; /* Centre l'image verticalement */
+}
 
   
   /* ... */

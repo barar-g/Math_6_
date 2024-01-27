@@ -1,0 +1,80 @@
+[
+    {
+      "id": 1,
+      "word": "carrière",
+      "choices": ["مهنة", "تعليم", "راحة"],
+      "correctAnswer": "مهنة",
+      "imagePath": "./carrière.jpg"
+    },
+    {
+      "id": 2,
+      "word": "coopération",
+      "choices": ["تعاون", "منافسة", "تفاهم"],
+      "correctAnswer": "تعاون",
+      "imagePath": "./coopération.jpg"
+    },
+    {
+      "id": 3,
+      "word": "créativité",
+      "choices": ["إبداع", "تقليد", "فهم"],
+      "correctAnswer": "إبداع",
+      "imagePath": "./créativité.jpg"
+    },
+    {
+      "id": 4,
+      "word": "cuisinier",
+      "choices": ["طباخ", "معلم", "مهندس"],
+      "correctAnswer": "طباخ",
+      "imagePath": "./cuisinier.jpg"
+    },
+    {
+      "id": 5,
+      "word": "école",
+      "choices": ["مدرسة", "مستشفى", "سوق"],
+      "correctAnswer": "مدرسة",
+      "imagePath": "./école.jpg"
+    },
+    {
+      "id": 6,
+      "word": "éducation",
+      "choices": ["تعليم", "ترفيه", "رياضة"],
+      "correctAnswer": "تعليم",
+      "imagePath": "./éducation.jpg"
+    },
+    {
+      "id": 7,
+      "word": "laver",
+      "choices": ["غسل", "طهي", "كتابة"],
+      "correctAnswer": "غسل",
+      "imagePath": "./laver.jpg"
+    },
+    {
+      "id": 8,
+      "word": "lire",
+      "choices": ["قراءة", "ركض", "سباحة"],
+      "correctAnswer": "قراءة",
+      "imagePath": "./lire.jpg"
+    },
+    {
+      "id": 9,
+      "word": "partage",
+      "choices": ["مشاركة", "احتكار", "إخفاء"],
+      "correctAnswer": "مشاركة",
+      "imagePath": "./partage.jpg"
+    },
+    {
+      "id": 10,
+      "word": "penser",
+      "choices": ["تفكير", "نسيان", "تجاهل"],
+      "correctAnswer": "تفكير",
+      "imagePath": "./penser.jpg"
+    },
+    {
+      "id": 11,
+      "word": "salle de classe",
+      "choices": ["صف دراسي", "مختبر", "مكتب"],
+      "correctAnswer": "صف دراسي",
+      "imagePath": "./salledeclasse.jpg"
+    }
+  ]
+  

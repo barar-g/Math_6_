@@ -18,9 +18,11 @@ function Accueil() {
   return (
     <div className="app-container">
       <div className="card-grid">
-        <CardButton title="Vocabulaire" navigateTo="/Vocabulaire" />
+        <CardButton title="Vocabulaire" navigateTo="/Acueilvocabulaire" />
         <CardButton title="Conjugaison" navigateTo="/Periode2" />
-        
+        <CardButton title="Gramaire" navigateTo="/Periode2" />
+        <CardButton title="Orthographe" navigateTo="/Periode2" />
+
       </div>
     </div>
   );
