@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import vocabularyList from './Famille.json'; // Assurez-vous que le chemin vers vos données JSON est correct
+import vocabularyList from './Vocabulaire.png/Famille.png/Famillz.json'; // Assurez-vous que le chemin vers vos données JSON est correct
 import './Vocabulaire.css'; // Mettez à jour le chemin si nécessaire
 import useSound from "use-sound";
 import correctSound from '../../sounds/correct.mp3';

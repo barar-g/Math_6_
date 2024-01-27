@@ -1,123 +1,38 @@
 [
   {
     "id": 1,
-    "word": "Grand-parents",
-    "choices": ["الأجداد", "الجدة", "الجد"],
-    "correctAnswer": "الأجداد"
+    "word": "chambre",
+    "choices": [
+      "غرفة",
+      "مطبخ",
+      "حمام"
+    ],
+    "correctAnswer": "غرفة",
+    "imagePath": "./Vocabulaire.png/chambre.jpg"
   },
   {
     "id": 2,
-    "word": "grand-mère",
-    "choices": ["الجدة", "الجد", "الأجداد"],
-    "correctAnswer": "الجدة"
+    "word": "cousin",
+    "choices": [
+      "ابن العم",
+      "ابن الأخ",
+      "ابن الخال"
+    ],
+    "correctAnswer": "ابن العم",
+    "imagePath": "./Vocabulaire.png/cousin.jpg"
+
   },
   {
     "id": 3,
-    "word": "grand-père",
-    "choices": ["الجد", "الجدة", "الأجداد"],
-    "correctAnswer": "الجد"
-  },
-  {
-    "id": 4,
-    "word": "Neveu",
-    "choices": ["ابن الأخ", "العم", "الحفيد"],
-    "correctAnswer": "ابن الأخ"
-  },
-  {
-    "id": 5,
-    "word": "Nièce",
-    "choices": ["ابنة الأخت", "العمة", "الحفيدة"],
-    "correctAnswer": "ابنة الأخت"
-  },
-  {
-    "id": 6,
-    "word": "Oncle",
-    "choices": ["العم", "ابن الأخ", "الحفيد"],
-    "correctAnswer": "العم"
-  },
-  {
-    "id": 7,
-    "word": "Tante",
-    "choices": ["العمة", "ابنة الأخت", "الحفيدة"],
-    "correctAnswer": "العمة"
-  },
-  {
-    "id": 8,
-    "word": "Cousin",
-    "choices": ["ابن العم", "العم", "الابن الأخت"],
-    "correctAnswer": "ابن العم"
-  },
-  {
-    "id": 9,
-    "word": "Cousine",
-    "choices": ["ابنة العم", "العمة", "الابنة الأخت"],
-    "correctAnswer": "ابنة العم"
-  },
-  {
-    "id": 10,
-    "word": "Réunion familiale",
-    "choices": ["تقاليد", "العائلة", "التضامن"],
-    "correctAnswer": "العائلة"
-  },
-    
-  {
-    "id": 11,
-    "word": "café",
-    "choices": ["شاي", "قهوة", "ماء"],
-    "correctAnswer": "قهوة"
-  },
-  {
-    "id": 12,
-    "word": "linge",
-    "choices": ["ملابس", "طعام", "أثاث"],
-    "correctAnswer": "ملابس"
-  },
-  {
-    "id": 13,
-    "word": "hâte",
-    "choices": ["سرعة", "صبر", "خوف"],
-    "correctAnswer": "سرعة"
-  },
-  {
-    "id": 14,
-    "word": "toilette",
-    "choices": ["حمام", "مطبخ", "غرفة نوم"],
-    "correctAnswer": "حمام"
-  },
-  {
-    "id": 15,
-    "word": "peine",
-    "choices": ["سعادة", "حزن", "فرح"],
-    "correctAnswer": "حزن"
-  },
-  {
-    "id": 16,
-    "word": "toute",
-    "choices": ["كل", "قليل", "بعض"],
-    "correctAnswer": "كل"
-  },
-  {
-    "id": 17,
-    "word": "rue",
-    "choices": ["شارع", "حديقة", "ساحة"],
-    "correctAnswer": "شارع"
-  },
-  {
-    "id": 18,
-    "word": "toujours",
-    "choices": ["أحياناً", "دائماً", "نادراً"],
-    "correctAnswer": "دائماً"
-  },
-  {
-    "id": 19,
-    "word": "petit",
-    "choices": ["كبير", "صغير", "ضخم"],
-    "correctAnswer": "صغير"
-  },
-  {
-    "id": 20,
-    "word": "bien",
-    "choices": ["سيئة", "جيدة", "متوسطة"],
-    "correctAnswer": "جيدة"
-  } 
+    "word": "famille",
+    "choices": [
+      "عائلة",
+      "أصدقاء",
+      "جيران"
+    ],
+    "correctAnswer": "عائلة",
+    "imagePath": "./Vocabulaire.png/famille.jpg"
+
+  }
+  
 ]

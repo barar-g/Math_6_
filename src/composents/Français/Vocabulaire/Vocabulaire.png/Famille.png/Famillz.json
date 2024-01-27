@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "word": "chambre",
+      "choices": [
+        "غرفة",
+        "مطبخ",
+        "حمام"
+      ],
+      "correctAnswer": "غرفة",
+      "imagePath": "./chambre.jpg"
+    },
+    {
+      "id": 2,
+      "word": "cousin",
+      "choices": [
+        "ابن العم",
+        "ابن الأخ",
+        "ابن الخال"
+      ],
+      "correctAnswer": "ابن العم",
+      "imagePath": "./Vocabulaire.png/cousin.jpg"
+  
+    },
+    {
+      "id": 3,
+      "word": "famille",
+      "choices": [
+        "عائلة",
+        "أصدقاء",
+        "جيران"
+      ],
+      "correctAnswer": "عائلة",
+      "imagePath": "./famille.jpg"
+  
+    }
+    
+  ]
+  
