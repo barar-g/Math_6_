@@ -1,0 +1,36 @@
+.score-container {
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+/* Style pour la carte (Card) */
+/* Assurez-vous d'ajouter les styles nécessaires pour la Card ici si nécessaire */
+
+.success-animation .flower-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Ajustez selon la taille de l'animation souhaitée */
+  z-index: 50; /* Plus élevé que le contenu de la carte, mais inférieur à celui des particules */
+  overflow: hidden;
+}
+
+.success-image {
+  max-width: 100%;
+  height: auto;
+  display: block; 
+  margin: 0 auto; 
+}
+
+.flower-particle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 6px;
+  border-radius: 50%; /* Pour des cercles parfaits */
+  /* La couleur de fond est définie dans le style en ligne, donc pas besoin de la définir ici */
+}

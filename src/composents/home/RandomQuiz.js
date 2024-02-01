@@ -6,6 +6,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import { StyledText1, FormulaText } from '../Styles/MajorStyles';
 import './Major.css'; // Adjust path as needed
+import ScoreComponent from '../Scorecomponent';
 
 const QCMComponent = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -165,8 +166,7 @@ const QCMComponent = ({ questions }) => {
       Résultats du Quiz 
     </FormulaText>
     <FormulaText variant="h6" style={{ textAlign: 'center', marginTop: '20px' }}>
-      Your Score: {finalScore.toFixed(2)}/{questions.length}
-    </FormulaText>
+    <ScoreComponent score={finalScore*10} />    </FormulaText>
     {userResponses.map((response, index) => (
       <Card key={index} className="question-card" style={{ marginBottom: '10px', padding: '10px' }}>
         <CardContent>
