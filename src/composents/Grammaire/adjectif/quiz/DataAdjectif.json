@@ -1,0 +1,13 @@
+[
+{  "id": 1,
+"question": "Il a préparé un repas _______.",
+"options":[ "délicieux", "nouveau", "intéressant ", "intelligent"],
+"answer": "délicieux"
+
+},
+{  "id": 2,
+"question": "Mon frère est très ________________.",
+"options":[ "nouveau", "intéressant ", "intelligent", "maintenant"],
+"answer": "intelligent"
+}
+]

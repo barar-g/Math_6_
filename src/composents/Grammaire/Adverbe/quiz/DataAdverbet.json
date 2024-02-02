@@ -1,0 +1,13 @@
+[
+{  "id": 1,
+"question": "Il travaille ________________ pour terminer son projet.",
+"options":[ "toujours ", "bientôt", "rapidement", "maintenant"],
+"answer": "rapidement"
+
+},
+{  "id": 2,
+"question": "Les oiseaux volent ________________ dans le ciel.",
+"options":[ "haut", "vraiment ", "très ", "maintenant"],
+"answer": "haut"
+}
+]

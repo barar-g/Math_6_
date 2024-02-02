@@ -1,0 +1,65 @@
+[
+  {
+      "question": "Qu’est -ce qu'une eau potable ? ",
+      "answers": [" une eau colorée et malodorante.", "C'est une eau propre qui ne contient pas de microbes et que l'on peut boire sans danger."],
+      "correctAnswer": "C'est une eau propre qui ne contient pas de microbes et que l'on peut boire sans danger.",
+      "explanation": " C'est une eau propre qui ne contient pas de microbes et que l'on peut boire sans danger.",
+      "userAnswer": null
+    },
+    {
+      "question": " Qu'est-ce qu'une eau insalubre ?",
+      "answers": ["Une eau insalubre est une eau propre et purifiée.", "C'est une eau sale qui contient des microbes et qui est dangereuse pour la santé.", " C'est une eau propre qui ne contient pas de microbes et qui est sans danger pour la santé."],
+      "correctAnswer": "C'est une eau sale qui contient des microbes et qui est dangereuse pour la santé.",
+      "explanation": "C'est une eau sale qui contient des microbes et qui est dangereuse pour la santé.",
+      "userAnswer": null
+    },
+    {
+      "question": " Comment rendre une (insalubre) potable ?  ",
+      "answers": ["Laisser l'eau exposée à l'air libre sans traitement.", "La chauffer à 100° et la javelliser.", "Boire l'eau insalubre telle quelle, sans aucune précaution."],
+      "correctAnswer": "La chauffer à 100° et la javelliser.",
+      "explanation": "La chauffer à 100° et la javelliser.",
+      "userAnswer": null
+    },
+    {
+      "question": "Quelles maladies n est pas liées à l'eau insalubre ? ",
+      "answers": [" Le choléra.", "La diarrhée.", " La dysenterie.","Diabete"],
+      "correctAnswer": "Diabete",
+      "explanation": "Diabete  n est pas liées à l'eau insalubre ?",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment se transmettent ces maladies ?",
+      "answers": ["Ces maladies se transmettent en buvant de l'eau propre et traitée.", "lCes maladies se transmettent en consommant des aliments sains.", "Ces maladies se transmettent en se lavant régulièrement avec de l'eau propre."," Ces maladies se transmettent en buvant de l'eau sale ou en se lavant dans une mare."],
+      "correctAnswer": "Ces maladies se transmettent en buvant de l'eau sale ou en se lavant dans une mare.",
+      "explanation": "Ces maladies se transmettent en buvant de l'eau sale ou en se lavant dans une mare.",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment l'eau est polluée ?",
+      "answers": ["Les urines et les parasites.", " L'eau est naturellement exempte de toute pollution.", "Les processus de purification n'ont aucun impact sur la qualité de l'eau."],
+      "correctAnswer": "Les urines et les parasites.",
+      "explanation": "Les urines et les parasites.",
+      "userAnswer": null
+    },
+    {
+      "question": "Qu’est-ce que le paludisme ? ",
+      "answers": ["Le paludisme est une maladie causée par la piqûre d'un moustique, l'anophèle femelle.", "Le paludisme est une maladie causée par l'exposition au soleil.", "Le paludisme est une maladie résultant de la consommation d'eau contaminée."],
+      "correctAnswer": "Le paludisme est une maladie causée par la piqûre d'un moustique, l'anophèle femelle.",
+      "explanation": "Le paludisme est une maladie causée par la piqûre d'un moustique, l'anophèle femelle.",
+      "userAnswer": null
+    },
+    {
+      "question": " Comment se manifeste le paludisme ?",
+      "answers": ["Une forte fièvre et des maux de tête.", " Le paludisme ne présente aucun symptôme.", "Le paludisme se manifeste par des douleurs articulaires uniquement."],
+      "correctAnswer": "Une forte fièvre et des maux de tête.",
+      "explanation": "Le paludisme se manifeste par : -une forte fièvre - des maux de tête - des tremblements et une grande fatigue.",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment se protéger du paludisme ?",
+      "answers": ["Consommer régulièrement des aliments riches en sucre.", "Se baigner dans des eaux stagnantes.", "Dormir sous une moustiquaire et utiliser des insecticides pour tuer les moustiques."],
+      "correctAnswer": "Consommer régulièrement des aliments riches en sucre.",
+      "explanation": "Pour se protéger du paludisme il faut : -Dormir sous une moustiquaire -Utiliser des insecticides pour tuer les moustiques -Absorber de la chloroquine -Porter des habits longs -Enterrer les eaux stagnantes ",
+      "userAnswer": null
+    }
+  ] 

@@ -1,0 +1,12 @@
+[
+  {"id": 1, "word": "cas", "choices": ["حالة", "قضية", "موقف"], "correctAnswer": "حالة"},
+  {"id": 2, "word": "manteau", "choices": ["معطف", "جاكيت", "سترة"], "correctAnswer": "معطف"},
+  {"id": 3, "word": "raconter", "choices": ["سرد", "حكى", "حكاية"], "correctAnswer": "سرد"},
+  {"id": 4, "word": "sécuriser", "choices": ["تأمين", "تأمين", "ضمان"], "correctAnswer": "تأمين"},
+  {"id": 5, "word": "entendre", "choices": ["سمع", "فهم", "انصت"], "correctAnswer": "سمع"},
+  {"id": 6, "word": "connaître", "choices": ["معرفة", "تعرف", "يدرك"], "correctAnswer": "معرفة"},
+  {"id": 7, "word": "maîtriser", "choices": ["احتراف", "تسيطر", "يسيطر"], "correctAnswer": "احتراف"},
+  {"id": 8, "word": "tout", "choices": ["كل", "جميع", "كل شيء"], "correctAnswer": "كل"},
+  {"id": 9, "word": "placer", "choices": ["وضع", "ضع", "ترتيب"], "correctAnswer": "وضع"},
+  {"id": 10, "word": "arriver", "choices": ["وصول", "حدوث", "يحدث"], "correctAnswer": "وصول"}
+]

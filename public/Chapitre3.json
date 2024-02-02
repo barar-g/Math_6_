@@ -1,0 +1,30 @@
+[
+  {
+      "question": " Qu'appelle-t-on désertification ? ",
+      "answers": ["La désertification, c'est la disparition du couvert végétal", "c'est quand on réussit à manger autant de bonbons que de légumes", "La désertification est synonyme d'urbanisation croissante."],
+      "correctAnswer": "La désertification, c'est la disparition du couvert végétal",
+      "explanation": "La désertification, c'est la disparition du couvert végétal",
+      "userAnswer": null
+    },
+    {
+      "question": "Donner un cause  de la désertification ?",
+      "answers": ["Le déboisement (coupe des arbres)", " L'utilisation durable des ressources naturelles.", " L'augmentation de la diversité biologique."],
+      "correctAnswer": "Le déboisement (coupe des arbres)",
+      "explanation": "Le déboisement (coupe des arbres) est un cause significant de la déserfication ",
+      "userAnswer": null
+    },
+    {
+      "question": "Quelles sont les conséquences de la désertification ? ",
+      "answers": ["L'exode rural", " L'amélioration des conditions agricoles", "L'augmentation de la productivité des sols"],
+      "correctAnswer": "L'exode rural",
+      "explanation": "L'exode rural est un consequance de la desertidication",
+      "userAnswer": null
+    },
+    {
+      "question": "Comment lutter contre la désertification ?",
+      "answers": [" Il faut la destruction des écosystèmes naturels.", " Il faut encourager la surutilisation des ressources en eau.", "Il faut limiter les activités destructives de l'homme et du bétail, la fixation des dunes, le reboisement, la gestion de l'eau, et la protection de la faune et de la flore."],
+      "correctAnswer": "la fixation des dunes, le reboisement, la gestion de l'eau, et la protection de la faune et de la flore.",
+      "explanation": " Il faut limiter les activités destructives de l'homme et du bétail, la fixation des dunes, le reboisement, la gestion de l'eau, et la protection de la faune et de la flore.",
+      "userAnswer": null
+    }
+  ] 

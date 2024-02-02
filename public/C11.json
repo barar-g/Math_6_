@@ -1,0 +1,32 @@
+[
+    {
+        "question": "Si un nombre se termine par 0, 2, 4, 6 ou 8, par quel nombre est-il forcément divisible?",
+        "answers": ["2", "3", "5", "7"],
+        "correctAnswer": "2",
+        "explanation": "Un nombre qui se termine par 0, 2, 4, 6 ou 8 est toujours divisible par 2."
+    },
+    {
+        "question": "Si la somme des chiffres d'un nombre est divisible par 3, alors le nombre est divisible par ...?",
+        "answers": ["2", "3", "5", "7"],
+        "correctAnswer": "3",
+        "explanation": "Un nombre dont la somme des chiffres est divisible par 3 est lui-même divisible par 3."
+    },
+    {
+        "question": "Si un nombre se termine par 0 ou 5, par quel nombre est-il forcément divisible?",
+        "answers": ["2", "3", "5", "7"],
+        "correctAnswer": "5",
+        "explanation": "Un nombre qui se termine par 0 ou 5 est toujours divisible par 5."
+    },
+    {
+        "question": "Si un nombre est divisible par 2 et par 3, par quel autre nombre est-il forcément divisible?",
+        "answers": ["5", "6", "7", "9"],
+        "correctAnswer": "6",
+        "explanation": "Un nombre qui est divisible à la fois par 2 et par 3 est aussi divisible par 6."
+    },
+    {
+        "question": "Pour vérifier si un nombre est divisible par 9, que faut-il vérifier concernant la somme de ses chiffres?",
+        "answers": ["La somme est divisible par 2", "La somme est divisible par 3", "La somme est divisible par 5", "La somme est divisible par 9"],
+        "correctAnswer": "La somme est divisible par 9",
+        "explanation": "Un nombre est divisible par 9 si la somme de ses chiffres est divisible par 9."
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "question": "Quel est le quotient de 28 divisé par 4?",
+        "answers": ["5", "6", "7", "8"],
+        "correctAnswer": "7",
+        "explanation": "28 divisé par 4 égale 7."
+    },
+    {
+        "question": "Si on divise un nombre par 1, quel est le résultat?",
+        "answers": ["Le nombre initial", "0", "1", "Le nombre initial divisé par 2"],
+        "correctAnswer": "Le nombre initial",
+        "explanation": "Diviser n'importe quel nombre par 1 donne le nombre lui-même."
+    },
+    {
+        "question": "Quel est le reste quand 17 est divisé par 5?",
+        "answers": ["0", "2", "3", "4"],
+        "correctAnswer": "2",
+        "explanation": "Quand 17 est divisé par 5, le quotient est 3 et le reste est 2."
+    },
+    {
+        "question": "Si on divise 60 par un certain nombre et que le quotient est 15, quel est ce nombre?",
+        "answers": ["5", "4", "3", "2"],
+        "correctAnswer": "4",
+        "explanation": "60 divisé par 4 donne 15."
+    },
+    {
+        "question": "Quel est le quotient de 100 divisé par 10?",
+        "answers": ["1", "10", "100", "1000"],
+        "correctAnswer": "10",
+        "explanation": "100 divisé par 10 égale 10."
+    }
+]

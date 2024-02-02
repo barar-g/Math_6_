@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Laquelle des fractions suivantes est la plus grande ?",
+        "answers": ["3/4", "5/8", "7/10", "6/9"],
+        "correctAnswer": "3/4",
+        "explanation": "3/4 est plus grande que 5/8, 7/10, et 6/9.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle fraction est équivalente à 1/2 ?",
+        "answers": ["3/6", "4/8", "5/10", "Toutes ces réponses"],
+        "correctAnswer": "Toutes ces réponses",
+        "explanation": "3/6, 4/8, et 5/10 sont toutes équivalentes à 1/2.",
+        "userAnswer": null
+    },
+    {
+        "question": "Laquelle des fractions suivantes est la plus petite ?",
+        "answers": ["2/5", "3/8", "4/11", "5/14"],
+        "correctAnswer": "4/11",
+        "explanation": "4/11 est plus petite que 2/5, 3/8, et 5/14.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle fraction est la plus proche de 1 ?",
+        "answers": ["8/9", "7/8", "9/10", "6/7"],
+        "correctAnswer": "9/10",
+        "explanation": "9/10 est plus proche de 1 que les autres fractions listées.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle fraction est équivalente à 3/4 ?",
+        "answers": ["6/8", "7/9", "9/12", "6/9"],
+        "correctAnswer": "6/8",
+        "explanation": "6/8, lorsqu'on la simplifie, devient 3/4.",
+        "userAnswer": null
+    }
+]

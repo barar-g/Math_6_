@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Quel est l'outil principal utilisé pour tracer une médiatrice?",
+        "answers": ["Équerre", "Rapporteur", "Compas", "Règle"],
+        "correctAnswer": "Compas",
+        "explanation": "Pour tracer une médiatrice, le compas est l'outil principal utilisé pour marquer les arcs équidistants des extrémités du segment.",
+        "userAnswer": null
+    },
+    {
+        "question": "Comment reconnaît-on que deux droites sont perpendiculaires?",
+        "answers": ["Elles ne se croisent jamais", "Elles forment un angle de 45°", "Elles forment un angle droit", "Elles sont toujours parallèles"],
+        "correctAnswer": "Elles forment un angle droit",
+        "explanation": "Deux droites sont perpendiculaires si elles se croisent en formant un angle droit (90°).",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle figure a toutes ses côtés égaux et tous ses angles droits?",
+        "answers": ["Rectangle", "Carré", "Triangle", "Parallélogramme"],
+        "correctAnswer": "Carré",
+        "explanation": "Un carré est une figure géométrique ayant tous ses côtés égaux et tous ses angles droits.",
+        "userAnswer": null
+    },
+    {
+        "question": "Pour construire un parallélogramme, combien de mesures doit-on avoir au minimum?",
+        "answers": ["1", "2", "3", "4"],
+        "correctAnswer": "2",
+        "explanation": "Pour construire un parallélogramme, nous avons besoin d'au moins deux mesures : la longueur d'un côté et un angle ou la longueur des deux côtés adjacents.",
+        "userAnswer": null
+    },
+    {
+        "question": "Lequel de ces outils n'est pas typiquement utilisé pour la construction géométrique?",
+        "answers": ["Compas", "Règle", "Équerre", "Calculatrice"],
+        "correctAnswer": "Calculatrice",
+        "explanation": "La construction géométrique s'appuie principalement sur des outils tels que le compas, la règle et l'équerre. La calculatrice n'est généralement pas utilisée pour la construction elle-même.",
+        "userAnswer": null
+    }
+]

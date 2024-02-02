@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Quelle est l'unité de mesure d'une aire?",
+        "answers": ["mètre", "litre", "mètre carré", "mètre cube"],
+        "correctAnswer": "mètre carré",
+        "explanation": "L'aire est mesurée en mètre carré (ou toute autre unité de longueur carrée).",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est l'aire d'un rectangle de 5 mètres de long et 4 mètres de large?",
+        "answers": ["9 m²", "20 m²", "10 m²", "40 m²"],
+        "correctAnswer": "20 m²",
+        "explanation": "L'aire d'un rectangle est donnée par longueur × largeur. Donc, 5 m × 4 m = 20 m².",
+        "userAnswer": null
+    },
+    {
+        "question": "Comment calcule-t-on l'aire d'un carré de côté 6 mètres?",
+        "answers": ["6 m + 6 m", "6 m × 6 m", "6 m ÷ 2", "6 m - 2"],
+        "correctAnswer": "6 m × 6 m",
+        "explanation": "L'aire d'un carré est donnée par côté × côté. Donc, 6 m × 6 m = 36 m².",
+        "userAnswer": null
+    },
+    {
+        "question": "Un triangle a une base de 10 m et une hauteur de 8 m. Quelle est son aire?",
+        "answers": ["40 m²", "80 m²", "20 m²", "50 m²"],
+        "correctAnswer": "40 m²",
+        "explanation": "L'aire d'un triangle est donnée par (base × hauteur) ÷ 2. Donc, (10 m × 8 m) ÷ 2 = 40 m².",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est l'aire d'un cercle de rayon 5 mètres? (Utilisez π = 3.14)",
+        "answers": ["78.5 m²", "31.4 m²", "25 m²", "62.8 m²"],
+        "correctAnswer": "78.5 m²",
+        "explanation": "L'aire d'un cercle est donnée par π × rayon × rayon. Donc, 3.14 × 5 m × 5 m = 78.5 m².",
+        "userAnswer": null
+    }
+]

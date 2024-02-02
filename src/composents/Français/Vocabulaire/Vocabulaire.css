@@ -1,0 +1,157 @@
+/* src/styles/VocabularyTrainer.css */
+.vocabulary-trainer {
+    font-family: 'Arial', sans-serif; /* This is a placeholder, use the font that matches your design */
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .teacher-image {
+    width: 150px; /* Adjust the size to fit your design */
+    margin-bottom: 20px;
+  }
+  
+  .word-to-translate {
+    font-size: 1.5rem; /* Adjust the size to fit your design */
+    color: #333; /* Adjust the color to fit your design */
+    margin: 4px 0;
+    font-weight: bold;
+  }
+  
+  .choice-button {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: calc(100% - 10px); /* Adjusts the width to account for the margins */
+    margin-bottom: 20px; /* This adds a margin below each full-width card */
+    flex-direction: row; /* Aligner l'image et le texte horizontalement */
+    justify-content: start;
+    
+  }
+       
+  .choice-image {
+    width: 70px; /* Ajustez la taille selon vos besoins */
+    height: 70px; /* Ajustez la hauteur selon vos besoins */
+    margin-right: 40px; /* Espacement entre l'image et le texte */
+  }
+
+  .choice-text {
+    /* Style pour le texte à côté de l'image */
+    flex-grow: 1; /* Le texte prend l'espace restant */
+  }
+  .choice-button:hover {
+    background-color: #e2e2e2; /* Slightly darker on hover */
+  }
+  
+  .choice-button.correct {
+    border-color: #4CAF50; /* Green border for correct choice */
+    background-color: #ebf8eb; /* Light green background for correct choice */
+  }
+  
+  .choice-button.incorrect {
+    border-color: #F44336; /* Red border for incorrect choice */
+    background-color: #fdecea; /* Light red background for incorrect choice */
+  }
+  
+  .validate-button {
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 4px;
+   
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: calc(100% - 10px); /* Adjusts the width to account for the margins */
+    margin-bottom: 20px; /* This adds a margin below each full-width card */
+  }
+  
+  .validate-button:hover {
+    background-color: #43A047; /* Darker green on hover */
+  }
+  
+  .feedback {
+    font-size: 1.2rem; /* Adjust the size to fit your design */
+    color: #4CAF50; /* Green text for feedback */
+    margin-top: 20px;
+  }
+  
+  .continue-button {
+    width: calc(100% - 10px);
+    padding: 4px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .continue-button:hover {
+    background-color: #007BAA; /* Darker blue on hover */
+  }
+  
+
+  .word-teacher-container {
+    display: flex;
+    align-items: center; /* This will vertically center-align the items */
+    justify-content: center; /* This will horizontally center the items on the page */
+    margin-bottom: 20px; /* Spacing between this section and the choices */
+  }
+  
+  .teacher-image {
+    width: 200px; /* Adjust as needed */
+    margin-right: 10px; /* Spacing between image and word card */
+  }
+  
+
+  .word-card {
+    background-color: #43A047; /* Changer la couleur de fond en blanc */
+    border-radius: 20px; /* Réduire le rayon pour les coins arrondis */
+    padding: 4px; /* Ajuster le padding pour mieux aligner le texte */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour la profondeur */
+    font-family: sans-serif; /* Utiliser une police générique */
+    max-width: 200px; /* Définir une largeur maximale pour la carte */
+    text-align: center; /* Centrer le texte */
+    display: flex; /* Utilisez flexbox pour l'alignement */
+    justify-content: center; /* Centrer le contenu horizontalement */
+    align-items: center; /* Centrer le contenu verticalement */
+    flex-wrap: wrap; /* Permettre aux éléments de se mettre à la ligne si nécessaire */
+    padding: 8px; /* Ajuster le padding selon l'espace nécessaire */
+}
+
+.word-card::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; /* Ajuster pour aligner avec le bas de la carte */
+    left: 7px; /* Ajuster pour positionner la pointe de la bulle */
+    background-color: #43A047;
+    border-radius: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.word-image {
+  width: 50px; /* Ajustez la taille selon vos besoins */
+  height: auto;
+  margin-right: 10px; /* Espacement entre l'image et le texte */
+  align-self: center; /* Centre l'image verticalement */
+}
+
+  
+  /* ... */
+  

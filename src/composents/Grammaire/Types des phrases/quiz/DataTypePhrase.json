@@ -1,0 +1,25 @@
+[
+{  "id": 1,
+"question": "Arrête de jouer avec ton téléphone.",
+"options":[ "exclamative","interrogative","déclarative" ,"impérative"],
+"answer": "impérative"
+
+},
+{  "id": 2,
+"question": "Oh non, j'ai oublié mes clés à la maison !",
+"options":[ "exclamative","interrogative","déclarative" ,"impérative"],
+"answer": "exclamative"
+},
+
+{  "id": 3,
+"question": "Comment vas-tu aujourd'hui ?",
+"options":[ "exclamative","interrogative","déclarative" ,"impérative"],
+"answer": "interrogative"
+
+},
+{  "id": 4,
+"question": "Il est temps de préparer le dîner.!",
+"options":[ "exclamative","interrogative","déclarative" ,"impérative"],
+"answer": "déclarative"
+}
+]

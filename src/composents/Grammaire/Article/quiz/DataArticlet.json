@@ -1,0 +1,13 @@
+[
+{  "id": 1,
+"question": "le",
+"options":[ "indéfinis", "définis", "partitifs", "n'est pas un article"],
+"answer": "définis"
+
+},
+{  "id": 2,
+"question": "des",
+"options":[ "indéfinis", "définis", "partitifs", "n'est pas un article"],
+"answer": "partitifs"
+}
+]

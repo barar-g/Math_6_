@@ -1,0 +1,38 @@
+[
+    {
+        "question": "Quelle est l'unité de base pour mesurer la masse dans le système international?",
+        "answers": ["Kilogramme", "Gramme", "Litre", "Mètre"],
+        "correctAnswer": "Kilogramme",
+        "explanation": "Dans le système international, le kilogramme est l'unité de base pour mesurer la masse."
+    },
+    {
+        "question": "Combien de grammes y a-t-il dans un kilogramme?",
+        "answers": ["100", "1 000", "10 000", "100 000"],
+        "correctAnswer": "1 000",
+        "explanation": "Il y a 1 000 grammes dans un kilogramme."
+    },
+    {
+        "question": "Quelle est la masse d'un objet qui pèse 2,5 kilogrammes en grammes?",
+        "answers": ["25", "250", "2 500", "25 000"],
+        "correctAnswer": "2 500",
+        "explanation": "2,5 kilogrammes équivalent à 2 500 grammes."
+    },
+    {
+        "question": "Un objet a une masse de 4 500 grammes. Combien cela fait-il en kilogrammes?",
+        "answers": ["0,45 kg", "4,5 kg", "45 kg", "450 kg"],
+        "correctAnswer": "4,5 kg",
+        "explanation": "4 500 grammes équivalent à 4,5 kilogrammes."
+    },
+    {
+        "question": "Quelle est la meilleure unité pour mesurer la masse d'une pomme?",
+        "answers": ["Milligramme", "Gramme", "Kilogramme", "Tonne"],
+        "correctAnswer": "Gramme",
+        "explanation": "La masse d'une pomme est généralement mesurée en grammes car elle pèse généralement entre 100 et 300 grammes."
+    },
+    {
+        "question": "Si une tablette de chocolat pèse 200g et que je mange la moitié, combien de grammes reste-t-il?",
+        "answers": ["50g", "100g", "150g", "200g"],
+        "correctAnswer": "100g",
+        "explanation": "Si on mange la moitié d'une tablette de 200g, il reste 100g."
+    }
+]

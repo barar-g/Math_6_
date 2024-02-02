@@ -1,0 +1,12 @@
+[
+{  "id": 1,
+"question": "Il a étudié toute la nuit, __________ il est bien préparé pour l'examen",
+"options":[ " mais", "donc", "ou", "de"],
+"answer": "donc"
+},
+{  "id": 2,
+"question": "Julie aime le chocolat, __________ elle n'en mange pas souvent.",
+"options":[ "mais", "donc", "ou", "de"],
+"answer": "mais"
+}
+]

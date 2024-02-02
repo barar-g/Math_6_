@@ -1,0 +1,69 @@
+[
+  {
+      "question": "Qu’est-ce que l'équilibre alimentaire ?",
+      "answers": ["C'est une bonne répartition des glucoses, des lipides et des protéines dans les repas quotidiens", "c'est quand on réussit à manger autant de bonbons que de légumes", "c'est quand on fait un régime composé uniquement  de chips et de sodas"],
+      "correctAnswer": "C'est une bonne répartition des glucoses, des lipides et des protéines dans les repas quotidiens",
+      "explanation": "C'est une bonne répartition des glucoses, des lipides et des protéines dans les repas quotidiens",
+      "userAnswer": null
+    },
+    {
+      "question": "Quels sont les principaux composants des aliments ?",
+      "answers": ["Les lipides, les glucides, les protéines, les vitamines, les sels minéraux et l’eau", "le sucre, le gras, le sel", " le papier, le plastique, les punaises"],
+      "correctAnswer": "Les lipides, les glucides, les protéines, les vitamines, les sels minéraux et l’eau",
+      "explanation": "Les lipides, les glucides, les protéines, les vitamines, les sels minéraux et l’eau sont les principaux composants des alimants",
+      "userAnswer": null
+    },
+    {
+      "question": "Cite des aliments qui contiennent des glucides",
+      "answers": ["le riz, le couscous, le pain", "les pommes de terre, les céréales, les pâtes, le lait", "Les graisses, la crème, l'huile, le beurre"],
+      "correctAnswer": "le riz, le couscous, le pain",
+      "explanation": "Les alimants qui contiennent des glucides sont le riz le couscous le pain",
+      "userAnswer": null
+    },
+    {
+      "question": "Cite des aliments qui contiennent des lipides",
+      "answers": ["Les graisses, la crème, l'huile", "le riz, le couscous, le pain", "les pommes de terre, les céréales, les pâtes"],
+      "correctAnswer": "Les graisses, la crème, l'huile",
+      "explanation": "Les alimants qui contiennent des glucides sont Les graisses, la crème, l'huile",
+      "userAnswer": null
+    },
+    {
+      "question": "Cite des aliments qui contiennent des protéines.",
+      "answers": ["le poisson, la viande (poulet), les œufs", "Les graisses, la crème, l'huile", "le riz, le couscous, le pain"],
+      "correctAnswer": "le poisson, la viande (poulet), les œufs",
+      "explanation": "Les alimants qui contiennent des glucides sontle poisson, la viande (poulet), les œufs",
+      "userAnswer": null
+    },
+
+    {
+      "question": "Choisir le mauvais reponse",
+      "answers": ["Les glucides sont d'origine animales", "les lipides sont d'origine végétale et animale", "les protéines sont d'origine végétale et animale"],
+      "correctAnswer": "Les glucides sont d'origine animales",
+      "explanation": "Les glucides sont d'origine végétale",
+      "userAnswer": null
+    },
+
+    {
+      "question": "Choisir le mauvais reponse",
+      "answers": ["les glucides et les lipides nous donnent de l'énergie", "les protéines assurent la croissance chez les enfants et l'entretien des organes chez l'adulte", "les protéines nous donnent de l'énergie"],
+      "correctAnswer": "les protéines nous donnent de l'énergie",
+      "explanation": "les protéines assurent la croissance chez les enfants et l'entretien des organes chez l'adulte",
+      "userAnswer": null
+    },
+
+    {
+      "question": "- Que faut-il pour avoir un bon équilibre alimentaire ?",
+      "answers": ["il faut manger des repas complets et variés.", "il faut manger beacoup des proteins", "il faut manger be1coup des sucres."],
+      "correctAnswer": "il faut manger des repas complets et variés.",
+      "explanation": " Pour avoir un équilibre alimentaire , il faut manger des repas complets et variés.",
+      "userAnswer": null
+    },
+
+    {
+      "question": "Qu’appelle-t-on malnutrition ?",
+      "answers": ["mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens.", "c'est quand on mange trop de chocolat et de pizzas, mais pas assez de bonbons et de sodas.", " c'est simplement un régime de burgers et de frites avec crème glacée à chaque repas."],
+      "correctAnswer": "mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens.",
+      "explanation": "La mal nutrition est la mauvaise répartition des glucides, des lipides et des protéines dans les repas quotidiens ",
+      "userAnswer": null
+    }
+  ] 

@@ -1,0 +1,33 @@
+[
+    {
+      "text": "texte1:L'école est un lieu d'apprentissage et de socialisation où les élèves acquièrent des connaissances académiques tout en développant des compétences sociales et émotionnelles essentielles.",
+      "questions": [
+        {
+          "question": "Q1 :donner un titre pour le  texte1?",
+          "options": ["L ecole", "la famille", "taurus", "la rentré"],
+          "correctAnswer": 0
+        },
+        {
+         "question": "Q2 donner le nombre de phrases dans le  texte 1?",
+          "options": ["3", "4", "5", "1"],
+          "correctAnswer": 3
+        }
+      ]
+    },
+    
+    {
+      "text": "texte 2 :La famille est souvent considérée comme le socle fondamental de la société, fournissant un soutien émotionnel, un sentiment d'appartenance et des liens intergénérationnels essentiels.",
+      "questions": [
+        {
+          "question": "Q1 :donner un titre pour le texte 2",
+          "options": ["La famille", "Canis lupus", "Bos taurus", "Equus caballus"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Q2 donner le nombre de phrases dans le  texte2?",
+          "options": ["0", "1", "2", "3"],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  ]

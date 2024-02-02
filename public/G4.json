@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Avec une équerre, quel angle pouvez-vous construire directement?",
+        "answers": ["30°", "45°", "60°", "90°"],
+        "correctAnswer": "90°",
+        "explanation": "Une équerre est utilisée pour dessiner des angles droits, c'est-à-dire des angles de 90°.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quel instrument utilisez-vous généralement pour diviser un angle en deux?",
+        "answers": ["Équerre", "Compas", "Rapporteur", "Règle"],
+        "correctAnswer": "Compas",
+        "explanation": "Avec un compas, on peut bissecter un angle, c'est-à-dire le diviser en deux angles égaux.",
+        "userAnswer": null
+    },
+    {
+        "question": "Si vous avez un angle de 60° et que vous voulez obtenir un angle de 30°, que devez-vous faire?",
+        "answers": ["Le diviser par deux", "L'additionner avec un angle de 30°", "Le soustraire d'un angle de 30°", "Le multiplier par deux"],
+        "correctAnswer": "Le diviser par deux",
+        "explanation": "Bissecter un angle de 60° le divise en deux angles de 30°.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quel instrument est le mieux adapté pour mesurer un angle?",
+        "answers": ["Règle", "Compas", "Rapporteur", "Équerre"],
+        "correctAnswer": "Rapporteur",
+        "explanation": "Un rapporteur est spécifiquement conçu pour mesurer des angles en degrés.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quel est le total des angles d'un triangle?",
+        "answers": ["90°", "180°", "270°", "360°"],
+        "correctAnswer": "180°",
+        "explanation": "La somme des angles internes d'un triangle est toujours de 180°.",
+        "userAnswer": null
+    }
+]

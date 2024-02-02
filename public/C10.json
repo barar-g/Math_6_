@@ -1,0 +1,32 @@
+[
+    {
+        "question": "Si un objet est acheté à 500 MRU et vendu à 700 MRU, quel est le bénéfice réalisé?",
+        "answers": ["200 MRU", "100 MRU", "150 MRU", "250 MRU"],
+        "correctAnswer": "200 MRU",
+        "explanation": "Bénéfice = Prix de vente - Prix d'achat. Donc, 700 MRU - 500 MRU = 200 MRU."
+    },
+    {
+        "question": "Un commerçant achète un jouet à 300 MRU. S'il veut réaliser un bénéfice de 100 MRU, à combien doit-il vendre le jouet?",
+        "answers": ["400 MRU", "500 MRU", "350 MRU", "450 MRU"],
+        "correctAnswer": "400 MRU",
+        "explanation": "Prix de vente = Prix d'achat + Bénéfice. Donc, 300 MRU + 100 MRU = 400 MRU."
+    },
+    {
+        "question": "Un stylo est vendu à 750 MRU, et le vendeur réalise un bénéfice de 250 MRU. Quel était le prix d'achat?",
+        "answers": ["500 MRU", "1000 MRU", "600 MRU", "650 MRU"],
+        "correctAnswer": "500 MRU",
+        "explanation": "Prix d'achat = Prix de vente - Bénéfice. Donc, 750 MRU - 250 MRU = 500 MRU."
+    },
+    {
+        "question": "Un article acheté à 1200 MRU est vendu avec une perte de 200 MRU. Quel est le prix de vente?",
+        "answers": ["1400 MRU", "1000 MRU", "1300 MRU", "1100 MRU"],
+        "correctAnswer": "1000 MRU",
+        "explanation": "Prix de vente = Prix d'achat - Perte. Donc, 1200 MRU - 200 MRU = 1000 MRU."
+    },
+    {
+        "question": "Si le prix d'achat d'une gomme est de 50 MRU et le bénéfice souhaité est de 20 MRU, à combien la gomme doit-elle être vendue?",
+        "answers": ["30 MRU", "70 MRU", "90 MRU", "40 MRU"],
+        "correctAnswer": "70 MRU",
+        "explanation": "Prix de vente = Prix d'achat + Bénéfice. Donc, 50 MRU + 20 MRU = 70 MRU."
+    }
+]

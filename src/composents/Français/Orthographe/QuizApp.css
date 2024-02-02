@@ -1,0 +1,15 @@
+/* QuizApp.css */
+
+
+  
+  .progress-bar-container {
+    width: 100%;
+    background-color: #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .progress-bar {
+    height: 20px;
+    background-color: #07ed39b5;
+  }
+  

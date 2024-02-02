@@ -1,0 +1,68 @@
+[
+    {
+        "question": "Qu'est-ce qu'un angle droit?",
+        "answers": [
+            "Un angle de 45°",
+            "Un angle de 90°",
+            "Un angle de 180°",
+            "Un angle de 60°"
+        ],
+        "correctAnswer": "Un angle de 90°",
+        "explanation": "Un angle droit mesure exactement 90°."
+    },
+    {
+        "question": "Quelle est la somme des angles intérieurs d'un triangle?",
+        "answers": [
+            "90°",
+            "180°",
+            "270°",
+            "360°"
+        ],
+        "correctAnswer": "180°",
+        "explanation": "La somme des angles intérieurs d'un triangle est toujours de 180°."
+    },
+    {
+        "question": "Quel outil utilise-t-on généralement pour mesurer ou dessiner des angles?",
+        "answers": [
+            "Une équerre",
+            "Un compas",
+            "Un rapporteur",
+            "Une règle"
+        ],
+        "correctAnswer": "Un rapporteur",
+        "explanation": "Un rapporteur est un outil utilisé pour mesurer ou dessiner des angles."
+    },
+    {
+        "question": "Quel est le nom d'un angle qui mesure moins de 90°?",
+        "answers": [
+            "Angle aigu",
+            "Angle obtus",
+            "Angle plat",
+            "Angle droit"
+        ],
+        "correctAnswer": "Angle aigu",
+        "explanation": "Un angle qui mesure moins de 90° est appelé angle aigu."
+    },
+    {
+        "question": "Quel est le nom d'un angle qui mesure plus de 90° mais moins de 180°?",
+        "answers": [
+            "Angle aigu",
+            "Angle obtus",
+            "Angle plat",
+            "Angle droit"
+        ],
+        "correctAnswer": "Angle obtus",
+        "explanation": "Un angle qui mesure plus de 90° mais moins de 180° est appelé angle obtus."
+    },
+    {
+        "question": "Si deux lignes sont perpendiculaires, quel type d'angle forment-elles?",
+        "answers": [
+            "Angle aigu",
+            "Angle obtus",
+            "Angle plat",
+            "Angle droit"
+        ],
+        "correctAnswer": "Angle droit",
+        "explanation": "Deux lignes perpendiculaires forment un angle droit."
+    }
+]

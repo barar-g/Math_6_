@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "word": "chambre",
+      "choices": ["غرفة", "مطبخ", "حمام"],
+      "correctAnswer": "غرفة",
+      "imagePath": "./chambre.jpg"
+    },
+    {
+      "id": 2,
+      "word": "cousin",
+      "choices": ["ابن العم", "ابن الأخ", "ابن الخال"],
+      "correctAnswer": "ابن العم",
+      "imagePath": "./cousin.jpg"
+    },
+    {
+      "id": 3,
+      "word": "famille",
+      "choices": ["عائلة", "أصدقاء", "جيران"],
+      "correctAnswer": "عائلة",
+      "imagePath": "./famille.jpg"
+    },
+    {
+      "id": 4,
+      "word": "grand-mère",
+      "choices": ["الجدة", "الخالة", "العمة"],
+      "correctAnswer": "الجدة",
+      "imagePath": "./grand-mère.jpg"
+    },
+    {
+      "id": 5,
+      "word": "grand-père",
+      "choices": ["الجد", "الخال", "العم"],
+      "correctAnswer": "الجد",
+      "imagePath": "./grand-père.jpg"
+    },
+    {
+      "id": 6,
+      "word": "nappe",
+      "choices": ["مفرش المائدة", "ستارة", "منشفة"],
+      "correctAnswer": "مفرش المائدة",
+      "imagePath": "./nappe.jpg"
+    },
+    {
+      "id": 7,
+      "word": "parents",
+      "choices": ["الوالدين", "الأعمام", "الأخوال"],
+      "correctAnswer": "الوالدين",
+      "imagePath": "./parents.jpg"
+    },
+    {
+      "id": 8,
+      "word": "Réunion familiale",
+      "choices": ["اجتماع عائلي", "حفلة", "مؤتمر"],
+      "correctAnswer": "اجتماع عائلي",
+      "imagePath": "./Réunionfamiliale.jpg"
+    },
+    {
+      "id": 9,
+      "word": "soeurs",
+      "choices": ["الأخوات", "الأخوال", "الصديقات"],
+      "correctAnswer": "الأخوات",
+      "imagePath": "./soeurs.jpg"
+    },
+    {
+      "id": 10,
+      "word": "thé",
+      "choices": ["شاي", "قهوة", "عصير"],
+      "correctAnswer": "شاي",
+      "imagePath": "./thé.jpg"
+    }
+  ]
+  

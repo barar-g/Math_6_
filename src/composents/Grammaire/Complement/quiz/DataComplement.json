@@ -1,0 +1,13 @@
+[
+{  "id": 1,
+"question": "Marie mange une délicieuse tarte aux pommes.",
+"options":[ " mange", "tarte aux pommes", "mange", "une délicieuse tarte aux pommes"],
+"answer": "une délicieuse tarte aux pommes"
+
+},
+{  "id": 2,
+"question": "J'adore regarder les étoiles la nuit",
+"options":[ "les étoiles la nuit", "les étoiles ", "J'adore", "de"],
+"answer": "les étoiles "
+}
+]

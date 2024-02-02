@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Quelle est la formule pour calculer le périmètre d'un rectangle?",
+        "answers": ["P = 2l + 2L", "P = l x L", "P = l + L", "P = 2l x 2L"],
+        "correctAnswer": "P = 2l + 2L",
+        "explanation": "Le périmètre d'un rectangle est la somme de toutes ses côtés, soit 2 fois la longueur plus 2 fois la largeur.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est la formule pour calculer l'aire d'un triangle?",
+        "answers": ["A = (base x hauteur) / 2", "A = base x hauteur", "A = 2 x base + 2 x hauteur", "A = base / hauteur"],
+        "correctAnswer": "A = (base x hauteur) / 2",
+        "explanation": "L'aire d'un triangle est égale à la moitié du produit de sa base par sa hauteur.",
+        "userAnswer": null
+    },
+    {
+        "question": "Si le rayon d'un cercle est de 7 cm, quel est son périmètre? (π = 3,14)",
+        "answers": ["44 cm", "154 cm", "22 cm", "14 cm"],
+        "correctAnswer": "44 cm",
+        "explanation": "Le périmètre d'un cercle est P = 2πr. Donc, P = 2 x 3,14 x 7 = 44 cm.",
+        "userAnswer": null
+    },
+    {
+        "question": "Quelle est la formule pour calculer l'aire d'un carré?",
+        "answers": ["A = côté x côté", "A = 4 x côté", "A = côté / 2", "A = 2 x côté"],
+        "correctAnswer": "A = côté x côté",
+        "explanation": "L'aire d'un carré est égale au carré de la longueur de son côté.",
+        "userAnswer": null
+    },
+    {
+        "question": "Si un triangle a une base de 8 cm et une hauteur de 5 cm, quelle est son aire?",
+        "answers": ["40 cm²", "20 cm²", "26 cm²", "13 cm²"],
+        "correctAnswer": "20 cm²",
+        "explanation": "L'aire d'un triangle est A = (base x hauteur) / 2. Donc, A = (8 x 5) / 2 = 20 cm².",
+        "userAnswer": null
+    }
+]

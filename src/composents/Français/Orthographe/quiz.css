@@ -1,0 +1,32 @@
+.quiz-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .question {
+    color: #445588;
+    font-size: 2rem;
+  }
+  
+  .option-button {
+    background-color: #445588;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .progress-bar {
+    background-color: #445588;
+    width: 100%;
+    height: 10px;
+  }
+  
+  .progress-bar-fill {
+    background-color: #fff;
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+  }
