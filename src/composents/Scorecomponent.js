@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import anime from 'animejs';
 import { Card } from '@mui/material';
 import './Styles/Scorecomponent.css';
-import imgsucess from'./succes .png';
+import imgsucess from './succes .png';
+import imgechec from './echec.png';
 
 const getRandomColor = () => {
   const letters = '0123456789ABCDEF';
@@ -21,12 +22,23 @@ const ScoreComponent = ({ score }) => {
       anime({
         targets: '.flower-particle',
         translateX: () => anime.random(-100, 100),
-        translateY: [0, anime.random(200, 600)], // Modifier pour que les particules tombent
+        translateY: [0, anime.random(200, 600)], // Les particules tombent
         scale: [0, 2],
         opacity: [1, 0],
         easing: 'easeOutExpo',
-        duration: anime.random(3000, 5000), // Durée aléatoire pour plus de naturel
-        delay: anime.stagger(10) // Stagger pour un effet d'explosion dense
+        duration: anime.random(3000, 5000),
+        delay: anime.stagger(10)
+      });
+    } else {
+      anime({
+        targets: '.flower-particle',
+        translateX: () => anime.random(-100, 100),
+        translateY: [0, -anime.random(200, 600)], // Les particules montent pour symboliser l'échec
+        scale: [0, 2],
+        opacity: [1, 0],
+        easing: 'easeInExpo',
+        duration: anime.random(3000, 5000),
+        delay: anime.stagger(10, {start: 500})
       });
     }
   }, [isSuccess]);
@@ -35,7 +47,7 @@ const ScoreComponent = ({ score }) => {
     <div className="score-container">
       <Card className="score-card" elevation={4}>
         <div className="flower-container">
-          {Array.from({ length: 600 }).map((_, i) => ( // Augmentez le nombre de particules ici
+          {Array.from({ length: 600 }).map((_, i) => (
             <div
               key={i}
               className="flower-particle"
@@ -52,6 +64,7 @@ const ScoreComponent = ({ score }) => {
         ) : (
           <div className="failure-animation">
             <p>Malheureusement, vous n'avez pas réussi. 😔</p>
+            <img src={imgechec} alt="Failure" className="success-image" />
             <p>Essayez encore, votre score est {score}.</p>
           </div>
         )}
